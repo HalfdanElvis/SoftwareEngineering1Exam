@@ -5,6 +5,7 @@ Feature: Assign User To Activity
 Scenario: A user is assigned to an activity
     Given there exists an activity "data refinement"
     And a user "huba" exists
+    And the activity does not contain the user
     When the user is assigned to the activity
     Then the activity contains a user "huba"
     
@@ -13,6 +14,7 @@ Scenario: A user is assigned to activity in project
     And there exists an activity "data refinement"
     And the project contains the activity
     And a user "huba" exists
+    And the project contains the user
     When the user is assigned to the activity
     Then the activity contains a user "huba"
 
