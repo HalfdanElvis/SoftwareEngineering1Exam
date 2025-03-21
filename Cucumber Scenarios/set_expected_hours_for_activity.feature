@@ -18,7 +18,7 @@ Scenario: a project leader changes an activity's expected work hours
   And a user exists
   And the project contains the activity
   And the user is the project leader on the project
-  And the activity's expected toatl work hours is 110
+  And the activity's expected total work hours is 110
   When the user sets the activity's expected total work hours to 80
   Then the activity's expected total work hours is 80
 
