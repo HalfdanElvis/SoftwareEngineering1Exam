@@ -20,7 +20,7 @@ Scenario: User logs their hours for an activity they have previously been active
   And on the date "01-01-2024" the user has logged 7 hours in the activity
 
 
-Scenario: User logs their hours for an non-existent activity
+Scenario: User logs their hours for a non-existent activity
   Given an activity "free money" does not exist
   And a user exists
   When the user logs 7 hours in the activity "free money" on the date "01-01-2024"
@@ -30,7 +30,7 @@ Scenario: User removes hours logged from an activity
   Given an activity exists
   And a user exists
   And the user has logged 37 hours in the activity
-  And on the date "01-01-2024" the user has logged 7
+  And on the date "01-01-2024" the user has logged 7 hours
   When the user removes 7 hours from the activity on the date "01-01-2024"
   Then the user has logged 30 hours in the activity
   And on the date "01-01-2024" the user has logged 0 hours in the activity
@@ -43,7 +43,3 @@ Scenario: User removes hours logged from an activity they have not worked in
   When the user removes 7 hours from the activity on the date "01-01-2024"
   Then the error message "You havn't worked that long in this activity" is given
   And on the date "01-01-2024" the user has logged 0 hours in the activity
-
-
-
-
