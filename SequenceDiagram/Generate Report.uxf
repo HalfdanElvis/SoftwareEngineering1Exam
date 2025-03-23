@@ -4,10 +4,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>570</x>
+      <x>370</x>
       <y>160</y>
       <w>20</w>
-      <h>160</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>transparency=0
 layer=1</panel_attributes>
@@ -16,7 +16,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>550</x>
+      <x>350</x>
       <y>60</y>
       <w>60</w>
       <h>110</h>
@@ -27,7 +27,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>820</x>
+      <x>880</x>
       <y>80</y>
       <w>160</w>
       <h>40</h>
@@ -38,33 +38,33 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>890</x>
+      <x>950</x>
       <y>110</y>
       <w>30</w>
-      <h>70</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>580</x>
+      <x>380</x>
       <y>160</y>
-      <w>330</w>
+      <w>290</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-generateReport</panel_attributes>
-    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
+generateReport(User, Project)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>890</x>
-      <y>160</y>
+      <x>950</x>
+      <y>190</y>
       <w>20</w>
-      <h>160</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>
 
@@ -75,10 +75,10 @@ generateReport</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>900</x>
-      <y>210</y>
+      <x>960</x>
+      <y>230</y>
       <w>20</w>
-      <h>60</h>
+      <h>30</h>
     </coordinates>
     <panel_attributes>transparency=0
 layer=1</panel_attributes>
@@ -87,7 +87,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
+      <x>960</x>
       <y>240</y>
       <w>100</w>
       <h>70</h>
@@ -100,44 +100,44 @@ false
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
-      <y>180</y>
+      <x>960</x>
+      <y>190</y>
       <w>160</w>
-      <h>70</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 isLeader(User)
 </panel_attributes>
-    <additional_attributes>20.0;50.0;50.0;50.0;50.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>20.0;40.0;50.0;40.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
+      <x>370</x>
       <y>120</y>
       <w>30</w>
-      <h>230</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>lt=.
 layer=0</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>580</x>
+      <x>660</x>
       <y>290</y>
-      <w>330</w>
+      <w>310</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 "Only project leader can generate report"</panel_attributes>
-    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>170</x>
+      <x>30</x>
       <y>510</y>
       <w>20</w>
       <h>270</h>
@@ -149,29 +149,29 @@ layer=1</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>150</x>
+      <x>0</x>
       <y>410</y>
-      <w>60</w>
+      <w>80</w>
       <h>110</h>
     </coordinates>
-    <panel_attributes>User</panel_attributes>
+    <panel_attributes>c1: User</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
+      <x>440</x>
       <y>430</y>
       <w>160</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Project</panel_attributes>
+    <panel_attributes>Project: p1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>490</x>
+      <x>510</x>
       <y>460</y>
       <w>30</w>
       <h>350</h>
@@ -183,22 +183,22 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>510</y>
-      <w>330</w>
+      <x>260</x>
+      <y>520</y>
+      <w>270</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-generateReport</panel_attributes>
-    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
+generateReport(c1)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>490</x>
-      <y>510</y>
+      <x>510</x>
+      <y>540</y>
       <w>20</w>
-      <h>270</h>
+      <h>230</h>
     </coordinates>
     <panel_attributes>transparency=0
 layer=1
@@ -209,10 +209,10 @@ layer=1
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>500</x>
-      <y>560</y>
+      <x>520</x>
+      <y>570</y>
       <w>20</w>
-      <h>60</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>transparency=0
 layer=2</panel_attributes>
@@ -221,7 +221,7 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
+      <x>520</x>
       <y>590</y>
       <w>90</w>
       <h>70</h>
@@ -233,20 +233,20 @@ true</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
-      <y>530</y>
-      <w>160</w>
-      <h>70</h>
+      <x>520</x>
+      <y>540</y>
+      <w>150</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-isLeader(User)
+isLeader(c1)
 </panel_attributes>
-    <additional_attributes>20.0;50.0;50.0;50.0;50.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
+      <x>30</x>
       <y>470</y>
       <w>30</w>
       <h>340</h>
@@ -258,44 +258,44 @@ layer=0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
+      <x>670</x>
       <y>430</y>
       <w>160</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Activity</panel_attributes>
+    <panel_attributes>Activity: a1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
+      <x>740</x>
       <y>460</y>
       <w>30</w>
-      <h>350</h>
+      <h>340</h>
     </coordinates>
     <panel_attributes>lt=.
 layer=0</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>350</x>
+      <x>370</x>
       <y>660</y>
       <w>410</w>
-      <h>90</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>loop
-for each activity
-in project
+for each a1
+in p1
 layer=-1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
+      <x>740</x>
       <y>670</y>
       <w>20</w>
       <h>60</h>
@@ -307,7 +307,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
+      <x>520</x>
       <y>670</y>
       <w>240</w>
       <h>40</h>
@@ -319,7 +319,7 @@ getTotalWorkedHours()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
+      <x>520</x>
       <y>700</y>
       <w>240</w>
       <h>40</h>
@@ -331,35 +331,155 @@ totalWorkedHours</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>750</y>
-      <w>330</w>
+      <x>260</x>
+      <y>740</y>
+      <w>270</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 report</panel_attributes>
-    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>490</x>
+      <x>350</x>
       <y>0</y>
-      <w>640</w>
+      <w>760</w>
       <h>350</h>
     </coordinates>
-    <panel_attributes>Use Case "generate report" Scenario "non-Project leader generates a report"</panel_attributes>
+    <panel_attributes>Use Case "generate report" Scenario "non-Project leader generates a report"
+layer=-1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>140</x>
+      <x>0</x>
       <y>380</y>
-      <w>690</w>
+      <w>850</w>
       <h>420</h>
     </coordinates>
-    <panel_attributes>Use Case "generate report" Scenario "Project leader generates a report"</panel_attributes>
+    <panel_attributes>Use Case "generate report" Scenario "Project leader generates a report"
+layer=-1</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>80</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Project Manager</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>110</y>
+      <w>30</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.
+layer=0</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>650</x>
+      <y>180</y>
+      <w>20</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>transparency=0
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>300</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+"Only project leader can generate report"</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>170</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+generateReport(User)</panel_attributes>
+    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>430</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Project Manager</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>250</x>
+      <y>530</y>
+      <w>20</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>transparency=0
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>460</y>
+      <w>30</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=.
+layer=0</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>510</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+generateReport(c1, p1)</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>750</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+report</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
   </element>
 </diagram>
