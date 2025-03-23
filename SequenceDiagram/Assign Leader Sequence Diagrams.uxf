@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>7</zoom_level>
+  <zoom_level>13</zoom_level>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>574</x>
-      <y>539</y>
-      <w>21</w>
-      <h>49</h>
+      <x>1027</x>
+      <y>988</y>
+      <w>39</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>574</x>
-      <y>574</y>
-      <w>14</w>
-      <h>217</h>
+      <x>1027</x>
+      <y>1053</y>
+      <w>26</w>
+      <h>403</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>574</x>
-      <y>784</y>
-      <w>21</w>
-      <h>49</h>
+      <x>1027</x>
+      <y>1443</y>
+      <w>39</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
@@ -37,10 +37,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>581</x>
-      <y>588</y>
-      <w>315</w>
-      <h>28</h>
+      <x>1040</x>
+      <y>1079</y>
+      <w>585</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 assignLeader(c1)</panel_attributes>
@@ -49,10 +49,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>847</x>
-      <y>525</y>
-      <w>84</w>
-      <h>21</h>
+      <x>1534</x>
+      <y>962</y>
+      <w>156</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>Project</panel_attributes>
     <additional_attributes/>
@@ -60,10 +60,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>882</x>
-      <y>588</y>
-      <w>14</w>
-      <h>203</h>
+      <x>1599</x>
+      <y>1079</y>
+      <w>26</w>
+      <h>377</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -71,10 +71,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>539</y>
-      <w>21</w>
-      <h>63</h>
+      <x>1599</x>
+      <y>988</y>
+      <w>39</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -82,10 +82,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>560</x>
-      <y>476</y>
-      <w>42</w>
-      <h>77</h>
+      <x>1001</x>
+      <y>871</y>
+      <w>78</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>c1</panel_attributes>
     <additional_attributes/>
@@ -93,10 +93,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>98</x>
-      <y>546</y>
-      <w>21</w>
-      <h>49</h>
+      <x>143</x>
+      <y>1001</y>
+      <w>39</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
@@ -104,10 +104,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>98</x>
-      <y>581</y>
-      <w>14</w>
-      <h>105</h>
+      <x>143</x>
+      <y>1066</y>
+      <w>26</w>
+      <h>195</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -115,10 +115,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>105</x>
-      <y>595</y>
-      <w>217</w>
-      <h>28</h>
+      <x>156</x>
+      <y>1092</y>
+      <w>403</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 assignLeader(c1)</panel_attributes>
@@ -127,10 +127,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>273</x>
-      <y>532</y>
-      <w>84</w>
-      <h>21</h>
+      <x>468</x>
+      <y>975</y>
+      <w>156</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>Project</panel_attributes>
     <additional_attributes/>
@@ -138,10 +138,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>308</x>
-      <y>672</y>
-      <w>21</w>
-      <h>63</h>
+      <x>533</x>
+      <y>1235</y>
+      <w>39</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -149,10 +149,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>595</y>
-      <w>14</w>
-      <h>84</h>
+      <x>533</x>
+      <y>1092</y>
+      <w>26</w>
+      <h>156</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -160,10 +160,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>308</x>
-      <y>546</y>
-      <w>21</w>
-      <h>63</h>
+      <x>533</x>
+      <y>1001</y>
+      <w>39</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -171,10 +171,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
-      <y>609</y>
-      <w>168</w>
-      <h>35</h>
+      <x>546</x>
+      <y>1118</y>
+      <w>312</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 isUserInProject(c1)</panel_attributes>
@@ -183,10 +183,10 @@ isUserInProject(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>623</y>
-      <w>14</w>
-      <h>21</h>
+      <x>546</x>
+      <y>1144</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>layer=1
 transparency=0</panel_attributes>
@@ -195,10 +195,10 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
-      <y>630</y>
-      <w>105</w>
-      <h>35</h>
+      <x>546</x>
+      <y>1157</y>
+      <w>195</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 false</panel_attributes>
@@ -207,10 +207,10 @@ false</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>77</x>
-      <y>476</y>
-      <w>49</w>
-      <h>77</h>
+      <x>104</x>
+      <y>871</y>
+      <w>91</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>c1</panel_attributes>
     <additional_attributes/>
@@ -218,10 +218,10 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>105</x>
-      <y>644</y>
-      <w>217</w>
-      <h>28</h>
+      <x>156</x>
+      <y>1183</y>
+      <w>403</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Error: "User not in project"</panel_attributes>
@@ -230,10 +230,10 @@ Error: "User not in project"</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>581</x>
-      <y>749</y>
-      <w>315</w>
-      <h>28</h>
+      <x>1040</x>
+      <y>1378</y>
+      <w>585</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Error: "Only project leader can change project leader"</panel_attributes>
@@ -242,10 +242,10 @@ Error: "Only project leader can change project leader"</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>98</x>
-      <y>679</y>
-      <w>21</w>
-      <h>77</h>
+      <x>143</x>
+      <y>1248</y>
+      <w>39</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
@@ -253,10 +253,10 @@ Error: "Only project leader can change project leader"</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>889</x>
-      <y>623</y>
-      <w>14</w>
-      <h>21</h>
+      <x>1612</x>
+      <y>1144</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>layer=1
 transparency=0</panel_attributes>
@@ -265,10 +265,10 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>609</y>
-      <w>168</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>1118</y>
+      <w>312</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 isUserInProject(c1)</panel_attributes>
@@ -277,10 +277,10 @@ isUserInProject(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>630</y>
-      <w>105</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>1157</y>
+      <w>195</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 false</panel_attributes>
@@ -289,10 +289,10 @@ false</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>889</x>
-      <y>672</y>
-      <w>14</w>
-      <h>21</h>
+      <x>1612</x>
+      <y>1235</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>layer=1
 transparency=0</panel_attributes>
@@ -301,10 +301,10 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>658</y>
-      <w>175</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>1209</y>
+      <w>325</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 projectLeaderExists()</panel_attributes>
@@ -313,10 +313,10 @@ projectLeaderExists()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>679</y>
-      <w>98</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>1248</y>
+      <w>182</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 true</panel_attributes>
@@ -325,10 +325,10 @@ true</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>889</x>
-      <y>721</y>
-      <w>14</w>
-      <h>21</h>
+      <x>1612</x>
+      <y>1326</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>layer=1
 transparency=0</panel_attributes>
@@ -337,10 +337,10 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>707</y>
-      <w>189</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>1300</y>
+      <w>351</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 projectLeaderEquals(c1)</panel_attributes>
@@ -349,10 +349,10 @@ projectLeaderEquals(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>728</y>
-      <w>105</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>1339</y>
+      <w>195</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 false</panel_attributes>
@@ -361,10 +361,10 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>784</y>
-      <w>21</w>
-      <h>56</h>
+      <x>1599</x>
+      <y>1443</y>
+      <w>39</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
@@ -372,10 +372,10 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>574</x>
-      <y>91</y>
-      <w>21</w>
-      <h>49</h>
+      <x>1027</x>
+      <y>156</y>
+      <w>39</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
@@ -383,10 +383,10 @@ false</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>574</x>
-      <y>126</y>
-      <w>14</w>
-      <h>217</h>
+      <x>1027</x>
+      <y>221</y>
+      <w>26</w>
+      <h>403</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -394,10 +394,10 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>574</x>
-      <y>336</y>
-      <w>21</w>
-      <h>49</h>
+      <x>1027</x>
+      <y>611</y>
+      <w>39</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
@@ -405,10 +405,10 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>581</x>
-      <y>140</y>
-      <w>315</w>
-      <h>28</h>
+      <x>1040</x>
+      <y>247</y>
+      <w>585</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 assignLeader(c2)</panel_attributes>
@@ -417,10 +417,10 @@ assignLeader(c2)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>847</x>
-      <y>77</y>
-      <w>84</w>
-      <h>21</h>
+      <x>1534</x>
+      <y>130</y>
+      <w>156</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>Project</panel_attributes>
     <additional_attributes/>
@@ -428,10 +428,10 @@ assignLeader(c2)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>882</x>
-      <y>140</y>
-      <w>14</w>
-      <h>203</h>
+      <x>1599</x>
+      <y>247</y>
+      <w>26</w>
+      <h>377</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -439,10 +439,10 @@ assignLeader(c2)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>91</y>
-      <w>21</w>
-      <h>63</h>
+      <x>1599</x>
+      <y>156</y>
+      <w>39</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -450,10 +450,10 @@ assignLeader(c2)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>560</x>
-      <y>28</y>
-      <w>42</w>
-      <h>77</h>
+      <x>1001</x>
+      <y>39</y>
+      <w>78</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>c1</panel_attributes>
     <additional_attributes/>
@@ -461,10 +461,10 @@ assignLeader(c2)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>63</x>
-      <y>112</y>
-      <w>21</w>
-      <h>49</h>
+      <x>78</x>
+      <y>195</y>
+      <w>39</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
@@ -472,10 +472,10 @@ assignLeader(c2)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>63</x>
-      <y>147</y>
-      <w>14</w>
-      <h>105</h>
+      <x>78</x>
+      <y>260</y>
+      <w>26</w>
+      <h>195</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -483,10 +483,10 @@ assignLeader(c2)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
-      <y>161</y>
-      <w>217</w>
-      <h>28</h>
+      <x>91</x>
+      <y>286</y>
+      <w>403</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 assignLeader(c1)</panel_attributes>
@@ -495,10 +495,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>238</x>
-      <y>98</y>
-      <w>84</w>
-      <h>21</h>
+      <x>403</x>
+      <y>169</y>
+      <w>156</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>Project</panel_attributes>
     <additional_attributes/>
@@ -506,10 +506,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>273</x>
-      <y>252</y>
-      <w>21</w>
-      <h>63</h>
+      <x>468</x>
+      <y>455</y>
+      <w>39</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -517,10 +517,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>273</x>
-      <y>161</y>
-      <w>14</w>
-      <h>98</h>
+      <x>468</x>
+      <y>286</y>
+      <w>26</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -528,10 +528,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>273</x>
-      <y>112</y>
-      <w>21</w>
-      <h>63</h>
+      <x>468</x>
+      <y>195</y>
+      <w>39</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -539,10 +539,10 @@ assignLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>175</y>
-      <w>168</w>
-      <h>35</h>
+      <x>481</x>
+      <y>312</y>
+      <w>312</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 isUserInProject(c1)</panel_attributes>
@@ -551,10 +551,10 @@ isUserInProject(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>189</y>
-      <w>14</w>
-      <h>21</h>
+      <x>481</x>
+      <y>338</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>layer=1
 transparency=0</panel_attributes>
@@ -563,10 +563,10 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>196</y>
-      <w>98</w>
-      <h>35</h>
+      <x>481</x>
+      <y>351</y>
+      <w>182</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 true</panel_attributes>
@@ -575,10 +575,10 @@ true</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>63</x>
-      <y>245</y>
-      <w>21</w>
-      <h>77</h>
+      <x>78</x>
+      <y>442</y>
+      <w>39</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
@@ -586,10 +586,10 @@ true</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>889</x>
-      <y>175</y>
-      <w>14</w>
-      <h>21</h>
+      <x>1612</x>
+      <y>312</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>layer=1
 transparency=0</panel_attributes>
@@ -598,10 +598,10 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>161</y>
-      <w>168</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>286</y>
+      <w>312</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 isUserInProject(c2)</panel_attributes>
@@ -610,10 +610,10 @@ isUserInProject(c2)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>182</y>
-      <w>105</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>325</y>
+      <w>195</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 false</panel_attributes>
@@ -622,10 +622,10 @@ false</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>889</x>
-      <y>224</y>
-      <w>14</w>
-      <h>21</h>
+      <x>1612</x>
+      <y>403</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>layer=1
 transparency=0</panel_attributes>
@@ -634,10 +634,10 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>210</y>
-      <w>175</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>377</y>
+      <w>325</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 projectLeaderExists()</panel_attributes>
@@ -646,10 +646,10 @@ projectLeaderExists()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>231</y>
-      <w>98</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>416</y>
+      <w>182</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 true</panel_attributes>
@@ -658,10 +658,10 @@ true</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>889</x>
-      <y>273</y>
-      <w>14</w>
-      <h>21</h>
+      <x>1612</x>
+      <y>494</y>
+      <w>26</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>layer=1
 transparency=0</panel_attributes>
@@ -670,10 +670,10 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>259</y>
-      <w>189</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>468</y>
+      <w>351</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 projectLeaderEquals(c1)</panel_attributes>
@@ -682,10 +682,10 @@ projectLeaderEquals(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>280</y>
-      <w>98</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>507</y>
+      <w>182</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 true</panel_attributes>
@@ -694,10 +694,10 @@ true</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>336</y>
-      <w>21</w>
-      <h>56</h>
+      <x>1599</x>
+      <y>611</y>
+      <w>39</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
@@ -705,10 +705,10 @@ true</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>35</x>
-      <y>42</y>
-      <w>49</w>
-      <h>77</h>
+      <x>26</x>
+      <y>65</y>
+      <w>91</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>c1</panel_attributes>
     <additional_attributes/>
@@ -716,10 +716,10 @@ true</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>224</y>
-      <w>175</w>
-      <h>35</h>
+      <x>481</x>
+      <y>403</y>
+      <w>325</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 setProjectLeader(c1)</panel_attributes>
@@ -728,10 +728,10 @@ setProjectLeader(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>308</y>
-      <w>175</w>
-      <h>35</h>
+      <x>1612</x>
+      <y>559</y>
+      <w>325</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 setProjectLeader(c2)</panel_attributes>
@@ -740,45 +740,45 @@ setProjectLeader(c2)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>532</x>
-      <y>7</y>
-      <w>567</w>
-      <h>392</h>
+      <x>949</x>
+      <y>0</y>
+      <w>1053</w>
+      <h>728</h>
     </coordinates>
-    <panel_attributes>Use case "Assign User to Activity" Scenario "User is project leader and assigns another User as the new project leader"</panel_attributes>
+    <panel_attributes>Use case "Assign User as Leader" Scenario "User is project leader and assigns another User as the new project leader"</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>21</x>
-      <y>14</y>
-      <w>469</w>
-      <h>329</h>
+      <x>0</x>
+      <y>13</y>
+      <w>871</w>
+      <h>611</h>
     </coordinates>
-    <panel_attributes>Use case "Assign User to Activity" Scenario "User is assigned as project leader"</panel_attributes>
+    <panel_attributes>Use case "Assign User as Leader" Scenario "User is assigned as project leader"</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>35</x>
-      <y>441</y>
-      <w>469</w>
-      <h>329</h>
+      <x>26</x>
+      <y>806</y>
+      <w>871</w>
+      <h>611</h>
     </coordinates>
-    <panel_attributes>Use case "Assign User to Activity" Scenario "User is not in project"</panel_attributes>
+    <panel_attributes>Use case "Assign User as Leader" Scenario "User is not in project"</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>553</x>
-      <y>448</y>
-      <w>532</w>
-      <h>385</h>
+      <x>988</x>
+      <y>819</y>
+      <w>988</w>
+      <h>715</h>
     </coordinates>
-    <panel_attributes>Use case "Assign User to Activity" Scenario "Non-project leader User tries to change project leader"</panel_attributes>
+    <panel_attributes>Use case "Assign User as Leader" Scenario "Non-project leader User tries to change project leader"</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

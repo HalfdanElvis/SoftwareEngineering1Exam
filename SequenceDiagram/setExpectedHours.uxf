@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>7</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>70</x>
-      <y>154</y>
-      <w>14</w>
-      <h>217</h>
+      <x>88</x>
+      <y>275</y>
+      <w>22</w>
+      <h>341</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>35</x>
-      <y>84</y>
-      <w>84</w>
-      <h>77</h>
+      <x>33</x>
+      <y>165</y>
+      <w>132</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>Project Leader</panel_attributes>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>196</x>
-      <y>98</y>
-      <w>112</w>
-      <h>28</h>
+      <x>286</x>
+      <y>187</y>
+      <w>176</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Project</panel_attributes>
     <additional_attributes/>
@@ -37,10 +37,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>245</x>
-      <y>119</y>
-      <w>21</w>
-      <h>49</h>
+      <x>363</x>
+      <y>220</y>
+      <w>33</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -48,22 +48,22 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>77</x>
-      <y>147</y>
-      <w>182</w>
-      <h>28</h>
+      <x>99</x>
+      <y>264</y>
+      <w>286</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-setExpectedHours(a1,p1,h1)</panel_attributes>
+setExpectedHours(a1,p1,hours)</panel_attributes>
     <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>245</x>
-      <y>154</y>
-      <w>14</w>
-      <h>217</h>
+      <x>363</x>
+      <y>275</y>
+      <w>22</w>
+      <h>341</h>
     </coordinates>
     <panel_attributes>
 
@@ -74,10 +74,10 @@ setExpectedHours(a1,p1,h1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>98</y>
-      <w>112</w>
-      <h>28</h>
+      <x>528</x>
+      <y>187</y>
+      <w>176</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Activity</panel_attributes>
     <additional_attributes/>
@@ -85,10 +85,10 @@ setExpectedHours(a1,p1,h1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>399</x>
-      <y>119</y>
-      <w>21</w>
-      <h>238</h>
+      <x>605</x>
+      <y>220</y>
+      <w>33</w>
+      <h>374</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
@@ -96,10 +96,10 @@ setExpectedHours(a1,p1,h1)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>399</x>
-      <y>343</y>
-      <w>14</w>
-      <h>28</h>
+      <x>605</x>
+      <y>572</y>
+      <w>22</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>
 
@@ -110,10 +110,10 @@ setExpectedHours(a1,p1,h1)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>252</x>
-      <y>182</y>
-      <w>14</w>
-      <h>42</h>
+      <x>374</x>
+      <y>319</y>
+      <w>22</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>transparency=0
 layer=1</panel_attributes>
@@ -122,10 +122,10 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
-      <y>168</y>
-      <w>133</w>
-      <h>49</h>
+      <x>374</x>
+      <y>297</y>
+      <w>209</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 containsActivity(a1)
@@ -135,10 +135,10 @@ containsActivity(a1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
-      <y>203</y>
-      <w>63</w>
-      <h>49</h>
+      <x>374</x>
+      <y>352</y>
+      <w>99</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 true
@@ -148,10 +148,10 @@ true
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>252</x>
-      <y>259</y>
-      <w>14</w>
-      <h>42</h>
+      <x>374</x>
+      <y>440</y>
+      <w>22</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>transparency=0
 layer=1</panel_attributes>
@@ -160,10 +160,10 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
-      <y>245</y>
-      <w>112</w>
-      <h>49</h>
+      <x>374</x>
+      <y>418</y>
+      <w>176</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 isLeader(User)
@@ -173,10 +173,10 @@ isLeader(User)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
-      <y>280</y>
-      <w>63</w>
-      <h>49</h>
+      <x>374</x>
+      <y>473</y>
+      <w>99</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 true
@@ -186,22 +186,22 @@ true
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
-      <y>336</y>
-      <w>161</w>
-      <h>28</h>
+      <x>374</x>
+      <y>561</y>
+      <w>253</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-setExpectedHours(h1)</panel_attributes>
+setExpectedHours(hours)</panel_attributes>
     <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>581</x>
-      <y>161</y>
-      <w>14</w>
-      <h>196</h>
+      <x>891</x>
+      <y>286</y>
+      <w>22</w>
+      <h>308</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -209,10 +209,10 @@ setExpectedHours(h1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>567</x>
-      <y>91</y>
-      <w>42</w>
-      <h>77</h>
+      <x>869</x>
+      <y>176</y>
+      <w>66</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>User</panel_attributes>
     <additional_attributes/>
@@ -220,10 +220,10 @@ setExpectedHours(h1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>707</x>
-      <y>105</y>
-      <w>112</w>
-      <h>28</h>
+      <x>1089</x>
+      <y>198</y>
+      <w>176</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Project</panel_attributes>
     <additional_attributes/>
@@ -231,10 +231,10 @@ setExpectedHours(h1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>756</x>
-      <y>126</y>
-      <w>21</w>
-      <h>49</h>
+      <x>1166</x>
+      <y>231</y>
+      <w>33</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -242,10 +242,10 @@ setExpectedHours(h1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>588</x>
-      <y>154</y>
-      <w>182</w>
-      <h>28</h>
+      <x>902</x>
+      <y>275</y>
+      <w>286</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 setExpectedHours(a1,p1,h1)</panel_attributes>
@@ -254,10 +254,10 @@ setExpectedHours(a1,p1,h1)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>756</x>
-      <y>161</y>
-      <w>14</w>
-      <h>196</h>
+      <x>1166</x>
+      <y>286</y>
+      <w>22</w>
+      <h>308</h>
     </coordinates>
     <panel_attributes>
 
@@ -268,10 +268,10 @@ setExpectedHours(a1,p1,h1)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>763</x>
-      <y>189</y>
-      <w>14</w>
-      <h>42</h>
+      <x>1177</x>
+      <y>330</y>
+      <w>22</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>transparency=0
 layer=1</panel_attributes>
@@ -280,10 +280,10 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>763</x>
-      <y>175</y>
-      <w>133</w>
-      <h>49</h>
+      <x>1177</x>
+      <y>308</y>
+      <w>209</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 containsActivity(a1)
@@ -293,10 +293,10 @@ containsActivity(a1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>763</x>
-      <y>210</y>
-      <w>63</w>
-      <h>49</h>
+      <x>1177</x>
+      <y>363</y>
+      <w>99</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 true
@@ -306,10 +306,10 @@ true
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>763</x>
-      <y>266</y>
-      <w>14</w>
-      <h>42</h>
+      <x>1177</x>
+      <y>451</y>
+      <w>22</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>transparency=0
 layer=1</panel_attributes>
@@ -318,10 +318,10 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>763</x>
-      <y>252</y>
-      <w>112</w>
-      <h>49</h>
+      <x>1177</x>
+      <y>429</y>
+      <w>176</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 isLeader(User)
@@ -331,10 +331,10 @@ isLeader(User)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>763</x>
-      <y>287</y>
-      <w>70</w>
-      <h>49</h>
+      <x>1177</x>
+      <y>484</y>
+      <w>110</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 false
@@ -344,10 +344,10 @@ false
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>588</x>
-      <y>329</y>
-      <w>182</w>
-      <h>28</h>
+      <x>902</x>
+      <y>550</y>
+      <w>286</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 "User is not project leader"</panel_attributes>
@@ -356,10 +356,10 @@ false
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>14</x>
-      <y>49</y>
-      <w>483</w>
-      <h>364</h>
+      <x>0</x>
+      <y>110</y>
+      <w>759</w>
+      <h>572</h>
     </coordinates>
     <panel_attributes>Use Case "Set Expected Hours" Scenario "a project leader sets an activity's expected work hours"
 layer=-1
@@ -369,10 +369,10 @@ layer=-1
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>532</x>
-      <y>63</y>
-      <w>378</w>
-      <h>343</h>
+      <x>814</x>
+      <y>132</y>
+      <w>594</w>
+      <h>539</h>
     </coordinates>
     <panel_attributes>Use Case "Set Expected Hours"   Scenario "a user tries
 to set an activity's expected work hours"
