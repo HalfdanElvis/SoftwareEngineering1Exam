@@ -147,7 +147,7 @@ r1=employees</panel_attributes>
       <x>517</x>
       <y>55</y>
       <w>308</w>
-      <h>319</h>
+      <h>330</h>
     </coordinates>
     <panel_attributes>Application
 --
@@ -164,9 +164,10 @@ r1=employees</panel_attributes>
 +createActivity(String):
 +createActivity(Project, String):
 
-+AssignEmployee(Employee, Project): 
-+AssignEmployee(Employee, Activity):
-+AssignEmployee(Employee, Project, Activity):
++assignLeader(Employee, Project
++assignEmployee(Employee, Project): 
++assignEmployee(Employee, Activity):
++assignEmployee(Employee, Project, Activity):
 
 +generateReport(Employee, Project): String
 
@@ -179,15 +180,15 @@ getAssignedActivites(Employee, int, int): Map&lt;int, int&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>693</x>
-      <y>363</y>
+      <y>374</y>
       <w>66</w>
-      <h>99</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
 r1=projects</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
