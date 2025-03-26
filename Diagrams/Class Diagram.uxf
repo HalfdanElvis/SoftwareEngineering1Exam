@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <help_text>S// Uncomment the following line to change the fontsize and font:
+  <help_text>// Uncomment the following line to change the fontsize and font:
 fontsize=10
 // fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
 
@@ -28,17 +28,15 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>528</x>
-      <y>374</y>
+      <x>506</x>
+      <y>429</y>
       <w>231</w>
-      <h>220</h>
+      <h>209</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Project&gt;&gt;
-Package::dtu.project.manager
+    <panel_attributes>Project
 --
 projectName: String
 -projectID: int
-projectLeader: User
 --
 -isLeader(User): boolean
 -projectLeaderExists(): boolean
@@ -55,10 +53,10 @@ projectLeader: User
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>242</x>
-      <y>77</y>
-      <w>858</w>
-      <h>858</h>
+      <x>231</x>
+      <y>33</y>
+      <w>1056</w>
+      <h>902</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -66,25 +64,23 @@ projectLeader: User
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>242</x>
-      <y>33</y>
-      <w>143</w>
-      <h>44</h>
+      <x>231</x>
+      <y>11</y>
+      <w>66</w>
+      <h>22</h>
     </coordinates>
-    <panel_attributes>Project Manager 
-Class Diagram</panel_attributes>
+    <panel_attributes>dtu.pma</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>781</x>
-      <y>561</y>
+      <x>770</x>
+      <y>473</y>
       <w>253</w>
-      <h>187</h>
+      <h>198</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Activity&gt;&gt;
-Package::dtu.project.manager
+    <panel_attributes>Activity
 --
 activityName: String
 startTime: Calendar
@@ -95,40 +91,38 @@ usedHours: float
 --
 +getTotalWorkedHours(): int
 +logHours(User, Calendar, float): 
-+addUser(User):
++assignToActivity(User):
 +viewLoggedHours(User): String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>748</x>
+      <x>726</x>
       <y>429</y>
-      <w>187</w>
-      <h>154</h>
+      <w>198</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
 r1=activities</panel_attributes>
-    <additional_attributes>110.0;120.0;110.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>120.0;40.0;120.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>264</x>
-      <y>715</y>
+      <x>242</x>
+      <y>836</y>
       <w>253</w>
-      <h>99</h>
+      <h>77</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;User&gt;&gt;
-Package::dtu.project.manager
+    <panel_attributes>User
 --
 username: String
 currentActivites: int
 --
-+canJoinActivity(): boolean
-+isPeak(): boolean
+
 
 
 </panel_attributes>
@@ -137,131 +131,165 @@ currentActivites: int
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
-      <y>242</y>
+      <x>242</x>
+      <y>99</y>
       <w>286</w>
-      <h>495</h>
+      <h>759</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
 r1=users</panel_attributes>
-    <additional_attributes>10.0;430.0;10.0;10.0;240.0;10.0</additional_attributes>
+    <additional_attributes>10.0;670.0;10.0;10.0;240.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>528</x>
-      <y>88</y>
-      <w>231</w>
-      <h>242</h>
+      <x>506</x>
+      <y>44</y>
+      <w>308</w>
+      <h>319</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;ProjectManager&gt;&gt;
-Package::dtu.project.manager
+    <panel_attributes>Application
 --
 
 --
 -generateProjectID(): int
--containsUser(User, Project): boolean
--containsUser(User, Activity): boolean
 -projectExists(Project): boolean
 -activityExists(Activity): boolean
+
+-containsUser(User, Project): boolean
+-containsUser(User, Activity): boolean
 
 +createProject(String):
 +createActivity(String):
 +createActivity(Project, String):
+
 +AssignUser(User, Project): 
 +AssignUser(User, Activity):
 +AssignUser(User, Project, Activity):
+
 +generateReport(User, Project): String
-</panel_attributes>
+
+getAssignedActivites(User): int
+getAssignedActivites(User, int): int
+getAssignedActivites(User, int, int): Map&lt;int, int&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>704</x>
-      <y>319</y>
+      <x>682</x>
+      <y>352</y>
       <w>66</w>
-      <h>77</h>
+      <h>99</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
 r1=projects</panel_attributes>
-    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>748</x>
-      <y>242</y>
-      <w>330</w>
-      <h>341</h>
+      <x>803</x>
+      <y>99</y>
+      <w>253</w>
+      <h>396</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
-r1=staticActivities</panel_attributes>
-    <additional_attributes>220.0;290.0;220.0;10.0;10.0;10.0</additional_attributes>
+r1=permanentActivities</panel_attributes>
+    <additional_attributes>120.0;340.0;120.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>352</x>
-      <y>418</y>
+      <x>330</x>
+      <y>495</y>
       <w>198</w>
-      <h>319</h>
+      <h>363</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
-m1=0..*
-r1=users</panel_attributes>
-    <additional_attributes>10.0;270.0;10.0;10.0;160.0;10.0</additional_attributes>
+m1=0..1
+r1=projectLeader</panel_attributes>
+    <additional_attributes>10.0;310.0;10.0;10.0;160.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>451</x>
-      <y>616</y>
-      <w>352</w>
-      <h>121</h>
+      <x>429</x>
+      <y>649</y>
+      <w>363</w>
+      <h>209</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
 r1=users</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;20.0;300.0;20.0</additional_attributes>
+    <additional_attributes>10.0;170.0;10.0;20.0;310.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>781</x>
-      <y>814</y>
+      <x>726</x>
+      <y>748</y>
       <w>253</w>
       <h>99</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;WorkData&gt;&gt;
-Package::dtu.project.manager
+    <panel_attributes>WorkData
 --
 date: Calender
 worker: String
 hours: float
 --
-+addHours(int):</panel_attributes>
++addHours(int)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>891</x>
-      <y>737</y>
+      <x>836</x>
+      <y>660</y>
       <w>77</w>
-      <h>99</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
 r1=workData</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1012</x>
+      <y>748</y>
+      <w>253</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>CalenderHelper
+--
+
+--
++GetWeek(Calender): int
++GetDate(Week): Calendar</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1012</x>
+      <y>517</y>
+      <w>110</w>
+      <h>253</h>
+    </coordinates>
+    <panel_attributes>
+lt=&lt;-
+m1=0..1
+r1=ch</panel_attributes>
+    <additional_attributes>60.0;210.0;60.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
