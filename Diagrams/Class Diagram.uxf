@@ -28,9 +28,9 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>506</x>
-      <y>429</y>
-      <w>231</w>
+      <x>517</x>
+      <y>440</y>
+      <w>242</w>
       <h>209</h>
     </coordinates>
     <panel_attributes>Project
@@ -38,23 +38,22 @@ fontsize=10
 projectName: String
 -projectID: int
 --
--isLeader(User): boolean
+-isLeader(Employee): boolean
 -projectLeaderExists(): boolean
 
-+generateReport(User): String
-+addUser(User):
-+addUser(User, Activity)
-+assignToProject(User):
++generateReport(Employee): String
++assignEmployee(Employee, Activity)
++assignToProject(Employee):
 +seeProjectProgress(): String
 +containsActivity(Activity): boolean
-+containUser(User, Activity): boolean</panel_attributes>
++containEmployee(Employee, Activity): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>231</x>
-      <y>33</y>
+      <x>242</x>
+      <y>44</y>
       <w>1056</w>
       <h>902</h>
     </coordinates>
@@ -64,8 +63,8 @@ projectName: String
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>231</x>
-      <y>11</y>
+      <x>242</x>
+      <y>22</y>
       <w>66</w>
       <h>22</h>
     </coordinates>
@@ -75,8 +74,8 @@ projectName: String
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
-      <y>473</y>
+      <x>781</x>
+      <y>484</y>
       <w>253</w>
       <h>198</h>
     </coordinates>
@@ -90,34 +89,34 @@ expectedHours: float
 usedHours: float
 --
 +getTotalWorkedHours(): int
-+logHours(User, Calendar, float): 
-+assignToActivity(User):
-+viewLoggedHours(User): String</panel_attributes>
++logHours(Employee, Calendar, float): 
++assignToActivity(Employee):
++viewLoggedHours(Employee): String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>726</x>
-      <y>429</y>
-      <w>198</w>
+      <x>748</x>
+      <y>440</y>
+      <w>187</w>
       <h>66</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
 r1=activities</panel_attributes>
-    <additional_attributes>120.0;40.0;120.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>110.0;40.0;110.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>242</x>
-      <y>836</y>
+      <x>253</x>
+      <y>847</y>
       <w>253</w>
       <h>77</h>
     </coordinates>
-    <panel_attributes>User
+    <panel_attributes>Employee
 --
 username: String
 currentActivites: int
@@ -131,22 +130,22 @@ currentActivites: int
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>242</x>
-      <y>99</y>
+      <x>253</x>
+      <y>110</y>
       <w>286</w>
       <h>759</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
-r1=users</panel_attributes>
+r1=employees</panel_attributes>
     <additional_attributes>10.0;670.0;10.0;10.0;240.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>506</x>
-      <y>44</y>
+      <x>517</x>
+      <y>55</y>
       <w>308</w>
       <h>319</h>
     </coordinates>
@@ -158,29 +157,29 @@ r1=users</panel_attributes>
 -projectExists(Project): boolean
 -activityExists(Activity): boolean
 
--containsUser(User, Project): boolean
--containsUser(User, Activity): boolean
+-containsEmployee(Employee, Project): boolean
+-containsEmployee(Employee, Activity): boolean
 
 +createProject(String):
 +createActivity(String):
 +createActivity(Project, String):
 
-+AssignUser(User, Project): 
-+AssignUser(User, Activity):
-+AssignUser(User, Project, Activity):
++AssignEmployee(Employee, Project): 
++AssignEmployee(Employee, Activity):
++AssignEmployee(Employee, Project, Activity):
 
-+generateReport(User, Project): String
++generateReport(Employee, Project): String
 
-getAssignedActivites(User): int
-getAssignedActivites(User, int): int
-getAssignedActivites(User, int, int): Map&lt;int, int&gt;</panel_attributes>
+getAssignedActivites(Employee): int
+getAssignedActivites(Employee, int): int
+getAssignedActivites(Employee, int, int): Map&lt;int, int&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>682</x>
-      <y>352</y>
+      <x>693</x>
+      <y>363</y>
       <w>66</w>
       <h>99</h>
     </coordinates>
@@ -193,8 +192,8 @@ r1=projects</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>803</x>
-      <y>99</y>
+      <x>814</x>
+      <y>110</y>
       <w>253</w>
       <h>396</h>
     </coordinates>
@@ -206,8 +205,8 @@ r1=permanentActivities</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>495</y>
+      <x>341</x>
+      <y>506</y>
       <w>198</w>
       <h>363</h>
     </coordinates>
@@ -220,29 +219,29 @@ r1=projectLeader</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>429</x>
-      <y>649</y>
+      <x>440</x>
+      <y>660</y>
       <w>363</w>
       <h>209</h>
     </coordinates>
     <panel_attributes>
 lt=&lt;-
 m1=0..*
-r1=users</panel_attributes>
+r1=employees</panel_attributes>
     <additional_attributes>10.0;170.0;10.0;20.0;310.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>726</x>
-      <y>748</y>
+      <x>737</x>
+      <y>759</y>
       <w>253</w>
       <h>99</h>
     </coordinates>
     <panel_attributes>WorkData
 --
 date: Calender
-worker: String
+employee: Employee
 hours: float
 --
 +addHours(int)</panel_attributes>
@@ -251,8 +250,8 @@ hours: float
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>836</x>
-      <y>660</y>
+      <x>847</x>
+      <y>671</y>
       <w>77</w>
       <h>110</h>
     </coordinates>
@@ -265,8 +264,8 @@ r1=workData</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1012</x>
-      <y>748</y>
+      <x>1023</x>
+      <y>759</y>
       <w>253</w>
       <h>99</h>
     </coordinates>
@@ -281,8 +280,8 @@ r1=workData</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1012</x>
-      <y>517</y>
+      <x>1023</x>
+      <y>528</y>
       <w>110</w>
       <h>253</h>
     </coordinates>
