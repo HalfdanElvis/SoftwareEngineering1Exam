@@ -4,8 +4,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>840</y>
+      <x>200</x>
+      <y>680</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>160</x>
-      <y>880</y>
+      <x>200</x>
+      <y>720</y>
       <w>20</w>
-      <h>180</h>
+      <h>410</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -26,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>880</y>
+      <x>210</x>
+      <y>720</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
@@ -38,8 +38,8 @@ assignToActivity(e1,a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>950</x>
-      <y>800</y>
+      <x>1010</x>
+      <y>640</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -49,8 +49,8 @@ assignToActivity(e1,a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>1250</y>
+      <x>1060</x>
+      <y>1200</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -60,8 +60,8 @@ assignToActivity(e1,a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1000</x>
-      <y>1220</y>
+      <x>1060</x>
+      <y>1170</y>
       <w>20</w>
       <h>40</h>
     </coordinates>
@@ -71,19 +71,19 @@ assignToActivity(e1,a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>820</y>
+      <x>1060</x>
+      <y>660</y>
       <w>30</w>
-      <h>420</h>
+      <h>530</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;400.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;510.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>120</x>
-      <y>750</y>
+      <x>160</x>
+      <y>590</y>
       <w>110</w>
       <h>110</h>
     </coordinates>
@@ -93,7 +93,7 @@ assignToActivity(e1,a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1380</x>
+      <x>1430</x>
       <y>160</y>
       <w>30</w>
       <h>60</h>
@@ -104,7 +104,7 @@ assignToActivity(e1,a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1380</x>
+      <x>1430</x>
       <y>200</y>
       <w>20</w>
       <h>420</h>
@@ -115,7 +115,7 @@ assignToActivity(e1,a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1390</x>
+      <x>1440</x>
       <y>200</y>
       <w>270</w>
       <h>40</h>
@@ -127,7 +127,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2520</x>
+      <x>2570</x>
       <y>120</y>
       <w>120</w>
       <h>30</h>
@@ -138,7 +138,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2570</x>
+      <x>2620</x>
       <y>680</y>
       <w>20</w>
       <h>40</h>
@@ -149,7 +149,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2570</x>
+      <x>2620</x>
       <y>140</y>
       <w>30</w>
       <h>560</h>
@@ -160,7 +160,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1360</x>
+      <x>1410</x>
       <y>70</y>
       <w>70</w>
       <h>110</h>
@@ -171,7 +171,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1930</x>
+      <x>1980</x>
       <y>120</y>
       <w>120</w>
       <h>30</h>
@@ -182,7 +182,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>360</y>
       <w>20</w>
       <h>50</h>
@@ -193,7 +193,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>140</y>
       <w>30</w>
       <h>240</h>
@@ -204,7 +204,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1380</x>
+      <x>1430</x>
       <y>610</y>
       <w>30</w>
       <h>80</h>
@@ -215,7 +215,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2220</x>
+      <x>2270</x>
       <y>120</y>
       <w>120</w>
       <h>30</h>
@@ -226,7 +226,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>500</y>
       <w>20</w>
       <h>160</h>
@@ -237,7 +237,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>140</y>
       <w>30</w>
       <h>380</h>
@@ -248,7 +248,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>630</y>
       <w>640</w>
       <h>40</h>
@@ -260,7 +260,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>510</y>
       <w>170</w>
       <h>50</h>
@@ -272,7 +272,7 @@ isPeak()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>530</y>
       <w>20</w>
       <h>30</h>
@@ -284,7 +284,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>540</y>
       <w>150</w>
       <h>50</h>
@@ -296,7 +296,7 @@ transparency=0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>600</y>
       <w>20</w>
       <h>30</h>
@@ -308,7 +308,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>580</y>
       <w>260</w>
       <h>50</h>
@@ -320,7 +320,7 @@ currentActivities &gt;= 20</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>610</y>
       <w>160</w>
       <h>50</h>
@@ -332,19 +332,19 @@ currentActivities &gt;= 20</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>310</x>
-      <y>800</y>
+      <x>350</x>
+      <y>640</y>
       <w>160</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Project Manager</panel_attributes>
+    <panel_attributes>Application</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>900</y>
+      <x>430</x>
+      <y>740</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -356,8 +356,8 @@ activityExists(a1)
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>390</x>
-      <y>920</y>
+      <x>430</x>
+      <y>760</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -368,10 +368,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>380</x>
-      <y>880</y>
+      <x>420</x>
+      <y>720</y>
       <w>20</w>
-      <h>400</h>
+      <h>520</h>
     </coordinates>
     <panel_attributes>
 
@@ -382,8 +382,8 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>930</y>
+      <x>430</x>
+      <y>770</y>
       <w>90</w>
       <h>60</h>
     </coordinates>
@@ -395,8 +395,8 @@ true
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>970</y>
+      <x>430</x>
+      <y>810</y>
       <w>230</w>
       <h>50</h>
     </coordinates>
@@ -408,8 +408,8 @@ containsEmployee(e1,a1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>1000</y>
+      <x>430</x>
+      <y>840</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
@@ -420,8 +420,8 @@ false</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>390</x>
-      <y>990</y>
+      <x>430</x>
+      <y>830</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -432,8 +432,8 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>830</y>
+      <x>420</x>
+      <y>670</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -443,19 +443,19 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>1220</y>
-      <w>630</w>
+      <x>430</x>
+      <y>1170</y>
+      <w>650</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-addUser(c1)</panel_attributes>
-    <additional_attributes>610.0;20.0;10.0;20.0</additional_attributes>
+addUser(e1)</panel_attributes>
+    <additional_attributes>630.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>50</x>
+      <x>100</x>
       <y>2090</y>
       <w>30</w>
       <h>40</h>
@@ -466,7 +466,7 @@ addUser(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
+      <x>100</x>
       <y>2110</y>
       <w>20</w>
       <h>230</h>
@@ -477,7 +477,7 @@ addUser(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>60</x>
+      <x>110</x>
       <y>2110</y>
       <w>280</w>
       <h>40</h>
@@ -489,7 +489,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>30</x>
+      <x>80</x>
       <y>1990</y>
       <w>60</w>
       <h>110</h>
@@ -500,7 +500,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>250</x>
+      <x>300</x>
       <y>2040</y>
       <w>160</w>
       <h>40</h>
@@ -511,7 +511,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
+      <x>380</x>
       <y>2130</y>
       <w>170</w>
       <h>50</h>
@@ -524,7 +524,7 @@ activityExists(a1)
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>330</x>
+      <x>380</x>
       <y>2150</y>
       <w>20</w>
       <h>30</h>
@@ -536,7 +536,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>320</x>
+      <x>370</x>
       <y>2110</y>
       <w>20</w>
       <h>220</h>
@@ -550,7 +550,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
+      <x>380</x>
       <y>2160</y>
       <w>90</w>
       <h>60</h>
@@ -563,7 +563,7 @@ true
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
+      <x>380</x>
       <y>2200</y>
       <w>190</w>
       <h>50</h>
@@ -576,7 +576,7 @@ containsUser(c1,a1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
+      <x>380</x>
       <y>2230</y>
       <w>90</w>
       <h>50</h>
@@ -588,7 +588,7 @@ true</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>330</x>
+      <x>380</x>
       <y>2220</y>
       <w>20</w>
       <h>30</h>
@@ -600,7 +600,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
+      <x>370</x>
       <y>2070</y>
       <w>30</w>
       <h>60</h>
@@ -611,7 +611,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>60</x>
+      <x>110</x>
       <y>2280</y>
       <w>280</w>
       <h>40</h>
@@ -623,7 +623,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
+      <x>690</x>
       <y>2130</y>
       <w>30</w>
       <h>40</h>
@@ -634,7 +634,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
+      <x>690</x>
       <y>2150</y>
       <w>20</w>
       <h>140</h>
@@ -645,7 +645,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>650</x>
+      <x>700</x>
       <y>2150</y>
       <w>280</w>
       <h>40</h>
@@ -657,7 +657,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>610</x>
+      <x>660</x>
       <y>2030</y>
       <w>60</w>
       <h>110</h>
@@ -668,7 +668,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>840</x>
+      <x>890</x>
       <y>2070</y>
       <w>160</w>
       <h>40</h>
@@ -679,7 +679,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>920</x>
+      <x>970</x>
       <y>2170</y>
       <w>170</w>
       <h>50</h>
@@ -692,7 +692,7 @@ activityExists(a1)
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>920</x>
+      <x>970</x>
       <y>2190</y>
       <w>20</w>
       <h>30</h>
@@ -704,7 +704,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>910</x>
+      <x>960</x>
       <y>2150</y>
       <w>20</w>
       <h>140</h>
@@ -718,7 +718,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>920</x>
+      <x>970</x>
       <y>2200</y>
       <w>100</w>
       <h>50</h>
@@ -730,7 +730,7 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>910</x>
+      <x>960</x>
       <y>2100</y>
       <w>30</w>
       <h>70</h>
@@ -741,7 +741,7 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>650</x>
+      <x>700</x>
       <y>2240</y>
       <w>280</w>
       <h>40</h>
@@ -753,7 +753,7 @@ false</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1570</x>
+      <x>1620</x>
       <y>120</y>
       <w>160</w>
       <h>40</h>
@@ -764,7 +764,7 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>220</y>
       <w>170</w>
       <h>50</h>
@@ -777,7 +777,7 @@ projectExists(p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>250</y>
       <w>90</w>
       <h>60</h>
@@ -790,7 +790,7 @@ true
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>240</y>
       <w>20</w>
       <h>30</h>
@@ -802,7 +802,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>290</y>
       <w>200</w>
       <h>50</h>
@@ -815,7 +815,7 @@ containsUser(c1, p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>320</y>
       <w>90</w>
       <h>50</h>
@@ -827,7 +827,7 @@ true</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>310</y>
       <w>20</w>
       <h>30</h>
@@ -839,7 +839,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1640</x>
+      <x>1690</x>
       <y>200</y>
       <w>20</w>
       <h>530</h>
@@ -853,7 +853,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1640</x>
+      <x>1690</x>
       <y>150</y>
       <w>30</w>
       <h>70</h>
@@ -864,7 +864,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>420</y>
       <w>350</w>
       <h>50</h>
@@ -877,7 +877,7 @@ containsUser(c1, a1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>450</y>
       <w>350</w>
       <h>40</h>
@@ -889,7 +889,7 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>660</y>
       <w>350</w>
       <h>40</h>
@@ -901,7 +901,7 @@ addUser(c1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>490</y>
       <w>640</w>
       <h>50</h>
@@ -914,7 +914,7 @@ canJoinActivity()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>350</y>
       <w>350</w>
       <h>40</h>
@@ -926,7 +926,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>380</y>
       <w>350</w>
       <h>40</h>
@@ -938,7 +938,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>430</y>
       <w>20</w>
       <h>50</h>
@@ -949,7 +949,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>400</y>
       <w>30</w>
       <h>50</h>
@@ -960,7 +960,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>470</y>
       <w>30</w>
       <h>220</h>
@@ -971,7 +971,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>670</y>
       <w>20</w>
       <h>50</h>
@@ -982,7 +982,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1990</x>
+      <x>2040</x>
       <y>680</y>
       <w>600</w>
       <h>40</h>
@@ -994,7 +994,7 @@ addUser(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1380</x>
+      <x>1430</x>
       <y>920</y>
       <w>30</w>
       <h>60</h>
@@ -1005,7 +1005,7 @@ addUser(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1380</x>
+      <x>1430</x>
       <y>960</y>
       <w>20</w>
       <h>420</h>
@@ -1016,7 +1016,7 @@ addUser(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1390</x>
+      <x>1440</x>
       <y>960</y>
       <w>270</w>
       <h>40</h>
@@ -1028,7 +1028,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2520</x>
+      <x>2570</x>
       <y>880</y>
       <w>120</w>
       <h>30</h>
@@ -1039,7 +1039,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2570</x>
+      <x>2620</x>
       <y>1440</y>
       <w>20</w>
       <h>40</h>
@@ -1050,7 +1050,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2570</x>
+      <x>2620</x>
       <y>900</y>
       <w>30</w>
       <h>560</h>
@@ -1061,7 +1061,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1350</x>
+      <x>1400</x>
       <y>830</y>
       <w>70</w>
       <h>110</h>
@@ -1072,7 +1072,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1930</x>
+      <x>1980</x>
       <y>880</y>
       <w>120</w>
       <h>30</h>
@@ -1083,7 +1083,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>1120</y>
       <w>20</w>
       <h>50</h>
@@ -1094,7 +1094,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>900</y>
       <w>30</w>
       <h>240</h>
@@ -1105,7 +1105,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1380</x>
+      <x>1430</x>
       <y>1370</y>
       <w>30</w>
       <h>80</h>
@@ -1116,7 +1116,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2220</x>
+      <x>2270</x>
       <y>880</y>
       <w>120</w>
       <h>30</h>
@@ -1127,7 +1127,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>1260</y>
       <w>20</w>
       <h>160</h>
@@ -1138,7 +1138,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>900</y>
       <w>30</w>
       <h>380</h>
@@ -1149,7 +1149,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1390</y>
       <w>640</w>
       <h>40</h>
@@ -1161,7 +1161,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1270</y>
       <w>170</w>
       <h>50</h>
@@ -1173,7 +1173,7 @@ isPeak()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1290</y>
       <w>20</w>
       <h>30</h>
@@ -1185,7 +1185,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1300</y>
       <w>160</w>
       <h>50</h>
@@ -1197,7 +1197,7 @@ transparency=0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1360</y>
       <w>20</w>
       <h>30</h>
@@ -1209,7 +1209,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1340</y>
       <w>260</w>
       <h>50</h>
@@ -1221,7 +1221,7 @@ currentActivities &gt;= 10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1370</y>
       <w>160</w>
       <h>50</h>
@@ -1233,7 +1233,7 @@ currentActivities &gt;= 10</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1570</x>
+      <x>1620</x>
       <y>880</y>
       <w>160</w>
       <h>40</h>
@@ -1244,7 +1244,7 @@ currentActivities &gt;= 10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>980</y>
       <w>170</w>
       <h>50</h>
@@ -1257,7 +1257,7 @@ projectExists(p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1010</y>
       <w>90</w>
       <h>60</h>
@@ -1270,7 +1270,7 @@ true
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1000</y>
       <w>20</w>
       <h>30</h>
@@ -1282,7 +1282,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1050</y>
       <w>200</w>
       <h>50</h>
@@ -1295,7 +1295,7 @@ containsUser(c1, p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1080</y>
       <w>90</w>
       <h>50</h>
@@ -1307,7 +1307,7 @@ true</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1070</y>
       <w>20</w>
       <h>30</h>
@@ -1319,7 +1319,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1640</x>
+      <x>1690</x>
       <y>960</y>
       <w>20</w>
       <h>530</h>
@@ -1333,7 +1333,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1640</x>
+      <x>1690</x>
       <y>910</y>
       <w>30</w>
       <h>70</h>
@@ -1344,7 +1344,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1180</y>
       <w>350</w>
       <h>50</h>
@@ -1357,7 +1357,7 @@ containsUser(c1, a1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1210</y>
       <w>350</w>
       <h>40</h>
@@ -1369,7 +1369,7 @@ false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1420</y>
       <w>350</w>
       <h>40</h>
@@ -1381,7 +1381,7 @@ addUser(c1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1250</y>
       <w>640</w>
       <h>50</h>
@@ -1394,7 +1394,7 @@ canJoinActivity()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1110</y>
       <w>350</w>
       <h>40</h>
@@ -1406,7 +1406,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1140</y>
       <w>350</w>
       <h>40</h>
@@ -1418,7 +1418,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>1190</y>
       <w>20</w>
       <h>50</h>
@@ -1429,7 +1429,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>1160</y>
       <w>30</w>
       <h>50</h>
@@ -1440,7 +1440,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>1230</y>
       <w>30</w>
       <h>220</h>
@@ -1451,7 +1451,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1980</x>
+      <x>2030</x>
       <y>1430</y>
       <w>20</w>
       <h>50</h>
@@ -1462,7 +1462,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1990</x>
+      <x>2040</x>
       <y>1440</y>
       <w>600</w>
       <h>40</h>
@@ -1474,8 +1474,8 @@ addUser(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>820</y>
+      <x>740</x>
+      <y>660</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -1485,8 +1485,8 @@ addUser(c1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>800</y>
+      <x>690</x>
+      <y>640</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
@@ -1496,47 +1496,35 @@ addUser(c1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>1040</y>
+      <x>430</x>
+      <y>880</y>
       <w>330</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-canJoinActivity()
+canJoinActivity(a1)
 </panel_attributes>
     <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>1180</y>
+      <x>750</x>
+      <y>970</y>
       <w>330</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-  true</panel_attributes>
-    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>710</x>
-      <y>1130</y>
-      <w>260</w>
-      <h>50</h>
-    </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-currentActivities &gt;= 20</panel_attributes>
-    <additional_attributes>20.0;30.0;100.0;30.0;100.0;10.0;10.0;10.0</additional_attributes>
+getWeeks()</panel_attributes>
+    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>1050</y>
+      <x>740</x>
+      <y>890</y>
       <w>20</w>
-      <h>160</h>
+      <h>230</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1544,8 +1532,8 @@ currentActivities &gt;= 20</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>710</x>
-      <y>1080</y>
+      <x>750</x>
+      <y>920</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -1556,8 +1544,8 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
-      <y>1060</y>
+      <x>750</x>
+      <y>900</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -1568,8 +1556,8 @@ isPeak()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
-      <y>1090</y>
+      <x>750</x>
+      <y>930</y>
       <w>150</w>
       <h>50</h>
     </coordinates>
@@ -1578,33 +1566,9 @@ isPeak()</panel_attributes>
     <additional_attributes>10.0;30.0;100.0;30.0;100.0;10.0;20.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>710</x>
-      <y>1150</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>layer=1
-transparency=0</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
-      <y>1160</y>
-      <w>160</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-  false</panel_attributes>
-    <additional_attributes>10.0;30.0;100.0;30.0;100.0;10.0;20.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>160</x>
+      <x>210</x>
       <y>1460</y>
       <w>30</w>
       <h>60</h>
@@ -1615,7 +1579,7 @@ transparency=0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>160</x>
+      <x>210</x>
       <y>1500</y>
       <w>20</w>
       <h>370</h>
@@ -1626,7 +1590,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
+      <x>220</x>
       <y>1500</y>
       <w>360</w>
       <h>40</h>
@@ -1638,7 +1602,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>120</x>
+      <x>170</x>
       <y>1380</y>
       <w>70</w>
       <h>110</h>
@@ -1649,7 +1613,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>440</x>
+      <x>490</x>
       <y>1420</y>
       <w>160</w>
       <h>40</h>
@@ -1660,7 +1624,7 @@ assignToActivity(c1,a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>570</x>
       <y>1520</y>
       <w>170</w>
       <h>50</h>
@@ -1673,7 +1637,7 @@ activityExists(a1)
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>520</x>
+      <x>570</x>
       <y>1540</y>
       <w>20</w>
       <h>30</h>
@@ -1685,7 +1649,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>510</x>
+      <x>560</x>
       <y>1500</y>
       <w>20</w>
       <h>370</h>
@@ -1699,7 +1663,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>570</x>
       <y>1550</y>
       <w>90</w>
       <h>60</h>
@@ -1712,7 +1676,7 @@ true
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>570</x>
       <y>1590</y>
       <w>190</w>
       <h>50</h>
@@ -1725,7 +1689,7 @@ containsUser(c1,a1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>570</x>
       <y>1620</y>
       <w>100</w>
       <h>50</h>
@@ -1737,7 +1701,7 @@ false</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>520</x>
+      <x>570</x>
       <y>1610</y>
       <w>20</w>
       <h>30</h>
@@ -1749,7 +1713,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>510</x>
+      <x>560</x>
       <y>1450</y>
       <w>30</w>
       <h>70</h>
@@ -1760,7 +1724,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
+      <x>880</x>
       <y>1440</y>
       <w>30</w>
       <h>250</h>
@@ -1771,7 +1735,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>780</x>
+      <x>830</x>
       <y>1420</y>
       <w>120</w>
       <h>30</h>
@@ -1782,7 +1746,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>570</x>
       <y>1660</y>
       <w>330</w>
       <h>50</h>
@@ -1795,7 +1759,7 @@ canJoinActivity()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>570</x>
       <y>1800</y>
       <w>330</w>
       <h>40</h>
@@ -1807,7 +1771,7 @@ canJoinActivity()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
+      <x>890</x>
       <y>1750</y>
       <w>260</w>
       <h>50</h>
@@ -1819,7 +1783,7 @@ currentActivities &gt;= 20</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>830</x>
+      <x>880</x>
       <y>1670</y>
       <w>20</w>
       <h>160</h>
@@ -1830,7 +1794,7 @@ currentActivities &gt;= 20</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>840</x>
+      <x>890</x>
       <y>1700</y>
       <w>20</w>
       <h>30</h>
@@ -1842,7 +1806,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
+      <x>890</x>
       <y>1680</y>
       <w>170</w>
       <h>50</h>
@@ -1854,7 +1818,7 @@ isPeak()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
+      <x>890</x>
       <y>1710</y>
       <w>150</w>
       <h>50</h>
@@ -1866,7 +1830,7 @@ isPeak()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>840</x>
+      <x>890</x>
       <y>1770</y>
       <w>20</w>
       <h>30</h>
@@ -1878,7 +1842,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
+      <x>890</x>
       <y>1780</y>
       <w>150</w>
       <h>50</h>
@@ -1890,7 +1854,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
+      <x>220</x>
       <y>1820</y>
       <w>360</w>
       <h>40</h>
@@ -1902,7 +1866,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1390</x>
+      <x>1440</x>
       <y>1640</y>
       <w>30</w>
       <h>60</h>
@@ -1913,7 +1877,7 @@ transparency=0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1390</x>
+      <x>1440</x>
       <y>1680</y>
       <w>20</w>
       <h>210</h>
@@ -1924,7 +1888,7 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1400</x>
+      <x>1450</x>
       <y>1680</y>
       <w>270</w>
       <h>40</h>
@@ -1936,7 +1900,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1350</x>
+      <x>1400</x>
       <y>1550</y>
       <w>70</w>
       <h>110</h>
@@ -1947,7 +1911,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1390</x>
+      <x>1440</x>
       <y>1880</y>
       <w>30</w>
       <h>70</h>
@@ -1958,7 +1922,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1580</x>
+      <x>1630</x>
       <y>1600</y>
       <w>160</w>
       <h>40</h>
@@ -1969,7 +1933,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1660</x>
+      <x>1710</x>
       <y>1700</y>
       <w>170</w>
       <h>50</h>
@@ -1982,7 +1946,7 @@ projectExists(p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1660</x>
+      <x>1710</x>
       <y>1730</y>
       <w>90</w>
       <h>60</h>
@@ -1995,7 +1959,7 @@ true
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1660</x>
+      <x>1710</x>
       <y>1720</y>
       <w>20</w>
       <h>30</h>
@@ -2007,7 +1971,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1660</x>
+      <x>1710</x>
       <y>1770</y>
       <w>200</w>
       <h>50</h>
@@ -2020,7 +1984,7 @@ containsUser(c1, p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1660</x>
+      <x>1710</x>
       <y>1800</y>
       <w>100</w>
       <h>50</h>
@@ -2032,7 +1996,7 @@ false</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1660</x>
+      <x>1710</x>
       <y>1790</y>
       <w>20</w>
       <h>30</h>
@@ -2044,7 +2008,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1680</y>
       <w>20</w>
       <h>200</h>
@@ -2058,7 +2022,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1630</y>
       <w>30</w>
       <h>70</h>
@@ -2069,7 +2033,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1400</x>
+      <x>1450</x>
       <y>1830</y>
       <w>270</w>
       <h>40</h>
@@ -2081,7 +2045,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
+      <x>1700</x>
       <y>1870</y>
       <w>30</w>
       <h>80</h>
@@ -2092,7 +2056,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2010</x>
+      <x>2060</x>
       <y>1640</y>
       <w>30</w>
       <h>60</h>
@@ -2103,7 +2067,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2010</x>
+      <x>2060</x>
       <y>1680</y>
       <w>20</w>
       <h>210</h>
@@ -2114,7 +2078,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2020</x>
+      <x>2070</x>
       <y>1680</y>
       <w>270</w>
       <h>40</h>
@@ -2126,7 +2090,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1960</x>
+      <x>2010</x>
       <y>1550</y>
       <w>60</w>
       <h>110</h>
@@ -2137,7 +2101,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2010</x>
+      <x>2060</x>
       <y>1880</y>
       <w>30</w>
       <h>70</h>
@@ -2148,7 +2112,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2200</x>
+      <x>2250</x>
       <y>1600</y>
       <w>160</w>
       <h>40</h>
@@ -2159,7 +2123,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1700</y>
       <w>170</w>
       <h>50</h>
@@ -2172,7 +2136,7 @@ projectExists(p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1730</y>
       <w>100</w>
       <h>60</h>
@@ -2185,7 +2149,7 @@ false
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>2280</x>
+      <x>2330</x>
       <y>1720</y>
       <w>20</w>
       <h>30</h>
@@ -2197,7 +2161,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>1680</y>
       <w>20</w>
       <h>200</h>
@@ -2211,7 +2175,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>1630</y>
       <w>30</w>
       <h>70</h>
@@ -2222,7 +2186,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2020</x>
+      <x>2070</x>
       <y>1760</y>
       <w>270</w>
       <h>40</h>
@@ -2234,7 +2198,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>1870</y>
       <w>30</w>
       <h>80</h>
@@ -2245,7 +2209,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1350</x>
+      <x>1400</x>
       <y>2200</y>
       <w>30</w>
       <h>60</h>
@@ -2256,7 +2220,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1350</x>
+      <x>1400</x>
       <y>2240</y>
       <w>20</w>
       <h>420</h>
@@ -2267,7 +2231,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1360</x>
+      <x>1410</x>
       <y>2240</y>
       <w>270</w>
       <h>40</h>
@@ -2279,7 +2243,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1310</x>
+      <x>1360</x>
       <y>2110</y>
       <w>60</w>
       <h>110</h>
@@ -2290,7 +2254,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1900</x>
+      <x>1950</x>
       <y>2160</y>
       <w>120</w>
       <h>30</h>
@@ -2301,7 +2265,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1950</x>
+      <x>2000</x>
       <y>2400</y>
       <w>20</w>
       <h>50</h>
@@ -2312,7 +2276,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1950</x>
+      <x>2000</x>
       <y>2180</y>
       <w>30</w>
       <h>240</h>
@@ -2323,7 +2287,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1350</x>
+      <x>1400</x>
       <y>2650</y>
       <w>30</w>
       <h>80</h>
@@ -2334,7 +2298,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1540</x>
+      <x>1590</x>
       <y>2160</y>
       <w>160</w>
       <h>40</h>
@@ -2345,7 +2309,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2260</y>
       <w>170</w>
       <h>50</h>
@@ -2358,7 +2322,7 @@ projectExists(p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2290</y>
       <w>90</w>
       <h>60</h>
@@ -2371,7 +2335,7 @@ true
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2280</y>
       <w>20</w>
       <h>30</h>
@@ -2383,7 +2347,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2330</y>
       <w>200</w>
       <h>50</h>
@@ -2396,7 +2360,7 @@ containsUser(c1, p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2360</y>
       <w>90</w>
       <h>50</h>
@@ -2408,7 +2372,7 @@ true</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2350</y>
       <w>20</w>
       <h>30</h>
@@ -2420,7 +2384,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1610</x>
+      <x>1660</x>
       <y>2240</y>
       <w>20</w>
       <h>300</h>
@@ -2434,7 +2398,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1610</x>
+      <x>1660</x>
       <y>2190</y>
       <w>30</w>
       <h>70</h>
@@ -2445,7 +2409,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2460</y>
       <w>350</w>
       <h>50</h>
@@ -2458,7 +2422,7 @@ containsUser(c1, a1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2490</y>
       <w>350</w>
       <h>40</h>
@@ -2470,7 +2434,7 @@ true</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2390</y>
       <w>350</w>
       <h>40</h>
@@ -2482,7 +2446,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
+      <x>1670</x>
       <y>2420</y>
       <w>350</w>
       <h>40</h>
@@ -2494,7 +2458,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1950</x>
+      <x>2000</x>
       <y>2470</y>
       <w>20</w>
       <h>50</h>
@@ -2505,7 +2469,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1950</x>
+      <x>2000</x>
       <y>2440</y>
       <w>30</w>
       <h>50</h>
@@ -2516,7 +2480,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1950</x>
+      <x>2000</x>
       <y>2510</y>
       <w>30</w>
       <h>220</h>
@@ -2527,7 +2491,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2260</x>
+      <x>2310</x>
       <y>2240</y>
       <w>30</w>
       <h>60</h>
@@ -2538,7 +2502,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2260</x>
+      <x>2310</x>
       <y>2280</y>
       <w>20</w>
       <h>420</h>
@@ -2549,7 +2513,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>2280</y>
       <w>270</w>
       <h>40</h>
@@ -2561,7 +2525,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>2240</x>
+      <x>2290</x>
       <y>2150</y>
       <w>60</w>
       <h>110</h>
@@ -2572,7 +2536,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2810</x>
+      <x>2860</x>
       <y>2200</y>
       <w>120</w>
       <h>30</h>
@@ -2583,7 +2547,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2860</x>
+      <x>2910</x>
       <y>2440</y>
       <w>20</w>
       <h>50</h>
@@ -2594,7 +2558,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2860</x>
+      <x>2910</x>
       <y>2220</y>
       <w>30</w>
       <h>240</h>
@@ -2605,7 +2569,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2260</x>
+      <x>2310</x>
       <y>2690</y>
       <w>30</w>
       <h>80</h>
@@ -2616,7 +2580,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2450</x>
+      <x>2500</x>
       <y>2200</y>
       <w>160</w>
       <h>40</h>
@@ -2627,7 +2591,7 @@ assignUser(c1, p1, a1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2530</x>
+      <x>2580</x>
       <y>2300</y>
       <w>170</w>
       <h>50</h>
@@ -2640,7 +2604,7 @@ projectExists(p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2530</x>
+      <x>2580</x>
       <y>2330</y>
       <w>90</w>
       <h>60</h>
@@ -2653,7 +2617,7 @@ true
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>2530</x>
+      <x>2580</x>
       <y>2320</y>
       <w>20</w>
       <h>30</h>
@@ -2665,7 +2629,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2530</x>
+      <x>2580</x>
       <y>2370</y>
       <w>200</w>
       <h>50</h>
@@ -2678,7 +2642,7 @@ containsUser(c1, p1)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2530</x>
+      <x>2580</x>
       <y>2400</y>
       <w>90</w>
       <h>50</h>
@@ -2690,7 +2654,7 @@ true</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>2530</x>
+      <x>2580</x>
       <y>2390</y>
       <w>20</w>
       <h>30</h>
@@ -2702,7 +2666,7 @@ layer=1</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>2520</x>
+      <x>2570</x>
       <y>2280</y>
       <w>20</w>
       <h>350</h>
@@ -2716,7 +2680,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2520</x>
+      <x>2570</x>
       <y>2230</y>
       <w>30</w>
       <h>70</h>
@@ -2727,7 +2691,7 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2530</x>
+      <x>2580</x>
       <y>2430</y>
       <w>350</w>
       <h>40</h>
@@ -2739,7 +2703,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2530</x>
+      <x>2580</x>
       <y>2460</y>
       <w>350</w>
       <h>40</h>
@@ -2751,7 +2715,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2860</x>
+      <x>2910</x>
       <y>2480</y>
       <w>30</w>
       <h>50</h>
@@ -2762,7 +2726,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2270</x>
+      <x>2320</x>
       <y>2480</y>
       <w>270</w>
       <h>40</h>
@@ -2774,7 +2738,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1360</x>
+      <x>1410</x>
       <y>2520</y>
       <w>270</w>
       <h>40</h>
@@ -2786,7 +2750,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1250</x>
+      <x>1300</x>
       <y>0</y>
       <w>1430</w>
       <h>770</h>
@@ -2797,7 +2761,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1240</x>
+      <x>1290</x>
       <y>800</y>
       <w>1440</w>
       <h>700</h>
@@ -2808,7 +2772,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>2160</x>
+      <x>2210</x>
       <y>2110</y>
       <w>820</w>
       <h>660</h>
@@ -2819,10 +2783,10 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>100</x>
-      <y>690</y>
+      <x>150</x>
+      <y>560</y>
       <w>1050</w>
-      <h>640</h>
+      <h>770</h>
     </coordinates>
     <panel_attributes>Use case "Assign User to Activity" Scenario "Peak performing User  is assigned to an activity"</panel_attributes>
     <additional_attributes/>
@@ -2830,7 +2794,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>110</x>
+      <x>160</x>
       <y>1350</y>
       <w>1050</w>
       <h>560</h>
@@ -2841,7 +2805,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>30</x>
+      <x>80</x>
       <y>1960</y>
       <w>520</w>
       <h>420</h>
@@ -2852,7 +2816,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>610</x>
+      <x>660</x>
       <y>2000</y>
       <w>520</w>
       <h>420</h>
@@ -2863,7 +2827,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1310</x>
+      <x>1360</x>
       <y>1510</y>
       <w>570</w>
       <h>460</h>
@@ -2874,7 +2838,7 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1960</x>
+      <x>2010</x>
       <y>1530</y>
       <w>570</w>
       <h>460</h>
@@ -2885,12 +2849,85 @@ containsActivity(activity)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1250</x>
+      <x>1300</x>
       <y>2100</y>
       <w>820</w>
       <h>660</h>
     </coordinates>
     <panel_attributes>Use case "Assign User to Activity" Scenario "User is already in activity in given project"</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1060</x>
+      <y>990</y>
+      <w>20</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>layer=2
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>1010</y>
+      <w>330</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+weeks</panel_attributes>
+    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>1060</y>
+      <w>20</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>layer=1
+transparency=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>1040</y>
+      <w>310</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+assignedActivites(weeks)&lt;=20</panel_attributes>
+    <additional_attributes>20.0;30.0;100.0;30.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>1070</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+  true</panel_attributes>
+    <additional_attributes>10.0;30.0;100.0;30.0;100.0;10.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1100</y>
+      <w>330</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+  true</panel_attributes>
+    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
   </element>
 </diagram>
