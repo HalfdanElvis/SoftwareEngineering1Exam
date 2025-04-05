@@ -1,5 +1,5 @@
 Feature: Log hours
-	Description: User can log, see and rearrange hours spent on activities
+	Description: User can log, see and edit hours spent on activities
 	Actors: User
 
 Background:
