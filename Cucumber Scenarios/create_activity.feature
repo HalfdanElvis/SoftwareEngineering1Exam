@@ -2,42 +2,42 @@ Feature: Create activity
 	Description: A user creates a new activity
 	Actors: User, project leader
 
-Scenario: A user creates an activity
- 	When a user creates an with name "Holidays"
- 	Then an activity with name "Holidays"
-
-Scenario: A user creates an activity that already exists
-    Given an activity "Data Refinement" exists
- 	When a user creates a activity "Data Refinement"
- 	Then the error message "Activity already exists"
-
-Scenario: A user creates an activity that already exists in a project
- 	Given that there exists a project
-    And the project does not have a project leader
-    And the project contains an activity "Data Refinement"
- 	When a user creates a activity "Data Refinement" in the project
- 	Then the error message "Activity already exists in project"
+Background:
+	Given that a user "huba" is logged in
 
 Scenario: A user creates an activity in a project
- 	Given that there exists a project
+ 	Given that there exists a project "projectX"
     And the project does not have a project leader
- 	When a user creates a activity "Data Refinement" in the project
+ 	When the user creates an activity "Data Refinement" in the project
  	Then the project contains an activity "Data Refinement"
- 	
-Scenario: A user fails to create an activity in a project
- 	Given that there exists a project
+
+Scenario: A user creates an activity that already exists in a project
+ 	Given that there exists a project "projectX"
+    And the project does not have a project leader
+    And the project contains an activity "Data Refinement"
+ 	When the user creates an activity "Data Refinement" in the project
+ 	Then the error message "Activity already exists in project"
+
+Scenario: A user fails to create an activity in a project with a project leader
+ 	Given that there exists a project "projectX"
     And the project has a project leader
-    And a user "huba" exists
     And the user is not the project leader
- 	When a user creates a activity "Data Refinement" in the project
- 	Then the error message "Only the project leader can create an activity"
+ 	When the user creates a activity "Data Refinement" in the project
+ 	Then the error message "Only the project leader can create an activity" is given
  	
 Scenario: A project leader creates an activity in a project
- 	Given that there exists a project
-    And the has a project leader
-    And a user "huba" exists
+ 	Given that there exists a project "projectX"
+    And the project has a project leader
     And the user is the project leader
- 	When a user creates a activity "Data Refinement" in the project
+ 	When the user creates a activity "Data Refinement" in the project
  	Then the project contains an activity "Data Refinement"
  	
+Scenario: A user creates a special activity
+	And the user is assigned to 0 activities in week 5 in the year 2025
+ 	When the user creates a special activity "Holidays" in week 5 of the year 2025
+ 	Then the user is assigned to the special activity "Holidays"
 
+Scenario: A user tries to create a special activity that overlaps with other activities
+	And the user is assigned to 1 activities in week 5 in the year 2025
+	When the user creates a special activity "Holidays" in week 5 of the year 2025
+ 	Then the error message "Special activities cannot overlap with other activities" is given
