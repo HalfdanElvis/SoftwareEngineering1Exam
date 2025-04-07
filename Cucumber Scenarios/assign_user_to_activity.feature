@@ -25,7 +25,7 @@ Scenario: A user is already assigned an activity
 Scenario: A user is assigned their 11th activity
     And the user is assigned 10 activities in week 10 in the year 2025
     When the user is assigned the activity
-    Then the error message "User haso many activities" is given
+    Then the error message "User has too many activities" is given
 
 Scenario: A peak user is assigned their 11th activity
     And the user is assigned 10 activities in week 10 in the year 2025
@@ -38,4 +38,4 @@ Scenario: A peak user is assigned their 21st activity
     And the user is peak
     And the user is assigned 20 activities in week 10 in the year 2025
     When the user is assigned the activity
-    Then the error message "User has many activities" is given
+    Then the error message "User has too many activities" is given

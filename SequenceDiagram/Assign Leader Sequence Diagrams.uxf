@@ -72,12 +72,12 @@ assignLeader(e1, p1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>27</x>
+      <x>45</x>
       <y>27</y>
-      <w>99</w>
+      <w>63</w>
       <h>99</h>
     </coordinates>
-    <panel_attributes>Employee : e1</panel_attributes>
+    <panel_attributes>User : e1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -267,12 +267,12 @@ assignLeader(e1, p1)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>27</x>
+      <x>45</x>
       <y>387</y>
-      <w>99</w>
+      <w>63</w>
       <h>99</h>
     </coordinates>
-    <panel_attributes>Employee : e1</panel_attributes>
+    <panel_attributes>User : e1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -539,7 +539,7 @@ Error: "Only project leader can change project leader"</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-assignLeader(e1, p1)</panel_attributes>
+assignLeader(e2, p1)</panel_attributes>
     <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -558,10 +558,10 @@ assignLeader(e1, p1)</panel_attributes>
     <coordinates>
       <x>27</x>
       <y>792</y>
-      <w>99</w>
+      <w>117</w>
       <h>99</h>
     </coordinates>
-    <panel_attributes>Employee : e1</panel_attributes>
+    <panel_attributes>Project leader : e1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -629,7 +629,7 @@ isLeader(e1)</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-assignLeader(e1)</panel_attributes>
+assignLeader(e2)</panel_attributes>
     <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -771,7 +771,7 @@ true</panel_attributes>
       <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-setProjectLeader(e1)</panel_attributes>
+setProjectLeader(e2)</panel_attributes>
     <additional_attributes>10.0;30.0;40.0;30.0;40.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
