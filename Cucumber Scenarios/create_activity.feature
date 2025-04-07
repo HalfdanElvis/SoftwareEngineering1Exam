@@ -7,14 +7,14 @@ Background:
 
 Scenario: A user creates an activity in a project
  	Given that there exists a project "projectX" with project ID 25001
-    	And the project does not have a project leader
+    And the project does not have a project leader
  	When the user creates an activity "Data Refinement" in the project
  	Then the project contains an activity "Data Refinement"
 
 Scenario: A user creates an activity that already exists in a project
  	Given that there exists a project "projectX"
-    	And the project does not have a project leader
-    	And the project contains an activity "Data Refinement"
+    And the project does not have a project leader
+    And the project contains an activity "Data Refinement"
  	When the user creates an activity "Data Refinement" in the project
  	Then the error message "Activity already exists in project"
 
