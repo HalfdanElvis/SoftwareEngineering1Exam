@@ -10,7 +10,7 @@ Scenario: Project leader generates a report
 	And an activity "activity1" exists
 	And the user is the project leader on the project
 	And the project contains the activity
-	And the activity's has an expected time of 80 hours
+	And the activity has an expected time of 80 hours
 	And the activity's total worked hours is 57
 	When the user generates a report
 	Then the report returned is "57/80 hours worked on activity 1\n 57/80 hours worked in total"
