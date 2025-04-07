@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>451</x>
-      <y>352</y>
+      <y>286</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -16,7 +16,7 @@
     <id>Relation</id>
     <coordinates>
       <x>297</x>
-      <y>440</y>
+      <y>374</y>
       <w>220</w>
       <h>44</h>
     </coordinates>
@@ -28,7 +28,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>495</x>
-      <y>374</y>
+      <y>308</y>
       <w>33</w>
       <h>110</h>
     </coordinates>
@@ -39,9 +39,9 @@ createActivity(a1)</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>0</x>
-      <y>275</y>
+      <y>209</y>
       <w>737</w>
-      <h>550</h>
+      <h>517</h>
     </coordinates>
     <panel_attributes>Use case "Create activity" scenario "A user creates an activity in project"</panel_attributes>
     <additional_attributes/>
@@ -50,7 +50,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>495</x>
-      <y>462</y>
+      <y>396</y>
       <w>22</w>
       <h>286</h>
     </coordinates>
@@ -61,7 +61,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>0</x>
-      <y>99</y>
+      <y>33</y>
       <w>583</w>
       <h>165</h>
     </coordinates>
@@ -76,7 +76,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>242</x>
-      <y>352</y>
+      <y>286</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -87,7 +87,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>286</x>
-      <y>374</y>
+      <y>308</y>
       <w>33</w>
       <h>88</h>
     </coordinates>
@@ -98,7 +98,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>286</x>
-      <y>440</y>
+      <y>374</y>
       <w>22</w>
       <h>319</h>
     </coordinates>
@@ -109,7 +109,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>55</x>
-      <y>418</y>
+      <y>352</y>
       <w>253</w>
       <h>44</h>
     </coordinates>
@@ -121,7 +121,7 @@ createActivity(p1, a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>506</x>
-      <y>495</y>
+      <y>429</y>
       <w>22</w>
       <h>44</h>
     </coordinates>
@@ -135,7 +135,7 @@ transparency=0
     <id>Relation</id>
     <coordinates>
       <x>506</x>
-      <y>462</y>
+      <y>396</y>
       <w>220</w>
       <h>55</h>
     </coordinates>
@@ -147,7 +147,7 @@ projectLeaderExists()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>506</x>
-      <y>528</y>
+      <y>462</y>
       <w>121</w>
       <h>55</h>
     </coordinates>
@@ -156,62 +156,48 @@ false</panel_attributes>
     <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>506</x>
-      <y>693</y>
-      <w>22</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>
-layer=1
-transparency=0
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>506</x>
-      <y>660</y>
+      <y>594</y>
       <w>198</w>
       <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 createActivity(a1)</panel_attributes>
-    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>506</x>
-      <y>627</y>
-      <w>121</w>
-      <h>55</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-false</panel_attributes>
-    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>506</x>
-      <y>594</y>
-      <w>22</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>
-layer=1
-transparency=0
-</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>506</x>
       <y>561</y>
+      <w>121</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+false</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>506</x>
+      <y>528</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>506</x>
+      <y>495</y>
       <w>209</w>
       <h>55</h>
     </coordinates>
@@ -223,7 +209,7 @@ containsActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>781</x>
-      <y>88</y>
+      <y>22</y>
       <w>583</w>
       <h>165</h>
     </coordinates>
@@ -239,7 +225,7 @@ containsActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1287</x>
-      <y>352</y>
+      <y>286</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -250,7 +236,7 @@ containsActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1078</x>
-      <y>440</y>
+      <y>374</y>
       <w>275</w>
       <h>44</h>
     </coordinates>
@@ -262,20 +248,21 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1331</x>
-      <y>374</y>
+      <y>308</y>
       <w>33</w>
-      <h>110</h>
+      <h>352</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <panel_attributes>lt=.
+layer=-1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;300.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
       <x>748</x>
-      <y>275</y>
+      <y>209</y>
       <w>814</w>
-      <h>550</h>
+      <h>440</h>
     </coordinates>
     <panel_attributes>Use case "Create activity" scenario "A user creates an activity that already exists in project"</panel_attributes>
     <additional_attributes/>
@@ -284,18 +271,19 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1331</x>
-      <y>462</y>
+      <y>396</y>
       <w>22</w>
       <h>220</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>layer=1
+transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1023</x>
-      <y>352</y>
+      <y>286</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -306,7 +294,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1067</x>
-      <y>374</y>
+      <y>308</y>
       <w>33</w>
       <h>88</h>
     </coordinates>
@@ -317,18 +305,19 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1067</x>
-      <y>440</y>
+      <y>374</y>
       <w>22</w>
       <h>253</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>layer=1
+transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>781</x>
-      <y>418</y>
+      <y>352</y>
       <w>308</w>
       <h>44</h>
     </coordinates>
@@ -340,12 +329,12 @@ createActivity(p1, a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1342</x>
-      <y>495</y>
+      <y>429</y>
       <w>22</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>
-layer=1
+layer=2
 transparency=0
 </panel_attributes>
     <additional_attributes/>
@@ -354,7 +343,7 @@ transparency=0
     <id>Relation</id>
     <coordinates>
       <x>1342</x>
-      <y>462</y>
+      <y>396</y>
       <w>220</w>
       <h>55</h>
     </coordinates>
@@ -366,7 +355,7 @@ projectLeaderExists()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1342</x>
-      <y>528</y>
+      <y>462</y>
       <w>121</w>
       <h>55</h>
     </coordinates>
@@ -378,7 +367,7 @@ false</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1342</x>
-      <y>627</y>
+      <y>561</y>
       <w>110</w>
       <h>55</h>
     </coordinates>
@@ -390,12 +379,12 @@ true</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1342</x>
-      <y>594</y>
+      <y>528</y>
       <w>22</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>
-layer=1
+layer=2
 transparency=0
 </panel_attributes>
     <additional_attributes/>
@@ -404,7 +393,7 @@ transparency=0
     <id>Relation</id>
     <coordinates>
       <x>1342</x>
-      <y>561</y>
+      <y>495</y>
       <w>209</w>
       <h>55</h>
     </coordinates>
@@ -416,7 +405,7 @@ containsActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1078</x>
-      <y>660</y>
+      <y>594</y>
       <w>286</w>
       <h>44</h>
     </coordinates>
@@ -428,7 +417,7 @@ Error</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>781</x>
-      <y>671</y>
+      <y>605</y>
       <w>319</w>
       <h>44</h>
     </coordinates>
@@ -440,7 +429,7 @@ Error</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1529</x>
-      <y>88</y>
+      <y>22</y>
       <w>583</w>
       <h>165</h>
     </coordinates>
@@ -456,7 +445,7 @@ Error</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>2277</x>
-      <y>352</y>
+      <y>286</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -467,7 +456,7 @@ Error</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1969</x>
-      <y>440</y>
+      <y>374</y>
       <w>374</w>
       <h>44</h>
     </coordinates>
@@ -479,7 +468,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2321</x>
-      <y>374</y>
+      <y>308</y>
       <w>33</w>
       <h>110</h>
     </coordinates>
@@ -490,7 +479,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>1573</x>
-      <y>275</y>
+      <y>209</y>
       <w>979</w>
       <h>550</h>
     </coordinates>
@@ -501,7 +490,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>2321</x>
-      <y>462</y>
+      <y>396</y>
       <w>22</w>
       <h>220</h>
     </coordinates>
@@ -512,7 +501,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1914</x>
-      <y>352</y>
+      <y>286</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -523,7 +512,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1958</x>
-      <y>374</y>
+      <y>308</y>
       <w>33</w>
       <h>88</h>
     </coordinates>
@@ -534,7 +523,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1958</x>
-      <y>440</y>
+      <y>374</y>
       <w>22</w>
       <h>253</h>
     </coordinates>
@@ -545,7 +534,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1606</x>
-      <y>418</y>
+      <y>352</y>
       <w>374</w>
       <h>44</h>
     </coordinates>
@@ -557,7 +546,7 @@ createActivity(ID, a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>2332</x>
-      <y>495</y>
+      <y>429</y>
       <w>22</w>
       <h>44</h>
     </coordinates>
@@ -571,7 +560,7 @@ transparency=0
     <id>Relation</id>
     <coordinates>
       <x>2332</x>
-      <y>462</y>
+      <y>396</y>
       <w>220</w>
       <h>55</h>
     </coordinates>
@@ -583,7 +572,7 @@ projectLeaderExists()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2332</x>
-      <y>528</y>
+      <y>462</y>
       <w>110</w>
       <h>55</h>
     </coordinates>
@@ -595,7 +584,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1969</x>
-      <y>660</y>
+      <y>594</y>
       <w>385</w>
       <h>44</h>
     </coordinates>
@@ -607,7 +596,7 @@ Error</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1606</x>
-      <y>671</y>
+      <y>605</y>
       <w>385</w>
       <h>44</h>
     </coordinates>
@@ -619,7 +608,7 @@ Error</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2332</x>
-      <y>627</y>
+      <y>561</y>
       <w>121</w>
       <h>55</h>
     </coordinates>
@@ -631,7 +620,7 @@ false</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>2332</x>
-      <y>594</y>
+      <y>528</y>
       <w>22</w>
       <h>44</h>
     </coordinates>
@@ -645,7 +634,7 @@ transparency=0
     <id>Relation</id>
     <coordinates>
       <x>2332</x>
-      <y>561</y>
+      <y>495</y>
       <w>165</w>
       <h>55</h>
     </coordinates>
@@ -657,7 +646,7 @@ isLeader(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>2805</x>
-      <y>66</y>
+      <y>0</y>
       <w>583</w>
       <h>165</h>
     </coordinates>
@@ -673,7 +662,7 @@ isLeader(a1)</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>2794</x>
-      <y>297</y>
+      <y>231</y>
       <w>88</w>
       <h>121</h>
     </coordinates>
@@ -684,7 +673,7 @@ isLeader(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>2827</x>
-      <y>418</y>
+      <y>352</y>
       <w>22</w>
       <h>363</h>
     </coordinates>
@@ -695,7 +684,7 @@ isLeader(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>3212</x>
-      <y>341</y>
+      <y>275</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -706,7 +695,7 @@ isLeader(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>3080</x>
-      <y>440</y>
+      <y>374</y>
       <w>198</w>
       <h>44</h>
     </coordinates>
@@ -718,7 +707,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>3256</x>
-      <y>363</y>
+      <y>297</y>
       <w>33</w>
       <h>121</h>
     </coordinates>
@@ -729,7 +718,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>2805</x>
-      <y>264</y>
+      <y>198</y>
       <w>759</w>
       <h>550</h>
     </coordinates>
@@ -740,7 +729,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>3256</x>
-      <y>462</y>
+      <y>396</y>
       <w>22</w>
       <h>297</h>
     </coordinates>
@@ -751,7 +740,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>3025</x>
-      <y>341</y>
+      <y>275</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -762,7 +751,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>3069</x>
-      <y>363</y>
+      <y>297</y>
       <w>33</w>
       <h>99</h>
     </coordinates>
@@ -773,7 +762,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>3069</x>
-      <y>440</y>
+      <y>374</y>
       <w>22</w>
       <h>330</h>
     </coordinates>
@@ -784,7 +773,7 @@ createActivity(a1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2838</x>
-      <y>418</y>
+      <y>352</y>
       <w>253</w>
       <h>44</h>
     </coordinates>
@@ -796,6 +785,56 @@ createActivity(ID, a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>4114</x>
+      <y>462</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4114</x>
+      <y>429</y>
+      <w>308</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+isAvailable(e1, calendar, calendar)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4114</x>
+      <y>495</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+true</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3267</x>
+      <y>561</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+true</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3267</x>
       <y>528</y>
       <w>22</w>
       <h>44</h>
@@ -809,58 +848,8 @@ transparency=0
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>4114</x>
+      <x>3267</x>
       <y>495</y>
-      <w>308</w>
-      <h>55</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-isAvailable(e1, calendar, calendar)</panel_attributes>
-    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>4114</x>
-      <y>561</y>
-      <w>110</w>
-      <h>55</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-true</panel_attributes>
-    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3267</x>
-      <y>627</y>
-      <w>110</w>
-      <h>55</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-true</panel_attributes>
-    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>3267</x>
-      <y>594</y>
-      <w>22</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>
-layer=1
-transparency=0
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3267</x>
-      <y>561</y>
       <w>165</w>
       <h>55</h>
     </coordinates>
@@ -872,7 +861,7 @@ isLeader(e1)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>3267</x>
-      <y>660</y>
+      <y>594</y>
       <w>198</w>
       <h>55</h>
     </coordinates>
@@ -884,7 +873,7 @@ createActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>3267</x>
-      <y>693</y>
+      <y>627</y>
       <w>22</w>
       <h>44</h>
     </coordinates>
@@ -898,7 +887,7 @@ transparency=0
     <id>UMLFrame</id>
     <coordinates>
       <x>3663</x>
-      <y>330</y>
+      <y>264</y>
       <w>781</w>
       <h>429</h>
     </coordinates>
@@ -909,7 +898,7 @@ transparency=0
     <id>UMLGeneric</id>
     <coordinates>
       <x>4059</x>
-      <y>407</y>
+      <y>341</y>
       <w>110</w>
       <h>33</h>
     </coordinates>
@@ -920,7 +909,7 @@ transparency=0
     <id>Relation</id>
     <coordinates>
       <x>4103</x>
-      <y>429</y>
+      <y>363</y>
       <w>33</w>
       <h>88</h>
     </coordinates>
@@ -931,7 +920,7 @@ transparency=0
     <id>UMLGeneric</id>
     <coordinates>
       <x>4103</x>
-      <y>495</y>
+      <y>429</y>
       <w>22</w>
       <h>198</h>
     </coordinates>
@@ -942,7 +931,7 @@ transparency=0
     <id>Relation</id>
     <coordinates>
       <x>3696</x>
-      <y>473</y>
+      <y>407</y>
       <w>429</w>
       <h>44</h>
     </coordinates>
@@ -954,7 +943,7 @@ createSpecialActivity(a1, calendar, calendar)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>4114</x>
-      <y>605</y>
+      <y>539</y>
       <w>242</w>
       <h>55</h>
     </coordinates>
@@ -966,7 +955,33 @@ createSpecialActivity(a1)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>4114</x>
-      <y>638</y>
+      <y>572</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3267</x>
+      <y>396</y>
+      <w>220</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+projectLeaderExists()</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3267</x>
+      <y>429</y>
       <w>22</w>
       <h>44</h>
     </coordinates>
@@ -981,32 +996,6 @@ transparency=0
     <coordinates>
       <x>3267</x>
       <y>462</y>
-      <w>220</w>
-      <h>55</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-projectLeaderExists()</panel_attributes>
-    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>3267</x>
-      <y>495</y>
-      <w>22</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>
-layer=1
-transparency=0
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3267</x>
-      <y>528</y>
       <w>110</w>
       <h>55</h>
     </coordinates>
@@ -1018,7 +1007,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2827</x>
-      <y>385</y>
+      <y>319</y>
       <w>33</w>
       <h>55</h>
     </coordinates>
@@ -1029,7 +1018,7 @@ true</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>3652</x>
-      <y>363</y>
+      <y>297</y>
       <w>88</w>
       <h>121</h>
     </coordinates>
@@ -1040,7 +1029,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>3685</x>
-      <y>451</y>
+      <y>385</y>
       <w>33</w>
       <h>55</h>
     </coordinates>
@@ -1051,7 +1040,7 @@ true</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>3685</x>
-      <y>484</y>
+      <y>418</y>
       <w>22</w>
       <h>253</h>
     </coordinates>
@@ -1062,7 +1051,7 @@ true</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>1562</x>
-      <y>308</y>
+      <y>242</y>
       <w>88</w>
       <h>121</h>
     </coordinates>
@@ -1073,7 +1062,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1595</x>
-      <y>396</y>
+      <y>330</y>
       <w>33</w>
       <h>55</h>
     </coordinates>
@@ -1084,9 +1073,9 @@ true</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1595</x>
-      <y>429</y>
+      <y>363</y>
       <w>22</w>
-      <h>363</h>
+      <h>275</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1095,7 +1084,7 @@ true</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>737</x>
-      <y>308</y>
+      <y>242</y>
       <w>88</w>
       <h>121</h>
     </coordinates>
@@ -1106,29 +1095,32 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>770</x>
-      <y>396</y>
+      <y>330</y>
       <w>33</w>
-      <h>55</h>
+      <h>341</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+    <panel_attributes>lt=.
+layer=0
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;290.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>770</x>
-      <y>429</y>
+      <y>363</y>
       <w>22</w>
-      <h>363</h>
+      <h>275</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>layer=1
+transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
       <x>11</x>
-      <y>308</y>
+      <y>242</y>
       <w>88</w>
       <h>121</h>
     </coordinates>
@@ -1139,7 +1131,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>44</x>
-      <y>396</y>
+      <y>330</y>
       <w>33</w>
       <h>55</h>
     </coordinates>
@@ -1150,9 +1142,9 @@ true</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>44</x>
-      <y>429</y>
+      <y>363</y>
       <w>22</w>
-      <h>363</h>
+      <h>352</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1161,7 +1153,7 @@ true</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>3663</x>
-      <y>132</y>
+      <y>66</y>
       <w>583</w>
       <h>165</h>
     </coordinates>
@@ -1175,7 +1167,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>55</x>
-      <y>737</y>
+      <y>671</y>
       <w>264</w>
       <h>44</h>
     </coordinates>
@@ -1187,7 +1179,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>297</x>
-      <y>726</y>
+      <y>660</y>
       <w>231</w>
       <h>44</h>
     </coordinates>
@@ -1199,7 +1191,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>3080</x>
-      <y>737</y>
+      <y>671</y>
       <w>209</w>
       <h>44</h>
     </coordinates>
@@ -1211,7 +1203,7 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2838</x>
-      <y>748</y>
+      <y>682</y>
       <w>264</w>
       <h>44</h>
     </coordinates>
@@ -1223,12 +1215,57 @@ true</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>3696</x>
-      <y>671</y>
+      <y>605</y>
       <w>440</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 "Special activity a1 created and user e1 is assigned"</panel_attributes>
     <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>671</y>
+      <w>33</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>286</x>
+      <y>682</y>
+      <w>33</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>44</x>
+      <y>704</y>
+      <w>33</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>88</y>
+      <w>33</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>layer=1
+transparency=0</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
 </diagram>
