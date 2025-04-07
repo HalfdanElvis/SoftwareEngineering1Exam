@@ -33,11 +33,11 @@ Scenario: A project leader creates an activity in a project
  	Then the project contains an activity "Data Refinement"
  	
 Scenario: A user creates a special activity
-	And the user is assigned to 0 activities in week 5 in the year 2025
+	And the user is assigned 0 activities in week 5 in the year 2025
  	When the user creates a special activity "Holidays" in week 5 of the year 2025
  	Then the user is assigned to the special activity "Holidays"
 
 Scenario: A user tries to create a special activity that overlaps with other activities
-	And the user is assigned to 1 activities in week 5 in the year 2025
+	And the user is assigned 1 activities in week 5 in the year 2025
 	When the user creates a special activity "Holidays" in week 5 of the year 2025
  	Then the error message "Special activities cannot overlap with other activities" is given
