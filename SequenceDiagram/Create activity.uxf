@@ -1,148 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>12</zoom_level>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>72</x>
-      <y>360</y>
-      <w>72</w>
-      <h>132</h>
-    </coordinates>
-    <panel_attributes>User</panel_attributes>
-    <additional_attributes/>
-  </element>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>96</x>
-      <y>480</y>
-      <w>24</w>
-      <h>192</h>
+      <x>451</x>
+      <y>286</y>
+      <w>110</w>
+      <h>33</h>
     </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>300</x>
-      <y>408</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Activity</panel_attributes>
+    <panel_attributes>Project: p1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>108</x>
-      <y>480</y>
-      <w>264</w>
-      <h>48</h>
+      <x>297</x>
+      <y>374</y>
+      <w>220</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-createActivity(Holidays)</panel_attributes>
-    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+createActivity(a1)</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>108</x>
-      <y>600</y>
-      <w>276</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-activity(Holidays)</panel_attributes>
-    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>348</x>
-      <y>432</y>
-      <w>36</w>
-      <h>96</h>
+      <x>495</x>
+      <y>308</y>
+      <w>33</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>48</x>
-      <y>324</y>
-      <w>636</w>
-      <h>360</h>
+      <x>0</x>
+      <y>209</y>
+      <w>737</w>
+      <h>550</h>
     </coordinates>
-    <panel_attributes>Use case "Create activity" scenario "A user creates an activity"</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>720</x>
-      <y>324</y>
-      <w>696</w>
-      <h>384</h>
-    </coordinates>
-    <panel_attributes>Use case "Crate activity" scenario "A user creates an activity that already exists</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>744</x>
-      <y>360</y>
-      <w>72</w>
-      <h>132</h>
-    </coordinates>
-    <panel_attributes>User</panel_attributes>
+    <panel_attributes>Use case "Create activity" scenario "A user creates an activity in project"</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>768</x>
-      <y>480</y>
-      <w>24</w>
-      <h>192</h>
+      <x>495</x>
+      <y>396</y>
+      <w>22</w>
+      <h>286</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>780</x>
-      <y>480</y>
-      <w>300</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-createActivity(Data Refinement)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1056</x>
-      <y>504</y>
-      <w>24</w>
-      <h>144</h>
+      <x>0</x>
+      <y>33</y>
+      <w>583</w>
+      <h>165</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>Scenario: A user creates an activity in a project
+ 	Given that there exists a project "projectX" with project ID 25001
+    And the project does not have a project leader
+ 	When the user creates an activity "Data Refinement" in the project
+ 	Then the project contains an activity "Data Refinement"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>242</x>
+      <y>286</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Application</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1056</x>
-      <y>432</y>
-      <w>36</w>
-      <h>96</h>
+      <x>286</x>
+      <y>308</y>
+      <w>33</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -150,21 +97,33 @@ createActivity(Data Refinement)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1008</x>
-      <y>408</y>
-      <w>120</w>
-      <h>36</h>
+      <x>286</x>
+      <y>374</y>
+      <w>22</w>
+      <h>319</h>
     </coordinates>
-    <panel_attributes>Activity</panel_attributes>
+    <panel_attributes/>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>55</x>
+      <y>352</y>
+      <w>253</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(p1, a1)</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1068</x>
-      <y>564</y>
-      <w>24</w>
-      <h>48</h>
+      <x>506</x>
+      <y>429</y>
+      <w>22</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>
 layer=1
@@ -175,46 +134,72 @@ transparency=0
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1068</x>
+      <x>506</x>
+      <y>396</y>
+      <w>220</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+projectLeaderExists()</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>506</x>
+      <y>462</y>
+      <w>121</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+false</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>506</x>
+      <y>627</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>506</x>
+      <y>594</y>
+      <w>198</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(a1)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>506</x>
+      <y>561</y>
+      <w>121</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+false</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>506</x>
       <y>528</y>
-      <w>348</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-activityExists(Data Refinement)</panel_attributes>
-    <additional_attributes>20.0;40.0;80.0;40.0;80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1068</x>
-      <y>588</y>
-      <w>168</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-True</panel_attributes>
-    <additional_attributes>10.0;40.0;90.0;40.0;90.0;10.0;20.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>780</x>
-      <y>624</y>
-      <w>312</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-getErrormessage</panel_attributes>
-    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>360</x>
-      <y>540</y>
-      <w>24</w>
-      <h>48</h>
+      <w>22</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>
 layer=1
@@ -225,797 +210,1178 @@ transparency=0
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>504</y>
-      <w>288</w>
-      <h>72</h>
+      <x>506</x>
+      <y>495</y>
+      <w>209</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-activityExists(Holidays)</panel_attributes>
-    <additional_attributes>20.0;40.0;80.0;40.0;80.0;10.0;10.0;10.0</additional_attributes>
+containsActivity(a1)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>348</x>
-      <y>504</y>
-      <w>24</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>360</x>
-      <y>564</y>
-      <w>168</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-False</panel_attributes>
-    <additional_attributes>10.0;40.0;90.0;40.0;90.0;10.0;20.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>360</x>
-      <y>1164</y>
-      <w>360</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-activityExistsInProject(Data Refinement)</panel_attributes>
-    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>348</x>
-      <y>1164</y>
-      <w>24</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>300</x>
-      <y>1068</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Activity</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>348</x>
-      <y>1092</y>
-      <w>36</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>72</x>
-      <y>1140</y>
-      <w>300</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-createActivity(Data Refinement)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>60</x>
-      <y>1140</y>
-      <w>24</w>
-      <h>168</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>72</x>
-      <y>1260</y>
-      <w>312</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-getErrormessage</panel_attributes>
-    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>48</x>
-      <y>984</y>
-      <w>732</w>
-      <h>348</h>
-    </coordinates>
-    <panel_attributes>Use case "Crate activity" scenario "A user creates an activity that already exists in a project</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>36</x>
-      <y>1020</y>
-      <w>72</w>
-      <h>132</h>
-    </coordinates>
-    <panel_attributes>User</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>648</x>
-      <y>1068</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Project</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>696</x>
-      <y>1092</y>
-      <w>36</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>696</x>
-      <y>1188</y>
-      <w>24</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>360</x>
-      <y>1236</y>
-      <w>372</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-True</panel_attributes>
-    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1440</x>
-      <y>1068</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Project</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1488</x>
-      <y>1092</y>
-      <w>36</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1488</x>
-      <y>1188</y>
-      <w>24</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1152</x>
-      <y>1164</y>
-      <w>360</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-activityExistsInProject(Data Refinement)</panel_attributes>
-    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1152</x>
-      <y>1236</y>
-      <w>372</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-False</panel_attributes>
-    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1140</x>
-      <y>1164</y>
-      <w>24</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1140</x>
-      <y>1092</y>
-      <w>36</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1092</x>
-      <y>1068</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Activity</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>864</x>
-      <y>1140</y>
-      <w>300</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-createActivity(Data Refinement)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>828</x>
-      <y>984</y>
-      <w>768</w>
-      <h>348</h>
-    </coordinates>
-    <panel_attributes>Use case "Crate activity" scenario "A user creates an activity in a project</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>864</x>
-      <y>1260</y>
-      <w>312</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-activity(Data Refinement)</panel_attributes>
-    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>852</x>
-      <y>1140</y>
-      <w>24</w>
-      <h>168</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>828</x>
-      <y>1020</y>
-      <w>72</w>
-      <h>132</h>
-    </coordinates>
-    <panel_attributes>User</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>744</x>
-      <y>1668</y>
-      <w>36</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>696</x>
-      <y>1644</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Project</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>744</x>
-      <y>1764</y>
-      <w>24</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>420</x>
-      <y>1740</y>
-      <w>348</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-userCreatesActivity(huba)</panel_attributes>
-    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>420</x>
-      <y>1836</y>
-      <w>360</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-setErrorMessage</panel_attributes>
-    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>408</x>
-      <y>1740</y>
-      <w>24</w>
-      <h>156</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>360</x>
-      <y>1644</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Activity</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>408</x>
-      <y>1668</y>
-      <w>36</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>84</x>
-      <y>1872</y>
-      <w>360</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-getErrorMessage</panel_attributes>
-    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>48</x>
-      <y>1560</y>
-      <w>996</w>
-      <h>384</h>
-    </coordinates>
-    <panel_attributes>Use case "Crate activity" scenario "A user fails to create an activity in a project</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>84</x>
-      <y>1716</y>
-      <w>348</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-createActivity(Data Refinement, huba)</panel_attributes>
-    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>72</x>
-      <y>1716</y>
-      <w>24</w>
-      <h>204</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>48</x>
-      <y>1596</y>
-      <w>72</w>
-      <h>132</h>
-    </coordinates>
-    <panel_attributes>User</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>756</x>
-      <y>1764</y>
-      <w>300</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-userIsProjectLeader(huba)</panel_attributes>
-    <additional_attributes>20.0;30.0;70.0;30.0;70.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>756</x>
-      <y>1788</y>
-      <w>24</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>
-layer=1
-transparency=0
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>756</x>
-      <y>1812</y>
-      <w>120</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-False</panel_attributes>
-    <additional_attributes>10.0;30.0;50.0;30.0;50.0;10.0;20.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1800</x>
-      <y>1764</y>
-      <w>300</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-userIsProjectLeader(huba)</panel_attributes>
-    <additional_attributes>20.0;30.0;70.0;30.0;70.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1800</x>
-      <y>1812</y>
-      <w>120</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-True</panel_attributes>
-    <additional_attributes>10.0;30.0;50.0;30.0;50.0;10.0;20.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1800</x>
-      <y>1788</y>
-      <w>24</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>
-layer=1
-transparency=0
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1788</x>
-      <y>1764</y>
-      <w>24</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1788</x>
-      <y>1668</y>
-      <w>36</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1740</x>
-      <y>1644</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Project</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1512</x>
-      <y>1740</y>
-      <w>300</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-userCreatesActivity(huba)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1512</x>
-      <y>1836</y>
-      <w>312</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-True</panel_attributes>
-    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1500</x>
-      <y>1740</y>
-      <w>24</w>
-      <h>156</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1452</x>
-      <y>1644</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Activity</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1500</x>
-      <y>1668</y>
-      <w>36</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>1080</x>
-      <y>1560</y>
-      <w>1008</w>
-      <h>384</h>
-    </coordinates>
-    <panel_attributes>Use case "Crate activity" scenario "A project leader creates an activity in a project</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1176</x>
-      <y>1716</y>
-      <w>348</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-createActivity(Data Refinement, huba)</panel_attributes>
-    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1164</x>
-      <y>1716</y>
-      <w>24</w>
-      <h>204</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1176</x>
-      <y>1872</y>
-      <w>360</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-activity(Data Refinement)</panel_attributes>
-    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>1140</x>
-      <y>1596</y>
-      <w>72</w>
-      <h>132</h>
-    </coordinates>
-    <panel_attributes>User</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>48</x>
-      <y>132</y>
-      <w>636</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>Scenario: A user creates an activity
- 	When a user creates an with name "Holidays"
- 	Then an activity with name "Holidays"
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>720</x>
-      <y>132</y>
-      <w>696</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>Scenario: A user creates an activity that already exists
-    Given an activity "Data Refinement" exists
- 	When a user creates a activity "Data Refinement"
- 	Then the error message "Activity already exists"
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>48</x>
-      <y>780</y>
-      <w>732</w>
-      <h>180</h>
+      <x>781</x>
+      <y>22</y>
+      <w>583</w>
+      <h>165</h>
     </coordinates>
     <panel_attributes>Scenario: A user creates an activity that already exists in a project
- 	Given that there exists a project
-    And the project does not have a project leader
-    And the project contains an activity "Data Refinement"
- 	When a user creates a activity "Data Refinement" in the project
+ 	Given that there exists a project "projectX"
+    	And the project does not have a project leader
+    	And the project contains an activity "Data Refinement"
+ 	When the user creates an activity "Data Refinement" in the project
  	Then the error message "Activity already exists in project"</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>828</x>
-      <y>780</y>
-      <w>768</w>
-      <h>180</h>
+      <x>1287</x>
+      <y>286</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Project: p1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1078</x>
+      <y>374</y>
+      <w>275</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(a1)</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1331</x>
+      <y>308</y>
+      <w>33</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>748</x>
+      <y>209</y>
+      <w>814</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>Use case "Create activity" scenario "A user creates an activity that already exists in project"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1331</x>
+      <y>396</y>
+      <w>22</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1023</x>
+      <y>286</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Application</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1067</x>
+      <y>308</y>
+      <w>33</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1067</x>
+      <y>374</y>
+      <w>22</w>
+      <h>253</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>781</x>
+      <y>352</y>
+      <w>308</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(p1, a1)</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1342</x>
+      <y>429</y>
+      <w>22</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>
-Scenario: A user creates an activity in a project
- 	Given that there exists a project
-    And the project does not have a project leader
- 	When a user creates a activity "Data Refinement" in the project
- 	Then the project contains an activity "Data Refinement"
- 	</panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
+    <id>Relation</id>
     <coordinates>
-      <x>48</x>
-      <y>1356</y>
-      <w>996</w>
-      <h>180</h>
+      <x>1342</x>
+      <y>396</y>
+      <w>220</w>
+      <h>55</h>
     </coordinates>
-    <panel_attributes>Scenario: A user fails to create an activity in a project
- 	Given that there exists a project
+    <panel_attributes>lt=&lt;&lt;&lt;-
+projectLeaderExists()</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1342</x>
+      <y>462</y>
+      <w>121</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+false</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1342</x>
+      <y>561</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+true</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1342</x>
+      <y>528</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1342</x>
+      <y>495</y>
+      <w>209</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+containsActivity(a1)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1078</x>
+      <y>594</y>
+      <w>286</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Error</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>781</x>
+      <y>605</y>
+      <w>319</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+"Activity already exists in project"</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1529</x>
+      <y>22</y>
+      <w>583</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>Scenario: A user fails to create an activity in a project with a project leader
+ 	Given that there exists a project "projectX"
     And the project has a project leader
-    And a user "huba" exists
     And the user is not the project leader
- 	When a user creates a activity "Data Refinement" in the project
- 	Then the error message "Only the project leader can create an activity"
- 	</panel_attributes>
+ 	When the user creates a activity "Data Refinement" in the project
+ 	Then the error message "Only the project leader can create an activity" is given</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1080</x>
-      <y>1356</y>
-      <w>624</w>
-      <h>180</h>
+      <x>2277</x>
+      <y>286</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Project: p1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1969</x>
+      <y>374</y>
+      <w>374</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(a1)</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2321</x>
+      <y>308</y>
+      <w>33</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>1573</x>
+      <y>209</y>
+      <w>979</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>Use case "Create activity" scenario "A user fails to create an activity in a project with a project leader"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>2321</x>
+      <y>396</y>
+      <w>22</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1914</x>
+      <y>286</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Application</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1958</x>
+      <y>308</y>
+      <w>33</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1958</x>
+      <y>374</y>
+      <w>22</w>
+      <h>253</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1606</x>
+      <y>352</y>
+      <w>374</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(ID, a1)</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>2332</x>
+      <y>429</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2332</x>
+      <y>396</y>
+      <w>220</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+projectLeaderExists()</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2332</x>
+      <y>462</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+true</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1969</x>
+      <y>594</y>
+      <w>385</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Error</panel_attributes>
+    <additional_attributes>10.0;20.0;330.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1606</x>
+      <y>605</y>
+      <w>385</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+"Only the project leader can create an activity"</panel_attributes>
+    <additional_attributes>10.0;20.0;330.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2332</x>
+      <y>561</y>
+      <w>121</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+false</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>2332</x>
+      <y>528</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2332</x>
+      <y>495</y>
+      <w>165</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+isLeader(a1)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>2805</x>
+      <y>0</y>
+      <w>583</w>
+      <h>165</h>
     </coordinates>
     <panel_attributes>Scenario: A project leader creates an activity in a project
- 	Given that there exists a project
-    And the has a project leader
-    And a user "huba" exists
+ 	Given that there exists a project "projectX"
+    And the project has a project leader
     And the user is the project leader
- 	When a user creates a activity "Data Refinement" in the project
+ 	When the user creates a activity "Data Refinement" in the project
  	Then the project contains an activity "Data Refinement"</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>2794</x>
+      <y>231</y>
+      <w>88</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>User: e1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>2827</x>
+      <y>352</y>
+      <w>22</w>
+      <h>363</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3212</x>
+      <y>275</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Project: p1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3080</x>
+      <y>374</y>
+      <w>198</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(a1)</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3256</x>
+      <y>297</y>
+      <w>33</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>2805</x>
+      <y>198</y>
+      <w>759</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>Use case "Create activity" scenario "A project leader creates an activity in a project"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3256</x>
+      <y>396</y>
+      <w>22</w>
+      <h>297</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3025</x>
+      <y>275</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Application</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3069</x>
+      <y>297</y>
+      <w>33</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3069</x>
+      <y>374</y>
+      <w>22</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2838</x>
+      <y>352</y>
+      <w>253</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(ID, a1)</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4114</x>
+      <y>462</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4114</x>
+      <y>429</y>
+      <w>308</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+isAvailable(e1, calendar, calendar)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4114</x>
+      <y>495</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+true</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3267</x>
+      <y>561</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+true</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3267</x>
+      <y>528</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3267</x>
+      <y>495</y>
+      <w>165</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+isLeader(e1)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3267</x>
+      <y>594</y>
+      <w>198</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createActivity(a1)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3267</x>
+      <y>627</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4455</x>
+      <y>66</y>
+      <w>583</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>Scenario: A user tries to create a special activity that overlaps with other activities
+	And the user is assigned to 1 activities in week 5 in the year 2025
+	When the user creates a special activity "Holidays" in week 5 of the year 2025
+ 	Then the error message "Special activities cannot overlap with other activities" is given</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>3663</x>
+      <y>264</y>
+      <w>781</w>
+      <h>429</h>
+    </coordinates>
+    <panel_attributes>Use case "Create activity" scenario "A user creates a special activity"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4059</x>
+      <y>341</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Application</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4103</x>
+      <y>363</y>
+      <w>33</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4103</x>
+      <y>429</y>
+      <w>22</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3696</x>
+      <y>407</y>
+      <w>429</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createSpecialActivity(a1, calendar, calendar)</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4114</x>
+      <y>539</y>
+      <w>242</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createSpecialActivity(a1)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4114</x>
+      <y>572</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3267</x>
+      <y>396</y>
+      <w>220</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+projectLeaderExists()</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3267</x>
+      <y>429</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3267</x>
+      <y>462</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+true</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2827</x>
+      <y>319</y>
+      <w>33</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>3652</x>
+      <y>297</y>
+      <w>88</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>User: e1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3685</x>
+      <y>385</y>
+      <w>33</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3685</x>
+      <y>418</y>
+      <w>22</w>
+      <h>253</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>1562</x>
+      <y>242</y>
+      <w>88</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>User: e1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1595</x>
+      <y>330</y>
+      <w>33</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1595</x>
+      <y>363</y>
+      <w>22</w>
+      <h>363</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>737</x>
+      <y>242</y>
+      <w>88</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>User: e1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>330</y>
+      <w>33</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>770</x>
+      <y>363</y>
+      <w>22</w>
+      <h>363</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>11</x>
+      <y>242</y>
+      <w>88</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>User: e1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>44</x>
+      <y>330</y>
+      <w>33</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>44</x>
+      <y>363</y>
+      <w>22</w>
+      <h>363</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>3663</x>
+      <y>66</y>
+      <w>583</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>Scenario: A user creates a special activity
+	And the user is assigned to 0 activities in week 5 in the year 2025
+ 	When the user creates a special activity "Holidays" in week 5 of the year 2025
+ 	Then the user is assigned to the special activity "Holidays"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4917</x>
+      <y>462</y>
+      <w>22</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>
+layer=1
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4917</x>
+      <y>429</y>
+      <w>308</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+isAvailable(e1, calendar, calendar)</panel_attributes>
+    <additional_attributes>20.0;30.0;50.0;30.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4917</x>
+      <y>495</y>
+      <w>121</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+false</panel_attributes>
+    <additional_attributes>10.0;30.0;60.0;30.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>4466</x>
+      <y>264</y>
+      <w>781</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>Use case "Create activity" scenario "A user creates a special activity"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4862</x>
+      <y>341</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Application</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4906</x>
+      <y>363</y>
+      <w>33</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4906</x>
+      <y>429</y>
+      <w>22</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4499</x>
+      <y>407</y>
+      <w>429</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+createSpecialActivity(a1, calendar, calendar)</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>4455</x>
+      <y>297</y>
+      <w>88</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>User: e1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4488</x>
+      <y>385</y>
+      <w>33</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>4488</x>
+      <y>418</y>
+      <w>22</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4499</x>
+      <y>528</y>
+      <w>440</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+"Special activities cannot overlap with other activities"</panel_attributes>
+    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>55</x>
+      <y>671</y>
+      <w>264</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+"Activity made in project p1"</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>660</y>
+      <w>231</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3080</x>
+      <y>671</y>
+      <w>209</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2838</x>
+      <y>682</y>
+      <w>264</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+"Activity made in project"</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3696</x>
+      <y>605</y>
+      <w>440</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+"Special activity a1 created and user e1 is assigned"</panel_attributes>
+    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
   </element>
 </diagram>
