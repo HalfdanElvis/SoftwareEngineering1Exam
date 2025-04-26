@@ -8,7 +8,7 @@
             "type": "java",
             "name": "Application",
             "request": "launch",
-            "mainClass": "hellofx/dtu.example.ui.Application",
+            "mainClass": "hellofx/dtu.pma.ui.Application",
             "projectName": "javaFX_project"
         },
         {
