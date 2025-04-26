@@ -32,8 +32,7 @@ public class LoginSteps {
 
     @When("the user {string} confirms")
     public void theUserConfirms(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        app.setRegistrationConfirmation(true);
     }
 
 
@@ -49,18 +48,17 @@ public class LoginSteps {
         // System.out.println("Employee not found, create new employee with name "+string+" Y/N?");
         // 
         // Not sure what should go here.
+        
     }
 
     @Then("the user {string} exists")
     public void theUserExists(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assert(app.employeeExists(string));
     }
 
     @Then("the user {string} is not logged in")
     public void theUserIsNotLoggedIn(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assert(!(app.signedInEmployee.getUsername().equals(string)));
     }
 
 }

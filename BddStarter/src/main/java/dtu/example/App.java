@@ -12,6 +12,9 @@ public class App {
     Employee signedInEmployee;
     List<Employee> employees = new ArrayList<>();
 
+    // For Testing:
+    private Boolean registrationConfirmation = null;
+
     public void login(String username) {
         if (username.length() > 4) {
             System.out.println("Error, username cannot be longer than 4 characters.");
@@ -34,6 +37,11 @@ public class App {
 
     private boolean promtUserForRegistration(String username) {
         System.out.println("Employee not found, create new employee with name " + username + " Y/N?");
+
+        if (registrationConfirmation != null) {
+            return registrationConfirmation;
+        }
+
         while (true) {
             String string = input.next().toUpperCase();
             if (string.equals("Y")){
@@ -64,5 +72,13 @@ public class App {
     public String getSignedInEmployeeUsername() {
         return signedInEmployee.getUsername();
     }
+
+    
+    public boolean employeeExists(String username){
+        return stringToEmployee(username) != null;
+    }
+    
+    public void setRegistrationConfirmation(Boolean rc) { registrationConfirmation = rc; }
+
 
 }

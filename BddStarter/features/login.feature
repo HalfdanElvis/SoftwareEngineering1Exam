@@ -10,7 +10,8 @@ Scenario: A user logs in
 Scenario: A non-existent user tries to log in and registers as a user.
     Given the user "bahu" doesn't exist
     When then user "bahu" tries to log in
-    Then the user "bahu" registers "bahu"
+    Then the user "bahu" is prompted to create the user "bahu"
+    When the user "bahu" doesn't confrim
     Then the user "bahu" exists
     And the user "bahu" is logged in
 
