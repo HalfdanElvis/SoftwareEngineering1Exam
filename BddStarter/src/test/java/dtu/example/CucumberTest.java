@@ -1,4 +1,4 @@
-package dtu.pma;
+package dtu.example;
 
 
 import org.junit.runner.RunWith;

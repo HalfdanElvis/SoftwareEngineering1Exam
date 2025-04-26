@@ -6,9 +6,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "UI",
+            "request": "launch",
+            "mainClass": "dtu.example.UI",
+            "projectName": "bdd-starter"
+        },
+        {
+            "type": "java",
             "name": "Application",
             "request": "launch",
-            "mainClass": "hellofx/dtu.pma.ui.Application",
+            "mainClass": "hellofx/dtu.example.ui.Application",
             "projectName": "javaFX_project"
         },
         {

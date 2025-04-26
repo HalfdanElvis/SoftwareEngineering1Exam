@@ -1,4 +1,4 @@
-package dtu.pma;
+package dtu.example;
 
 public class CreateProjectSteps {
     

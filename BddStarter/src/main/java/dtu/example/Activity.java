@@ -1,4 +1,4 @@
-package dtu;
+package dtu.example;
 
 public class Activity {
 
