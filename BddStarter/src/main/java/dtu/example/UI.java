@@ -55,10 +55,6 @@ public class UI {
         }
     }
 
-    private static boolean promtUserForRegistration(String input) {
-        return app.yesOrNo(input);
-    }
-
 
 
 }
