@@ -83,7 +83,7 @@ public class UI {
                                 
                                 // Manage User
                                 case 6:
-                                    
+                                    // Select User
                                     System.out.println();
                                     System.out.println("Users:");
                                     System.out.println("-------------------------");
@@ -107,6 +107,7 @@ public class UI {
                                         
                                     }
                                     
+                                    // Manage User
                                     System.out.println();
                                     System.out.println("Manage User:");
                                     System.out.println("-------------------------");
