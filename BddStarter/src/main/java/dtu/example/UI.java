@@ -34,7 +34,7 @@ public class UI {
                             System.out.println("-------------------------");
 
                             System.out.println();
-                            
+                            System.out.println("Main Menu:");
                             System.out.println("-------------------------");
                             System.out.println("1. Create Project");
                             System.out.println("2. Manage Project");
@@ -63,6 +63,8 @@ public class UI {
                                     break;
                                 case 4:
                                     break;
+
+                                // Create User:
                                 case 5:
                                     System.out.println();
                                     System.out.println("-------------------------");
@@ -78,14 +80,20 @@ public class UI {
                                             }
                                         }
                                     break;
-
+                                
+                                // Manage User
                                 case 6:
+                                    
                                     break;
                                 case 7:
                                     break;
+
+                                // Closes Program:
                                 case 8:
                                     System.exit(0);
                                     break;
+
+                                // For Testing:
                                 case 9:
                                     while (true) {
                                         System.out.println();

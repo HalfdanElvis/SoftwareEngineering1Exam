@@ -5,19 +5,12 @@ import java.util.List;
 
 public class App {
 
-    private Employee signedInEmployee;
-    
-    public Employee getSignedInEmployee() {
-        return signedInEmployee;
-    }
-
-
-    public void setSignedInEmployee(Employee signedInEmployee) {
-        this.signedInEmployee = signedInEmployee;
-    }
-
     private List<Employee> employees = new ArrayList<>();
+    private List<Project> projects = new ArrayList<>();
+    private List<Activity> specialActivites = new ArrayList<>();
 
+    private CalenderHelper ch = new CalenderHelper();
+    private Employee signedInEmployee;
     private Boolean registrationConfirmation = null;
 
 
@@ -82,6 +75,14 @@ public class App {
         }
     }
 
+    public Employee getSignedInEmployee() {
+        return signedInEmployee;
+    }
+
+
+    public void setSignedInEmployee(Employee signedInEmployee) {
+        this.signedInEmployee = signedInEmployee;
+    }
 
     // For testing:
     public void printAllEmployees() {
@@ -89,6 +90,23 @@ public class App {
             System.out.println(employee.getUsername());
         }
     }
+
+    public void printAllProjects() {
+        for (Project project : projects){
+            System.out.println(project.getName()+": "+project.getID());
+        }
+    }
+
+    // WIP
+    public void printAllSpecialActivities() {
+
+    }
+
+    // WIP
+    public void printAllActivities() {
+
+    }
+    
 
 
 }
