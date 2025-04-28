@@ -6,57 +6,48 @@ import java.util.Scanner;
 
 public class App {
 
-    Scanner input = new Scanner(System.in);
-
+    private Employee signedInEmployee;
     
-    Employee signedInEmployee;
-    List<Employee> employees = new ArrayList<>();
+    public Employee getSignedInEmployee() {
+        return signedInEmployee;
+    }
+
+
+    public void setSignedInEmployee(Employee signedInEmployee) {
+        this.signedInEmployee = signedInEmployee;
+    }
+
+    private List<Employee> employees = new ArrayList<>();
 
     private Boolean registrationConfirmation = null;
 
 
 
-    public void login(String username) {
+    public boolean login(String username) {
         if (username.length() > 4) {
-            System.out.println("Error, username cannot be longer than 4 characters.");
-            return;
+            throw new IllegalArgumentException("Error, username cannot be longer than 4 characters.");
         }
 
         signedInEmployee = stringToEmployee(username);
-        if (signedInEmployee != null) {
-            return;
-        }
-
-        if (promtUserForRegistration(username)){
-            addEmployee(username);
-            signedInEmployee = stringToEmployee(username);
-        }
-
-        System.out.println("Printing all users in system:");
-        for (Employee employee : employees) { System.out.print(employee.getUsername()); }
-    }
-
-    private boolean promtUserForRegistration(String username) {
-        System.out.println("Employee not found, create new employee with name " + username + " Y/N?");
-
-        if (registrationConfirmation != null) {
-            return registrationConfirmation;
-        }
-
-        while (true) {
-            String string = input.next().toUpperCase();
-            if (string.equals("Y")){
-                return true;
-            } else if (string.equals("N")){
-                return false;
-            } else {
-                System.out.println("Invalid input. Please use 'Y' or 'N'.");
-            }
-        }
+        return signedInEmployee != null;
     }
     
 
+    public boolean yesOrNo(String userInput){
+        userInput = userInput.toUpperCase();
+        if (userInput.equals("Y")){
+            return true;
+        } else if (userInput.equals("N")){
+            return false;
+        } else {
+            throw new IllegalArgumentException("Must be Y/N");
+        }
+    }
+
     public void addEmployee(String username) {
+        if (employeeExists(username)) {
+            throw new IllegalArgumentException("User already exists. Try another username.");
+        }
         employees.add(new Employee(username));
     }
 
@@ -84,9 +75,5 @@ public class App {
 
     public void setRegistrationConfirmation(boolean registrationConfirmation) {
         this.registrationConfirmation = registrationConfirmation;
-    }
-
-    public void setInput(Scanner input) {
-        this.input = input;
     }
 }
