@@ -11,14 +11,13 @@ public class App {
 
     private CalenderHelper ch = new CalenderHelper();
     private Employee signedInEmployee;
+    private Employee selectedEmployee;
     private Boolean registrationConfirmation = null;
 
 
 
     public boolean login(String username) {
-        if (username.length() > 4) {
-            throw new IllegalArgumentException("Error, username cannot be longer than 4 characters.");
-        }
+        legalUsername(username);
 
         signedInEmployee = stringToEmployee(username);
         return signedInEmployee != null;
@@ -69,9 +68,11 @@ public class App {
         this.registrationConfirmation = registrationConfirmation;
     }
 
-    public void legalUsername(String username) {
+    public boolean legalUsername(String username) {
         if (username.length() > 4) {
             throw new IllegalArgumentException("Error, username cannot be longer than 4 characters.");
+        } else {
+            return true;
         }
     }
 
@@ -105,6 +106,10 @@ public class App {
     // WIP
     public void printAllActivities() {
 
+    }
+
+    public void setSelectedEmployee(String username) {
+        selectedEmployee = stringToEmployee(username);
     }
     
 

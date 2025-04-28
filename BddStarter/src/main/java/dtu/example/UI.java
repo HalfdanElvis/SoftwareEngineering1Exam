@@ -84,7 +84,73 @@ public class UI {
                                 // Manage User
                                 case 6:
                                     
-                                    break;
+                                    System.out.println();
+                                    System.out.println("Users:");
+                                    System.out.println("-------------------------");
+                                    app.printAllEmployees();
+                                    System.out.println("-------------------------");
+                                    System.out.println();
+                                    System.out.println("Select a user from the list above by inserting their username:");
+                                    
+                                    while (true) { 
+                                        username = console.nextLine();
+                                        try {
+                                            if(app.legalUsername(username)){
+                                                if(app.employeeExists(username)){
+                                                    app.setSelectedEmployee(username);
+                                                    break;
+                                                }
+                                            }
+                                        } catch (Exception e) {
+                                            System.err.println(e.getMessage());
+                                        }
+                                        
+                                    }
+                                    
+                                    System.out.println();
+                                    System.out.println("Manage User:");
+                                    System.out.println("-------------------------");
+                                    System.out.println("1. Assign to Activity");
+                                    System.out.println("2. Assign to Special Activity");
+                                    System.out.println("3. Set/Unset Peak Performance");
+                                    System.out.println("4. Delete User");
+                                    System.out.println("5. Back");
+                                    System.out.println("-------------------------");
+                                    
+                                    System.out.println();
+
+                                    System.out.println("Select a number from the list above to proceed.");
+                                    
+                                    while (true) {
+                                        String choice = console.nextLine();
+                                        int tempNum = Integer.parseInt(choice);
+                                        boolean back = false;
+                                        switch (tempNum) {
+                                            case 1:
+                                                break;
+
+                                            case 2:
+                                                break;
+
+                                            case 3:
+                                                break;
+
+                                            case 4:
+                                                break;
+
+                                            case 5:
+                                                back = true;
+                                        
+                                            default:
+                                                break;
+
+                                        }
+
+                                        if (back) {
+                                            break;
+                                        }
+                                    }
+
                                 case 7:
                                     break;
 
@@ -97,6 +163,7 @@ public class UI {
                                 case 9:
                                     while (true) {
                                         System.out.println();
+                                        System.out.println("View Menu:");
                                         System.out.println("-------------------------");
                                         System.out.println("1. View all Employees");
                                         System.out.println("2. View all Projects");
@@ -111,7 +178,7 @@ public class UI {
                                         
                                         boolean back = false;
                                         
-
+                                        // Printing all users, projects .etc
                                         String string = console.nextLine();
                                         int choice = Integer.parseInt(string);
                                         switch (choice) {
