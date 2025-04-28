@@ -27,8 +27,15 @@ public class UI {
                     if (app.login(username)) {
                         while (true) {
                             // Main Menu:
-                            System.out.println("How would you like to proceed?");    
+                            System.out.println();
 
+                            System.out.println("-------------------------");
+                            System.out.println("Logged in user: "+app.getSignedInEmployeeUsername());
+                            System.out.println("-------------------------");
+
+                            System.out.println();
+                            
+                            System.out.println("-------------------------");
                             System.out.println("1. Create Project");
                             System.out.println("2. Manage Project");
                             System.out.println("3. Create Special Activity");
@@ -36,6 +43,11 @@ public class UI {
                             System.out.println("5. Create Employee");
                             System.out.println("6. Manage Employee");
                             System.out.println("7. Log hours");
+                            System.out.println("8. Exit Program");
+                            System.out.println("9. View all (FOR TESTING)");
+                            System.out.println("-------------------------");
+
+                            System.out.println();
 
                             System.out.println("Select a number from the list above to proceed.");
                             
@@ -44,19 +56,88 @@ public class UI {
                             
                             switch (num) {
                                 case 1:
-                                    // Create Project
+                                    break;
                                 case 2:
-                                    // Create Project
+                                    break;
                                 case 3:
-                                    // Create Project
+                                    break;
                                 case 4:
-                                    // Create Project
+                                    break;
                                 case 5:
-                                    // Create Project
+                                    System.out.println();
+                                    System.out.println("-------------------------");
+                                    System.out.println("What should the username be?");
+                                    while (true) { 
+                                        username = console.nextLine();
+                                            try {
+                                                app.legalUsername(username);
+                                                app.addEmployee(username);
+                                                break;
+                                            } catch (Exception e) {
+                                                System.err.println(e.getMessage());
+                                            }
+                                        }
+                                    break;
+
                                 case 6:
-                                    // Create Project
+                                    break;
                                 case 7:
-                                    // Create Project
+                                    break;
+                                case 8:
+                                    System.exit(0);
+                                    break;
+                                case 9:
+                                    while (true) {
+                                        System.out.println();
+                                        System.out.println("-------------------------");
+                                        System.out.println("1. View all Employees");
+                                        System.out.println("2. View all Projects");
+                                        System.out.println("3. View all Actvities");
+                                        System.out.println("4. View all Special Activites");
+                                        System.out.println("5. Back");
+                                        System.out.println("-------------------------");
+                                        
+                                        System.out.println();
+
+                                        System.out.println("Select a number from the list above to proceed.");
+                                        
+                                        boolean back = false;
+                                        
+
+                                        String string = console.nextLine();
+                                        int choice = Integer.parseInt(string);
+                                        switch (choice) {
+                                            case 1:
+                                                System.out.println();
+                                                System.out.println("Users:");
+                                                System.out.println("-------------------------");
+                                                app.printAllEmployees();
+                                                System.out.println("-------------------------");
+                                                break;
+
+                                            case 2:
+                                                break;
+
+                                            case 3:
+                                                break;
+
+                                            case 4:
+                                                break;
+
+                                            case 5:
+                                                back = true;
+                                        
+                                            default:
+                                                break;
+
+                                        }
+
+                                        if (back) {
+                                            break;
+                                        }
+
+                                    }
+                                    
                                 default:
                                     break;
                                 
@@ -75,6 +156,7 @@ public class UI {
             }
             
             // New User registration
+            System.out.println();
             System.out.println("User doesn't exist. Create user with username: "+username+" Y/N?");
             while (true) {
                 String userInput = console.nextLine();

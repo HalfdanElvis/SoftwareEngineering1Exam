@@ -2,7 +2,6 @@ package dtu.example;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class App {
 
@@ -76,4 +75,20 @@ public class App {
     public void setRegistrationConfirmation(boolean registrationConfirmation) {
         this.registrationConfirmation = registrationConfirmation;
     }
+
+    public void legalUsername(String username) {
+        if (username.length() > 4) {
+            throw new IllegalArgumentException("Error, username cannot be longer than 4 characters.");
+        }
+    }
+
+
+    // For testing:
+    public void printAllEmployees() {
+        for (Employee employee : employees){
+            System.out.println(employee.getUsername());
+        }
+    }
+
+
 }
