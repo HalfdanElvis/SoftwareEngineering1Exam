@@ -9,6 +9,7 @@ public class UI {
     public static void main(String args[]){
         App app = new App();
         System.out.println("Login:");
+        app.employees.add(Employee e = new Employee("huba"));
         app.login(input.next());
         while (app.signedInEmployee == null) {
             System.out.println();
