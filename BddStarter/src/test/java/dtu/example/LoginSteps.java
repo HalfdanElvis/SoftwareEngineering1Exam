@@ -15,7 +15,12 @@ public class LoginSteps {
 
     @Given("the user {string} exist")
     public void theUserExist(String string) {
-        app.addEmployee(string);
+        if (app.employeeExists(string)){
+            assert(true);
+        } else {
+            app.addEmployee(string);
+        }
+        
     }
 
     @Given("the user {string} doesn't exist")
