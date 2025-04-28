@@ -11,7 +11,7 @@ Scenario: A non-existent user tries to log in and registers as a user.
     Given the user "bahu" doesn't exist
     When then user "bahu" tries to log in
     Then the user "bahu" is prompted to create the user "bahu"
-    When the user "bahu" doesn't confrim
+    When the user "bahu" does confirm
     Then the user "bahu" exists
     And the user "bahu" is logged in
 
@@ -19,6 +19,6 @@ Scenario: A non-existent user tries to log in and doesn't register
     Given the user "bahu" doesn't exist
     When then user "bahu" tries to log in
     Then the user "bahu" is prompted to create the user "bahu"
-    When the user "bahu" confirms
-    Then the user "bahu" doesn't exist
+    When the user "bahu" does not confirm
+    Then the user "bahu" does not exist
     And the user "bahu" is not logged in

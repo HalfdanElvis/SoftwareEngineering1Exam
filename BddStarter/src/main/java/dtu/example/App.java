@@ -12,8 +12,9 @@ public class App {
     Employee signedInEmployee;
     List<Employee> employees = new ArrayList<>();
 
-    // For Testing:
     private Boolean registrationConfirmation = null;
+
+
 
     public void login(String username) {
         if (username.length() > 4) {
@@ -48,9 +49,12 @@ public class App {
                 return true;
             } else if (string.equals("N")){
                 return false;
+            } else {
+                System.out.println("Invalid input. Please use 'Y' or 'N'.");
             }
         }
     }
+    
 
     public void addEmployee(String username) {
         employees.add(new Employee(username));
@@ -77,8 +81,12 @@ public class App {
     public boolean employeeExists(String username){
         return stringToEmployee(username) != null;
     }
-    
-    public void setRegistrationConfirmation(Boolean rc) { registrationConfirmation = rc; }
 
+    public void setRegistrationConfirmation(boolean registrationConfirmation) {
+        this.registrationConfirmation = registrationConfirmation;
+    }
 
+    public void setInput(Scanner input) {
+        this.input = input;
+    }
 }
