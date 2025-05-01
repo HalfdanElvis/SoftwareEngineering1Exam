@@ -115,7 +115,7 @@ public class App {
         selectedEmployee = stringToEmployee(username);
     }
 
-    public void createProject(String name) {
+    public int createProject(String name) {
         year = Year.now().getValue();
         year %= 100;
         year *= 1000;
@@ -132,7 +132,12 @@ public class App {
         }
 
         project.setID(year+projectNumber+1);
+
+        projects.add(project);
+        
+        return project.getID();
     }
+
 
     public void setYear(int year) {
         this.year = year;

@@ -39,9 +39,9 @@ public class UI {
                                     do {
                                         printCreateProjectMenu();
                                         String projectName = console.nextLine();
-                                        app.createProject(projectName);
+                                        int id = app.createProject(projectName);
                                         
-                                        System.out.println("\nSuccesfully created project \""+projectName+"\"");
+                                        System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
                                         System.out.println("-------------------------");
                                         System.out.println("Want to create another project Y/N?"); 
                                         exit = app.yesOrNo(console.nextLine()); 
