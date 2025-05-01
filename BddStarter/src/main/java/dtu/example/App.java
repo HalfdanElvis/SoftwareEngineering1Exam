@@ -1,9 +1,12 @@
 package dtu.example;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
 public class App {
+
+    private int year;
 
     private List<Employee> employees = new ArrayList<>();
     private List<Project> projects = new ArrayList<>();
@@ -111,7 +114,38 @@ public class App {
     public void setSelectedEmployee(String username) {
         selectedEmployee = stringToEmployee(username);
     }
+
+    public void createProject(String name) {
+        year = Year.now().getValue();
+        year %= 100;
+        year *= 1000;
+        
+        int projectNumber = 0;
+        
+        Project project = new Project(name);
+        
+
+        for (Project p : projects) {
+            if (p.getID() >= year && p.getID() < year+100) {
+                projectNumber++;
+            }
+        }
+
+        project.setID(year+projectNumber+1);
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
     
+    public boolean projectExists(String string, int id) {
+        for (Project p : projects) {
+            if (p.getName().equals(string) && p.getID() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }
