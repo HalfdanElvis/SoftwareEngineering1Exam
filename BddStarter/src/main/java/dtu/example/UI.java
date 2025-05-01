@@ -11,7 +11,7 @@ public class UI {
         app.addEmployee("huba");
 
 
-        String username = "youreabitch";
+        String username = "";
 
         // Starting Program
         while (true){
@@ -27,35 +27,26 @@ public class UI {
                     if (app.login(username)) {
                         while (true) {
                             // Main Menu:
-                            System.out.println();
-
-                            System.out.println("-------------------------");
-                            System.out.println("Logged in user: "+app.getSignedInEmployeeUsername());
-                            System.out.println("-------------------------");
-
-                            System.out.println();
-                            System.out.println("Main Menu:");
-                            System.out.println("-------------------------");
-                            System.out.println("1. Create Project");
-                            System.out.println("2. Manage Project");
-                            System.out.println("3. Create Special Activity");
-                            System.out.println("4. Manage Special Activities");
-                            System.out.println("5. Create Employee");
-                            System.out.println("6. Manage Employee");
-                            System.out.println("7. Log hours");
-                            System.out.println("8. Exit Program");
-                            System.out.println("9. View all (FOR TESTING)");
-                            System.out.println("-------------------------");
-
-                            System.out.println();
-
-                            System.out.println("Select a number from the list above to proceed.");
+                            printMainMenu();
                             
                             String userInput = console.nextLine();
                             int num = Integer.parseInt(userInput);
                             
                             switch (num) {
                                 case 1:
+                                    boolean exit = true;
+
+                                    do {
+                                        printCreateProjectMenu();
+                                        String projectName = console.nextLine();
+                                        app.createProject(projectName);
+                                        
+                                        System.out.println("\nSuccesfully created project \""+projectName+"\"");
+                                        System.out.println("-------------------------");
+                                        System.out.println("Want to create another project Y/N?"); 
+                                        exit = app.yesOrNo(console.nextLine()); 
+                                    } while(exit);
+
                                     break;
                                 case 2:
                                     break;
@@ -248,6 +239,38 @@ public class UI {
                 
             }
         }
+    }
+
+    public static void printMainMenu() {
+        System.out.println();
+
+        System.out.println("-------------------------");
+        System.out.println("Logged in user: "+app.getSignedInEmployeeUsername());
+        System.out.println("-------------------------");
+
+        System.out.println();
+        System.out.println("Main Menu:");
+        System.out.println("-------------------------");
+        System.out.println("1. Create Project");
+        System.out.println("2. Manage Project");
+        System.out.println("3. Create Special Activity");
+        System.out.println("4. Manage Special Activities");
+        System.out.println("5. Create Employee");
+        System.out.println("6. Manage Employee");
+        System.out.println("7. Log hours");
+        System.out.println("8. Exit Program");
+        System.out.println("9. View all (FOR TESTING)");
+        System.out.println("-------------------------");
+
+        System.out.println();
+
+        System.out.println("Select a number from the list above to proceed.");
+    }
+
+    public static void printCreateProjectMenu() {
+        System.out.println("Create Project");
+        System.out.println("-------------------------");
+        System.out.println("Enter Project name:");
     }
 
 
