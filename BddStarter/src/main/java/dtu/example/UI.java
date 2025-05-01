@@ -268,6 +268,7 @@ public class UI {
     }
 
     public static void printCreateProjectMenu() {
+        System.out.println();
         System.out.println("Create Project");
         System.out.println("-------------------------");
         System.out.println("Enter Project name:");
