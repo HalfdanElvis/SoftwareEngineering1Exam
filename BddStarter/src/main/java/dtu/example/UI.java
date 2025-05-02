@@ -39,7 +39,7 @@ public class UI {
                                     do {
                                         printCreateProjectMenu();
                                         String projectName = console.nextLine();
-                                        int id = app.createProject(projectName);
+                                        int id = app.createProject(projectName).getID();
                                         
                                         System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
                                         System.out.println("-------------------------");

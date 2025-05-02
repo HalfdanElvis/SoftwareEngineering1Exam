@@ -115,7 +115,7 @@ public class App {
         selectedEmployee = stringToEmployee(username);
     }
 
-    public int createProject(String name) {
+    public Project createProject(String name) {
         year = Year.now().getValue();
         year %= 100;
         year *= 1000;
@@ -135,7 +135,7 @@ public class App {
 
         projects.add(project);
         
-        return project.getID();
+        return project;
     }
 
 
@@ -152,5 +152,26 @@ public class App {
         return false;
     }
 
+    public Project intToProject(int id) {
+        for (Project project : projects){
+            if (project.getID() == (id)){
+                return project;
+            }
+        }
+        return null;
+    }
 
+
+    public void assignLeader(String username, Integer id) {
+        Employee employee = stringToEmployee(username);
+        Project project = intToProject(id);
+
+        if (!project.hasProjectLeader()) {
+            project.setProjectLeader(employee);
+        } else if (signedInEmployee.equals(project.getProjectLeader())) {
+            project.setProjectLeader(employee);
+        } else {
+            throw new IllegalArgumentException("Only project leader can change project leader");
+        }
+    }
 }
