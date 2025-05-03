@@ -40,5 +40,9 @@ public class Project {
         }
         return true;
     }
+
+    public String printProject() {
+        return name+", "+ID;
+    }
     
 }

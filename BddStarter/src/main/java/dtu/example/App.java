@@ -174,4 +174,18 @@ public class App {
             throw new IllegalArgumentException("Only project leader can change project leader");
         }
     }
+
+    public void printProjectList(int year) {
+        year %= 100;
+
+        for (Project project : projects) {
+            int id = project.getID();
+            while (id >= 100) {
+                id /= 10;
+            }
+            if (year == id) {
+                System.out.println(project.printProject());
+            }
+        }
+    }
 }

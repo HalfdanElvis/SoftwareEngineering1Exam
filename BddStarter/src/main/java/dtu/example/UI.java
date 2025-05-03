@@ -46,9 +46,66 @@ public class UI {
                                         System.out.println("Want to create another project Y/N?"); 
                                         exit = app.yesOrNo(console.nextLine()); 
                                     } while(exit);
+                                    
 
                                     break;
                                 case 2:
+                                    exit = true;
+                                    System.out.println("Enter year of the project:");
+                                    userInput = console.nextLine();
+                                    int year = Integer.parseInt(userInput);
+
+                                    System.out.println();
+                                    System.out.println("-------------------------");
+                                    System.out.println("List of Projects");
+                                    System.out.println("-------------------------");
+                                    System.out.println();
+
+                                    app.printProjectList(year);
+
+                                    System.out.println();
+                                    System.out.println("-------------------------");
+                                    System.out.println("Enter project id:");
+
+                                    userInput = console.nextLine();
+                                    Project project = app.intToProject(Integer.parseInt(userInput));
+
+                                    while (true) {
+                                        do {
+                                            printManagaeProjectMenu(project);
+                                            userInput = console.nextLine();
+                                            num = Integer.parseInt(userInput);
+
+                                            switch (num) {
+                                                case 1:
+                                                    break;
+                                                case 2:
+                                                    break;
+                                                case 3:
+                                                    break;
+                                                case 4:
+                                                    System.out.println("Enter username of the to be assigned leader:");
+                                                    username = console.nextLine();
+                                                    app.assignLeader(username, project.getID());
+
+                                                    System.out.println();
+                                                    System.out.println("Employee "+username+" was succesfully assigned as projectleader.");
+                                                    System.out.println();
+                                                    
+                                                    break;
+                                                case 5:
+                                                    exit = false;
+                                                    break;
+                                                
+                                                default:
+                                                    break;
+                                                
+                                            }
+                                        } while (exit);
+
+                                        break;
+                                    }
+
                                     break;
                                 case 3:
                                     break;
@@ -272,6 +329,26 @@ public class UI {
         System.out.println("Create Project");
         System.out.println("-------------------------");
         System.out.println("Enter Project name:");
+    }
+
+    public static void printManagaeProjectMenu(Project project) {
+        System.out.println("-------------------------");
+        System.out.println("Selected project "+ project.printProject());
+        System.out.println("-------------------------");
+
+        System.out.println();
+        System.out.println("Manage Project Menu:");
+        System.out.println("-------------------------");
+        System.out.println("1. Make activity");
+        System.out.println("2. Add employee");
+        System.out.println("3. Assign activity");
+        System.out.println("4. Assign Project-leader");
+        System.out.println("5. Exit menu");
+        System.out.println("-------------------------");
+
+        System.out.println();
+
+        System.out.println("Select a number from the list above to proceed.");
     }
 
 
