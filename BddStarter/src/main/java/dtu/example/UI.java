@@ -1,5 +1,6 @@
 package dtu.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
@@ -108,25 +109,195 @@ public class UI {
 
                                     break;
                                 case 3:
-                                    break;
-                                case 4:
+                                    
+                                    boolean saCreator = true;
+                                    
+                                    do {
+                                        boolean choice = true;
+                                        System.out.println();
+                                        System.out.println("Create Special Activity");
+                                        System.out.println("-------------------------");
+                                        System.out.println("Enter Activity name:");
+                                        String activityName = console.nextLine();
+
+                                        System.out.println();
+                                        System.out.println("What year is the activity in?");
+                                        
+                                        ArrayList<Integer> activityYearInt = new ArrayList<>();
+                                        
+                                        while (activityYearInt.isEmpty() || activityYearInt.get(0) < 0){
+                                            try {
+                                                String activityYear = console.nextLine();
+                                                if (isPositiveInt(activityYear)) {
+                                                    activityYearInt.add(Integer.parseInt(activityYear));
+                                                }
+                                            } catch (Exception e) {
+                                                System.err.println(e.getMessage());
+                                            }
+                                        }
+
+                                        System.out.println();
+                                        System.out.println("What is the start week of the activity?");
+                                        
+
+                                        Integer activityStartWeekInt = null;
+                                        while (activityStartWeekInt == null || activityStartWeekInt < 0){
+                                            try {
+                                                String activityStartWeek = console.nextLine();
+                                                if (isWeek(activityStartWeek)) {
+                                                    activityStartWeekInt = Integer.parseInt(activityStartWeek);
+                                                }
+                                            } catch (Exception e) {
+                                                System.err.println(e.getMessage());
+                                            }
+                                        }
+
+                                        System.out.println();
+                                        System.out.println("What is the start end of the activity?");
+
+                                        Integer activityEndWeekInt = null;
+                                        while (activityEndWeekInt == null || activityEndWeekInt < 0){
+                                            try {
+                                                String activityEndWeek = console.nextLine();
+                                                if (isWeek(activityEndWeek)) {
+                                                    activityEndWeekInt = Integer.parseInt(activityEndWeek);
+                                                }
+                                            } catch (Exception e) {
+                                                System.err.println(e.getMessage());
+                                            }
+                                        }
+                                        
+                                        if (activityStartWeekInt > activityEndWeekInt) {
+                                            System.out.println("Your end week for the activity is earlier in the year than your start week.");
+                                            System.out.println("Do you want to continue the activity into "+(activityYearInt.get(0)+1)+" Y/N?");
+                                            choice = app.yesOrNo(console.nextLine());
+                                            if (choice){
+                                                activityYearInt.add(activityYearInt.get(0)+1);
+                                            }
+                                        }
+
+                                        if (choice) {
+                                            SpecialActivity a = new SpecialActivity(activityName);
+                                            a.setYears(activityYearInt);
+                                            ArrayList<Integer> activeWeeks = new ArrayList<>();
+                                            for (int i = activityStartWeekInt; i != activityEndWeekInt; i = i + 1 % 52){
+                                                activeWeeks.add(i);
+                                            }
+                                            a.setActiveWeeks(activeWeeks);
+                                            app.addSpecialActivity(a);
+                                            System.out.println();
+                                            System.out.println("Succesfully created project \""+activityName+"\".");
+                                            System.out.println("-------------------------");
+                                        } else {
+                                            System.out.println();
+                                            System.out.println("Activity was not created, since timeline wasn't possible.");
+                                            System.out.println("-------------------------");
+                                        }
+
+                                        System.out.println("Want to create another project Y/N?"); 
+                                        saCreator = app.yesOrNo(console.nextLine());
+
+                                    } while(saCreator);
+                                    
                                     break;
 
+                                case 4:
+                                    // Select Activity
+                                    System.out.println();
+                                    System.out.println("Special Activites:");
+                                    System.out.println("-------------------------");
+                                    app.printAllSpecialActivities();
+                                    System.out.println("-------------------------");
+                                    System.out.println();
+                                    System.out.println("Select an activity from the list above by inserting it's name:");
+                                    
+                                    while (true) {
+                                        app.setSelectedSpecialActivity(null);
+
+                                        String activityName = console.nextLine();
+                                        try {
+                                            if(app.specialActivityExists(activityName)){
+                                                app.setSelectedSpecialActivity(activityName);
+                                                break;
+                                            }
+                                        } catch (Exception e) {
+                                            System.err.println(e.getMessage());
+                                            break;
+                                        }                        
+                                    }
+
+                                    if (app.getSelectedSpecialActivity() == null) { 
+                                        System.out.println();
+                                        System.out.println("Returning to Main Menu...");
+                                        break;
+                                    }
+
+                                    // Manage Special Activity
+                                    System.out.println();
+                                    System.out.println("Manage Special Activity:");
+                                    System.out.println("-------------------------");
+                                    System.out.println("1. Views Active Weeks");
+                                    System.out.println("2. Assign User");
+                                    System.out.println("3. Change Active Weeks");
+                                    System.out.println("4. Delete Activity");
+                                    System.out.println("5. Back");
+                                    System.out.println("-------------------------");
+                                    
+                                    System.out.println();
+
+                                    System.out.println("Select a number from the list above to proceed.");
+                                    
+                                    while (true) {
+                                        String choice = console.nextLine();
+                                        int tempNum = Integer.parseInt(choice);
+                                        boolean back = false;
+                                        switch (tempNum) {
+                                            case 1:
+                                                break;
+
+                                            case 2:
+                                                break;
+
+                                            case 3:
+                                                break;
+
+                                            case 4:
+                                                break;
+
+                                            case 5:
+                                                back = true;
+                                        
+                                            default:
+                                                break;
+
+                                        }
+
+                                        if (back) {
+                                            break;
+                                        }
+                                    }
+
+
+                                    break;
+
+                                
                                 // Create User:
                                 case 5:
                                     System.out.println();
                                     System.out.println("-------------------------");
                                     System.out.println("What should the username be?");
+                                    
                                     while (true) { 
                                         username = console.nextLine();
-                                            try {
-                                                app.legalUsername(username);
-                                                app.addEmployee(username);
-                                                break;
-                                            } catch (Exception e) {
-                                                System.err.println(e.getMessage());
-                                            }
+                                        try {
+                                            app.legalUsername(username);
+                                            app.addEmployee(username);
+                                            break;
+                                        } catch (Exception e) {
+                                            System.err.println(e.getMessage());
                                         }
+                                    }
+
                                     break;
                                 
                                 // Manage User
@@ -351,6 +522,35 @@ public class UI {
         System.out.println("Select a number from the list above to proceed.");
     }
 
+    public static boolean isPositiveInt(String input) {
+        try {
+            Integer temp = Integer.parseInt(input);
+            if (temp >= 0){
+                return true;
+            } else {
+                throw new IllegalArgumentException("The integer can't be negative.");
+            }
+            
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Not a valid integer.");
+        }
+    }
 
+    public static boolean isWeek(String input) {
+        Integer temp = null;
+
+        try {
+            isPositiveInt(input);
+            temp = Integer.parseInt(input);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        if (temp != null && (temp > 0 && temp < 52)) {
+            return true;
+        } else{
+            throw new IllegalArgumentException("not a valid weeknumber.");
+        }
+    }
 
 }

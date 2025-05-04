@@ -1,9 +1,12 @@
 package dtu.example;
 
+import java.util.List;
+
 public class Activity {
     private String name;
 
-    private int[] activeWeeks;
+    private List<Integer> years;
+    private List<Integer> activeWeeks;
     private int expectedWeeks;
     private float expectedHours;
 
@@ -11,15 +14,23 @@ public class Activity {
         this.name = name;
     }
 
+    public List<Integer> getYear() {
+        return years;
+    }
+
+    public void setYears(List<Integer> years) {
+        this.years = years;
+    }
+
     public String getName() {
         return name;
     }
 
-    public int[] getActiveWeeks() {
+    public List<Integer> getActiveWeeks() {
         return activeWeeks;
     }
 
-    public void setActiveWeeks(int[] activeWeeks) {
+    public void setActiveWeeks(List<Integer> activeWeeks) {
         this.activeWeeks = activeWeeks;
     }
 

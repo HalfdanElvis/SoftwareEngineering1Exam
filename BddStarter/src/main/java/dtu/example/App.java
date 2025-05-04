@@ -10,12 +10,14 @@ public class App {
 
     private List<Employee> employees = new ArrayList<>();
     private List<Project> projects = new ArrayList<>();
-    private List<Activity> specialActivites = new ArrayList<>();
+    private List<SpecialActivity> specialActivites = new ArrayList<>();
 
     private CalenderHelper ch = new CalenderHelper();
     private Employee signedInEmployee;
     private Employee selectedEmployee;
     private Boolean registrationConfirmation = null;
+
+    private SpecialActivity selectedSpecialActivity;
 
 
 
@@ -103,7 +105,9 @@ public class App {
 
     // WIP
     public void printAllSpecialActivities() {
-
+        for (SpecialActivity activity : specialActivites){
+            System.out.println(activity.getName());
+        }
     }
 
     // WIP
@@ -113,6 +117,36 @@ public class App {
 
     public void setSelectedEmployee(String username) {
         selectedEmployee = stringToEmployee(username);
+    }
+
+    public void setSelectedSpecialActivity(String username) {
+        selectedSpecialActivity = stringToSpecialActivity(username);
+    }
+
+    public SpecialActivity getSelectedSpecialActivity() {
+        return selectedSpecialActivity;
+    }
+
+    public SpecialActivity stringToSpecialActivity(String string) {
+        for (SpecialActivity activity : specialActivites){
+            if (activity.getName().equals(string)){
+                return activity;
+            }
+        }
+        return null;
+    }
+
+    public boolean specialActivityExists(String string) {
+        for (SpecialActivity activity : specialActivites) {
+            if (activity.getName().equals(string)) {
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Activity doesn't exist.");
+    }
+
+    public void addSpecialActivity(SpecialActivity sa){
+        specialActivites.add(sa);
     }
 
     public Project createProject(String name) {
