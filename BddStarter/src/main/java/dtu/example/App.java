@@ -222,4 +222,15 @@ public class App {
             }
         }
     }
+
+
+    public boolean specialActivityNameTaken(String activityName) {
+        for(SpecialActivity sa : specialActivites) {
+            if (sa.getName().equals(activityName)){
+                throw new IllegalArgumentException("Special Activity with that name already exists.");
+            }
+            
+        }
+        return true;
+    }
 }

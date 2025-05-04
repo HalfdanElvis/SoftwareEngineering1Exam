@@ -117,8 +117,22 @@ public class UI {
                                         System.out.println();
                                         System.out.println("Create Special Activity");
                                         System.out.println("-------------------------");
-                                        System.out.println("Enter Activity name:");
-                                        String activityName = console.nextLine();
+                                        
+
+                                        String activityName = null;
+                                        while (activityName == null) {
+                                            System.out.println("Enter Activity name:");    
+                                            try {
+                                                String temp = console.nextLine();
+                                                if (app.specialActivityNameTaken(temp)) {
+                                                    activityName = temp;
+                                                }
+                                            } catch (Exception e) {
+                                                System.out.println(e.getMessage());
+                                                System.out.println();
+                                            }
+                                        }
+                                        
 
                                         System.out.println();
                                         System.out.println("What year is the activity in?");
@@ -232,23 +246,23 @@ public class UI {
                                         System.out.println("Returning to Main Menu...");
                                         break;
                                     }
-
-                                    // Manage Special Activity
-                                    System.out.println();
-                                    System.out.println("Manage Special Activity:");
-                                    System.out.println("-------------------------");
-                                    System.out.println("1. Views Active Weeks");
-                                    System.out.println("2. Assign User");
-                                    System.out.println("3. Change Active Weeks");
-                                    System.out.println("4. Delete Activity");
-                                    System.out.println("5. Back");
-                                    System.out.println("-------------------------");
-                                    
-                                    System.out.println();
-
-                                    System.out.println("Select a number from the list above to proceed.");
                                     
                                     while (true) {
+                                        // Manage Special Activity
+                                        System.out.println();
+                                        System.out.println("Manage Special Activity:");
+                                        System.out.println("-------------------------");
+                                        System.out.println("1. Views Active Weeks");
+                                        System.out.println("2. Assign User");
+                                        System.out.println("3. Change Active Weeks");
+                                        System.out.println("4. Delete Activity");
+                                        System.out.println("5. Back");
+                                        System.out.println("-------------------------");
+                                        
+                                        System.out.println();
+
+                                        System.out.println("Select a number from the list above to proceed.");
+
                                         String choice = console.nextLine();
                                         int tempNum = Integer.parseInt(choice);
                                         boolean back = false;
@@ -256,7 +270,9 @@ public class UI {
 
                                             // View Active Weeks:
                                             case 1:
-                                                System.out.println("Year " + app.getSelectedSpecialActivity().getYears().get(0) + " :");
+                                                System.out.println();
+                                                System.out.println("Special Activity \"" + app.getSelectedSpecialActivity().getName() + "\" is active in the following weeks:");
+                                                System.out.println("Year " + app.getSelectedSpecialActivity().getYears().get(0) + ":");
                                                 Integer prevWeek = null;
                                                 for (Integer week : app.getSelectedSpecialActivity().getActiveWeeks()){
                                                     if (prevWeek == null) {
@@ -264,13 +280,14 @@ public class UI {
                                                     }
                                                     if (prevWeek>week && app.getSelectedSpecialActivity().getYears().size() > 1){
                                                         // Hardcoded, kan kun strække sig over 2 år for nu
-                                                        System.out.println("Year " + app.getSelectedSpecialActivity().getYears().get(1) + " :");
+                                                        System.out.println("Year " + app.getSelectedSpecialActivity().getYears().get(1) + ":");
                                                         System.out.println();
                                                         prevWeek = week;
                                                     }
                                                     System.out.print(week+" ");
-                                                    
                                                 }
+                                                System.out.println();
+
                                                 break;
 
                                             case 2:
