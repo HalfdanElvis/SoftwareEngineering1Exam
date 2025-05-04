@@ -14,7 +14,7 @@ public class Activity {
         this.name = name;
     }
 
-    public List<Integer> getYear() {
+    public List<Integer> getYears() {
         return years;
     }
 

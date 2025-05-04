@@ -123,13 +123,13 @@ public class UI {
                                         System.out.println();
                                         System.out.println("What year is the activity in?");
                                         
-                                        ArrayList<Integer> activityYearInt = new ArrayList<>();
+                                        ArrayList<Integer> activityYearsInt = new ArrayList<>();
                                         
-                                        while (activityYearInt.isEmpty() || activityYearInt.get(0) < 0){
+                                        while (activityYearsInt.isEmpty() || activityYearsInt.get(0) < 0){
                                             try {
-                                                String activityYear = console.nextLine();
-                                                if (isPositiveInt(activityYear)) {
-                                                    activityYearInt.add(Integer.parseInt(activityYear));
+                                                String activityYears = console.nextLine();
+                                                if (isPositiveInt(activityYears)) {
+                                                    activityYearsInt.add(Integer.parseInt(activityYears));
                                                 }
                                             } catch (Exception e) {
                                                 System.err.println(e.getMessage());
@@ -169,18 +169,19 @@ public class UI {
                                         
                                         if (activityStartWeekInt > activityEndWeekInt) {
                                             System.out.println("Your end week for the activity is earlier in the year than your start week.");
-                                            System.out.println("Do you want to continue the activity into "+(activityYearInt.get(0)+1)+" Y/N?");
+                                            System.out.println("Do you want to continue the activity into "+(activityYearsInt.get(0)+1)+" Y/N?");
                                             choice = app.yesOrNo(console.nextLine());
                                             if (choice){
-                                                activityYearInt.add(activityYearInt.get(0)+1);
+                                                activityYearsInt.add(activityYearsInt.get(0)+1);
+                                                System.out.println("test");
                                             }
                                         }
 
                                         if (choice) {
                                             SpecialActivity a = new SpecialActivity(activityName);
-                                            a.setYears(activityYearInt);
+                                            a.setYears(activityYearsInt);
                                             ArrayList<Integer> activeWeeks = new ArrayList<>();
-                                            for (int i = activityStartWeekInt; i != activityEndWeekInt; i = i + 1 % 52){
+                                            for (int i = activityStartWeekInt; i != (activityEndWeekInt + 1); i = (i % 52 + 1)){
                                                 activeWeeks.add(i);
                                             }
                                             a.setActiveWeeks(activeWeeks);
@@ -252,7 +253,24 @@ public class UI {
                                         int tempNum = Integer.parseInt(choice);
                                         boolean back = false;
                                         switch (tempNum) {
+
+                                            // View Active Weeks:
                                             case 1:
+                                                System.out.println("Year " + app.getSelectedSpecialActivity().getYears().get(0) + " :");
+                                                Integer prevWeek = null;
+                                                for (Integer week : app.getSelectedSpecialActivity().getActiveWeeks()){
+                                                    if (prevWeek == null) {
+                                                        prevWeek = week;
+                                                    }
+                                                    if (prevWeek>week && app.getSelectedSpecialActivity().getYears().size() > 1){
+                                                        // Hardcoded, kan kun strække sig over 2 år for nu
+                                                        System.out.println("Year " + app.getSelectedSpecialActivity().getYears().get(1) + " :");
+                                                        System.out.println();
+                                                        prevWeek = week;
+                                                    }
+                                                    System.out.print(week+" ");
+                                                    
+                                                }
                                                 break;
 
                                             case 2:
