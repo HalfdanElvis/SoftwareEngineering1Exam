@@ -10,6 +10,7 @@ public class ActivityExpectedHoursSteps {
     private App app = new App();
     private int pID;
     private String username;
+    private String aName;
     
     @Given("that user {string} is logged in")
     public void thatUserIsLoggedIn(String string) {
@@ -31,36 +32,32 @@ public class ActivityExpectedHoursSteps {
 
     @Given("the project with id {int} contains an activity with name {string}")
     public void theProjectWithIdContainsAnActivityWithName(Integer int1, String string) {
-        app.intToProject(pID).addActivity(string);
+        aName = string;
+        app.intToProject(pID).createActivity(aName);
     }
 
     @Given("the user is the project leader")
     public void theUserIsTheProjectLeader() {
-        app.intToProject(pID).setProjectLeader(projectLeader);
-        
-    }
-
-    @When("the user sets the activity's expected total work hours to {int}")
-    public void theUserSetsTheActivitySExpectedTotalWorkHoursTo(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Then("the activity's expected total work hours is already {int}")
-    public void theActivitySExpectedTotalWorkHoursIsAlready(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        app.intToProject(pID).setProjectLeader(app.stringToEmployee(username));
     }
 
     @Given("the user is not the project leader")
     public void theUserIsNotTheProjectLeader() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        app.intToProject(pID).setProjectLeader(null);
     }
 
-    @Given("the activity's expected total work hours is {int}")
+    @Given("the activity's expected total work hours is already {int}")
+    public void theActivitySExpectedTotalWorkHoursIsAlready(Integer int1) {
+        app.intToProject(pID).stringToActivity(aName).setExpectedHours(int1);
+    }
+
+    @When("the user sets the activity's expected total work hours to {int}")
+    public void theUserSetsTheActivitySExpectedTotalWorkHoursTo(Integer int1) {
+        app.intToProject(pID).stringToActivity(aName).setExpectedHours(int1);
+    }
+
+    @Then("the activity's expected total work hours is {int}")
     public void theActivitySExpectedTotalWorkHoursIs(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assert(int1 == app.intToProject(pID).stringToActivity(aName).getExpectedHours());
     }
 }
