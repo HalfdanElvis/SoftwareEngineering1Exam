@@ -3,8 +3,6 @@ package dtu.example;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.cucumber.java.bs.A;
-
 public class Project {
 
     private String name;
@@ -61,7 +59,7 @@ public class Project {
     }
     
     public boolean containsActivity(String string) {
-        for (Activity activity : activites) {
+        for (Activity activity : activities) {
             if (activity.getName().equals(string)) {
                 return true;
             }
