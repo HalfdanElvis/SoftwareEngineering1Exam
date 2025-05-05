@@ -15,7 +15,7 @@ public class UI {
         String username = "";
 
         // Starting Program
-        while (true){
+        while (true) {
             // Login method
             while (true) {
 
@@ -504,6 +504,27 @@ public class UI {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     public static void printMainMenu() {
         System.out.println();
 

@@ -1,10 +1,7 @@
 package dtu.example;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
-
-import io.cucumber.java.bs.A;
 
 public class Project {
 
@@ -61,4 +58,18 @@ public class Project {
         return null;
     }
     
+    public boolean containsActivity(String string) {
+        for (Activity activity : activities) {
+            if (activity.getName().equals(string)) {
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Activity doesn't exist.");
+    }
+
+    public void addActivity(String activityName) {
+        Activity a = new Activity(activityName);
+        activities.add(a);
+    }
+
 }
