@@ -242,10 +242,4 @@ public class App {
         }
         return true;
     }
-
-    public void createActivity(int projectID, String name) {
-        Project project = intToProject(projectID);
-        project.createActivity(name);
-    }
-
 }
