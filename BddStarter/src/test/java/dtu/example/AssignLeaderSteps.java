@@ -25,6 +25,6 @@ public class AssignLeaderSteps {
     @Then("the project has a project leader {string}")
     public void theProjectHasAProjectLeader(String string) {
         // Write code here that turns the phrase above into concrete actions
-        assert(app.getProjecLeader(projectID).equals(string));
+        assert(app.getProjectLeaderName(projectID).equals(string));
     }
 }

@@ -218,6 +218,10 @@ public class App {
         return intToProject(id).hasProjectLeader();
     }
 
+    public String getProjectLeaderName(int id) {
+        return intToProject(id).getProjectLeader().getUsername();
+    }
+
     public void printProjectList(int year) {
         year %= 100;
 
