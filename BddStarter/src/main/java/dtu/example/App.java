@@ -12,7 +12,7 @@ public class App {
     private List<Project> projects = new ArrayList<>();
     private List<SpecialActivity> specialActivites = new ArrayList<>();
 
-    private CalenderHelper ch = new CalenderHelper();
+    private CalendarHelper ch = new CalendarHelper();
     private Employee signedInEmployee;
     private Employee selectedEmployee;
     private Boolean registrationConfirmation = null;
