@@ -7,8 +7,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class AssignLeaderSteps {
-    App app = TestHelper.app;
+    App app;
     int projectID;
+
+    public AssignLeaderSteps(App app) {
+        this.app = app;
+    }
 
     @Given("a project with ID {int} exists")
     public void aProjectWithIDExists(Integer id) {
@@ -16,6 +20,10 @@ public class AssignLeaderSteps {
         app.createProject("test");
         projectID = id;
 
+    }
+    @Given("the user {string} exists in the system")
+    public void theUserExistsInTheSystem(String string) {
+        app.addEmployee(string);
     }
     @When("the user assigns an employee with intials {string} as project leader for the project with ID {int}")
     public void theUserAssignsAnEmployeeWithIntialsAsProjectLeaderForTheProjectWithID(String username, Integer id) {

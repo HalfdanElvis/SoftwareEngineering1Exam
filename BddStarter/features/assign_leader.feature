@@ -3,7 +3,7 @@ Feature: Assign Leader
     Actors: User
 
 Background: 
-    Given that a user "huba" is logged in
+    Given that user "huba" is logged in
     And a project with ID 25001 exists
     
 Scenario: a project leader is assigned succesfully
@@ -11,6 +11,7 @@ Scenario: a project leader is assigned succesfully
     Then the project has a project leader "huba"
 
 Scenario: a user assigns a project leader when one is already assigned
+    Given the user "bahu" exists in the system
     And the project has a project leader "bahu"
     When the user assigns an employee with intials "huba" as project leader for the project with ID 25001
     Then the error message "Already has project leader" is given
@@ -18,8 +19,6 @@ Scenario: a user assigns a project leader when one is already assigned
 
 Scenario: a project leader assigns a project leader when one is already assigned
     And the project has a project leader "huba"
+    Given the user "bahu" exists in the system
     When the user assigns an employee with intials "bahu" as project leader for the project with ID 25001
     Then the project has a project leader "bahu"
-
-
-    

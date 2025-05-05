@@ -1,3 +1,4 @@
+
 Feature: Assign User An Activity
     Description: A user assigns a user an Activity
     Actors: User, Project leader

@@ -1,9 +1,10 @@
+
 Feature: Create activity
 	Description: A user creates a new activity
 	Actors: User, project leader
 
 Background:
-	Given that a user "huba" is logged in
+	Given that user "huba" is logged in
 
 Scenario: A user creates an activity in a project
  	Given that there exists a project "projectX" with project ID 25001

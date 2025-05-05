@@ -6,13 +6,30 @@ import io.cucumber.java.en.When;
 
 public class CreateUserSteps {
 
+<<<<<<< Updated upstream
     App app = TestHelper.app;
 
+=======
+    App app;
+>>>>>>> Stashed changes
     
+    public CreateUserSteps(App app) {
+        this.app = app;
+    }
+
     @Given("that user {string} is logged in")
     public void thatUserIsLoggedIn(String string) {
+<<<<<<< Updated upstream
         TestHelper.username = string;
         String username = TestHelper.username;
+=======
+        if (app.employeeExists(string)){
+            app.setSignedInEmployee(string);
+        } else {
+            app.addEmployee(string);
+            app.setSignedInEmployee(string);
+        }  
+>>>>>>> Stashed changes
 
         if (app.employeeExists(username)){
             app.setSignedInEmployee(app.stringToEmployee(username));

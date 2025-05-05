@@ -3,7 +3,7 @@ Feature: Create project
 	Actors: User
 
 Background:
-  Given that a user "huba" is logged in
+  Given that user "huba" is logged in
 
 Scenario: A user creates a project
  	Given that there are 0 projects in year 2025

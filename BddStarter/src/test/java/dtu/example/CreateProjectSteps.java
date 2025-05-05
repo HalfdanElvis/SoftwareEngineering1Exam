@@ -12,10 +12,6 @@ public class CreateProjectSteps {
     
     App app = TestHelper.app;
 
-    @Given("that a user {string} is logged in")
-    public void thatAUserIsLoggedIn(String string) {
-        app.setSignedInEmployee(new Employee(string));
-    }
     @Given("that there are {int} projects in year {int}")
     public void thatThereAreProjectsInYear(Integer projectCount, Integer year) {
         app.setYear(year);

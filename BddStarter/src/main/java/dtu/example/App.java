@@ -86,8 +86,11 @@ public class App {
     }
 
 
-    public void setSignedInEmployee(Employee signedInEmployee) {
-        this.signedInEmployee = signedInEmployee;
+    public void setSignedInEmployee(String signedInEmployee) {
+        if (stringToEmployee(signedInEmployee) == null) {
+            throw new IllegalArgumentException("User does not exist.");
+        }
+        this.signedInEmployee = stringToEmployee(signedInEmployee);
     }
 
     // For testing:
@@ -210,7 +213,7 @@ public class App {
         } else if (signedInEmployee.equals(project.getProjectLeader())) {
             project.setProjectLeader(employee);
         } else {
-            throw new IllegalArgumentException("Only project leader can change project leader");
+            throw new IllegalArgumentException("Only project leader can change project leader "+project.getProjectLeader().getUsername());
         }
     }
 
@@ -247,6 +250,7 @@ public class App {
         return true;
     }
 
+<<<<<<< Updated upstream
     public void setActivityExpectedHours(Project p, Activity a, int hours) {
         
         try {
@@ -257,6 +261,10 @@ public class App {
             
         }
         
+=======
+    public void createActivity(int projectID, String activityName) {
+        intToProject(projectID).createActivity(activityName);
+>>>>>>> Stashed changes
     }
 
 }

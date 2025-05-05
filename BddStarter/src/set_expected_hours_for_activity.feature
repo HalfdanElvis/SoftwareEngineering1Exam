@@ -3,7 +3,7 @@ Feature: Set activities expected hours
 	Actor: project leader
 
 Background:
-	Given that a user "huba" is logged in
+	Given that user "huba" is logged in
 	And that there exists a project with id 25001 and name "projectX"
 	And the project with id 25001 contains an activity with name "Data Refinement"
 
