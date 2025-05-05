@@ -137,12 +137,10 @@ public class App {
     }
 
     public boolean specialActivityExists(String string) {
-        for (SpecialActivity activity : specialActivites) {
-            if (activity.getName().equals(string)) {
-                return true;
-            }
+        if (stringToSpecialActivity(string) == null) {
+            throw new IllegalArgumentException("Activity doesn't exist.");
         }
-        throw new IllegalArgumentException("Activity doesn't exist.");
+        return true;
     }
 
     public void addSpecialActivity(SpecialActivity sa){
@@ -184,6 +182,13 @@ public class App {
             }
         }
         return false;
+    }
+
+    public boolean projectContainsActivity(int id, String activity) {
+        if (intToProject(id).stringToActivity(activity) == null) {
+            return false;
+        }
+        return true;
     }
 
     public Project intToProject(int id) {
@@ -236,9 +241,5 @@ public class App {
             
         }
         return true;
-    }
-
-    public String getProjecLeader(int ID) {
-        return intToProject(ID).getProjectLeader().getUsername();
     }
 }
