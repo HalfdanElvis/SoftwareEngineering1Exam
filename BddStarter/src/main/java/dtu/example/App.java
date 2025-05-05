@@ -154,22 +154,23 @@ public class App {
         year = Year.now().getValue();
         year %= 100;
         year *= 1000;
+
+        System.out.println(year);
         
-        int projectNumber = 0;
-        
-        Project project = new Project(name);
+        int projectAmount = 0;
         
 
         for (Project p : projects) {
-            if (p.getID() >= year && p.getID() < year+100) {
-                projectNumber++;
+            if (p.getID() >= year && p.getID() < year+1000) {
+                projectAmount++;
             }
         }
 
-        project.setID(year+projectNumber+1);
-
+        if (projectAmount >= 999) {
+            throw new IllegalArgumentException("Maximum projects for this year has been reached");
+        }
+        Project project = new Project(name, year+projectAmount+1);
         projects.add(project);
-        
         return project;
     }
 
@@ -213,7 +214,7 @@ public class App {
         } else if (signedInEmployee.equals(project.getProjectLeader())) {
             project.setProjectLeader(employee);
         } else {
-            throw new IllegalArgumentException("Only project leader can change project leader "+project.getProjectLeader().getUsername());
+            throw new IllegalArgumentException("Only project leader can change project leader.");
         }
     }
 
@@ -249,8 +250,7 @@ public class App {
         }
         return true;
     }
-
-<<<<<<< Updated upstream
+/* 
     public void setActivityExpectedHours(Project p, Activity a, int hours) {
         
         try {
@@ -261,10 +261,7 @@ public class App {
             
         }
         
-=======
-    public void createActivity(int projectID, String activityName) {
-        intToProject(projectID).createActivity(activityName);
->>>>>>> Stashed changes
     }
+    */
 
 }

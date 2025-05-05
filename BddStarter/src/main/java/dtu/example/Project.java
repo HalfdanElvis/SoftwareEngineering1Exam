@@ -10,8 +10,9 @@ public class Project {
     private List<Activity> activities = new ArrayList<>();
     private Employee projectLeader;
 
-    public Project (String name){
+    public Project (String name, int ID){
         this.name = name;
+        this.ID = ID;
         activities = new ArrayList<>();
     }
 

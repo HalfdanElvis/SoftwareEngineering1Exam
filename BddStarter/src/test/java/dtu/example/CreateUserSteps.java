@@ -6,36 +6,24 @@ import io.cucumber.java.en.When;
 
 public class CreateUserSteps {
 
-<<<<<<< Updated upstream
-    App app = TestHelper.app;
-
-=======
     App app;
->>>>>>> Stashed changes
+    ErrorMessageHolder errorMessageHolder;
     
-    public CreateUserSteps(App app) {
+    public CreateUserSteps(App app, ErrorMessageHolder errorMessageHolder) {
         this.app = app;
+        this.errorMessageHolder = errorMessageHolder;
     }
 
     @Given("that user {string} is logged in")
     public void thatUserIsLoggedIn(String string) {
-<<<<<<< Updated upstream
         TestHelper.username = string;
         String username = TestHelper.username;
-=======
-        if (app.employeeExists(string)){
-            app.setSignedInEmployee(string);
-        } else {
-            app.addEmployee(string);
-            app.setSignedInEmployee(string);
-        }  
->>>>>>> Stashed changes
 
         if (app.employeeExists(username)){
-            app.setSignedInEmployee(app.stringToEmployee(username));
+            app.setSignedInEmployee(username);
         } else {
             app.addEmployee(username);
-            app.setSignedInEmployee(app.stringToEmployee(username));
+            app.setSignedInEmployee(username);
         }
 
         TestHelper.app = app;
@@ -43,7 +31,11 @@ public class CreateUserSteps {
 
     @When("the User creates a new User with name {string}")
     public void theUserCreatesANewUserWithName(String string) {
-        app.addEmployee(string);
+        try {
+            app.addEmployee(string);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
     }
 
 
@@ -51,9 +43,4 @@ public class CreateUserSteps {
     public void theUserIsSuccessfullyCreated(String string) {
         app.employeeExists(string);
     }
-
-    @Then("the {string} exception is thrown")
-    public void theExceptionIsThrown(String string) {
-    // IDK HOW TO WRITE THIS
-}
 }
