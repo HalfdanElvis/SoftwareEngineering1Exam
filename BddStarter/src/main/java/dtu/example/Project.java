@@ -50,6 +50,12 @@ public class Project {
     }
 
     public Activity stringToActivity(String activityName) {
+        try {
+            containsActivity(activityName);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         for (Activity activity : activities){
             if (activity.getName().equals(activityName)){
                 return activity;
@@ -66,5 +72,4 @@ public class Project {
         }
         throw new IllegalArgumentException("Activity doesn't exist.");
     }
-
 }
