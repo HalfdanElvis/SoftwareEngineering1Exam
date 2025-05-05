@@ -217,7 +217,7 @@ public class App {
     public boolean projectHasLeader(int id) {
         return intToProject(id).hasProjectLeader();
     }
-
+    
     public String getProjectLeaderName(int id) {
         return intToProject(id).getProjectLeader().getUsername();
     }
@@ -246,4 +246,5 @@ public class App {
         }
         return true;
     }
+
 }
