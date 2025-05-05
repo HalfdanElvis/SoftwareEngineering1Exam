@@ -72,4 +72,8 @@ public class Project {
         }
         throw new IllegalArgumentException("Activity doesn't exist.");
     }
+
+    public void setActivityExpectedHours(Activity a, int hours){
+        a.setExpectedHours(hours);
+    }
 }
