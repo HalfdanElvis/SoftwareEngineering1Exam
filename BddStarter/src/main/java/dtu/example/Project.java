@@ -67,9 +67,4 @@ public class Project {
         throw new IllegalArgumentException("Activity doesn't exist.");
     }
 
-    public void addActivity(String activityName) {
-        Activity a = new Activity(activityName);
-        activities.add(a);
-    }
-
 }
