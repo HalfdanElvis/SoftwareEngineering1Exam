@@ -209,6 +209,10 @@ public class App {
         }
     }
 
+    public boolean projectHasLeader(int id) {
+        return intToProject(id).hasProjectLeader();
+    }
+
     public void printProjectList(int year) {
         year %= 100;
 
@@ -232,5 +236,9 @@ public class App {
             
         }
         return true;
+    }
+
+    public String getProjecLeader(int ID) {
+        return intToProject(ID).getProjectLeader().getUsername();
     }
 }
