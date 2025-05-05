@@ -1,6 +1,5 @@
 package dtu.example;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,4 +44,13 @@ public class Project {
         return name+", "+ID;
     }
     
+    public boolean containsActivity(String string) {
+        for (Activity activity : activites) {
+            if (activity.getName().equals(string)) {
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Activity doesn't exist.");
+    }
+
 }
