@@ -35,3 +35,6 @@ Scenario: User removes hours logged from an activity they have not worked in
 	When the user removes 7 hours from the activity on the date "01-01-2024"
 	Then the error message "You havn't worked that long in this activity" is given
 	And on the date "01-01-2024" the user has logged 0 hours in the activity
+Scenario: User gives a date and wants the week number for that date. 
+	Given the date 2000-12-02
+	Then the week number should 48
