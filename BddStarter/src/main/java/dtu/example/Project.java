@@ -4,15 +4,18 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.cucumber.java.bs.A;
+
 public class Project {
 
     private String name;
     private int ID;
-    private List<Activity> activites = new ArrayList<>();
+    private List<Activity> activities = new ArrayList<>();
     private Employee projectLeader;
 
     public Project (String name){
         this.name = name;
+        activities = new ArrayList<>();
     }
 
     public int getID() {
@@ -43,6 +46,19 @@ public class Project {
 
     public String printProject() {
         return name+", "+ID;
+    }
+
+    public void createActivity(String name) {
+        activities.add(new Activity(name));
+    }
+
+    public Activity stringToActivity(String activityName) {
+        for (Activity activity : activities){
+            if (activity.getName().equals(activityName)){
+                return activity;
+            }
+        }
+        return null;
     }
     
 }
