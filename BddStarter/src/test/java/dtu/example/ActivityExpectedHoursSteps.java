@@ -17,9 +17,10 @@ public class ActivityExpectedHoursSteps {
         username = string;
 
         if (app.employeeExists(username)){
-            app.setSignedInEmployee(app.stringToEmployee(string));
+            app.setSignedInEmployee(app.stringToEmployee(username));
         } else {
-            app.setSignedInEmployee(new Employee(string));
+            app.addEmployee(username);
+            app.setSignedInEmployee(app.stringToEmployee(username));
         }  
     }
 
