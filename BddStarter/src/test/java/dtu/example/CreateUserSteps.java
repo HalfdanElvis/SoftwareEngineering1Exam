@@ -1,9 +1,5 @@
 package dtu.example;
 
-import static org.junit.Assert.assertFalse;
-
-import java.util.Scanner;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,11 +7,21 @@ import io.cucumber.java.en.When;
 public class CreateUserSteps {
 
     App app = TestHelper.app;
+
     
     @Given("that user {string} is logged in")
     public void thatUserIsLoggedIn(String string) {
-        app.setSignedInEmployee(new Employee(string));
+        TestHelper.username = string;
+        String username = TestHelper.username;
 
+        if (app.employeeExists(username)){
+            app.setSignedInEmployee(app.stringToEmployee(username));
+        } else {
+            app.addEmployee(username);
+            app.setSignedInEmployee(app.stringToEmployee(username));
+        }
+
+        TestHelper.app = app;
     }
 
     @When("the User creates a new User with name {string}")

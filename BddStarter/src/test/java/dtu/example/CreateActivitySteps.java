@@ -1,9 +1,5 @@
 package dtu.example;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,7 +20,7 @@ public class CreateActivitySteps {
     }
     @When("the user creates an activity {string} in the project")
     public void theUserCreatesAnActivityInTheProject(String string) {
-        app.createActivity(projectID, string);
+        // app.createActivity(projectID, string);
     }
     @Then("the project contains an activity {string}")
     public void theProjectContainsAnActivity(String string) {
