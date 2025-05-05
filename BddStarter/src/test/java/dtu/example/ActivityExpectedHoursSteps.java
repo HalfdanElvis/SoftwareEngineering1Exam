@@ -11,19 +11,8 @@ public class ActivityExpectedHoursSteps {
     private int pID;
     private String username;
     private String aName;
+
     
-    @Given("that user {string} is logged in")
-    public void thatUserIsLoggedIn(String string) {
-        username = string;
-
-        if (app.employeeExists(username)){
-            app.setSignedInEmployee(app.stringToEmployee(username));
-        } else {
-            app.addEmployee(username);
-            app.setSignedInEmployee(app.stringToEmployee(username));
-        }  
-    }
-
     @Given("that there exists a project with id {int} and name {string}")
     public void thatThereExistsAProjectWithIdAndName(Integer int1, String string) {
         pID = int1;
