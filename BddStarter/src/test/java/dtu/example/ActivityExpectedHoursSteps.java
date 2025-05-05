@@ -6,11 +6,21 @@ import io.cucumber.java.en.When;
 
 public class ActivityExpectedHoursSteps {
 
-
-    private App app = new App();
+    private App app;
+    private ErrorMessageHolder errorMessage;
+    private TestHelper testHelper;
+    
     private int pID;
     private String username;
     private String aName;
+
+
+    public ActivityExpectedHoursSteps (App app, ErrorMessageHolder errorMessage, TestHelper testHelper) {
+        this.app = app;
+        this.errorMessage = errorMessage;
+        this.testHelper = testHelper;
+    }
+
 
     
     @Given("that there exists a project with id {int} and name {string}")
@@ -38,7 +48,16 @@ public class ActivityExpectedHoursSteps {
 
     @Given("the activity's expected total work hours is already {int}")
     public void theActivitySExpectedTotalWorkHoursIsAlready(Integer int1) {
-        app.intToProject(pID).stringToActivity(aName).setExpectedHours(int1);
+
+        if (!(app.getSignedInEmployee().equals(app.intToProject(pID).getProjectLeader()))){
+            Employee temp1 = app.getSignedInEmployee();
+            app.setSignedInEmployee(app.intToProject(pID).getProjectLeader());
+            app.intToProject(pID).stringToActivity(aName).setExpectedHours(int1);
+            app.setSignedInEmployee(temp1);
+        } else {
+            app.intToProject(pID).stringToActivity(aName).setExpectedHours(int1);
+        }
+        
     }
 
     @When("the user sets the activity's expected total work hours to {int}")

@@ -247,4 +247,16 @@ public class App {
         return true;
     }
 
+    public void setActivityExpectedHours(Project p, Activity a, int hours) {
+        
+        try {
+            if (signedInEmployee.equals(p.getProjectLeader())){
+                p.setActivityExpectedHours(a, hours);
+            }
+        } catch {
+            
+        }
+        
+    }
+
 }
