@@ -12,12 +12,13 @@ import io.cucumber.java.en.When;
 public class CreateProjectSteps {
     
     App app;
-    int projectID;
+    TestHelper testHelper;
     ErrorMessageHolder errorMessageHolder;
 
-    public CreateProjectSteps(App app, ErrorMessageHolder errorMessageHolder) {
+    public CreateProjectSteps(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
+        this.testHelper = testHelper;
     }
 
 

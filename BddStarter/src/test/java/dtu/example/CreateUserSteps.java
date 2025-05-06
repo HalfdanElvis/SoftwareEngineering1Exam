@@ -3,21 +3,23 @@ package dtu.example;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import junit.framework.Test;
 
 public class CreateUserSteps {
 
     App app;
     ErrorMessageHolder errorMessageHolder;
+    TestHelper testHelper;
     
-    public CreateUserSteps(App app, ErrorMessageHolder errorMessageHolder) {
+    public CreateUserSteps(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
+        this.testHelper = testHelper;
     }
 
     @Given("that user {string} is logged in")
-    public void thatUserIsLoggedIn(String string) {
-        TestHelper.username = string;
-        String username = TestHelper.username;
+    public void thatUserIsLoggedIn(String username) {
+        testHelper.setUser(username);
 
         if (app.employeeExists(username)){
             app.setSignedInEmployee(username);
@@ -25,8 +27,6 @@ public class CreateUserSteps {
             app.addEmployee(username);
             app.setSignedInEmployee(username);
         }
-
-        TestHelper.app = app;
     }
 
     @When("the User creates a new User with name {string}")

@@ -8,20 +8,19 @@ import io.cucumber.java.en.When;
 
 public class AssignLeaderSteps {
     App app;
-    int projectID;
     ErrorMessageHolder errorMessageHolder;
+    TestHelper testHelper;
 
-    public AssignLeaderSteps(App app, ErrorMessageHolder errorMessageHolder) {
+    public AssignLeaderSteps(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
+        this.testHelper = testHelper;
     }
 
     @Given("a project with ID {int} exists")
     public void aProjectWithIDExists(Integer id) {
-        // Write code here that turns the phrase above into concrete actions
         app.createProject("test");
-        projectID = id;
-        assert(app.intToProject(projectID) != null);
+        testHelper.setProjectID(id);
 
     }
     @Given("the user {string} exists in the system")
@@ -30,21 +29,21 @@ public class AssignLeaderSteps {
     }
     @Given("the project has a project leader set to {string}")
     public void the_project_has_a_project_leader_set_to(String username) {
-        app.assignLeader(username, projectID);
+        app.assignLeader(username, testHelper.getProjectID());
     }
     @When("the user assigns an employee with initials {string} as project leader for the project with ID {int}")
     public void theUserAssignsAnEmployeeWithInitialsAsProjectLeaderForTheProjectWithID(String username, Integer id) {
         // Write code here that turns the phrase above into concrete actions
         try {
-            app.assignLeader(username, projectID);
+            app.assignLeader(username, testHelper.getProjectID());
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
         
     }
-    @Then("the project has a project leader {string}")
-    public void theProjectHasAProjectLeader(String string) {
+    @Then("the project should have a project leader {string}")
+    public void theProjectShouldHaveAProjectLeader(String string) {
         // Write code here that turns the phrase above into concrete actions
-        assert(app.getProjectLeaderName(projectID).equals(string));
+        assert(app.getProjectLeaderName(testHelper.getProjectID()).equals(string));
     }
 }

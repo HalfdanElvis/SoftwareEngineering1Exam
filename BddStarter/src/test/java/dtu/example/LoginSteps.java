@@ -10,7 +10,15 @@ import io.cucumber.java.en.When;
 
 public class LoginSteps {
 
-    App app = TestHelper.app;
+    App app;
+    ErrorMessageHolder errorMessageHolder;
+    TestHelper testHelper;
+    
+    public LoginSteps(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper) {
+        this.app = app;
+        this.errorMessageHolder = errorMessageHolder;
+        this.testHelper = testHelper;
+    }
 
 
     @Given("the user {string} exist")
@@ -27,8 +35,6 @@ public class LoginSteps {
     public void theUserDoesnTExist(String string) {
         app.deleteEmployee(string);
     }
-
-
 
     @When("the user {string} tries to log in")
     public void theUserTriesToLogIn(String string) {
@@ -69,6 +75,7 @@ public class LoginSteps {
 
     @Then("the user {string} does not exist")
     public void theUserDoesNotExist(String string) {
+        assert(!app.employeeExists(string));
     }
 
 

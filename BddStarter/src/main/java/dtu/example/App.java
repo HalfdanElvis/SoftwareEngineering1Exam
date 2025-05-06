@@ -150,6 +150,10 @@ public class App {
         specialActivites.add(sa);
     }
 
+    public void addActivity(int projectID, String activityName) throws IllegalAccessException {
+        intToProject(projectID).createActivity(activityName, signedInEmployee);
+    }
+
     public Project createProject(String name) {
         year = Year.now().getValue();
         year %= 100;
@@ -189,10 +193,7 @@ public class App {
     }
 
     public boolean projectContainsActivity(int id, String activity) {
-        if (intToProject(id).stringToActivity(activity) == null) {
-            return false;
-        }
-        return true;
+        return intToProject(id).containsActivity(activity);
     }
 
     public Project intToProject(int id) {
@@ -207,6 +208,9 @@ public class App {
 
     public void assignLeader(String username, Integer id) {
         Employee employee = stringToEmployee(username);
+        if (employee == null) {
+            throw new IllegalArgumentException("Employee does not exist");
+        }
         Project project = intToProject(id);
 
         if (!project.hasProjectLeader()) {
@@ -250,18 +254,13 @@ public class App {
         }
         return true;
     }
-/* 
-    public void setActivityExpectedHours(Project p, Activity a, int hours) {
-        
-        try {
-            if (signedInEmployee.equals(p.getProjectLeader())){
-                p.setActivityExpectedHours(a, hours);
-            }
-        } catch {
-            
-        }
-        
+
+    public void setActivityExpectedHours(int ProjectID, String activityName, float hours) throws IllegalAccessException {
+        intToProject(ProjectID).setActivityExpectedHours(activityName, hours, signedInEmployee);
     }
-    */
+
+    public float getActivityExpectedHours(int ProjectID, String activityName) {
+        return intToProject(ProjectID).getActivityExpectedHours(activityName);
+    }
 
 }
