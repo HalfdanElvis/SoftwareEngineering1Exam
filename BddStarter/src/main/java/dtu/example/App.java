@@ -75,7 +75,11 @@ public class App {
 
     public boolean legalUsername(String username) {
         if (username.length() > 4) {
-            throw new IllegalArgumentException("Error, username cannot be longer than 4 characters.");
+            throw new IllegalArgumentException("Username cannot be longer than 4 characters.");
+        } else if (username.contains(" ")) {
+            throw new IllegalArgumentException("Username can't contain spaces: \" \"");
+        } else if (username.contentEquals("")) {
+            throw new IllegalArgumentException("Username can't be empty.");
         } else {
             return true;
         }
@@ -106,7 +110,6 @@ public class App {
         }
     }
 
-    // WIP
     public void printAllSpecialActivities() {
         for (SpecialActivity activity : specialActivites){
             System.out.println(activity.getName());

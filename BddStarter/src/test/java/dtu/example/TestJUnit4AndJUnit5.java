@@ -95,7 +95,6 @@ public class TestJUnit4AndJUnit5 {
 	}
 
 	// isPositiveInt() Whitebox test:
-
 	// A
 	@org.junit.Test // JUnit 4
 	public void isPositiveIntReturnsTrueOnPositiveInteger() {
@@ -138,6 +137,9 @@ public class TestJUnit4AndJUnit5 {
 		//Assert
 		org.junit.Assert.assertTrue(invalidInput);
 	}
+
+
+	// 
 
 
 }
