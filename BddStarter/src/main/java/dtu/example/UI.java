@@ -142,7 +142,7 @@ public class UI {
                                         while (activityYearInt == null || activityYearInt < 0){
                                             try {
                                                 String activityYears = console.nextLine();
-                                                if (isPositiveInt(activityYears)) {
+                                                if (app.isPositiveInt(activityYears)) {
                                                     activityYearInt = Integer.parseInt(activityYears);
                                                 }
                                             } catch (Exception e) {
@@ -158,7 +158,7 @@ public class UI {
                                         while (activityStartWeekInt == null || activityStartWeekInt < 0){
                                             try {
                                                 String activityStartWeek = console.nextLine();
-                                                if (isWeek(activityStartWeek)) {
+                                                if (app.isWeek(activityStartWeek)) {
                                                     activityStartWeekInt = Integer.parseInt(activityStartWeek);
                                                 }
                                             } catch (Exception e) {
@@ -173,7 +173,7 @@ public class UI {
                                         while (activityEndWeekInt == null || activityEndWeekInt < 0){
                                             try {
                                                 String activityEndWeek = console.nextLine();
-                                                if (isWeek(activityEndWeek)) {
+                                                if (app.isWeek(activityEndWeek)) {
                                                     activityEndWeekInt = Integer.parseInt(activityEndWeek);
                                                 }
                                             } catch (Exception e) {
@@ -571,37 +571,6 @@ public class UI {
         System.out.println();
 
         System.out.println("Select a number from the list above to proceed.");
-    }
-
-    public static boolean isPositiveInt(String input) {
-        try {
-            Integer temp = Integer.parseInt(input);
-            if (temp >= 0){
-                return true;
-            } else {
-                throw new IllegalArgumentException("The integer can't be negative.");
-            }
-            
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Not a valid integer.");
-        }
-    }
-
-    public static boolean isWeek(String input) {
-        Integer temp = null;
-
-        try {
-            isPositiveInt(input);
-            temp = Integer.parseInt(input);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-
-        if (temp != null && (temp > 0 && temp < 52)) {
-            return true;
-        } else{
-            throw new IllegalArgumentException("not a valid weeknumber.");
-        }
     }
 
 }

@@ -57,6 +57,8 @@ public class App {
             }
         }
         return null;
+        // Should probably be this but our code is reliant on the return of null.
+        //throw new NoSuchElementException("No employee found with username: " + string);
     }
 
     public void deleteEmployee(String username){
@@ -78,7 +80,11 @@ public class App {
 
     public boolean legalUsername(String username) {
         if (username.length() > 4) {
-            throw new IllegalArgumentException("Error, username cannot be longer than 4 characters.");
+            throw new IllegalArgumentException("Username cannot be longer than 4 characters.");
+        } else if (username.contains(" ")) {
+            throw new IllegalArgumentException("Username can't contain spaces.");
+        } else if (username.contentEquals("")) {
+            throw new IllegalArgumentException("Username can't be empty.");
         } else {
             return true;
         }
@@ -109,7 +115,6 @@ public class App {
         }
     }
 
-    // WIP
     public void printAllSpecialActivities() {
         for (SpecialActivity activity : specialActivites){
             System.out.println(activity.getName());
@@ -407,4 +412,39 @@ public class App {
             employee.removeActivity(activtyName);
          }      
     }
+
+
+    // Utility Methods
+
+    public static boolean isPositiveInt(String input) {
+        try {
+            Integer temp = Integer.parseInt(input);
+            if (temp > 0){
+                return true;
+            } else {
+                throw new IllegalArgumentException("The integer can't be negative.");
+            }
+            
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Not a valid integer.");
+        }
+    }
+
+    public static boolean isWeek(String input) {
+        Integer temp = null;
+
+        try {
+            isPositiveInt(input);
+            temp = Integer.parseInt(input);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        if (temp != null && (temp > 0 && temp < 52)) {
+            return true;
+        } else{
+            throw new IllegalArgumentException("not a valid weeknumber.");
+        }
+    }
+
 }
