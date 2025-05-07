@@ -54,6 +54,8 @@ public class App {
             }
         }
         return null;
+        // Should probably be this but our code is reliant on the return of null.
+        //throw new NoSuchElementException("No employee found with username: " + string);
     }
 
     public void deleteEmployee(String username){
@@ -75,7 +77,11 @@ public class App {
 
     public boolean legalUsername(String username) {
         if (username.length() > 4) {
-            throw new IllegalArgumentException("Error, username cannot be longer than 4 characters.");
+            throw new IllegalArgumentException("Username cannot be longer than 4 characters.");
+        } else if (username.contains(" ")) {
+            throw new IllegalArgumentException("Username can't contain spaces.");
+        } else if (username.contentEquals("")) {
+            throw new IllegalArgumentException("Username can't be empty.");
         } else {
             return true;
         }
@@ -86,8 +92,11 @@ public class App {
     }
 
 
-    public void setSignedInEmployee(Employee signedInEmployee) {
-        this.signedInEmployee = signedInEmployee;
+    public void setSignedInEmployee(String signedInEmployee) {
+        if (stringToEmployee(signedInEmployee) == null) {
+            throw new IllegalArgumentException("User does not exist.");
+        }
+        this.signedInEmployee = stringToEmployee(signedInEmployee);
     }
 
     // For testing:
@@ -103,7 +112,6 @@ public class App {
         }
     }
 
-    // WIP
     public void printAllSpecialActivities() {
         for (SpecialActivity activity : specialActivites){
             System.out.println(activity.getName());
@@ -147,26 +155,31 @@ public class App {
         specialActivites.add(sa);
     }
 
+    public void addActivity(int projectID, String activityName) throws IllegalAccessException {
+        intToProject(projectID).createActivity(activityName, signedInEmployee);
+    }
+
     public Project createProject(String name) {
         year = Year.now().getValue();
         year %= 100;
         year *= 1000;
+
+        System.out.println(year);
         
-        int projectNumber = 0;
-        
-        Project project = new Project(name);
+        int projectAmount = 0;
         
 
         for (Project p : projects) {
-            if (p.getID() >= year && p.getID() < year+100) {
-                projectNumber++;
+            if (p.getID() >= year && p.getID() < year+1000) {
+                projectAmount++;
             }
         }
 
-        project.setID(year+projectNumber+1);
-
+        if (projectAmount >= 999) {
+            throw new IllegalArgumentException("Maximum projects for this year has been reached");
+        }
+        Project project = new Project(name, year+projectAmount+1);
         projects.add(project);
-        
         return project;
     }
 
@@ -185,10 +198,7 @@ public class App {
     }
 
     public boolean projectContainsActivity(int id, String activity) {
-        if (intToProject(id).stringToActivity(activity) == null) {
-            return false;
-        }
-        return true;
+        return intToProject(id).containsActivity(activity);
     }
 
     public Project intToProject(int id) {
@@ -203,6 +213,9 @@ public class App {
 
     public void assignLeader(String username, Integer id) {
         Employee employee = stringToEmployee(username);
+        if (employee == null) {
+            throw new IllegalArgumentException("Employee does not exist");
+        }
         Project project = intToProject(id);
 
         if (!project.hasProjectLeader()) {
@@ -210,7 +223,7 @@ public class App {
         } else if (signedInEmployee.equals(project.getProjectLeader())) {
             project.setProjectLeader(employee);
         } else {
-            throw new IllegalArgumentException("Only project leader can change project leader");
+            throw new IllegalArgumentException("Only project leader can change project leader.");
         }
     }
 
@@ -245,6 +258,49 @@ public class App {
             
         }
         return true;
+    }
+
+    public void setActivityExpectedHours(int ProjectID, String activityName, float hours) throws IllegalAccessException {
+        intToProject(ProjectID).setActivityExpectedHours(activityName, hours, signedInEmployee);
+    }
+
+    public float getActivityExpectedHours(int ProjectID, String activityName) {
+        return intToProject(ProjectID).getActivityExpectedHours(activityName);
+    }
+
+
+
+    // Utility Methods
+
+    public static boolean isPositiveInt(String input) {
+        try {
+            Integer temp = Integer.parseInt(input);
+            if (temp > 0){
+                return true;
+            } else {
+                throw new IllegalArgumentException("The integer can't be negative.");
+            }
+            
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Not a valid integer.");
+        }
+    }
+
+    public static boolean isWeek(String input) {
+        Integer temp = null;
+
+        try {
+            isPositiveInt(input);
+            temp = Integer.parseInt(input);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        if (temp != null && (temp > 0 && temp < 52)) {
+            return true;
+        } else{
+            throw new IllegalArgumentException("not a valid weeknumber.");
+        }
     }
 
 }

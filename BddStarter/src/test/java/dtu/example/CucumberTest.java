@@ -14,7 +14,7 @@ For example, the class name CucumberTestExample will be ignored by Maven.
 */
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin="summary"
+@CucumberOptions(plugin={"pretty", "summary", "dtu.example.StepLogger"}
 			   , publish= false
 			   , features = "features"  // directory of the feature files
 			   , snippets = SnippetType.CAMELCASE

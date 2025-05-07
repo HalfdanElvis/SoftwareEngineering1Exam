@@ -10,8 +10,9 @@ public class Project {
     private List<Activity> activities = new ArrayList<>();
     private Employee projectLeader;
 
-    public Project (String name){
+    public Project (String name, int ID){
         this.name = name;
+        this.ID = ID;
         activities = new ArrayList<>();
     }
 
@@ -45,17 +46,17 @@ public class Project {
         return name+", "+ID;
     }
 
-    public void createActivity(String name) {
+    public void createActivity(String name, Employee requestingEmployee) throws IllegalAccessException { 
+        if (containsActivity(name)) {
+            throw new IllegalArgumentException("Activity already exists in project");
+        }
+        if (projectLeader != null && !requestingEmployee.equals(projectLeader)) {
+            throw new IllegalArgumentException("Only the project leader can create an activity");
+        }
         activities.add(new Activity(name));
     }
 
     public Activity stringToActivity(String activityName) {
-        try {
-            containsActivity(activityName);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
         for (Activity activity : activities){
             if (activity.getName().equals(activityName)){
                 return activity;
@@ -70,6 +71,18 @@ public class Project {
                 return true;
             }
         }
-        throw new IllegalArgumentException("Activity doesn't exist.");
+        return false;
     }
+
+    public void setActivityExpectedHours(String activity, float hours, Employee requestingEmployee) throws IllegalAccessException{
+        if (!requestingEmployee.equals(projectLeader)) {
+            throw new IllegalAccessException("Only the project leader can set the activity's expected work hours");
+        }
+        stringToActivity(activity).setExpectedHours(hours);
+    }
+
+    public float getActivityExpectedHours(String activity){
+        return stringToActivity(activity).getExpectedHours();
+    }
+
 }

@@ -11,5 +11,5 @@ Scenario: User creates a new user
 
 Scenario: User creates a user that already exists
     When the User creates a new User with name "huba"
-    Then the "User already exists" exception is thrown
+    Then the error message "User already exists. Try another username." is given
 

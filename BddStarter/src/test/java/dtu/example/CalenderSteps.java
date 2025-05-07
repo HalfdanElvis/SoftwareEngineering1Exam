@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class CalenderSteps {
     Calendar date = new GregorianCalendar();
     private CalendarHelper ch = new CalendarHelper();
-    App app = TestHelper.app;
+    //App app = TestHelper.app;
     Activity act;
     
 
