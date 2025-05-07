@@ -1,5 +1,6 @@
 package dtu.example;
 
+
 /**
  * A test class to check which tests are run with which framework.
  * If run as a JUnit 5 (Jupiter) test, then both tests are run.
@@ -31,16 +32,112 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.jupiter.api.Assertions.assertTrue(true); // JUnit 5
 	}
 
-	
+	// isWeek() Whitebox tests;
+	// A
 	@org.junit.Test // JUnit 4
 	public void isWeekReturnsTrueOnWeekNumber() {
 		//Arrange
-		int week = 1;
+		String week = "1";
 		//Act
-		bool isWeekResult = app.isWeek(week);
+		boolean isWeekResult = App.isWeek(week);
 		//Assert
 		org.junit.Assert.assertTrue(isWeekResult);
 	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void isWeekFailsOnNumberAbove52() {
+		//Arrange
+		boolean invalidInput = false;
+		String week = "352";
+		//Act
+		try {
+			App.isWeek(week);
+		} catch (IllegalArgumentException e) {
+			invalidInput = true;
+		}
+		
+		//Assert
+		org.junit.Assert.assertTrue(invalidInput);
+	}
+
+	// C
+	@org.junit.Test // JUnit 4
+	public void isWeekFailsOnNegativeInteger() {
+		//Arrange
+		boolean invalidInput = false;
+		String week = "-1";
+		//Act
+		try {
+			App.isWeek(week);
+		} catch (IllegalArgumentException e) {
+			invalidInput = true;
+		}
+		
+		//Assert
+		org.junit.Assert.assertTrue(invalidInput);
+	}
 	
+	// D
+	@org.junit.Test // JUnit 4
+	public void isWeekFailsOnNonInteger() {
+		//Arrange
+		boolean invalidInput = false;
+		String week = "Hello?";
+		//Act
+		try {
+			App.isWeek(week);
+		} catch (IllegalArgumentException e) {
+			invalidInput = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(invalidInput);
+	}
+
+	// isPositiveInt() Whitebox test:
+
+	// A
+	@org.junit.Test // JUnit 4
+	public void isPositiveIntReturnsTrueOnPositiveInteger() {
+		//Arrange
+		String positiveInt = "3252";
+		//Act
+		boolean isPositiveIntResult = App.isPositiveInt(positiveInt);
+		//Assert
+		org.junit.Assert.assertTrue(isPositiveIntResult);
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void isPositiveIntFailsOnNotPositiveInteger() {
+		//Arrange
+		boolean invalidInput = false;
+		String notPositiveInt = "0";
+		//Act
+		try {
+			App.isPositiveInt(notPositiveInt);
+		} catch (IllegalArgumentException e) {
+			invalidInput = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(invalidInput);
+	}
+
+	// C
+	@org.junit.Test // JUnit 4
+	public void isPositiveIntFailsOnNonInteger() {
+		//Arrange
+		boolean invalidInput = false;
+		String notPositiveInt = "Hello?";
+		//Act
+		try {
+			App.isPositiveInt(notPositiveInt);
+		} catch (IllegalArgumentException e) {
+			invalidInput = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(invalidInput);
+	}
+
 
 }

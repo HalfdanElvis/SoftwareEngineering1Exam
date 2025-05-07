@@ -270,7 +270,7 @@ public class App {
     public static boolean isPositiveInt(String input) {
         try {
             Integer temp = Integer.parseInt(input);
-            if (temp >= 0){
+            if (temp > 0){
                 return true;
             } else {
                 throw new IllegalArgumentException("The integer can't be negative.");
