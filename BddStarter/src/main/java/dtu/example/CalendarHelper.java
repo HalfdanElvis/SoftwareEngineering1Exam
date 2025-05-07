@@ -10,8 +10,6 @@ public class CalendarHelper {
     public CalendarHelper(){
     }
     
-    
-
     public int getWeek(Calendar c){   
 
         int weekNumber=c.get(Calendar.WEEK_OF_YEAR);
