@@ -30,7 +30,6 @@ public class CreateActivitySteps {
 
     @Given("the project has a project leader {string}")
     public void theProjectHasAProjectLeader(String string) {
-        // Write code here that turns the phrase above into concrete actions
         app.assignLeader(string, testHelper.getProjectID());
     }
 
@@ -59,19 +58,30 @@ public class CreateActivitySteps {
 
     @Given("the user is assigned {int} activities in week {int} in the year {int}")
     public void theUserIsAssignedActivitiesInWeekInTheYear(Integer int1, Integer int2, Integer int3) {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
+        for (int i = 0; i < int1; i++) {
+            try {
+                String activityName = "activity"+i;
+                app.addActivity(testHelper.getProjectID(), activityName);
+                app.setActivitiyStartAndEndWeek(testHelper.getProjectID(), activityName, int3, int2, int3, int2);
+                app.assignEmployeeToActivity(testHelper.getUser(), testHelper.getProjectID(), activityName);
+            } catch (Exception e) {
+                errorMessageHolder.setErrorMessage(e.getMessage());
+            }
+        }
     }
 
     @When("the user creates a special activity {string} in week {int} of the year {int}")
     public void theUserCreatesASpecialActivityInWeekOfTheYear(String string, Integer int1, Integer int2) {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
+        try {
+            app.addSpecialActivity(string, int2, int1, int2, int1);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+        
     }
     
     @Then("the user is assigned to the special activity {string}")
     public void theUserIsAssignedToTheSpecialActivity(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
+        app.employeeIsAssignedActivity(testHelper.getUser(), testHelper.getActivityName());
     }
 }

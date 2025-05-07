@@ -1,7 +1,9 @@
 package dtu.example;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Employee {
     
@@ -15,9 +17,26 @@ public class Employee {
     }
 
     public void assignActivity(Activity activity) {
+        if (activities.contains(activity)) {
+            throw new IllegalArgumentException("User is already part of the activity");
+        }
+        if (!isAvailable(activity.getStartWeek(), activity.getEndWeek())) {
+            throw new IllegalArgumentException("User has too many activities");
+        }
         activities.add(activity);
     }
     
+    public void assignSpecialActivity(String activityName, int startYear, int startWeek, int endYear, int endWeek) {
+        Week sWeek = new Week(startYear, startWeek);
+        Week eWeek = new Week(endYear, endWeek);
+        if (!isAvailableSpecial(sWeek, eWeek)) {
+            throw new IllegalArgumentException("Special activities cannot overlap with other activities");
+        }
+        SpecialActivity activity = new SpecialActivity(activityName);
+        activity.setStartAndEndWeek(startYear, startWeek, endYear, endWeek);
+        activities.add(activity);
+    }
+
     public boolean isAssignedActivity(String activityName) {
         for (Activity activity : activities) {
             if (activity.getName().equals(activityName)) {
@@ -36,18 +55,74 @@ public class Employee {
         return activities.size();
     }
 
-    public void removeActivity(String activityname) {
+    public void removeActivity(String activityName) {
+        boolean activityExists = false;
         for (int i = 0; i < activities.size(); i++) {
-            if (activities.get(i).getName().equals(activityname) ) {
+            if (activities.get(i).getName().equals(activityName) ) {
                 activities.remove(i);
+                activityExists = true;
             }
+        }
+        if (!activityExists) {
+            throw new IllegalArgumentException("User is not assigned that activity");
         }
     }
 
     public List<Activity> getActivities() {
         return activities;
     }
-    
 
+    public boolean isAvailable(Week startWeek, Week endWeek) {
+        List<Week> weeks = Week.range(startWeek, endWeek);
+        for (Week week : weeks) {
+            if (!isAvailable(week)) {
+                return false;
+            }
+        }
+        return true;
+    }
     
+    public boolean isAvailable(Week week) {
+        int activityCount = 0;
+        for (Activity activity : activities) {
+            if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
+                for (Week weekInActivity : Week.range(activity.getStartWeek(), activity.getEndWeek())) {
+                    if (week.equals(weekInActivity)) {
+                        if (activity instanceof SpecialActivity) {
+                            return false;
+                        }
+                        activityCount++;
+                    }
+                }
+            }
+        }
+        if ((activityCount >= 10 && !isPeak()) || activityCount >= 20) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isAvailableSpecial(Week startWeek, Week endWeek) {
+        List<Week> weeks = Week.range(startWeek, endWeek);
+        for (Week week : weeks) {
+            if (!isAvailableSpecial(week)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public boolean isAvailableSpecial(Week week) {
+        for (Activity activity : activities) {
+            if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
+                for (Week weekInActivity : Week.range(activity.getStartWeek(), activity.getEndWeek())) {
+                    if (week.equals(weekInActivity)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
 }

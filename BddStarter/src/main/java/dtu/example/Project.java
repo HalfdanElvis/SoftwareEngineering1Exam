@@ -71,13 +71,8 @@ public class Project {
         return null;
     }
     
-    public boolean containsActivity(String string) {
-        for (Activity activity : activities) {
-            if (activity.getName().equals(string)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean containsActivity(String activityName) {
+        return stringToActivity(activityName) != null;
     }
 
     public List<Activity> getActivities() {
@@ -93,6 +88,22 @@ public class Project {
 
     public float getActivityExpectedHours(String activity){
         return stringToActivity(activity).getExpectedHours();
+    }
+
+    public void assignEmployeeToActivity(Employee employee, String activityName) {
+        Activity activity = stringToActivity(activityName);
+        if (activity == null) {
+            throw new IllegalArgumentException("Activity does not exist");
+        }
+        employee.assignActivity(activity);
+    }
+
+    public void setActivitiyStartAndEndWeek(String activityName, int startYear, int startWeek, int endYear, int endWeek) {
+        Activity activity = stringToActivity(activityName);
+        if (activity == null) {
+            throw new IllegalArgumentException("Activity does not exist");
+        }
+        activity.setStartAndEndWeek(startYear, startWeek, endYear, endWeek);
     }
 
 }

@@ -34,7 +34,6 @@ public class AssignLeaderSteps {
     }
     @When("the user assigns an employee with initials {string} as project leader for the project with ID {int}")
     public void theUserAssignsAnEmployeeWithInitialsAsProjectLeaderForTheProjectWithID(String username, Integer id) {
-        // Write code here that turns the phrase above into concrete actions
         try {
             app.assignLeader(username, testHelper.getProjectID());
         } catch (Exception e) {
@@ -44,7 +43,6 @@ public class AssignLeaderSteps {
     }
     @Then("the project should have a project leader {string}")
     public void theProjectShouldHaveAProjectLeader(String string) {
-        // Write code here that turns the phrase above into concrete actions
         assertEquals(app.getProjectLeaderName(testHelper.getProjectID()), string);
     }
 }

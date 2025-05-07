@@ -13,7 +13,6 @@ public class App {
 
     private List<Employee> employees = new ArrayList<>();
     private List<Project> projects = new ArrayList<>();
-    private List<SpecialActivity> specialActivites = new ArrayList<>();
 
     private CalendarHelper ch = new CalendarHelper();
     private Employee signedInEmployee;
@@ -116,9 +115,7 @@ public class App {
     }
 
     public void printAllSpecialActivities() {
-        for (SpecialActivity activity : specialActivites){
-            System.out.println(activity.getName());
-        }
+
     }
 
     // WIP
@@ -130,36 +127,20 @@ public class App {
         selectedEmployee = stringToEmployee(username);
     }
 
-    public void setSelectedSpecialActivity(String username) {
-        selectedSpecialActivity = stringToSpecialActivity(username);
-    }
-
-    public SpecialActivity getSelectedSpecialActivity() {
-        return selectedSpecialActivity;
-    }
-
-    public SpecialActivity stringToSpecialActivity(String string) {
-        for (SpecialActivity activity : specialActivites){
-            if (activity.getName().equals(string)){
-                return activity;
-            }
-        }
-        return null;
-    }
-
-    public boolean specialActivityExists(String string) {
-        if (stringToSpecialActivity(string) == null) {
-            throw new IllegalArgumentException("Activity doesn't exist.");
-        }
-        return true;
-    }
-
-    public void addSpecialActivity(SpecialActivity sa){
-        specialActivites.add(sa);
-    }
-
     public void addActivity(int projectID, String activityName) throws IllegalAccessException {
         intToProject(projectID).createActivity(activityName, signedInEmployee);
+    }
+
+    public void addSpecialActivity(String activityName, String username, int startYear, int startWeek, int endYear, int endWeek){
+        Employee employee = stringToEmployee(username);
+        if (employee == null) {
+            throw new IllegalArgumentException("User does not exist.");
+        }
+        employee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
+    }
+
+    public void addSpecialActivity(String activityName, int startYear, int startWeek, int endYear, int endWeek){
+        signedInEmployee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
     }
 
     public Project createProject(String name) {
@@ -207,6 +188,10 @@ public class App {
         return intToProject(id).containsActivity(activity);
     }
 
+    public boolean employeeIsAssignedActivity(String employee, String activity) {
+        return stringToEmployee(employee).isAssignedActivity(activity);
+    }
+
     public Project intToProject(int id) {
         for (Project project : projects){
             if (project.getID() == (id)){
@@ -251,17 +236,6 @@ public class App {
         }
     }
 
-
-    public boolean specialActivityNameTaken(String activityName) {
-        for(SpecialActivity sa : specialActivites) {
-            if (sa.getName().equals(activityName)){
-                throw new IllegalArgumentException("Special Activity with that name already exists.");
-            }
-            
-        }
-        return true;
-    }
-
     public void setActivityExpectedHours(int ProjectID, String activityName, float hours) throws IllegalAccessException {
         intToProject(ProjectID).setActivityExpectedHours(activityName, hours, signedInEmployee);
     }
@@ -270,148 +244,30 @@ public class App {
         return intToProject(ProjectID).getActivityExpectedHours(activityName);
     }
 
-    public Activity fetchActivity(int projectID, String activityName) {
-        for (Project p : projects) {
-            if (p.getID() == projectID) {
-                return p.stringToActivity(activityName);
-            }
-        }
-        throw new IllegalAccessError("Either activity or Project does not exist.");
-    }
-
-    public void assignUserActivity(String username, int projectID, String activtyName) throws Exception {
+    public void assignEmployeeToActivity(String username, int projectID, String activtyName) throws Exception {
         Employee employee = stringToEmployee(username);
         Project project = intToProject(projectID);
-        Activity activity = project.stringToActivity(activtyName);
-
         if (!projectExists(project.getName(), projectID)) {
-            throw new IllegalAccessError("Project does not exist");
+            throw new IllegalArgumentException("Project does not exist");
         }
-
-        if (!projectContainsActivity(projectID, activtyName)) {
-            throw new IllegalAccessError("Activity is not part of the given project");
-        }
-        
-        
-        boolean endsInStartYear = endsInStartYear(activity);
-
-
-        ArrayList<Activity> possibleOverlapping = new ArrayList<>();
-        int year = activity.getYear();
-
-        ArrayList<Integer> activtiesInWeeks = new ArrayList<>(); 
-            for (int i = 0; i < activity.getActiveWeeks().size(); i++) {
-                activtiesInWeeks.add(0);
-            }
-
-        // stays in 1 year
-        if (endsInStartYear) {
-            for (Activity a : employee.getActivities()) {
-                if (a.getYear() == year) {
-                    possibleOverlapping.add(a);
-                }
-            }
-
-            int index = 0;
-            for (Integer week : activity.getActiveWeeks()) {
-                for (Activity a : possibleOverlapping) {
-                    for (Integer week2 : a.getActiveWeeks()) {
-                        if (week == week2) {
-                            activtiesInWeeks.set(index, activtiesInWeeks.get(index)+1);
-                        }
-                    }
-                }
-                index++;
-            }
-            
-            for (Integer i : activtiesInWeeks) {
-                if ((employee.isPeak() && i > 20) || (!employee.isPeak() && i > 10)) {
-                    int overflowingWeek = activity.getActiveWeeks().get(index);
-                    throw new Exception("User has too many activties assigned in week "+overflowingWeek+".");
-                }
-            }
-            employee.assignActivity(activity);
-
-        // goes into next year
-        } else {
-            
-            ArrayList<Activity> possibleOverlappingStartYear = new ArrayList<>();
-            for (Activity a : employee.getActivities()) {
-                if (a.getYear() == year && a.getEndWeek()>=activity.getStartWeek()) {
-                    possibleOverlappingStartYear.add(a);
-                }
-            }
-            ArrayList<Activity> possibleOverlappingNextYear = new ArrayList<>();
-            for (Activity a : employee.getActivities()) {
-                if (a.getYear() == year+1 && a.getStartWeek()<=activity.getEndWeek()) {
-                    possibleOverlappingStartYear.add(a);
-                }
-            }
-
-            for (Activity a : possibleOverlappingStartYear) {
-                if (!endsInStartYear(a)) {
-                    possibleOverlappingNextYear.add(a);
-                }
-            }
-            
-            int prevWeek = -1;
-            int index = 0;
-            for (Integer week : activity.getActiveWeeks()) {
-                boolean inStartYear = true;
-                if (inStartYear) {
-                    for (Activity a : possibleOverlappingStartYear) {
-                        for (Integer week2 : a.getActiveWeeks()) {
-                            if (week == week2) {
-                                activtiesInWeeks.set(index, activtiesInWeeks.get(index)+1);
-                            }
-                        }
-                    }
-                } else {
-                    for (Activity a : possibleOverlappingNextYear) {
-                        for (Integer week2 : a.getActiveWeeks()) {
-                            if (week == week2) {
-                                activtiesInWeeks.set(index, activtiesInWeeks.get(index)+1);
-                            }
-                        }
-                    }
-                }
-                if (prevWeek > week) {
-                    inStartYear = false;
-                }
-                prevWeek = week;
-            }
-            
-            for (Integer i : activtiesInWeeks) {
-                if ((employee.isPeak() && i > 20) || (!employee.isPeak() && i > 10)) {
-                    int overflowingWeek = activity.getActiveWeeks().get(index);
-                    throw new Exception("User has too many activties assigned in week "+overflowingWeek+".");
-                }
-            }
-
-            employee.assignActivity(activity);
-        }
-        
+        project.assignEmployeeToActivity(employee, activtyName);
     }
 
-    public boolean endsInStartYear(Activity a) {
-        int prevWeek = -1;
-        boolean endsInStartYear = true;
-        for (Integer week : a.getActiveWeeks()) {
-            if (week<prevWeek){
-                endsInStartYear = false;
-            }
-            prevWeek = week;
-        }
-        return endsInStartYear;
-    }
-
-    public void removeUserActivity(String username, String activtyName) {
+    public void removeEmployeeFromActivity(String username, String activtyName) {
         Employee employee = stringToEmployee(username);
-         if (employee.isAssignedActivity(activtyName)) {
-            employee.removeActivity(activtyName);
-         }      
+        if (employee == null) {
+            throw new IllegalArgumentException("Employee does not exist");
+        }
+        employee.removeActivity(activtyName);
     }
 
+    public void setActivitiyStartAndEndWeek(int projectID, String activityName, int startYear, int startWeek, int endYear, int endWeek) {
+        Project project = intToProject(projectID);
+        if (!projectExists(project.getName(), projectID)) {
+            throw new IllegalArgumentException("Project does not exist");
+        }
+        project.setActivitiyStartAndEndWeek(activityName, startYear, startWeek, endYear, endWeek);
+    }
 
     // Utility Methods
 
@@ -439,7 +295,7 @@ public class App {
             System.err.println(e.getMessage());
         }
 
-        if (temp != null && (temp > 0 && temp < 52)) {
+        if (temp != null && (temp > 0 && temp <= 53)) {
             return true;
         } else{
             throw new IllegalArgumentException("not a valid weeknumber.");

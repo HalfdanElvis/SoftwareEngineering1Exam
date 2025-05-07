@@ -1,5 +1,6 @@
 package dtu.example;
 
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -30,41 +31,69 @@ public class AssignUserToActivitySteps {
 
     @Given("the activity runs from week {int} to week {int} in the year {int}")
     public void theActivityRunsFromWeekWeekInTheYear(Integer startWeek, Integer endWeek, Integer year) {
-        app.fetchActivity(testHelper.getProjectID(), testHelper.getActivityName()).setStartWeek(startWeek);
-        app.fetchActivity(testHelper.getProjectID(), testHelper.getActivityName()).setEndWeek(endWeek);
-        app.fetchActivity(testHelper.getProjectID(), testHelper.getActivityName()).setYear(year);
+        app.setActivitiyStartAndEndWeek(testHelper.getProjectID(), testHelper.getActivityName(), year, startWeek, year, endWeek);
     }
 
     @Given("the user is not assigned the activity")
     public void theUserIsNotAssignedTheActivity() {
-        if (app.stringToEmployee(testHelper.getUser()).isAssignedActivity(testHelper.getActivityName())) {
-            app.removeUserActivity(testHelper.getUser(), testHelper.getActivityName());
+        try {
+            app.removeEmployeeFromActivity(testHelper.getUser(), testHelper.getActivityName());
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
         }
-
+        
     }
 
     @Given("the user is assigned {int} activities in week {int} to week {int} in the year {int}")
     public void theUserIsAssignedActivitiesInWeekToWeekInTheYear(Integer int1, Integer int2, Integer int3, Integer int4) throws Exception {
-        Project project = app.intToProject(testHelper.getProjectID());
         for (int i = 0; i < int1; i++) {
-            app.addActivity(project.getID(), testHelper.getActivityName()+i);
-            project.stringToActivity(testHelper.getActivityName()).setStartWeek(int2);
-            project.stringToActivity(testHelper.getActivityName()).setEndWeek(int3);
-            project.stringToActivity(testHelper.getActivityName()).setYear(int4);
-            app.assignUserActivity(testHelper.getUser(),testHelper.getProjectID(),testHelper.getActivityName()+i);
+            try {
+                String activityName = "activity"+i;
+                app.addActivity(testHelper.getProjectID(), activityName);
+                app.setActivitiyStartAndEndWeek(testHelper.getProjectID(), activityName, int4, int2, int4, int3);
+                app.assignEmployeeToActivity(testHelper.getUser(), testHelper.getProjectID(), activityName);
+            } catch (Exception e) {
+                errorMessageHolder.setErrorMessage(e.getMessage());
+            }
         }
     }
 
-    @When("the user is assigned the activity")
+    @Given("the user is assigned the activity")
     public void theUserIsAssignedTheActivity() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
+        try {
+            app.assignEmployeeToActivity(testHelper.getUser(), testHelper.getProjectID(), testHelper.getActivityName());
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+        
+    }
+
+    @When("the user gets assigned the activity")
+    public void theUserGetsAssignedTheActivity() {
+        try {
+            app.assignEmployeeToActivity(testHelper.getUser(), testHelper.getProjectID(), testHelper.getActivityName());
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
+
+    @When("the user gets assigned the activity {string}")
+    public void theUserGetsAssignedTheActivity(String string) {
+        try {
+            app.assignEmployeeToActivity(testHelper.getUser(), testHelper.getProjectID(), string);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
     }
 
     @Then("the user is assigned the activity {string}")
     public void theUserIsAssignedTheActivity(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
+        try {
+            app.assignEmployeeToActivity(testHelper.getUser(), testHelper.getProjectID(), string);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+        
     }
 
 

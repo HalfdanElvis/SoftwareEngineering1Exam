@@ -9,6 +9,9 @@ public class UI {
     static Scanner console = new Scanner(System.in);
 
     public static void main(String args[]){
+        Week week2 = new Week(2025, 47);
+        Week week3 = new Week(2025, 47);
+        System.out.println(Week.range(week2, week3).size());
         app.addEmployee("huba");
 
 
@@ -124,9 +127,9 @@ public class UI {
                                             System.out.println("Enter Activity name:");    
                                             try {
                                                 String temp = console.nextLine();
-                                                if (app.specialActivityNameTaken(temp)) {
-                                                    activityName = temp;
-                                                }
+                                                //if (app.specialActivityNameTaken(temp)) {
+                                                //    activityName = temp;
+                                                //}
                                             } catch (Exception e) {
                                                 System.out.println(e.getMessage());
                                                 System.out.println();
@@ -189,12 +192,12 @@ public class UI {
 
                                         if (choice) {
                                             SpecialActivity a = new SpecialActivity(activityName);
-                                            a.setYear(activityYearInt);
+                                            //a.setYear(activityYearInt);
                                             ArrayList<Integer> activeWeeks = new ArrayList<>();
                                             for (int i = activityStartWeekInt; i != (activityEndWeekInt + 1); i = (i % 52 + 1)){
                                                 activeWeeks.add(i);
                                             }
-                                            app.addSpecialActivity(a);
+                                            //app.addSpecialActivity(a);
                                             System.out.println();
                                             System.out.println("Succesfully created project \""+activityName+"\".");
                                             System.out.println("-------------------------");
@@ -222,27 +225,27 @@ public class UI {
                                     System.out.println("Select an activity from the list above by inserting it's name:");
                                     
                                     while (true) {
-                                        app.setSelectedSpecialActivity(null);
+                                        //app.setSelectedSpecialActivity(null);
 
                                         String activityName = console.nextLine();
                                         try {
-                                            if(app.specialActivityExists(activityName)){
-                                                app.setSelectedSpecialActivity(activityName);
+                                            //if(app.specialActivityExists(activityName)){
+                                             //   app.setSelectedSpecialActivity(activityName);
                                                 break;
-                                            }
+                                            //}
                                         } catch (Exception e) {
                                             System.err.println(e.getMessage());
                                             break;
                                         }                        
                                     }
 
-                                    if (app.getSelectedSpecialActivity() == null) { 
+                                    //if (app.getSelectedSpecialActivity() == null) { 
                                         System.out.println();
                                         System.out.println("Returning to Main Menu...");
                                         break;
-                                    }
+                                    //}
                                     
-                                    while (true) {
+                                    /*while (true) {
                                         // Manage Special Activity
                                         System.out.println();
                                         System.out.println("Manage Special Activity:");
@@ -266,10 +269,10 @@ public class UI {
                                             // View Active Weeks:
                                             case 1:
                                                 System.out.println();
-                                                System.out.println("Special Activity \"" + app.getSelectedSpecialActivity().getName() + "\" is active in the following weeks:");
-                                                System.out.println("Year " + app.getSelectedSpecialActivity().getYear() + ":");
-                                                Integer prevWeek = null;
-                                                for (Integer week : app.getSelectedSpecialActivity().getActiveWeeks()){
+                                                //System.out.println("Special Activity \"" + app.getSelectedSpecialActivity().getName() + "\" is active in the following weeks:");
+                                                //System.out.println("Year " + app.getSelectedSpecialActivity().getYear() + ":");
+                                                Week prevWeek = null;
+                                                for (Week week : app.getSelectedSpecialActivity().getActiveWeeks()){
                                                     if (prevWeek == null) {
                                                         prevWeek = week;
                                                     }
@@ -304,11 +307,11 @@ public class UI {
 
                                         if (back) {
                                             break;
-                                        }
+                                        
                                     }
 
 
-                                    break;
+                                    break;*/
 
                                 
                                 // Create User:
