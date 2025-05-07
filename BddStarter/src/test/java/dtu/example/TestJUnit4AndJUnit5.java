@@ -10,15 +10,7 @@ package dtu.example;
  */
 public class TestJUnit4AndJUnit5 {
 
-	App app;
-    ErrorMessageHolder errorMessageHolder;
-    TestHelper testHelper;
-    
-    public TestJUnit4AndJUnit5(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper) {
-        this.app = app;
-        this.errorMessageHolder = errorMessageHolder;
-        this.testHelper = testHelper;
-    }
+	
 	
 	@org.junit.Before // JUnit 4 (JUnit 5 uses @org.junit.jupiter.api.BeforeEach)
 	public void setUp() {
@@ -148,7 +140,7 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.Assert.assertTrue(invalidInput);
 	}
 
-
+	App app = new App();
 	// legalUsername() Whitebox tests:
 	// A
 	@org.junit.Test // JUnit 4
@@ -156,14 +148,60 @@ public class TestJUnit4AndJUnit5 {
 		//Arrange
 		String username = "huba";
 		//Act
+		boolean legalUsernameResult = app.legalUsername(username);
+		//Assert
+		org.junit.Assert.assertTrue(legalUsernameResult);
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void legalUsernameFailsOnEmptyString() {
+		//Arrange
+		boolean invalidUsername = false;
+		String username = "";
+		//Act
 		try {
-			app.legalUsername(user);
-		} catch (IllegalArgumentException e) {
-			invalidInput = true;
+			app.legalUsername(username);
+		} catch (Exception e) {
+			invalidUsername = true;
 		}
 		//Assert
-		org.junit.Assert.assertTrue(invalidInput);
+		org.junit.Assert.assertTrue(invalidUsername);
 	}
+
+	// C
+	@org.junit.Test // JUnit 4
+	public void legalUsernameFailsOnStringContainingSpace() {
+		//Arrange
+		boolean invalidUsername = false;
+		String username = "Bo V";
+		//Act
+		try {
+			app.legalUsername(username);
+		} catch (Exception e) {
+			invalidUsername = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(invalidUsername);
+	}
+
+	// D
+	@org.junit.Test // JUnit 4
+	public void legalUsernameFailsOnStringWithMoreThan4Characters() {
+		//Arrange
+		boolean invalidUsername = false;
+		String username = "Jesper Larsen";
+		//Act
+		try {
+			app.legalUsername(username);
+		} catch (Exception e) {
+			invalidUsername = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(invalidUsername);
+	}
+
+	
 
 
 }
