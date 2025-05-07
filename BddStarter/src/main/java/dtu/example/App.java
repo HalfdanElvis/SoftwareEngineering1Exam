@@ -54,6 +54,8 @@ public class App {
             }
         }
         return null;
+        // Should probably be this but our code is reliant on the return of null.
+        //throw new NoSuchElementException("No employee found with username: " + string);
     }
 
     public void deleteEmployee(String username){
