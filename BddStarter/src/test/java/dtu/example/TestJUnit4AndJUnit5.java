@@ -201,7 +201,36 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.Assert.assertTrue(invalidUsername);
 	}
 
-	
+	// legalUsername() Whitebox tests:
+	// A
+	@org.junit.Test // JUnit 4
+	public void stringToEmployeeReturnsTrueOnExistingEmployee() {
+		//Arrange
+		String username = "huba";
+		Employee e = new Employee(username);
+		if (!app.employeeExists(username)) {
+			app.addEmployee(username);
+		}
+		//Act
+		Employee e2 = app.stringToEmployee(username);
+		//Assert
+		org.junit.Assert.assertTrue(e.getUsername().equals(e2.getUsername()));
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void stringToEmployeeReturnsNullOnNoEmployeeFound() {
+		//Arrange
+		String username = "huba";
+		if (app.employeeExists(username)) {
+			app.deleteEmployee(username);
+		}
+		//Act
+		Employee e2 = app.stringToEmployee(username);
+		//Assert
+		org.junit.Assert.assertTrue(e2 == null);
+	}
+
 
 
 }
