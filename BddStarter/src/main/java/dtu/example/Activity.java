@@ -1,25 +1,27 @@
 package dtu.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Activity {
     private String name;
 
-    private List<Integer> years;
-    private List<Integer> activeWeeks;
+    private int year;
     private int expectedWeeks;
+    private int startWeek;
+    private int endWeek;
     private float expectedHours;
 
     public Activity(String name) {
         this.name = name;
     }
 
-    public List<Integer> getYears() {
-        return years;
+    public int getYear() {
+        return year;
     }
 
-    public void setYears(List<Integer> years) {
-        this.years = years;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public String getName() {
@@ -27,11 +29,11 @@ public class Activity {
     }
 
     public List<Integer> getActiveWeeks() {
-        return activeWeeks;
-    }
-
-    public void setActiveWeeks(List<Integer> activeWeeks) {
-        this.activeWeeks = activeWeeks;
+        List<Integer> aw = new ArrayList<>();
+        for (int i = startWeek; i != (endWeek + 1); i = (i % 52 + 1)){
+            aw.add(i);
+        }
+        return aw;
     }
 
     public int getExpectedWeeks() {
@@ -48,6 +50,22 @@ public class Activity {
 
     public void setExpectedHours(float expectedHours) {
         this.expectedHours = expectedHours;
+    }
+
+    public void setEndWeek(int endWeek) {
+        this.endWeek = endWeek;
+    }
+
+    public void setStartWeek(int startWeek) {
+        this.startWeek = startWeek;
+    }
+
+    public int getEndWeek() {
+        return endWeek;
+    }
+
+    public int getStartWeek() {
+        return startWeek;
     }
 
 }

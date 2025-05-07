@@ -4,6 +4,7 @@ public class TestHelper {
     
     private String user;
     private int projectID;
+    private String activityName;
 
     public TestHelper() {
 
@@ -23,6 +24,14 @@ public class TestHelper {
 
     public void setProjectID(int projectID) {
         this.projectID = projectID;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
+    }
+
+    public String getActivityName() {
+        return activityName;
     }
 
 }

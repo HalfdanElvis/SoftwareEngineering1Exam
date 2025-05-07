@@ -74,6 +74,10 @@ public class Project {
         return false;
     }
 
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
     public void setActivityExpectedHours(String activity, float hours, Employee requestingEmployee) throws IllegalAccessException{
         if (!requestingEmployee.equals(projectLeader)) {
             throw new IllegalAccessException("Only the project leader can set the activity's expected work hours");

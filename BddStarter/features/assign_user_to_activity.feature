@@ -6,11 +6,12 @@ Feature: Assign User An Activity
 Background:
     Given a user "huba" exists
     And an activity "data refinement" exists
-    And the activity runs from week 10 week 11 in the year 2025
+    And the activity runs from week 10 to week 11 in the year 2025
+    
 
 Scenario: A user is assigned an activity
     And the user is not assigned the activity
-    And the user is assigned 0 activities in week 10 and 11 in the year 2025
+    And the user is assigned 0 activities in week 10 to week 11 in the year 2025
     When the user is assigned the activity
     Then the user is assigned the activity "data refinement"
 

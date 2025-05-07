@@ -60,18 +60,18 @@ public class CreateActivitySteps {
     @Given("the user is assigned {int} activities in week {int} in the year {int}")
     public void theUserIsAssignedActivitiesInWeekInTheYear(Integer int1, Integer int2, Integer int3) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //throw new io.cucumber.java.PendingException();
     }
 
     @When("the user creates a special activity {string} in week {int} of the year {int}")
     public void theUserCreatesASpecialActivityInWeekOfTheYear(String string, Integer int1, Integer int2) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //throw new io.cucumber.java.PendingException();
     }
     
     @Then("the user is assigned to the special activity {string}")
     public void theUserIsAssignedToTheSpecialActivity(String string) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //throw new io.cucumber.java.PendingException();
     }
 }

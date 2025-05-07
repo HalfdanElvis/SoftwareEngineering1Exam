@@ -4,6 +4,9 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.cucumber.java.en_old.Ac;
+import io.cucumber.java.lu.a;
+
 public class App {
 
     private int year;
@@ -263,4 +266,145 @@ public class App {
         return intToProject(ProjectID).getActivityExpectedHours(activityName);
     }
 
+    public Activity fetchActivity(int projectID, String activityName) {
+        for (Project p : projects) {
+            if (p.getID() == projectID) {
+                return p.stringToActivity(activityName);
+            }
+        }
+        throw new IllegalAccessError("Either activity or Project does not exist.");
+    }
+
+    public void assignUserActivity(String username, int projectID, String activtyName) throws Exception {
+        Employee employee = stringToEmployee(username);
+        Project project = intToProject(projectID);
+        Activity activity = project.stringToActivity(activtyName);
+
+        if (!projectExists(project.getName(), projectID)) {
+            throw new IllegalAccessError("Project does not exist");
+        }
+
+        if (!projectContainsActivity(projectID, activtyName)) {
+            throw new IllegalAccessError("Activity is not part of the given project");
+        }
+        
+        
+        boolean endsInStartYear = endsInStartYear(activity);
+
+
+        ArrayList<Activity> possibleOverlapping = new ArrayList<>();
+        int year = activity.getYear();
+
+        ArrayList<Integer> activtiesInWeeks = new ArrayList<>(); 
+            for (int i = 0; i < activity.getActiveWeeks().size(); i++) {
+                activtiesInWeeks.add(0);
+            }
+
+        // stays in 1 year
+        if (endsInStartYear) {
+            for (Activity a : employee.getActivities()) {
+                if (a.getYear() == year) {
+                    possibleOverlapping.add(a);
+                }
+            }
+
+            int index = 0;
+            for (Integer week : activity.getActiveWeeks()) {
+                for (Activity a : possibleOverlapping) {
+                    for (Integer week2 : a.getActiveWeeks()) {
+                        if (week == week2) {
+                            activtiesInWeeks.set(index, activtiesInWeeks.get(index)+1);
+                        }
+                    }
+                }
+                index++;
+            }
+            
+            for (Integer i : activtiesInWeeks) {
+                if ((employee.isPeak() && i > 20) || (!employee.isPeak() && i > 10)) {
+                    int overflowingWeek = activity.getActiveWeeks().get(index);
+                    throw new Exception("User has too many activties assigned in week "+overflowingWeek+".");
+                }
+            }
+            employee.assignActivity(activity);
+
+        // goes into next year
+        } else {
+            
+            ArrayList<Activity> possibleOverlappingStartYear = new ArrayList<>();
+            for (Activity a : employee.getActivities()) {
+                if (a.getYear() == year && a.getEndWeek()>=activity.getStartWeek()) {
+                    possibleOverlappingStartYear.add(a);
+                }
+            }
+            ArrayList<Activity> possibleOverlappingNextYear = new ArrayList<>();
+            for (Activity a : employee.getActivities()) {
+                if (a.getYear() == year+1 && a.getStartWeek()<=activity.getEndWeek()) {
+                    possibleOverlappingStartYear.add(a);
+                }
+            }
+
+            for (Activity a : possibleOverlappingStartYear) {
+                if (!endsInStartYear(a)) {
+                    possibleOverlappingNextYear.add(a);
+                }
+            }
+            
+            int prevWeek = -1;
+            int index = 0;
+            for (Integer week : activity.getActiveWeeks()) {
+                boolean inStartYear = true;
+                if (inStartYear) {
+                    for (Activity a : possibleOverlappingStartYear) {
+                        for (Integer week2 : a.getActiveWeeks()) {
+                            if (week == week2) {
+                                activtiesInWeeks.set(index, activtiesInWeeks.get(index)+1);
+                            }
+                        }
+                    }
+                } else {
+                    for (Activity a : possibleOverlappingNextYear) {
+                        for (Integer week2 : a.getActiveWeeks()) {
+                            if (week == week2) {
+                                activtiesInWeeks.set(index, activtiesInWeeks.get(index)+1);
+                            }
+                        }
+                    }
+                }
+                if (prevWeek > week) {
+                    inStartYear = false;
+                }
+                prevWeek = week;
+            }
+            
+            for (Integer i : activtiesInWeeks) {
+                if ((employee.isPeak() && i > 20) || (!employee.isPeak() && i > 10)) {
+                    int overflowingWeek = activity.getActiveWeeks().get(index);
+                    throw new Exception("User has too many activties assigned in week "+overflowingWeek+".");
+                }
+            }
+
+            employee.assignActivity(activity);
+        }
+        
+    }
+
+    public boolean endsInStartYear(Activity a) {
+        int prevWeek = -1;
+        boolean endsInStartYear = true;
+        for (Integer week : a.getActiveWeeks()) {
+            if (week<prevWeek){
+                endsInStartYear = false;
+            }
+            prevWeek = week;
+        }
+        return endsInStartYear;
+    }
+
+    public void removeUserActivity(String username, String activtyName) {
+        Employee employee = stringToEmployee(username);
+         if (employee.isAssignedActivity(activtyName)) {
+            employee.removeActivity(activtyName);
+         }      
+    }
 }
