@@ -263,4 +263,39 @@ public class App {
         return intToProject(ProjectID).getActivityExpectedHours(activityName);
     }
 
+
+
+    // Utility Methods
+
+    public static boolean isPositiveInt(String input) {
+        try {
+            Integer temp = Integer.parseInt(input);
+            if (temp >= 0){
+                return true;
+            } else {
+                throw new IllegalArgumentException("The integer can't be negative.");
+            }
+            
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Not a valid integer.");
+        }
+    }
+
+    public static boolean isWeek(String input) {
+        Integer temp = null;
+
+        try {
+            isPositiveInt(input);
+            temp = Integer.parseInt(input);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        if (temp != null && (temp > 0 && temp < 52)) {
+            return true;
+        } else{
+            throw new IllegalArgumentException("not a valid weeknumber.");
+        }
+    }
+
 }

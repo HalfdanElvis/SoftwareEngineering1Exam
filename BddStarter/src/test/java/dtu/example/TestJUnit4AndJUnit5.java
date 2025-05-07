@@ -31,4 +31,16 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.jupiter.api.Assertions.assertTrue(true); // JUnit 5
 	}
 
+	
+	@org.junit.Test // JUnit 4
+	public void isWeekReturnsTrueOnWeekNumber() {
+		//Arrange
+		int week = 1;
+		//Act
+		bool isWeekResult = app.isWeek(week);
+		//Assert
+		org.junit.Assert.assertTrue(isWeekResult);
+	}
+	
+
 }
