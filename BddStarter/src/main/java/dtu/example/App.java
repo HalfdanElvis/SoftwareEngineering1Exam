@@ -77,7 +77,7 @@ public class App {
         if (username.length() > 4) {
             throw new IllegalArgumentException("Username cannot be longer than 4 characters.");
         } else if (username.contains(" ")) {
-            throw new IllegalArgumentException("Username can't contain spaces: \" \"");
+            throw new IllegalArgumentException("Username can't contain spaces.");
         } else if (username.contentEquals("")) {
             throw new IllegalArgumentException("Username can't be empty.");
         } else {
