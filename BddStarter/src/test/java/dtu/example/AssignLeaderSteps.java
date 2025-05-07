@@ -1,5 +1,6 @@
 package dtu.example;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.en.Given;
@@ -44,6 +45,6 @@ public class AssignLeaderSteps {
     @Then("the project should have a project leader {string}")
     public void theProjectShouldHaveAProjectLeader(String string) {
         // Write code here that turns the phrase above into concrete actions
-        assert(app.getProjectLeaderName(testHelper.getProjectID()).equals(string));
+        assertEquals(app.getProjectLeaderName(testHelper.getProjectID()), string);
     }
 }

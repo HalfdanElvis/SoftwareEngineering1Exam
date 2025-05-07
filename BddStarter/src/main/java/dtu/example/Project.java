@@ -27,8 +27,14 @@ public class Project {
         ID = id;
     }
 
-    public void setProjectLeader(Employee projectLeader) {
-        this.projectLeader = projectLeader;
+    public void assignLeader(Employee projectLeader, Employee requestingEmployee) {
+        if (!hasProjectLeader()) {
+            this.projectLeader = projectLeader;
+        } else if (requestingEmployee.equals(this.projectLeader)) {
+            this.projectLeader = projectLeader;
+        } else {
+            throw new IllegalArgumentException("Only project leader can change project leader.");
+        }
     }
 
     public Employee getProjectLeader() {

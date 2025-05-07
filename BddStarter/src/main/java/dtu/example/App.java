@@ -163,14 +163,19 @@ public class App {
     }
 
     public Project createProject(String name) {
+
+        int id = generateProjectID();
+        Project project = new Project(name, id);
+        projects.add(project);
+        return project;
+    }
+
+    private int generateProjectID() {
         year = Year.now().getValue();
         year %= 100;
         year *= 1000;
-
-        System.out.println(year);
         
         int projectAmount = 0;
-        
 
         for (Project p : projects) {
             if (p.getID() >= year && p.getID() < year+1000) {
@@ -181,9 +186,7 @@ public class App {
         if (projectAmount >= 999) {
             throw new IllegalArgumentException("Maximum projects for this year has been reached");
         }
-        Project project = new Project(name, year+projectAmount+1);
-        projects.add(project);
-        return project;
+        return year+projectAmount+1;
     }
 
 
@@ -220,14 +223,10 @@ public class App {
             throw new IllegalArgumentException("Employee does not exist");
         }
         Project project = intToProject(id);
-
-        if (!project.hasProjectLeader()) {
-            project.setProjectLeader(employee);
-        } else if (signedInEmployee.equals(project.getProjectLeader())) {
-            project.setProjectLeader(employee);
-        } else {
-            throw new IllegalArgumentException("Only project leader can change project leader.");
+        if (project == null) {
+            throw new IllegalArgumentException("Project does not exist");
         }
+        project.assignLeader(employee, signedInEmployee);
     }
 
     public boolean projectHasLeader(int id) {

@@ -4,7 +4,7 @@ Feature: Assign User An Activity
     Actors: User, Project leader
 
 Background:
-    Given a user "huba" exists
+    Given that user "huba" is logged in
     And an activity "data refinement" exists
     And the activity runs from week 10 to week 11 in the year 2025
     

@@ -16,13 +16,6 @@ public class AssignUserToActivitySteps {
         this.testHelper = testHelper;
     }
 
-    @Given("a user {string} exists")
-    public void aUserExists(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        app.addEmployee(string);
-        testHelper.setUser(string);
-    }
-
     @Given("an activity {string} exists")
     public void anActivityExists(String string) throws IllegalAccessException {
         testHelper.setProjectID(app.createProject("test").getID());
@@ -32,13 +25,11 @@ public class AssignUserToActivitySteps {
 
     @Given("the user is peak")
     public void theUserIsPeak() {
-        // Write code here that turns the phrase above into concrete actions
         app.stringToEmployee(testHelper.getUser()).setPeak(true);
     }
 
     @Given("the activity runs from week {int} to week {int} in the year {int}")
     public void theActivityRunsFromWeekWeekInTheYear(Integer startWeek, Integer endWeek, Integer year) {
-        // Write code here that turns the phrase above into concrete actions
         app.fetchActivity(testHelper.getProjectID(), testHelper.getActivityName()).setStartWeek(startWeek);
         app.fetchActivity(testHelper.getProjectID(), testHelper.getActivityName()).setEndWeek(endWeek);
         app.fetchActivity(testHelper.getProjectID(), testHelper.getActivityName()).setYear(year);
@@ -46,7 +37,6 @@ public class AssignUserToActivitySteps {
 
     @Given("the user is not assigned the activity")
     public void theUserIsNotAssignedTheActivity() {
-        // Write code here that turns the phrase above into concrete actions
         if (app.stringToEmployee(testHelper.getUser()).isAssignedActivity(testHelper.getActivityName())) {
             app.removeUserActivity(testHelper.getUser(), testHelper.getActivityName());
         }
@@ -55,7 +45,6 @@ public class AssignUserToActivitySteps {
 
     @Given("the user is assigned {int} activities in week {int} to week {int} in the year {int}")
     public void theUserIsAssignedActivitiesInWeekToWeekInTheYear(Integer int1, Integer int2, Integer int3, Integer int4) throws Exception {
-        // Write code here that turns the phrase above into concrete actions
         Project project = app.intToProject(testHelper.getProjectID());
         for (int i = 0; i < int1; i++) {
             app.addActivity(project.getID(), testHelper.getActivityName()+i);
