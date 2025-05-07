@@ -72,7 +72,18 @@ public class Employee {
         return activities;
     }
 
-    public boolean isAvailable(Week startWeek, Week endWeek) {
+    public boolean isAvailable(int startYear, int startWeek, int endYear, int endWeek) {
+        Week sWeek = new Week(startYear, startWeek);
+        Week eWeek = new Week(endYear, endWeek);
+        return isAvailable(sWeek, eWeek);
+    }
+
+    public boolean isAvailable(int year, int week) {
+        Week w = new Week(year, week);
+        return isAvailable(w);
+    }
+    
+    private boolean isAvailable(Week startWeek, Week endWeek) {
         List<Week> weeks = Week.range(startWeek, endWeek);
         for (Week week : weeks) {
             if (!isAvailable(week)) {
@@ -82,7 +93,7 @@ public class Employee {
         return true;
     }
     
-    public boolean isAvailable(Week week) {
+    private boolean isAvailable(Week week) {
         int activityCount = 0;
         for (Activity activity : activities) {
             if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
@@ -102,7 +113,7 @@ public class Employee {
         return true;
     }
 
-    public boolean isAvailableSpecial(Week startWeek, Week endWeek) {
+    private boolean isAvailableSpecial(Week startWeek, Week endWeek) {
         List<Week> weeks = Week.range(startWeek, endWeek);
         for (Week week : weeks) {
             if (!isAvailableSpecial(week)) {
@@ -112,7 +123,7 @@ public class Employee {
         return true;
     }
     
-    public boolean isAvailableSpecial(Week week) {
+    private boolean isAvailableSpecial(Week week) {
         for (Activity activity : activities) {
             if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
                 for (Week weekInActivity : Week.range(activity.getStartWeek(), activity.getEndWeek())) {

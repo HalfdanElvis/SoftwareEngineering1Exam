@@ -3,8 +3,9 @@ Feature: View Available Employees
     Actors: User
 
 Background:
-    Given a user "huba" exists
-    Given a user "bahu" exists
+    Given that user "huba" is logged in
+    Given the user "bahu" exists in the system
+    Given that there exists a project "projectX" with project ID 25001
 
 Scenario: Two employees are available
     And the user "huba" is assigned 0 activities in week 10 and 11 in the year 2025

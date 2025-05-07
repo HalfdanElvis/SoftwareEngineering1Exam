@@ -73,6 +73,20 @@ public class App {
         return stringToEmployee(username) != null;
     }
 
+    public List<String> viewAvailableEmployees(int startYear, int startWeek, int endYear, int endWeek) {
+        List<String> availableEmployees = new ArrayList<>();
+        for (Employee employee : employees) {
+            if (employee.isAvailable(startYear, startWeek, endYear, endWeek)) {
+                availableEmployees.add(employee.getUsername());
+            }
+        }
+        return availableEmployees;
+    }
+
+    public List<String> viewAvailableEmployees(int year, int week) {
+        return viewAvailableEmployees(year, week, year, week);
+    }
+
     public void setRegistrationConfirmation(boolean registrationConfirmation) {
         this.registrationConfirmation = registrationConfirmation;
     }
@@ -268,6 +282,7 @@ public class App {
         }
         project.setActivitiyStartAndEndWeek(activityName, startYear, startWeek, endYear, endWeek);
     }
+
 
     // Utility Methods
 
