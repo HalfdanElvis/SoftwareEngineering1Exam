@@ -119,6 +119,9 @@ public class UI {
                                 case 4:
                                     // Manage your special activites
 
+
+                                    // Marcus Fikser:
+                                    
                                     // Select Activity
                                     System.out.println();
                                     System.out.println("Special Activites:");
