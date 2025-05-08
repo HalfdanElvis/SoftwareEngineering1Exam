@@ -125,10 +125,6 @@ public class App {
         }
     }
 
-    public void printAllSpecialActivities() {
-
-    }
-
     // WIP
     public void printAllActivities() {
 

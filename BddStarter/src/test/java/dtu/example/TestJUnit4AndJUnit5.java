@@ -34,14 +34,14 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.jupiter.api.Assertions.assertTrue(true); // JUnit 5
 	}
 
-	// isWeek() Whitebox tests;
+	// isWeek() Whitebox tests; OPDATER SÅ YEARS GIVER MENING.
 	// A
 	@org.junit.Test // JUnit 4
 	public void isWeekReturnsTrueOnWeekNumber() {
 		//Arrange
 		String week = "1";
 		//Act
-		boolean isWeekResult = App.isWeek(week);
+		boolean isWeekResult = App.isWeek(week, 2025);
 		//Assert
 		org.junit.Assert.assertTrue(isWeekResult);
 	}
@@ -54,7 +54,7 @@ public class TestJUnit4AndJUnit5 {
 		String week = "352";
 		//Act
 		try {
-			App.isWeek(week);
+			App.isWeek(week, 2025);
 		} catch (IllegalArgumentException e) {
 			invalidInput = true;
 		}
@@ -71,7 +71,7 @@ public class TestJUnit4AndJUnit5 {
 		String week = "-1";
 		//Act
 		try {
-			App.isWeek(week);
+			App.isWeek(week, 2025);
 		} catch (IllegalArgumentException e) {
 			invalidInput = true;
 		}
@@ -88,7 +88,7 @@ public class TestJUnit4AndJUnit5 {
 		String week = "Hello?";
 		//Act
 		try {
-			App.isWeek(week);
+			App.isWeek(week, 2025);
 		} catch (IllegalArgumentException e) {
 			invalidInput = true;
 		}
@@ -230,7 +230,4 @@ public class TestJUnit4AndJUnit5 {
 		//Assert
 		org.junit.Assert.assertTrue(e2 == null);
 	}
-
-
-
 }

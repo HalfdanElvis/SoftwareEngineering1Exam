@@ -1,9 +1,7 @@
 package dtu.example;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Employee {
     
@@ -46,6 +44,13 @@ public class Employee {
         return false;
     }
     
+    public void printAllSpecialActivities() {
+        for (Activity a : activities){
+            if(a instanceof SpecialActivity) {
+                System.out.println(a.getName()+" - stating in year: " + a.getStartWeek().getYear() + " week: " + a.getStartWeek().getWeek() + " to year: " + a.getEndWeek().getYear() + "  week: " + a.getEndWeek().getWeek());
+            }
+        }
+    }
 
     public String getUsername() { return username; }
     public void setPeak(boolean peak) { this.peak = peak; }
