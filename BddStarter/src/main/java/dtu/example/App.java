@@ -4,9 +4,6 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.cucumber.java.en_old.Ac;
-import io.cucumber.java.lu.a;
-
 public class App {
 
     private int year;
@@ -300,17 +297,19 @@ public class App {
         }
     }
 
-    public static boolean isWeek(String input) {
+    public static boolean isWeek(String week, Integer year) {
         Integer temp = null;
 
         try {
-            isPositiveInt(input);
-            temp = Integer.parseInt(input);
+            isPositiveInt(week);
+            temp = Integer.parseInt(week);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+        
+        int weeksInYear = Week.getWeeksinYear(year);
 
-        if (temp != null && (temp > 0 && temp <= 53)) {
+        if (temp != null && (temp > 0 && temp <= weeksInYear)) {
             return true;
         } else{
             throw new IllegalArgumentException("not a valid weeknumber.");

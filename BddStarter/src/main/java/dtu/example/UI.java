@@ -1,6 +1,5 @@
 package dtu.example;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
@@ -123,25 +122,20 @@ public class UI {
                                         
 
                                         String activityName = null;
+                                        Integer activityYearInt = null;
+                                        Integer activityStartWeekInt = null;
+                                        Integer activityEndWeekInt = null;
+
+                                        // Gets Name:
                                         while (activityName == null) {
                                             System.out.println("Enter Activity name:");    
-                                            try {
-                                                String temp = console.nextLine();
-                                                //if (app.specialActivityNameTaken(temp)) {
-                                                //    activityName = temp;
-                                                //}
-                                            } catch (Exception e) {
-                                                System.out.println(e.getMessage());
-                                                System.out.println();
-                                            }
+                                            activityName = console.nextLine();
                                         }
                                         
 
+                                        // Gets Year:
                                         System.out.println();
                                         System.out.println("What year is the activity in?");
-                                        
-                                        Integer activityYearInt = null; 
-                                        
                                         while (activityYearInt == null || activityYearInt < 0){
                                             try {
                                                 String activityYears = console.nextLine();
@@ -157,11 +151,11 @@ public class UI {
                                         System.out.println("What is the start week of the activity?");
                                         
 
-                                        Integer activityStartWeekInt = null;
+                                        // Gets StartWeek:
                                         while (activityStartWeekInt == null || activityStartWeekInt < 0){
                                             try {
                                                 String activityStartWeek = console.nextLine();
-                                                if (app.isWeek(activityStartWeek)) {
+                                                if (App.isWeek(activityStartWeek, activityYearInt)) {
                                                     activityStartWeekInt = Integer.parseInt(activityStartWeek);
                                                 }
                                             } catch (Exception e) {
@@ -172,11 +166,11 @@ public class UI {
                                         System.out.println();
                                         System.out.println("What is the start end of the activity?");
 
-                                        Integer activityEndWeekInt = null;
+                                        // Gets EndWeek:
                                         while (activityEndWeekInt == null || activityEndWeekInt < 0){
                                             try {
                                                 String activityEndWeek = console.nextLine();
-                                                if (app.isWeek(activityEndWeek)) {
+                                                if (app.isWeek(activityEndWeek, activityYearInt)) {
                                                     activityEndWeekInt = Integer.parseInt(activityEndWeek);
                                                 }
                                             } catch (Exception e) {
@@ -184,22 +178,25 @@ public class UI {
                                             }
                                         }
                                         
+                                        boolean goesIntoNextyear = false;
                                         if (activityStartWeekInt > activityEndWeekInt) {
                                             System.out.println("Your end week for the activity is earlier in the year than your start week.");
                                             System.out.println("Do you want to continue the activity into "+(activityYearInt+1)+" Y/N?");
                                             choice = app.yesOrNo(console.nextLine());
+                                            goesIntoNextyear = true;
                                         }
 
                                         if (choice) {
                                             SpecialActivity a = new SpecialActivity(activityName);
-                                            //a.setYear(activityYearInt);
-                                            ArrayList<Integer> activeWeeks = new ArrayList<>();
-                                            for (int i = activityStartWeekInt; i != (activityEndWeekInt + 1); i = (i % 52 + 1)){
-                                                activeWeeks.add(i);
+                                            
+                                            if (goesIntoNextyear) {
+                                                a.setStartAndEndWeek(activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
+                                            } else {
+                                                a.setStartAndEndWeek(activityYearInt, activityStartWeekInt, activityYearInt, activityEndWeekInt);
                                             }
-                                            //app.addSpecialActivity(a);
+                                            
                                             System.out.println();
-                                            System.out.println("Succesfully created project \""+activityName+"\".");
+                                            System.out.println("Succesfully created special activity \""+activityName+"\".");
                                             System.out.println("-------------------------");
                                         } else {
                                             System.out.println();
@@ -207,7 +204,7 @@ public class UI {
                                             System.out.println("-------------------------");
                                         }
 
-                                        System.out.println("Want to create another project Y/N?"); 
+                                        System.out.println("Want to create another special activity Y/N?"); 
                                         saCreator = app.yesOrNo(console.nextLine());
 
                                     } while(saCreator);

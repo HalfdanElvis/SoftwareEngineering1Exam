@@ -54,7 +54,7 @@ public class Week {
         return weeks;
     }
 
-    private static int getWeeksinYear(int year) {
+    public static int getWeeksinYear(int year) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, year);
         return calendar.getActualMaximum(Calendar.WEEK_OF_YEAR);
