@@ -26,19 +26,6 @@ public class LogHoursSteps {
         this.errorMessageHolder = errorMessageHolder;
         this.testHelper = testHelper;
     }
-
-    @Given("that a user {string} is logged in")
-    public void thatAUserIsLoggedIn(String username) {
-        testHelper.setUser(username);
-
-        if (app.employeeExists(username)){
-            app.setSignedInEmployee(username);
-        } else {
-            app.addEmployee(username);
-            app.setSignedInEmployee(username);
-        }
-    }
-
     
     @Given("a date {string} is given")
     public void dateGiven(String dateString) throws Exception {
@@ -68,9 +55,9 @@ public class LogHoursSteps {
     }
 
 @When("the user logs {float} hours in the activity on the date {string}")
-public void theUserLogsHoursInTheActivityOnTheDate(float hours, Calendar date, String activityName) {
+public void theUserLogsHoursInTheActivityOnTheDate(float hours, String date) {
     String employee = app.getSignedInEmployeeUsername();
-    app.setWorkDataForActivity(hours, date, activityName, employee);
+    //app.setWorkDataForActivity(hours, date, testHelper.getActivityName(), employee);
     throw new io.cucumber.java.PendingException();
 }
 @Then("the user has logged {int} hours in the activity")
@@ -81,7 +68,7 @@ public void theUserHasLoggedHoursInTheActivity(float expectedHours, String activ
 }
 @Then("on the date {string} the user has logged {float} hours in the activity")
 public void onTheDateTheUserHasLoggedHoursInTheActivity(Employee employee, float expectedHours, Calendar date) {
-    assertEquals(expectedHours, activity.getEmployeeHoursOnDate(employee, date), 0.01);
+    //assertEquals(expectedHours, activity.getEmployeeHoursOnDate(employee, date), 0.01);
     throw new io.cucumber.java.PendingException();
 }
 

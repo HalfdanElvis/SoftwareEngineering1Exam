@@ -3,7 +3,7 @@ Feature: Log hours
 	Actors: User
 
 Background:
-	Given that a user "huba" is logged in
+	Given that user "huba" is logged in
 	And an activity "data refinement" exists
 
 Scenario: User logs their hours for an activity for the first time
@@ -34,6 +34,7 @@ Scenario: User removes hours logged from an activity they have not worked in
 	When the user removes 7 hours from the activity on the date "01-01-2024"
 	Then the error message "You havn't worked that long in this activity" is given
 	And on the date "01-01-2024" the user has logged 0 hours in the activity
-Scenario: User gives a date and wants the week number for that date.
-	Given a date "2000-12-02" is given
-	Then the week number should be 48
+
+#Scenario: User gives a date and wants the week number for that date.   This probably shouldnt be here as it doesnt test anything related to log hours
+#	Given a date "2000-12-02" is given
+#	Then the week number should be 48

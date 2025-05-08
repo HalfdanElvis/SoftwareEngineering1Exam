@@ -1,6 +1,7 @@
 package dtu.example;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Project {
@@ -104,6 +105,14 @@ public class Project {
             throw new IllegalArgumentException("Activity does not exist");
         }
         activity.setStartAndEndWeek(startYear, startWeek, endYear, endWeek);
+    }
+
+    public void logHours(String activityName, Calendar date, float hours, String employee) {
+        Activity activity = stringToActivity(activityName);
+        if (activity == null) {
+            throw new IllegalArgumentException("Activity does not exist");
+        }
+        activity.logHours(date, hours, employee);
     }
 
 }

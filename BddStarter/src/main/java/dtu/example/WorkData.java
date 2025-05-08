@@ -4,10 +4,10 @@ import java.util.Calendar;
 
 public class WorkData {
     private Calendar date;
-    private Employee employee;
+    private String employee;
     private float hours;
 
-    public WorkData(Calendar date, Employee employee, float hours) {
+    public WorkData(Calendar date, String employee, float hours) {
         this.date = date;
         this.employee = employee;
         this.hours = hours;
@@ -17,7 +17,7 @@ public class WorkData {
         return date;
     }
 
-    public Employee getEmployee() {
+    public String getEmployee() {
         return employee;
     }
 
@@ -27,9 +27,5 @@ public class WorkData {
     
     public void addHours(float hours) {
         this.hours += hours;
-    }
-    public WorkData makeWorkData(Calendar date, Employee employee, float hours){
-        WorkData workData = new WorkData(date, employee, hours);
-        return workData;
     }
 }

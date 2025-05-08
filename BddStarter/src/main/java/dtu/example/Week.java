@@ -36,6 +36,7 @@ public class Week {
         return Objects.hash(year, week);
     }
 
+    //MOVE TO CALENDARHELPER PERHAPS?
     public static List<Week> range(Week startWeek, Week endWeek) {
         List<Week> weeks = new ArrayList<>();
         int currentYear = startWeek.year;
