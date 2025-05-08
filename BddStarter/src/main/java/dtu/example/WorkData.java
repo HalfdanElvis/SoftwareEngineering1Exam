@@ -8,11 +8,10 @@ public class WorkData {
     private float hours;
     private Activity activity;
 
-    public WorkData(Calendar date, Employee employee, float hours, Activity activity) {
+    public WorkData(Calendar date, Employee employee, float hours) {
         this.date = date;
         this.employee = employee;
         this.hours = hours;
-        this.activity = activity;
     }
 
     public Calendar getDate() {
@@ -29,9 +28,5 @@ public class WorkData {
     
     public void addHours(float hours) {
         this.hours += hours;
-    }
-
-    public Activity getActivity() {
-        return activity;
     }
 }

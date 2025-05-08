@@ -7,9 +7,11 @@ public class Activity {
     private Week startWeek;
     private Week endWeek;
     private float expectedHours;
+    private List<WorkData> workData;
 
-    public Activity(String name) {
+    public Activity(String name, List<WorkData> workData) {
         this.name = name;
+        this.workData = workData;
     }
 
     public String getName() {
