@@ -170,7 +170,7 @@ public class UI {
                                         while (activityEndWeekInt == null || activityEndWeekInt < 0){
                                             try {
                                                 String activityEndWeek = console.nextLine();
-                                                if (app.isWeek(activityEndWeek, activityYearInt)) {
+                                                if (App.isWeek(activityEndWeek, activityYearInt)) {
                                                     activityEndWeekInt = Integer.parseInt(activityEndWeek);
                                                 }
                                             } catch (Exception e) {
@@ -178,6 +178,7 @@ public class UI {
                                             }
                                         }
                                         
+                                        // checks if you go into next year.
                                         boolean goesIntoNextyear = false;
                                         if (activityStartWeekInt > activityEndWeekInt) {
                                             System.out.println("Your end week for the activity is earlier in the year than your start week.");
@@ -186,6 +187,7 @@ public class UI {
                                             goesIntoNextyear = true;
                                         }
 
+                                        // Creates activity unless, user decided not to, by not continueing it into next year.
                                         if (choice) {
                                             SpecialActivity a = new SpecialActivity(activityName);
                                             
