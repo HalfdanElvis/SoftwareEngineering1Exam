@@ -131,4 +131,12 @@ public class Project {
         return activity.getUserTotalLoggedHours(username);
     }
 
+    public List<String> printActivites() {
+        List<String> activityNames = new ArrayList<>();
+        for (Activity activity : activities) {
+            activityNames.add(activity.getName());
+        }
+        return activityNames;
+    }
+
 }

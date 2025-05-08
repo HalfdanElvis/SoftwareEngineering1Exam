@@ -1,5 +1,6 @@
 package dtu.example;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UI {
@@ -208,9 +209,9 @@ public class UI {
         System.out.println("Manage Project Menu:");
         System.out.println("-------------------------");
         System.out.println("1. Make activity");
-        System.out.println("2. Add employee");
-        System.out.println("3. Assign activity");
-        System.out.println("4. Assign Project-leader");
+        System.out.println("2. Assign Project-leader");
+        System.out.println("3. Delete activity");
+        System.out.println("4. Delete project");
         System.out.println("5. Exit menu");
         System.out.println("-------------------------");
 
@@ -436,30 +437,39 @@ public class UI {
     }
 
 
-    public static void manageProjectUI() {
+    public static void manageProjectUI() throws IllegalAccessException {
         boolean exit = true;
         System.out.println("Enter year of the project:");
         String input = console.nextLine();
         int year = Integer.parseInt(input);
 
-        System.out.println();
-        System.out.println("-------------------------");
-        System.out.println("List of Projects");
-        System.out.println("-------------------------");
-        System.out.println();
-
-        app.printProjectList(year);
-
-        System.out.println();
-        System.out.println("-------------------------");
-        System.out.println("Enter project id:");
-        
-        input = console.nextLine();
-        Project project = app.intToProject(Integer.parseInt(input));
-
         while (true) {
+            if (app.getProjectAmountFromYear(year) == 0) {
+            System.out.println("-------------------------");
+            System.out.println("No projects found");
+            System.out.println("-------------------------");
+            System.out.println();
+            System.out.println("Press \'Enter\' to return");
+            input = console.nextLine();
+            break;
+            }
+
+            System.out.println();
+            System.out.println("-------------------------");
+            System.out.println("List of Projects");
+            System.out.println("-------------------------");
+            System.out.println();
+
+            app.printProjectList(year);
+
+            System.out.println();
+            System.out.println("-------------------------");
+            System.out.println("Enter project id:");
+            
+            input = console.nextLine();
+            int projectID = Integer.parseInt(input);
             do {
-                printManageProjectMenu(project);
+                printManageProjectMenu(app.intToProject(projectID));
 
                 int choice = -1;
                 try {
@@ -472,24 +482,52 @@ public class UI {
                 }
                 switch (choice) {
                     case 1:
+                        boolean makenew = true;
+                        do {
+                            System.out.println("Enter name for activity:");
+                            String activityName = console.nextLine();
+                            app.addActivity(projectID, activityName);
+                            
+                            System.out.println("\nSuccesfully created activity \""+activityName+"\"");
+                            System.out.println("-------------------------");
+                            System.out.println("Want to create another activity Y/N?"); 
+                            makenew = app.yesOrNo(console.nextLine()); 
+                        } while(makenew);
                         break;
                     case 2:
+                        List<String> activites = app.printActivites(projectID);
+                        System.out.println("-------------------------");
+                        System.out.println("List of activities");
+                        System.out.println("-------------------------");
+                        System.out.println();
+                        
+                        for (int i = 0; i < activites.size(); i++) {
+                            System.out.println(activites.get(i));
+                        }
+
+                        System.out.println();
+                        System.out.println("-------------------------");
+                        System.out.println("Press \'Enter\' to return");
+                        input = console.nextLine();
                         break;
                     case 3:
-                        break;
-                    case 4:
                         System.out.println("Enter username of the to be assigned leader:");
                         String username = console.nextLine();
-                        app.assignLeader(username, project.getID());
+                        app.assignLeader(username, projectID);
 
                         System.out.println();
                         System.out.println("Employee "+username+" was succesfully assigned as projectleader.");
                         System.out.println();
-                        
+                        break;
+                    case 4:
                         break;
                     case 5:
+                        
+                        break;
+                    case 6:
                         exit = false;
                         break;
+            
                     
                     default:
                         break;

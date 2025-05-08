@@ -368,8 +368,6 @@ public class App {
                 //activities.get(i).getEmployeeWorkData(employee).add(workData);
             }
         }
-
-
     }
     /*
     public float getEmployeeTotalHoursInActivity(String username, String activityName){
@@ -379,6 +377,23 @@ public class App {
         return activity.getEmployeeTotalHoursOnActivity(employee, activityName);
     }
     */
-    
 
+    public int getProjectAmountFromYear(int year) {
+        year %= 1000;
+        year *= 1000;
+
+        int count = 0;
+
+        for (Project p : projects) {
+            if (p.getID() > year && p.getID() < year + 100) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+	public List<String> printActivites(int projectID) {
+        return intToProject(projectID).printActivites();
+	}
 }
