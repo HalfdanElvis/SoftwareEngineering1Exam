@@ -1,5 +1,6 @@
 package dtu.example;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -54,23 +55,56 @@ public class LogHoursSteps {
         throw new io.cucumber.java.PendingException();
     }
 
-@When("the user logs {float} hours in the activity on the date {string}")
-public void theUserLogsHoursInTheActivityOnTheDate(float hours, String date) {
-    String employee = app.getSignedInEmployeeUsername();
-    //app.setWorkDataForActivity(hours, date, testHelper.getActivityName(), employee);
-    throw new io.cucumber.java.PendingException();
-}
-@Then("the user has logged {int} hours in the activity")
-public void theUserHasLoggedHoursInTheActivity(float expectedHours, String activityName) {
-    String employee = app.getSignedInEmployeeUsername();
-    assertEquals(expectedHours, app.getEmployeeTotalHoursInActivity(employee, activityName), 0.01);
-    throw new io.cucumber.java.PendingException();
-}
-@Then("on the date {string} the user has logged {float} hours in the activity")
-public void onTheDateTheUserHasLoggedHoursInTheActivity(Employee employee, float expectedHours, Calendar date) {
-    //assertEquals(expectedHours, activity.getEmployeeHoursOnDate(employee, date), 0.01);
-    throw new io.cucumber.java.PendingException();
-}
+    @Given("the user has logged {int} hours in the activity on the date {string}")
+    public void theUserHasLoggedHoursInTheActivityOnTheDate(float hours, String date) {
+        try {
+            app.logHours(testHelper.getProjectID(), testHelper.getActivityName(), date, hours);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
+
+    @When("the user logs {float} hours in the activity on the date {string}")
+    public void theUserLogsHoursInTheActivityOnTheDate(float hours, String date) {
+        try {
+            app.logHours(testHelper.getProjectID(), testHelper.getActivityName(), date, hours);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+       
+    }
+    
+    @When("the user logs {int} hours in the activity {string} on the date {string}")
+    public void theUserLogsHoursInTheActivityOnTheDate(float hours, String activityName, String date) {
+        try {
+            app.logHours(testHelper.getProjectID(), activityName, date, hours);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
+
+    @When("the user removes {int} hours from the activity on the date {string}")
+    public void theUserRemovesHoursFromTheActivityOnTheDate(float hours, String date) {
+        try {
+            app.logHours(testHelper.getProjectID(), testHelper.getActivityName(), date, -hours);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
 
 
+    @Then("the user should have logged {int} hours in the activity")
+    public void theUserShouldHaveLoggedHoursInTheActivity(float hours) {
+        assertEquals(hours, app.getUserTotalLoggedHoursInActivity(testHelper.getProjectID(), testHelper.getActivityName(), testHelper.getUser()), 0);
+    }
+
+    @Then("on the date {string} the user has logged {float} hours in the activity")
+    public void onTheDateTheUserHasLoggedHoursInTheActivity(String date, float hours) {
+        //assertEquals(expectedHours, activity.getEmployeeHoursOnDate(employee, date), 0.01);
+        try {
+            assertEquals(hours, app.getUserLoggedHoursInActivityOnDate(testHelper.getProjectID(), testHelper.getActivityName(), testHelper.getUser(), date), 0);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
 }

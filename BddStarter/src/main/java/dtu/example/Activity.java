@@ -2,8 +2,7 @@ package dtu.example;
 
 import java.util.List;
 
-import io.cucumber.java.ca.Cal;
-
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Activity {
@@ -13,13 +12,9 @@ public class Activity {
     private float expectedHours;
     private List<WorkData> workDatas;
 
-    public Activity(String name, List<WorkData> workDatas) {
+    public Activity(String name) {
         this.name = name;
-        this.workDatas = workDatas;
-    }
-
-    public void addWorkData(WorkData workData){
-        workDatas.add(workData);
+        this.workDatas = new ArrayList<>();
     }
     //Check if this one is used by the end
     /* 
@@ -83,6 +78,9 @@ public class Activity {
     }
 
     public void logHours(Calendar date, float hours, String employee) {
+        if (hours == 0) {
+            return;
+        }
         WorkData workData = getSpecificWorkData(date, employee);
         if (workData == null) {
             workData = new WorkData(date, employee, hours);
@@ -90,6 +88,13 @@ public class Activity {
         }
         else {
             workData.addHours(hours);
+        }
+        if (workData.getHours() < 0) {
+            workData.addHours(-hours);
+            throw new IllegalArgumentException("You haven't worked that long in this activity");
+        }
+        if (workData.getHours() == 0) {
+            workDatas.remove(workData);
         }
     }
     
@@ -102,6 +107,26 @@ public class Activity {
         return null;
     }
 
+    public float getUserLoggedHoursOnDate(String username, Calendar date) {
+        for (WorkData workData : workDatas) {
+            if (workData.getEmployee().equals(username) && workData.getDate().equals(date)) {
+                return workData.getHours();
+            }
+        }
+        return 0;
+    }
+
+    public float getUserTotalLoggedHours(String username) {
+        float sum = 0;
+        for (WorkData workData : workDatas) {
+            if (workData.getEmployee().equals(username)) {
+                sum += workData.getHours();
+            }
+        }
+        return sum;
+    }
+
+    
     /*
     public WorkData makeWorkData(Calendar date, Employee employee, float hours){
         WorkData workData = new WorkData(date, employee, hours);

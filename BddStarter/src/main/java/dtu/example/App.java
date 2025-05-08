@@ -1,5 +1,6 @@
 package dtu.example;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Year;
 import java.util.ArrayList;
@@ -326,7 +327,7 @@ public class App {
         return selectedSpecialActivity;
     }
 
-    public void logHours(int projectID, String activityName, String dateAsString, float hours) {
+    public void logHours(int projectID, String activityName, String dateAsString, float hours) throws ParseException {
         Project project = intToProject(projectID);
         if (project == null) {
             throw new IllegalArgumentException("Project does not exist");
@@ -334,13 +335,28 @@ public class App {
         // MOVE TO CALENDARHELPER PERHAPS?
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar date = Calendar.getInstance();
-        try {
-            date.setTime(sdf.parse(dateAsString));
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+        date.setTime(sdf.parse(dateAsString));
         
         project.logHours(activityName, date, hours, signedInEmployee.getUsername());
+    }
+
+    public float getUserLoggedHoursInActivityOnDate(int projectID, String activityName, String username, String dateAsString) throws ParseException {
+        Project project = intToProject(projectID);
+        if (project == null) {
+            throw new IllegalArgumentException("Project does not exist");
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar date = Calendar.getInstance();
+        date.setTime(sdf.parse(dateAsString));
+        return project.getUserLoggedHoursInActivityOnDate(activityName, username, date);
+    }
+
+    public float getUserTotalLoggedHoursInActivity(int projectID, String activityName, String username) {
+        Project project = intToProject(projectID);
+        if (project == null) {
+            throw new IllegalArgumentException("Project does not exist");
+        }
+        return project.getUserTotalLoggedHoursInActivity(activityName, username);
     }
 
     public void setWorkDataForActivity(float hours, Calendar date, String activityName, String username ){   

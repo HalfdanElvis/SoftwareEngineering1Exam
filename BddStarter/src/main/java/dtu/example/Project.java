@@ -60,7 +60,7 @@ public class Project {
         if (projectLeader != null && !requestingEmployee.equals(projectLeader)) {
             throw new IllegalArgumentException("Only the project leader can create an activity");
         }
-        activities.add(new Activity(name, null));
+        activities.add(new Activity(name));
     }
 
     public Activity stringToActivity(String activityName) {
@@ -113,6 +113,22 @@ public class Project {
             throw new IllegalArgumentException("Activity does not exist");
         }
         activity.logHours(date, hours, employee);
+    }
+
+    public float getUserLoggedHoursInActivityOnDate(String activityName, String username, Calendar date) {
+        Activity activity = stringToActivity(activityName);
+        if (activity == null) {
+            throw new IllegalArgumentException("Activity does not exist");
+        }
+        return activity.getUserLoggedHoursOnDate(username, date);
+    }
+
+    public float getUserTotalLoggedHoursInActivity(String activityName, String username) {
+        Activity activity = stringToActivity(activityName);
+        if (activity == null) {
+            throw new IllegalArgumentException("Activity does not exist");
+        }
+        return activity.getUserTotalLoggedHours(username);
     }
 
 }

@@ -8,9 +8,6 @@ public class UI {
     static Scanner console = new Scanner(System.in);
 
     public static void main(String args[]){
-        Week week2 = new Week(2025, 47);
-        Week week3 = new Week(2025, 47);
-        System.out.println(Week.range(week2, week3).size());
         app.addEmployee("huba");
         app.stringToEmployee("huba").assignSpecialActivity("sick", 2025, 52, 2026, 3);
         System.out.println(app.stringToEmployee("huba").getAllSpecialActivities().get(0).getName());

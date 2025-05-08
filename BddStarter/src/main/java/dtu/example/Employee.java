@@ -185,7 +185,6 @@ public class Employee {
 
         return specialActivities.get(index-1);
 
-    }    
-
+    }
 
 }
