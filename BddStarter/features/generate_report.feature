@@ -3,20 +3,19 @@ Feature: Generate Report
   Actors: Project leader
 
 Background:
-	Given that a user "huba" is logged in
-	And a project "projectX" exists
+	Given that user "huba" is logged in
+	Given that there exists a project "projectX" with project ID 25001
 
 Scenario: Project leader generates a report
-	And an activity "activity1" exists
-	And the user is the project leader on the project
-	And the project contains the activity
-	And the activity has an expected time of 80 hours
+	And the user "huba" is the project leader
+	And the project contains an activity "activity1"
+	And the activity's expected total work hours is already 80
 	And the activity's total worked hours is 57
 	When the user generates a report
-	Then the report returned is "57/80 hours worked on activity 1\n 57/80 hours worked in total"
+	Then the report returned is 57 hours out of 80 hours
 
 Scenario: non-Project leader generates a report
-	And the user is not project leader on the project
+	And the user "bahu" is the project leader
 	When the user generates a report
 	Then the error message "Only project leader can generate report" is given
 

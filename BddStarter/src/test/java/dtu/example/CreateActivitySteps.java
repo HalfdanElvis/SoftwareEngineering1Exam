@@ -51,6 +51,7 @@ public class CreateActivitySteps {
     public void theProjectContainsAnActivity(String string) {
         try {
             app.addActivity(testHelper.getProjectID(), string);
+            testHelper.setActivityName(string);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }

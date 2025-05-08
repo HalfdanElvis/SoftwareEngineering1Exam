@@ -131,4 +131,16 @@ public class Project {
         return activity.getUserTotalLoggedHours(username);
     }
 
+    public float[] generateReport(Employee requestingEmployee) throws IllegalAccessException {
+        if (!requestingEmployee.equals(projectLeader)) {
+            throw new IllegalAccessException("Only project leader can generate report");
+        }
+        float[] sum = {0,0};
+        for (Activity activity : activities) {
+            sum[0] += activity.getTotalWorkedHours();
+            sum[1] += activity.getExpectedHours();
+        }
+        return sum;
+    }
+
 }

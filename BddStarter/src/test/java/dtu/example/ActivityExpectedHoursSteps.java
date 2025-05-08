@@ -13,7 +13,6 @@ public class ActivityExpectedHoursSteps {
     private ErrorMessageHolder errorMessageHolder;
     
     private TestHelper testHelper;
-    private String activityName;
     private String projectLeaderName;
 
 
@@ -35,12 +34,11 @@ public class ActivityExpectedHoursSteps {
     @Given("the project with id {int} contains an activity with name {string}")
     public void theProjectWithIdContainsAnActivityWithName(Integer id, String activityName) {
         try {
+            testHelper.setActivityName(activityName);
             app.addActivity(testHelper.getProjectID(), activityName);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
-        
-        this.activityName = activityName;
     }
 
     @Given("the user {string} is the project leader")
@@ -57,7 +55,7 @@ public class ActivityExpectedHoursSteps {
     public void theActivitySExpectedTotalWorkHoursIsAlready(Integer hours) {
         app.setSignedInEmployee(projectLeaderName);
         try {
-            app.setActivityExpectedHours(testHelper.getProjectID(), activityName, hours);
+            app.setActivityExpectedHours(testHelper.getProjectID(), testHelper.getActivityName(), hours);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
@@ -67,7 +65,7 @@ public class ActivityExpectedHoursSteps {
     public void theUserSetsTheActivitySExpectedTotalWorkHoursTo(String user, Integer hours) {
         app.setSignedInEmployee(user);
         try {
-            app.setActivityExpectedHours(testHelper.getProjectID(), activityName, hours);
+            app.setActivityExpectedHours(testHelper.getProjectID(), testHelper.getActivityName(), hours);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
@@ -75,6 +73,6 @@ public class ActivityExpectedHoursSteps {
 
     @Then("the activity's expected total work hours is {int}")
     public void theActivitySExpectedTotalWorkHoursIs(Integer hours) {
-        assertEquals(hours, app.getActivityExpectedHours(testHelper.getProjectID(), activityName), 0);
+        assertEquals(hours, app.getActivityExpectedHours(testHelper.getProjectID(), testHelper.getActivityName()), 0);
     }
 }

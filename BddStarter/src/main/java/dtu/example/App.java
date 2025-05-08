@@ -359,6 +359,14 @@ public class App {
         return project.getUserTotalLoggedHoursInActivity(activityName, username);
     }
 
+    public float[] generateReport(int projectID) throws IllegalAccessException {
+        Project project = intToProject(projectID);
+        if (project == null) {
+            throw new IllegalArgumentException("Project does not exist");
+        }
+        return project.generateReport(signedInEmployee);
+    }
+
     public void setWorkDataForActivity(float hours, Calendar date, String activityName, String username ){   
         Employee employee = stringToEmployee(username);
         List<Activity> activities=employee.getActivities();
