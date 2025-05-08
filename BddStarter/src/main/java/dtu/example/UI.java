@@ -10,9 +10,6 @@ public class UI {
 
     public static void main(String args[]){
         app.addEmployee("huba");
-        app.stringToEmployee("huba").assignSpecialActivity("sick", 2025, 52, 2026, 3);
-        System.out.println(app.stringToEmployee("huba").getAllSpecialActivities().get(0).getName());
-
         String username = "";
 
         // Starting Program
