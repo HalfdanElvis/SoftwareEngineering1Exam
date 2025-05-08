@@ -5,16 +5,18 @@ public class TestHelper {
     private String user;
     private int projectID;
     private String activityName;
+    private Employee employee;
 
     public TestHelper() {
 
     }
 
-    public String getUser() {
-        return user;
+    public Employee getUser() {
+        return employee;
     }
 
     public void setUser(String user) {
+
         this.user = user;
     }
 

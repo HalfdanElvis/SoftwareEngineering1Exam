@@ -59,7 +59,7 @@ public class Project {
         if (projectLeader != null && !requestingEmployee.equals(projectLeader)) {
             throw new IllegalArgumentException("Only the project leader can create an activity");
         }
-        activities.add(new Activity(name));
+        activities.add(new Activity(name, null));
     }
 
     public Activity stringToActivity(String activityName) {

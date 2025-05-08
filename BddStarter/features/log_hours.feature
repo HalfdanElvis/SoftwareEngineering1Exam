@@ -7,7 +7,6 @@ Background:
 	And an activity "data refinement" exists
 
 Scenario: User logs their hours for an activity for the first time
-	And the user has logged 0 hours in the activity
 	When the user logs 10 hours in the activity on the date "01-01-2024"
 	Then the user has logged 10 hours in the activity
 	And on the date "01-01-2024" the user has logged 10 hours in the activity

@@ -18,15 +18,11 @@ public class LogHoursSteps {
     App app;
     ErrorMessageHolder errorMessageHolder;
     TestHelper testHelper;
-    Employee employee;
-    WorkData workData;
 
-    public LogHoursSteps(App app, TestHelper testHelper, ErrorMessageHolder errorMessageHolder, Employee employee, WorkData workData){
+    public LogHoursSteps(App app, TestHelper testHelper, ErrorMessageHolder errorMessageHolder){
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.testHelper = testHelper;
-        this.employee = employee;
-        this.workData = workData;
     }
 
     @Given("that a user {string} is logged in")
@@ -56,8 +52,9 @@ public class LogHoursSteps {
         assertEquals(expectedWeek, actualWeek);
     }
 
-    @Given("the user has logged {int} hours in the activity")
-    public void theUserHasYetToLogHoursInActivity(Employee employee, String activityName, int hoursInActivity ) {
+    @Given("the user has logged {int} hours in the activity initially")
+    public void theUserHasYetToLogHoursInActivity(String activityName, int hoursInActivity ) {
+        String employee=testHelper.getUser();
         if (employee.isAssignedActivity(activityName) == true){
             assertEquals(0,hoursInActivity);
         }
@@ -69,20 +66,20 @@ public class LogHoursSteps {
         throw new io.cucumber.java.PendingException();
     }
 
-@When("the user logs {int} hours in the activity on the date {string}")
-public void theUserLogsHoursInTheActivityOnTheDate(int hours, String date) {
-
-    workData.addHours(hours);
+@When("the user logs {float} hours in the activity on the date {string}")
+public void theUserLogsHoursInTheActivityOnTheDate(float hours, Calendar date, Employee employee) {
+    WorkData data=workData.makeWorkData(date, employee, hours);
+    activity.addWorkData(data);
     throw new io.cucumber.java.PendingException();
 }
 @Then("the user has logged {int} hours in the activity")
-public void theUserHasLoggedHoursInTheActivity(Integer int1) {
-    // Write code here that turns the phrase above into concrete actions
+public void theUserHasLoggedHoursInTheActivity(float expectedHours, Employee employee) {
+    assertEquals(expectedHours, activity.getEmployeeTotalHours(employee), 0.01);
     throw new io.cucumber.java.PendingException();
 }
-@Then("on the date {string} the user has logged {int} hours in the activity")
-public void onTheDateTheUserHasLoggedHoursInTheActivity(String string, Integer int1) {
-    // Write code here that turns the phrase above into concrete actions
+@Then("on the date {string} the user has logged {float} hours in the activity")
+public void onTheDateTheUserHasLoggedHoursInTheActivity(Employee employee, float expectedHours, Calendar date) {
+    assertEquals(expectedHours, activity.getEmployeeHoursOnDate(employee, date), 0.01);
     throw new io.cucumber.java.PendingException();
 }
 
