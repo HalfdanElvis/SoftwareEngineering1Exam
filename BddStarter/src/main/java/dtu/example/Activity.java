@@ -126,6 +126,14 @@ public class Activity {
         return sum;
     }
 
+    public float getTotalWorkedHours() {
+        float sum = 0;
+        for (WorkData workData : workDatas) {
+            sum += workData.getHours();
+        }
+        return sum;
+    }
+
     
     /*
     public WorkData makeWorkData(Calendar date, Employee employee, float hours){
