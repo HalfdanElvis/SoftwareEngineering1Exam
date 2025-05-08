@@ -12,7 +12,8 @@ public class UI {
         Week week3 = new Week(2025, 47);
         System.out.println(Week.range(week2, week3).size());
         app.addEmployee("huba");
-
+        app.stringToEmployee("huba").assignSpecialActivity("sick", 2025, 52, 2026, 3);
+        System.out.println(app.stringToEmployee("huba").getAllSpecialActivities().get(0).getName());
 
         String username = "";
 
@@ -32,346 +33,84 @@ public class UI {
                             // Main Menu:
                             printMainMenu();
                             
-                            String userInput = console.nextLine();
-                            int num = Integer.parseInt(userInput);
+
+                            int choice = -1;  // initialize with invalid default
+                            String input = "";
+                            try {
+                                input = console.nextLine();
+                                choice = Integer.parseInt(input);
+                            } catch (NumberFormatException e) {
+                                System.out.println();
+                                System.out.println("Invalid input. Please enter a number from the menu.");
+                                continue; // skip the rest of the loop and prompt again
+                            }
                             
-                            switch (num) {
+                            switch (choice) {
                                 case 1:
-                                    boolean exit = true;
 
-                                    do {
-                                        printCreateProjectMenu();
-                                        String projectName = console.nextLine();
-                                        int id = app.createProject(projectName).getID();
-                                        
-                                        System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
-                                        System.out.println("-------------------------");
-                                        System.out.println("Want to create another project Y/N?"); 
-                                        exit = app.yesOrNo(console.nextLine()); 
-                                    } while(exit);
+                                    // Create a new Project
+                                    createProjectUI();
                                     
-
                                     break;
+
                                 case 2:
-                                    exit = true;
-                                    System.out.println("Enter year of the project:");
-                                    userInput = console.nextLine();
-                                    int year = Integer.parseInt(userInput);
 
-                                    System.out.println();
-                                    System.out.println("-------------------------");
-                                    System.out.println("List of Projects");
-                                    System.out.println("-------------------------");
-                                    System.out.println();
-
-                                    app.printProjectList(year);
-
-                                    System.out.println();
-                                    System.out.println("-------------------------");
-                                    System.out.println("Enter project id:");
-
-                                    userInput = console.nextLine();
-                                    Project project = app.intToProject(Integer.parseInt(userInput));
-
-                                    while (true) {
-                                        do {
-                                            printManagaeProjectMenu(project);
-                                            userInput = console.nextLine();
-                                            num = Integer.parseInt(userInput);
-
-                                            switch (num) {
-                                                case 1:
-                                                    break;
-                                                case 2:
-                                                    break;
-                                                case 3:
-                                                    break;
-                                                case 4:
-                                                    System.out.println("Enter username of the to be assigned leader:");
-                                                    username = console.nextLine();
-                                                    app.assignLeader(username, project.getID());
-
-                                                    System.out.println();
-                                                    System.out.println("Employee "+username+" was succesfully assigned as projectleader.");
-                                                    System.out.println();
-                                                    
-                                                    break;
-                                                case 5:
-                                                    exit = false;
-                                                    break;
-                                                
-                                                default:
-                                                    break;
-                                                
-                                            }
-                                        } while (exit);
-
-                                        break;
-                                    }
+                                    // Manage a selected Project
+                                    manageProjectUI();
 
                                     break;
                                 case 3:
+
                                     //CreateSpecialActivity
                                     CreateSpecialActivityUI();
                                     
                                     break;
 
                                 case 4:
+
                                     // Manage your special activites
 
-
-                                    // Marcus Fikser:
-                                    
-                                    // Select Activity
-                                    System.out.println();
-                                    System.out.println("Special Activites:");
-                                    System.out.println("-------------------------");
-                                    app.getSignedInEmployee().printAllSpecialActivities();
-                                    System.out.println("-------------------------");
-                                    System.out.println();
-                                    System.out.println("Select an activity from the list above by inserting it's name:");
-                                    
-                                    while (true) {
-                                        //app.setSelectedSpecialActivity(null);
-
-                                        String activityName = console.nextLine();
-                                        try {
-                                            //if(app.specialActivityExists(activityName)){
-                                             //   app.setSelectedSpecialActivity(activityName);
-                                                break;
-                                            //}
-                                        } catch (Exception e) {
-                                            System.err.println(e.getMessage());
-                                            break;
-                                        }                        
-                                    }
-
-                                    //if (app.getSelectedSpecialActivity() == null) { 
-                                        System.out.println();
-                                        System.out.println("Returning to Main Menu...");
+                                    // Checks if you have any special activites
+                                    if(app.getSignedInEmployee().howManySpecialActivities() == 0){
+                                        System.out.println("you have no special activities, returning to main menu.");
                                         break;
-                                    //}
-                                    
-                                    /*while (true) {
-                                        // Manage Special Activity
-                                        System.out.println();
-                                        System.out.println("Manage Special Activity:");
-                                        System.out.println("-------------------------");
-                                        System.out.println("1. Views Active Weeks");
-                                        System.out.println("2. Assign User");
-                                        System.out.println("3. Change Active Weeks");
-                                        System.out.println("4. Delete Activity");
-                                        System.out.println("5. Back");
-                                        System.out.println("-------------------------");
-                                        
-                                        System.out.println();
-
-                                        System.out.println("Select a number from the list above to proceed.");
-
-                                        String choice = console.nextLine();
-                                        int tempNum = Integer.parseInt(choice);
-                                        boolean back = false;
-                                        switch (tempNum) {
-
-                                            // View Active Weeks:
-                                            case 1:
-                                                System.out.println();
-                                                //System.out.println("Special Activity \"" + app.getSelectedSpecialActivity().getName() + "\" is active in the following weeks:");
-                                                //System.out.println("Year " + app.getSelectedSpecialActivity().getYear() + ":");
-                                                Week prevWeek = null;
-                                                for (Week week : app.getSelectedSpecialActivity().getActiveWeeks()){
-                                                    if (prevWeek == null) {
-                                                        prevWeek = week;
-                                                    }
-                                                    if (prevWeek>week){
-                                                        // Hardcoded, kan kun strække sig over 2 år for nu
-                                                        System.out.println("Year " + (app.getSelectedSpecialActivity().getYear() + 1) + ":");
-                                                        System.out.println();
-                                                        prevWeek = week;
-                                                    }
-                                                    System.out.print(week+" ");
-                                                }
-                                                System.out.println();
-
-                                                break;
-
-                                            case 2:
-                                                break;
-
-                                            case 3:
-                                                break;
-
-                                            case 4:
-                                                break;
-
-                                            case 5:
-                                                back = true;
-                                        
-                                            default:
-                                                break;
-
-                                        }
-
-                                        if (back) {
-                                            break;
-                                        
                                     }
 
+                                    manageSpecialActivitiesUI();
 
-                                    break;*/
+                                    
+                                    break;
 
-                                
-                                // Create User:
                                 case 5:
-                                    System.out.println();
-                                    System.out.println("-------------------------");
-                                    System.out.println("What should the username be?");
                                     
-                                    while (true) { 
-                                        username = console.nextLine();
-                                        try {
-                                            app.legalUsername(username);
-                                            app.addEmployee(username);
-                                            break;
-                                        } catch (Exception e) {
-                                            System.err.println(e.getMessage());
-                                        }
-                                    }
+                                    // Create User:
+                                    createUserUI();
 
                                     break;
                                 
-                                // Manage User
                                 case 6:
-                                    // Select User
-                                    System.out.println();
-                                    System.out.println("Users:");
-                                    System.out.println("-------------------------");
-                                    app.printAllEmployees();
-                                    System.out.println("-------------------------");
-                                    System.out.println();
-                                    System.out.println("Select a user from the list above by inserting their username:");
-                                    
-                                    while (true) { 
-                                        username = console.nextLine();
-                                        try {
-                                            if(app.legalUsername(username)){
-                                                if(app.employeeExists(username)){
-                                                    app.setSelectedEmployee(username);
-                                                    break;
-                                                }
-                                            }
-                                        } catch (Exception e) {
-                                            System.err.println(e.getMessage());
-                                        }
-                                        
-                                    }
                                     
                                     // Manage User
-                                    System.out.println();
-                                    System.out.println("Manage User:");
-                                    System.out.println("-------------------------");
-                                    System.out.println("1. Assign to Activity");
-                                    System.out.println("2. Assign to Special Activity");
-                                    System.out.println("3. Set/Unset Peak Performance");
-                                    System.out.println("4. Delete User");
-                                    System.out.println("5. Back");
-                                    System.out.println("-------------------------");
-                                    
-                                    System.out.println();
+                                    manageUserUI();
 
-                                    System.out.println("Select a number from the list above to proceed.");
-                                    
-                                    while (true) {
-                                        String choice = console.nextLine();
-                                        int tempNum = Integer.parseInt(choice);
-                                        boolean back = false;
-                                        switch (tempNum) {
-                                            case 1:
-                                                break;
-
-                                            case 2:
-                                                break;
-
-                                            case 3:
-                                                break;
-
-                                            case 4:
-                                                break;
-
-                                            case 5:
-                                                back = true;
-                                        
-                                            default:
-                                                break;
-
-                                        }
-
-                                        if (back) {
-                                            break;
-                                        }
-                                    }
+                                    break;
 
                                 case 7:
                                     break;
 
-                                // Closes Program:
+                                
                                 case 8:
+                                    
+                                    // Closes Program:
                                     System.exit(0);
+
                                     break;
 
-                                // For Testing:
+                                
                                 case 9:
-                                    while (true) {
-                                        System.out.println();
-                                        System.out.println("View Menu:");
-                                        System.out.println("-------------------------");
-                                        System.out.println("1. View all Employees");
-                                        System.out.println("2. View all Projects");
-                                        System.out.println("3. View all Actvities");
-                                        System.out.println("4. View all Special Activites");
-                                        System.out.println("5. Back");
-                                        System.out.println("-------------------------");
-                                        
-                                        System.out.println();
 
-                                        System.out.println("Select a number from the list above to proceed.");
-                                        
-                                        boolean back = false;
-                                        
-                                        // Printing all users, projects .etc
-                                        String string = console.nextLine();
-                                        int choice = Integer.parseInt(string);
-                                        switch (choice) {
-                                            case 1:
-                                                System.out.println();
-                                                System.out.println("Users:");
-                                                System.out.println("-------------------------");
-                                                app.printAllEmployees();
-                                                System.out.println("-------------------------");
-                                                break;
-
-                                            case 2:
-                                                break;
-
-                                            case 3:
-                                                break;
-
-                                            case 4:
-                                                break;
-
-                                            case 5:
-                                                back = true;
-                                        
-                                            default:
-                                                break;
-
-                                        }
-
-                                        if (back) {
-                                            break;
-                                        }
-
-                                    }
+                                    // For Testing:
+                                    testingUI();
                                     
                                 default:
                                     break;
@@ -463,7 +202,7 @@ public class UI {
         System.out.println("Enter Project name:");
     }
 
-    public static void printManagaeProjectMenu(Project project) {
+    public static void printManageProjectMenu(Project project) {
         System.out.println("-------------------------");
         System.out.println("Selected project "+ project.printProject());
         System.out.println("-------------------------");
@@ -537,7 +276,7 @@ public class UI {
             }
 
             System.out.println();
-            System.out.println("What is the start end of the activity?");
+            System.out.println("What is the end week of the activity?");
 
             // Gets EndWeek:
             while (activityEndWeekInt == null || activityEndWeekInt < 0){
@@ -586,6 +325,346 @@ public class UI {
             saCreator = app.yesOrNo(console.nextLine());
 
         } while(saCreator);
+    }
+
+
+    // Manage Special Activity
+    public static void manageSpecialActivitiesUI() {
+        int choice = -1;
+        while (!(choice<=app.getSignedInEmployee().howManySpecialActivities() && choice >= 1)) {
+            // Select Activity
+            System.out.println();
+            System.out.println("Special Activites:");
+            System.out.println("-------------------------");
+            app.getSignedInEmployee().printAllSpecialActivities();
+            System.out.println("-------------------------");
+            System.out.println();
+            System.out.println("select the special activity you want to manage by entering the number in front of it:");
+            
+            try {
+                String input = console.nextLine();
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println();
+                System.out.println("Invalid input. Please enter a number from the menu.");
+                continue; // skip the rest of the loop and prompt again
+            }
+            app.setSelectedSpecialActivity(app.getSignedInEmployee().selectSpecialActivityNumber(choice));
+        }
+
+        while (true) {
+            // Manage Special Activity
+            System.out.println();
+            System.out.println("Manage Special Activity: " + app.getSelectedSpecialActivity().getName());
+            System.out.println("-------------------------");
+            System.out.println("1. Views Active Weeks");
+            System.out.println("2. Assign User");
+            System.out.println("3. Change Active Weeks");
+            System.out.println("4. Delete Activity");
+            System.out.println("5. Back");
+            System.out.println("-------------------------");
+            
+            System.out.println();
+
+            System.out.println("Select a number from the list above to proceed.");
+
+            try {
+                String input = console.nextLine();
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println();
+                System.out.println("Invalid input. Please enter a number from the menu.");
+                continue; // skip the rest of the loop and prompt again
+            }
+
+            boolean back = false;
+            switch (choice) {
+                // View Active Weeks:
+                case 1:
+                    
+                    System.out.println();
+                    System.out.println("Special Activity \"" + app.getSelectedSpecialActivity().getName() + "\" is active in the following weeks:");
+                    
+                    int startYear = app.getSelectedSpecialActivity().getStartWeek().getYear();
+                    System.out.println(startYear+":");
+                    for (Week week : app.getSelectedSpecialActivity().getActiveWeeks()) {
+                        if (startYear != week.getYear()) {
+                            startYear = week.getYear();
+                            System.out.println();
+                            System.out.println(startYear+":");
+                        }
+                        System.out.print(week.getWeek()+" ");
+                    }
+                    System.out.println();
+
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    back = true;
+                    break;
+                
+                default:
+                    System.out.println("Invalid input. Please enter a number from the menu.");
+                    break;
+            }
+
+            if (back) {
+                break;
+            }
+
+        }
+    }
+
+    public static void createProjectUI() {
+        boolean exit = true;
+        do {
+            printCreateProjectMenu();
+            String projectName = console.nextLine();
+            int id = app.createProject(projectName).getID();
+            
+            System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
+            System.out.println("-------------------------");
+            System.out.println("Want to create another project Y/N?"); 
+            exit = app.yesOrNo(console.nextLine()); 
+        } while(exit);
+    }
+
+
+    public static void manageProjectUI() {
+        boolean exit = true;
+        System.out.println("Enter year of the project:");
+        String input = console.nextLine();
+        int year = Integer.parseInt(input);
+
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println("List of Projects");
+        System.out.println("-------------------------");
+        System.out.println();
+
+        app.printProjectList(year);
+
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println("Enter project id:");
+        
+        input = console.nextLine();
+        Project project = app.intToProject(Integer.parseInt(input));
+
+        while (true) {
+            do {
+                printManageProjectMenu(project);
+
+                int choice = -1;
+                try {
+                    input = console.nextLine();
+                    choice = Integer.parseInt(input);
+                } catch (NumberFormatException e) {
+                    System.out.println();
+                    System.out.println("Invalid input. Please enter a number from the menu.");
+                    continue; // skip the rest of the loop and prompt again
+                }
+                switch (choice) {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        System.out.println("Enter username of the to be assigned leader:");
+                        String username = console.nextLine();
+                        app.assignLeader(username, project.getID());
+
+                        System.out.println();
+                        System.out.println("Employee "+username+" was succesfully assigned as projectleader.");
+                        System.out.println();
+                        
+                        break;
+                    case 5:
+                        exit = false;
+                        break;
+                    
+                    default:
+                        break;
+                    
+                }
+            } while (exit);
+
+            break;
+        }
+    }
+
+    public static void createUserUI() {
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println("What should the username be?");
+        
+        while (true) { 
+            String username = console.nextLine();
+            try {
+                app.legalUsername(username);
+                app.addEmployee(username);
+                System.out.println();
+                System.out.println("succesfully created user with name: " + username);
+                System.out.println();
+                break;
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+    }
+
+    public static void manageUserUI() {
+        // Select User
+        System.out.println();
+        System.out.println("Users:");
+        System.out.println("-------------------------");
+        app.printAllEmployees();
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("Select a user from the list above by inserting their username:");
+        
+        while (true) { 
+            String username = console.nextLine();
+            try {
+                if(app.legalUsername(username)){
+                    if(app.employeeExists(username)){
+                        app.setSelectedEmployee(username);
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+            
+        }
+    
+        
+        while (true) {
+             // Manage User
+            System.out.println();
+            System.out.println("Manage User: " + app.getSelectedEmployee().getUsername());
+            System.out.println("-------------------------");
+            System.out.println("1. Assign to Activity");
+            System.out.println("2. Assign to Special Activity");
+            System.out.println("3. Set/Unset Peak Performance");
+            System.out.println("4. Delete User");
+            System.out.println("5. Back");
+            System.out.println("-------------------------");
+            
+            System.out.println();
+
+            System.out.println("Select a number from the list above to proceed.");
+
+            int choice = -1;
+            try {
+                String input = console.nextLine();
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println();
+                System.out.println("Invalid input. Please enter a number from the menu.");
+                continue; // skip the rest of the loop and prompt again
+            }
+            boolean back = false;
+            switch (choice) {
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    back = true;
+                    break;
+            
+                default:
+                    break;
+
+            }
+
+            if (back) {
+                break;
+            }
+        }
+    }
+
+    public static void testingUI() {
+        while (true) {
+            // Printing all users, projects .etc
+            System.out.println();
+            System.out.println("View Menu:");
+            System.out.println("-------------------------");
+            System.out.println("1. View all Employees");
+            System.out.println("2. View all Projects");
+            System.out.println("3. View all Actvities");
+            System.out.println("4. View all Special Activites");
+            System.out.println("5. Back");
+            System.out.println("-------------------------");
+            
+            System.out.println();
+
+            System.out.println("Select a number from the list above to proceed.");
+            
+            boolean back = false;
+            
+            int choice = -1;
+            try {
+                String input = console.nextLine();
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println();
+                System.out.println("Invalid input. Please enter a number from the menu.");
+                continue; // skip the rest of the loop and prompt again
+            }
+
+            switch (choice) {
+                case 1:
+                    System.out.println();
+                    System.out.println("Users:");
+                    System.out.println("-------------------------");
+                    app.printAllEmployees();
+                    System.out.println("-------------------------");
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    back = true;
+                    break;
+            
+                default:
+                    break;
+
+            }
+
+            if (back) {
+                break;
+            }
+
+        }
     }
 
 }

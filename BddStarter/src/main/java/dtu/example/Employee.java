@@ -43,14 +43,8 @@ public class Employee {
         }
         return false;
     }
+
     
-    public void printAllSpecialActivities() {
-        for (Activity a : activities){
-            if(a instanceof SpecialActivity) {
-                System.out.println(a.getName()+" - stating in year: " + a.getStartWeek().getYear() + " week: " + a.getStartWeek().getWeek() + " to year: " + a.getEndWeek().getYear() + "  week: " + a.getEndWeek().getWeek());
-            }
-        }
-    }
 
     public String getUsername() { return username; }
     public void setPeak(boolean peak) { this.peak = peak; }
@@ -140,5 +134,50 @@ public class Employee {
         }
         return true;
     }
+
+
+
+
+
+    // Special Activity metoder
+
+    public ArrayList<Activity> getAllSpecialActivities(){
+        ArrayList<Activity> specialActivities = new ArrayList<>();
+        for (Activity a : activities){
+            if(a instanceof SpecialActivity) {
+                specialActivities.add(a);
+            }
+        }
+        return specialActivities;
+    }
+
+    public int howManySpecialActivities() {
+        return getAllSpecialActivities().size();
+    }
+    
+    public void printAllSpecialActivities() {
+
+        ArrayList<Activity> specialActivities = getAllSpecialActivities();
+
+        //SortByDate(specialActivities):
+
+        for (int i = 1; i-1 < howManySpecialActivities(); i++){
+            System.out.println(i+": "+specialActivities.get(i-1).getName()+" - stating in year: " + specialActivities.get(i-1).getStartWeek().getYear() 
+            + " week: " + specialActivities.get(i-1).getStartWeek().getWeek() + " to year: " + specialActivities.get(i-1).getEndWeek().getYear() 
+            + " week: " + specialActivities.get(i-1).getEndWeek().getWeek());
+        }
+    }
+
+    public Activity selectSpecialActivityNumber(int index) {
+        ArrayList<Activity> specialActivities = getAllSpecialActivities();
+
+        //SortByDate(specialActivities):
+
+        return specialActivities.get(index-1);
+
+    }
+
+    
+
 
 }

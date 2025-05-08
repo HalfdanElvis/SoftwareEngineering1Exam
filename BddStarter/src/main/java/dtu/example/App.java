@@ -16,7 +16,7 @@ public class App {
     private Employee selectedEmployee;
     private Boolean registrationConfirmation = null;
 
-    private SpecialActivity selectedSpecialActivity;
+    private Activity selectedSpecialActivity;
 
 
 
@@ -132,6 +132,10 @@ public class App {
 
     public void setSelectedEmployee(String username) {
         selectedEmployee = stringToEmployee(username);
+    }
+
+    public Employee getSelectedEmployee() {
+        return selectedEmployee;
     }
 
     public void addActivity(int projectID, String activityName) throws IllegalAccessException {
@@ -311,5 +315,15 @@ public class App {
             throw new IllegalArgumentException("not a valid weeknumber.");
         }
     }
+
+    public void setSelectedSpecialActivity(Activity selectedSpecialActivity) {
+        this.selectedSpecialActivity = selectedSpecialActivity;
+    }
+
+    public Activity getSelectedSpecialActivity() {
+        return selectedSpecialActivity;
+    }
+
+    
 
 }
