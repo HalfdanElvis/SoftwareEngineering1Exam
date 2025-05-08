@@ -3,6 +3,7 @@ package dtu.example;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
 
 public class App {
 
@@ -324,6 +325,25 @@ public class App {
         return selectedSpecialActivity;
     }
 
+
+    public void setWorkDataForActivity(float hours, Calendar date, String activityName, String username ){   
+        Employee employee = stringToEmployee(username);
+        List<Activity> activities=employee.getActivities();
+        for (int i=0; i<activities.size(); i++){
+            if (activities.get(i).getName() == activityName){
+                WorkData workData = activities.get(i).makeWorkData(date, employee, hours);
+                activities.get(i).getEmployeeWorkData(employee).add(workData);
+            }
+        }
+
+
+    }
+    public float getEmployeeTotalHoursInActivity(String username, String activityName){
+        Employee employee = stringToEmployee(username);
+        Activity activity = employee.getActivity(activityName);
+        
+        return activity.getEmployeeTotalHoursOnActivity(employee, activityName);
+    }
     
 
 }

@@ -1,6 +1,7 @@
 package dtu.example;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Employee {
@@ -69,6 +70,15 @@ public class Employee {
 
     public List<Activity> getActivities() {
         return activities;
+    }
+    public Activity getActivity(String activityName){
+        Activity activity = null;
+        for (int i =0; i<activities.size();i++){
+            if(activities.get(i).getName() == activityName){
+                activity = activities.get(i);
+            }
+        }
+        return activity;
     }
 
     public boolean isAvailable(int startYear, int startWeek, int endYear, int endWeek) {
@@ -175,9 +185,7 @@ public class Employee {
 
         return specialActivities.get(index-1);
 
-    }
-
-    
+    }    
 
 
 }

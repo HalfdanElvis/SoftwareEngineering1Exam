@@ -19,6 +19,8 @@ public class LogHoursSteps {
     ErrorMessageHolder errorMessageHolder;
     TestHelper testHelper;
 
+    
+
     public LogHoursSteps(App app, TestHelper testHelper, ErrorMessageHolder errorMessageHolder){
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
@@ -48,14 +50,13 @@ public class LogHoursSteps {
 
     @Then("the week number should be {int}")
     public void returnWeek(int expectedWeek) {
-        int actualWeek = ch.getWeek(date);
+        int actualWeek = ch.getWeek(date); //Skal måske rettes ift low coupling
         assertEquals(expectedWeek, actualWeek);
     }
 
     @Given("the user has logged {int} hours in the activity initially")
     public void theUserHasYetToLogHoursInActivity(String activityName, int hoursInActivity ) {
-        String employee=testHelper.getUser();
-        if (employee.isAssignedActivity(activityName) == true){
+        if (app.employeeIsAssignedActivity(app.getSignedInEmployeeUsername(), activityName) == true){
             assertEquals(0,hoursInActivity);
         }
         else{
@@ -67,14 +68,15 @@ public class LogHoursSteps {
     }
 
 @When("the user logs {float} hours in the activity on the date {string}")
-public void theUserLogsHoursInTheActivityOnTheDate(float hours, Calendar date, Employee employee) {
-    WorkData data=workData.makeWorkData(date, employee, hours);
-    activity.addWorkData(data);
+public void theUserLogsHoursInTheActivityOnTheDate(float hours, Calendar date, String activityName) {
+    String employee = app.getSignedInEmployeeUsername();
+    app.setWorkDataForActivity(hours, date, activityName, employee);
     throw new io.cucumber.java.PendingException();
 }
 @Then("the user has logged {int} hours in the activity")
-public void theUserHasLoggedHoursInTheActivity(float expectedHours, Employee employee) {
-    assertEquals(expectedHours, activity.getEmployeeTotalHours(employee), 0.01);
+public void theUserHasLoggedHoursInTheActivity(float expectedHours, String activityName) {
+    String employee = app.getSignedInEmployeeUsername();
+    assertEquals(expectedHours, app.getEmployeeTotalHoursInActivity(employee, activityName), 0.01);
     throw new io.cucumber.java.PendingException();
 }
 @Then("on the date {string} the user has logged {float} hours in the activity")

@@ -30,7 +30,7 @@ public class Activity {
         }
         return employeeData;
     }
-    public float getEmployeeTotalHours(Employee employee){
+    public float getEmployeeTotalHoursOnActivity(Employee employee, String activityName){
         List<WorkData> datas=getEmployeeWorkData(employee);
         float totalHours = 0;
         for(int i =0; i<datas.size(); i++){
@@ -76,6 +76,10 @@ public class Activity {
     public void setStartAndEndWeek(int startYear, int startWeek, int endYear, int endWeek) {
         this.startWeek = new Week(startYear, startWeek);
         this.endWeek = new Week(endYear, endWeek);
+    }
+    public WorkData makeWorkData(Calendar date, Employee employee, float hours){
+        WorkData workData = new WorkData(date, employee, hours);
+        return workData;
     }
 
 }
