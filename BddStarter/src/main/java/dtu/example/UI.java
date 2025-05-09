@@ -825,15 +825,18 @@ public class UI {
                                 System.out.println("Activity doesn't exists");
                                 System.out.println("Would you like to put in a new activity name or go out to menu? Y/N");
                                 String answer = console.nextLine();
-                                if(app.yesOrNo(answer) == true ){
+                                if(app.yesOrNo(answer)){
                                     continue;
+                                }
+                                else{
+                                    break;
                                 }
                             }
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
                         }
-                        break;
                     }
+                    break;
                     
                 case 2:
                     System.out.println("All activities:");
@@ -851,19 +854,20 @@ public class UI {
                             
                             if (allActivityStrings.contains(input) != true){
                                 System.out.println("Activity doesn't exists");
-                                System.out.println("Would you like to put in a new activity name or go out to menu? Y/N");
+                                System.out.println("Would you like to put in a new activity name? Y/N");
                                 String answer = console.nextLine();
-                                if(app.yesOrNo(answer) == true ){
+                                if(app.yesOrNo(answer) ){
                                     continue;
+                                } else{
+                                    break;
                                 }
                                 
                             }
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
                         }
-                        break;
-                        }
-
+                    }
+                    break;
                     
                 case 3:
                     back = true;
