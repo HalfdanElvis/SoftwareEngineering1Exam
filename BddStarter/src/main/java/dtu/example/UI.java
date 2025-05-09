@@ -299,7 +299,7 @@ public class UI {
 
             // Creates activity unless, user decided not to, by not continueing it into next year.
             if (choice) {
-                SpecialActivity a = new SpecialActivity(activityName);
+                //SpecialActivity a = new SpecialActivity(activityName);
                 
                 if (goesIntoNextyear) {
                     app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
@@ -383,6 +383,8 @@ public class UI {
                     
                     int startYear = app.getSelectedSpecialActivity().getStartWeek().getYear();
                     System.out.println(startYear+":");
+                    System.out.println(startYear+"FIX LATER PLEASE");
+                    /* 
                     for (Week week : app.getSelectedSpecialActivity().getActiveWeeks()) {
                         if (startYear != week.getYear()) {
                             startYear = week.getYear();
@@ -392,7 +394,7 @@ public class UI {
                         System.out.print(week.getWeek()+" ");
                     }
                     System.out.println();
-
+                    */
                     break;
 
                 case 2:
