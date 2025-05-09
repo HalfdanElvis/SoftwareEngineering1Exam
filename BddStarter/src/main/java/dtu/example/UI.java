@@ -93,6 +93,7 @@ public class UI {
                                     break;
 
                                 case 7:
+                                    LogHours();
                                     break;
 
                                 
@@ -301,7 +302,7 @@ public class UI {
 
             // Creates activity unless, user decided not to, by not continueing it into next year.
             if (choice) {
-                SpecialActivity a = new SpecialActivity(activityName);
+                //SpecialActivity a = new SpecialActivity(activityName);
                 
                 if (goesIntoNextyear) {
                     app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
@@ -385,6 +386,8 @@ public class UI {
                     
                     int startYear = app.getSelectedSpecialActivity().getStartWeek().getYear();
                     System.out.println(startYear+":");
+                    System.out.println(startYear+"FIX LATER PLEASE");
+                    /* 
                     for (Week week : app.getSelectedSpecialActivity().getActiveWeeks()) {
                         if (startYear != week.getYear()) {
                             startYear = week.getYear();
@@ -394,7 +397,7 @@ public class UI {
                         System.out.print(week.getWeek()+" ");
                     }
                     System.out.println();
-
+                    */
                     break;
 
                 case 2:
@@ -722,6 +725,47 @@ public class UI {
             }
 
         }
+    }
+    public static void LogHours(){
+        while(true){
+            System.out.println();
+            System.out.println("View Menu:");
+            System.out.println("-------------------------");
+            System.out.println("1. LogHours for your activities");
+            System.out.println("2. Log Hours for all activities");
+            System.out.println("3. Back");
+            System.out.println("-------------------------");
+            
+            System.out.println();
+
+            System.out.println("Select a number from the list above to proceed.");
+            int choice = 0;
+            boolean back = false;
+            try {
+                String input = console.nextLine();
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println();
+                System.out.println("Invalid input. Please enter a number from the menu.");
+                continue; // skip the rest of the loop and prompt again
+            }
+            switch(choice){
+                case 1:
+                System.out.println(app.getSignedInEmployeeUsername()+"'s activities");
+                    System.out.println(app.getSelectedEmployee().getActivities());
+
+                case 2:
+
+
+                case 3:
+                    back = true;
+                    break;
+            }
+            if (back) {
+                break;
+            }
+        }
+
     }
 
 }

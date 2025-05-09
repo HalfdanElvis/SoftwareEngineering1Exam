@@ -8,6 +8,7 @@ public class Employee {
     private String username;
     private boolean peak = false;
     private List<Activity> activities = new ArrayList<>();
+    private List<SpecialActivity> specialActivities = new ArrayList<>();
 
     
     public Employee(String username) {
@@ -28,11 +29,10 @@ public class Employee {
         Week sWeek = new Week(startYear, startWeek);
         Week eWeek = new Week(endYear, endWeek);
         if (!isAvailableSpecial(sWeek, eWeek)) {
-            throw new IllegalArgumentException("Special activities cannot overlap with other activities");
+            throw new IllegalArgumentException("Special activities cannot overlap with other special activities");
         }
-        SpecialActivity activity = new SpecialActivity(activityName);
-        activity.setStartAndEndWeek(startYear, startWeek, endYear, endWeek);
-        activities.add(activity);
+        SpecialActivity activity = new SpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
+        specialActivities.add(activity);
     }
 
     public boolean isAssignedActivity(String activityName) {
@@ -79,6 +79,9 @@ public class Employee {
         }
         return activity;
     }
+    public List<Activity> getEmployeeActivities(){
+        return activities;
+    }
 
     public boolean isAvailable(int startYear, int startWeek, int endYear, int endWeek) {
         Week sWeek = new Week(startYear, startWeek);
@@ -107,9 +110,6 @@ public class Employee {
             if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
                 for (Week weekInActivity : CalendarHelper.range(activity.getStartWeek(), activity.getEndWeek())) {
                     if (week.equals(weekInActivity)) {
-                        if (activity instanceof SpecialActivity) {
-                            return false;
-                        }
                         activityCount++;
                     }
                 }
@@ -132,7 +132,7 @@ public class Employee {
     }
     
     private boolean isAvailableSpecial(Week week) {
-        for (Activity activity : activities) {
+        for (SpecialActivity activity : specialActivities) {
             if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
                 for (Week weekInActivity : CalendarHelper.range(activity.getStartWeek(), activity.getEndWeek())) {
                     if (week.equals(weekInActivity)) {
@@ -153,9 +153,6 @@ public class Employee {
     public ArrayList<Activity> getAllSpecialActivities(){
         ArrayList<Activity> specialActivities = new ArrayList<>();
         for (Activity a : activities){
-            if(a instanceof SpecialActivity) {
-                specialActivities.add(a);
-            }
         }
         return specialActivities;
     }

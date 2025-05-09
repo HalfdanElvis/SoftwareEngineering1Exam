@@ -21,8 +21,8 @@ public class ActivityInfo {
         this.name = activity.getName();
         this.startWeek = activity.getStartWeek();
         this.endWeek = activity.getEndWeek();
-        expectedHours = activity.getExpectedHours();
-        workDataList = activity.getWorkDataList();
+        this.expectedHours = activity.getExpectedHours();
+        this.workDataList = activity.getWorkDataList();
     }
 
     public ActivityInfo(String name){
@@ -36,10 +36,7 @@ public class ActivityInfo {
         this.expectedHours = expectedHours;
         this.workDataList = workDataList;
     }
-
-    // Getters & Setter
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
 
     public Week getStartWeek() { return startWeek; }
     public void setStartWeek(Week startWeek) { this.startWeek = startWeek; }
@@ -51,8 +48,4 @@ public class ActivityInfo {
     public void setExpectedHours(float expectedHours) { this.expectedHours = expectedHours; }
     
     public List<WorkData> getWorkDatas() { return workDataList; }
-    public void setWorkDatas(List<WorkData> workDatas) { this.workDataList = workDatas; }
-    
-
-
 }

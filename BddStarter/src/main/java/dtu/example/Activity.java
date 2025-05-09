@@ -21,10 +21,6 @@ public class Activity {
         return name;
     }
 
-    public List<Week> getActiveWeeks() {
-        return CalendarHelper.range(startWeek, endWeek);
-    }
-
     public float getExpectedHours() {
         return expectedHours;
     }
@@ -101,6 +97,9 @@ public class Activity {
             sum += workData.getHours();
         }
         return sum;
+    }
+    public List<WorkData> getWorkDataList(){
+        return workDataList;
     }
 
     public List<WorkData> getWorkDataList() {
