@@ -26,9 +26,12 @@ public class App {
 
     public boolean login(String username) {
         legalUsername(username);
-
-        signedInEmployee = stringToEmployee(username);
-        return signedInEmployee != null;
+        try {
+            signedInEmployee = stringToEmployee(username);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
     
 

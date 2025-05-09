@@ -32,12 +32,5 @@ public class Week {
         }
         return year == otherWeek.year && week >= otherWeek.week;
     }
-
-    public boolean isLessOrEqual(Week otherWeek) {
-        if (year < otherWeek.year) {
-            return true;
-        }
-        return year == otherWeek.year && week >= otherWeek.week;
-    }
     
 }
