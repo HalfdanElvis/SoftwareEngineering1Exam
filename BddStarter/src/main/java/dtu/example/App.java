@@ -289,7 +289,7 @@ public class App {
         projectInfos = getallProjectInfos();
         for(int i = 0; i<projectInfos.size(); i++){
             activityInfos=(projectInfos.get(i).getActivities());
-            for (int j = 0; i < activityInfos.size(); j++){
+            for (int j = 0; j < activityInfos.size(); j++){
                 allActivityInfos.add(activityInfos.get(j));
             }
         }
