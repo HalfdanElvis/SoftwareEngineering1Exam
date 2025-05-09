@@ -20,8 +20,7 @@ public class UI {
         while (true) {
             // Login method
             while (true) {
-
-                if (app.getSignedInEmployee() == null){
+                if (!app.aUserIsLoggedIn()){
                     System.out.println("Login:");
                     username = console.nextLine();
                 }

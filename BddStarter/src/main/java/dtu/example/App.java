@@ -82,6 +82,10 @@ public class App {
         return signedInEmployee.getUsername();
     }
 
+    public boolean aUserIsLoggedIn() {
+        return signedInEmployee != null;
+    }
+
     public List<String> viewAvailableEmployees(int startYear, int startWeek, int endYear, int endWeek) {
         return systemStorage.getAvailableEmployees(startYear, startWeek, endYear, endWeek);
     }
