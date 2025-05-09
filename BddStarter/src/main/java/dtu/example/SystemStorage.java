@@ -47,16 +47,15 @@ public class SystemStorage {
         }
     }
 
-    public int createProject(String name) {
+    public int createProject(String name, int year) {
 
-        int id = generateProjectID();
+        int id = generateProjectID(year);
         Project project = new Project(name, id);
         projects.add(project);
         return id;
     }
 
-    private int generateProjectID() {
-        int year = Year.now().getValue();
+    private int generateProjectID(int year) {
         year %= 100;
         year *= 1000;
         
@@ -71,6 +70,7 @@ public class SystemStorage {
         if (projectAmount >= 999) {
             throw new IllegalArgumentException("Maximum projects for this year has been reached");
         }
+        
         return year+projectAmount+1;
     }
 

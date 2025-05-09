@@ -2,7 +2,6 @@ package dtu.example;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import dtu.example.DTO.*;
 
 public class App {
 
-    private int year;
+    private DateServer dateServer = new DateServer();
     private SystemStorage systemStorage = new SystemStorage();
     private Employee signedInEmployee;
     private Employee selectedEmployee;
@@ -117,11 +116,7 @@ public class App {
     }
 
     public int createProject(String name) {
-        return systemStorage.createProject(name);
-    }
-
-    public void setYear(int year) {
-        this.year = year;
+        return systemStorage.createProject(name, dateServer.getYear());
     }
     
     public boolean projectExists(String string, int id) {
@@ -296,6 +291,12 @@ public class App {
         }
 
         return allActivityInfos;
+    }
+
+    //For tests
+
+    public void setDateServer(DateServer dateServer) {
+        this.dateServer = dateServer;
     }
 
 }

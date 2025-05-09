@@ -14,17 +14,19 @@ public class CreateProjectSteps {
     App app;
     TestHelper testHelper;
     ErrorMessageHolder errorMessageHolder;
+    MockYearHolder yearHolder;
 
-    public CreateProjectSteps(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper) {
+    public CreateProjectSteps(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper, MockYearHolder yearHolder) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.testHelper = testHelper;
+        this.yearHolder = yearHolder;
     }
 
 
     @Given("that there are {int} projects in year {int}")
     public void thatThereAreProjectsInYear(Integer projectCount, Integer year) {
-        app.setYear(year);
+        yearHolder.setYear(year);
         for (int i = 0; i < projectCount; i++) {
             app.createProject("test");
         }
@@ -32,7 +34,7 @@ public class CreateProjectSteps {
     }
     @Given("the current year is {int}")
     public void theCurrentYearIs(Integer year) {
-        app.setYear(year);
+        yearHolder.setYear(year);
     }
     @When("the user creates a project with name {string}")
     public void theUserCreatesAProjectWithName(String name) {
