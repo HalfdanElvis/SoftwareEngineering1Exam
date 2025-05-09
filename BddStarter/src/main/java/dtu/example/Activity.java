@@ -103,4 +103,8 @@ public class Activity {
         return sum;
     }
 
+    public List<WorkData> getWorkDataList() {
+        return workDataList;
+    }
+
 }

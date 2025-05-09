@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+
+import dtu.example.DTO.ProjectInfo;
+
 import java.util.Calendar;
 
 public class App {
@@ -211,10 +214,6 @@ public class App {
         return systemStorage.getProject(projectID).printActivites();
 	}
 
-    public List<String> fetchAllProjects() {
-        return systemStorage.getAllProjects();
-    }
-
     
     // Utility Methods
 
@@ -251,30 +250,26 @@ public class App {
         }
     }
 
-    // For testing:
-    public void printAllEmployees() {
-        //for (Employee employee : employees){
-        //    System.out.println(employee.getUsername());
-        //}
+
+    public ProjectInfo createDTOProject(int projectID) {
+        ProjectInfo project = new ProjectInfo(systemStorage.getProject(projectID));
+        return project;
     }
 
 
-    public void printProjectList(int year) {
+    public List<ProjectInfo> getDTOProjectList(int year) {
+
         year %= 100;
-        /* 
-        for (Project project : projects) {
-            int id = project.getID();
-            while (id >= 100) {
-                id /= 10;
-            }
-            if (year == id) {
-                System.out.println(project.printProject());
-            }
-        }*/
-    }
+        year *= 1000;
 
-    // WIP
-    public void printAllActivities() {
+        List<Project> projectList = systemStorage.getAllProjects();
+        List<ProjectInfo> dtoProjects = new ArrayList<>();
+        for (int i = 0; i < projectList.size(); i++) {
+            if (projectList.get(i).getID() > year && projectList.get(i).getID() < year + 100) {
+                dtoProjects.add(createDTOProject(projectList.get(i).getID()));
+            }
+        }
 
+        return dtoProjects;
     }
 }

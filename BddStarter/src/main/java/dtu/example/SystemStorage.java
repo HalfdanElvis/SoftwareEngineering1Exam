@@ -103,14 +103,8 @@ public class SystemStorage {
         return availableEmployees;
     }
 
-    public List<String> getAllProjects() {
-        List<String> projectList = new ArrayList<>();
-        for (int i = 0; i < projects.size(); i++) {
-            String s = ""+projects.get(i).getName()+", "+projects.get(i).getID();
-            projectList.add(s);
-        } 
-
-        return projectList;
+    public List<Project> getAllProjects() {
+        return projects;
     }
 
 }
