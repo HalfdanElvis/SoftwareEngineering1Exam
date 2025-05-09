@@ -820,10 +820,13 @@ public class UI {
                         System.out.println("Write the name of the activity you would like to add hours too");
                         try {
                             String input = console.nextLine();
-                            
                             if (activityStrings.contains(input) != true){
                                 System.out.println("Activity doesn't exists");
-                                continue;
+                                System.out.println("Would you like to put in a new activity name or go out to menu? Y/N");
+                                String answer = console.nextLine();
+                                if(app.yesOrNo(answer) == true ){
+                                    continue;
+                                }
                             }
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
@@ -847,7 +850,12 @@ public class UI {
                             
                             if (allActivityStrings.contains(input) != true){
                                 System.out.println("Activity doesn't exists");
-                                continue;
+                                System.out.println("Would you like to put in a new activity name or go out to menu? Y/N");
+                                String answer = console.nextLine();
+                                if(app.yesOrNo(answer) == true ){
+                                    continue;
+                                }
+                                
                             }
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
