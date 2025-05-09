@@ -24,10 +24,6 @@ public class Project {
         return name;
     }
 
-    public void setID(int id) {
-        ID = id;
-    }
-
     public void assignLeader(Employee projectLeader, Employee requestingEmployee) {
         if (!hasProjectLeader()) {
             this.projectLeader = projectLeader;
