@@ -10,11 +10,11 @@ public class Activity {
     private Week startWeek;
     private Week endWeek;
     private float expectedHours;
-    private List<WorkData> workDatas;
+    private List<WorkData> workDataList;
 
     public Activity(String name) {
         this.name = name;
-        this.workDatas = new ArrayList<>();
+        this.workDataList = new ArrayList<>();
     }
 
     public String getName() {
@@ -53,7 +53,7 @@ public class Activity {
         WorkData workData = getSpecificWorkData(date, employee);
         if (workData == null) {
             workData = new WorkData(date, employee, hours);
-            workDatas.add(workData);
+            workDataList.add(workData);
         }
         else {
             workData.addHours(hours);
@@ -63,12 +63,12 @@ public class Activity {
             throw new IllegalArgumentException("You haven't worked that long in this activity");
         }
         if (workData.getHours() == 0) {
-            workDatas.remove(workData);
+            workDataList.remove(workData);
         }
     }
     
     private WorkData getSpecificWorkData(Calendar date, String employee) {
-        for (WorkData workData : workDatas) {
+        for (WorkData workData : workDataList) {
             if (workData.getDate().equals(date) && workData.getEmployee().equals(employee)) {
                 return workData;
             }
@@ -77,7 +77,7 @@ public class Activity {
     }
 
     public float getUserLoggedHoursOnDate(String username, Calendar date) {
-        for (WorkData workData : workDatas) {
+        for (WorkData workData : workDataList) {
             if (workData.getEmployee().equals(username) && workData.getDate().equals(date)) {
                 return workData.getHours();
             }
@@ -87,7 +87,7 @@ public class Activity {
 
     public float getUserTotalLoggedHours(String username) {
         float sum = 0;
-        for (WorkData workData : workDatas) {
+        for (WorkData workData : workDataList) {
             if (workData.getEmployee().equals(username)) {
                 sum += workData.getHours();
             }
@@ -97,7 +97,7 @@ public class Activity {
 
     public float getTotalWorkedHours() {
         float sum = 0;
-        for (WorkData workData : workDatas) {
+        for (WorkData workData : workDataList) {
             sum += workData.getHours();
         }
         return sum;
