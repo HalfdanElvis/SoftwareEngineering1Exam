@@ -73,7 +73,7 @@ public class Employee {
     public Activity getActivity(String activityName){
         Activity activity = null;
         for (int i =0; i<activities.size();i++){
-            if(activities.get(i).getName() == activityName){
+            if(activities.get(i).getName().equals(activityName)){
                 activity = activities.get(i);
             }
         }

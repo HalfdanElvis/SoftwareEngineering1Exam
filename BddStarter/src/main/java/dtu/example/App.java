@@ -211,6 +211,10 @@ public class App {
         return systemStorage.getProject(projectID).printActivites();
 	}
 
+    public List<String> fetchAllProjects() {
+        return systemStorage.getAllProjects();
+    }
+
     
     // Utility Methods
 
@@ -251,12 +255,6 @@ public class App {
     public void printAllEmployees() {
         //for (Employee employee : employees){
         //    System.out.println(employee.getUsername());
-        //}
-    }
-
-    public void printAllProjects() {
-        //for (Project project : projects){
-        //    System.out.println(project.getName()+": "+project.getID());
         //}
     }
 
