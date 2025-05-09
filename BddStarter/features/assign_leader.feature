@@ -22,3 +22,7 @@ Scenario: a project leader assigns a project leader when one is already assigned
     Given the user "bahu" exists in the system
     When the user assigns an employee with initials "bahu" as project leader for the project with ID 25001
     Then the project should have a project leader "bahu"
+
+Scenario: a user assigns a project leader to non-existent project
+    When the user assigns an employee with initials "huba" as project leader for the project with ID 00000
+    Then the error message "Project does not exist." is given

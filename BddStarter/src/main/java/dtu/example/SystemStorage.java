@@ -74,10 +74,6 @@ public class SystemStorage {
         return year+projectAmount+1;
     }
 
-    public boolean projectExists(int id) {
-        return getProject(id) != null;
-    }
-
     public int getProjectAmountFromYear(int year) {
         year %= 1000;
         year *= 1000;

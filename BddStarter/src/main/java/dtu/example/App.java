@@ -63,14 +63,14 @@ public class App {
     }
 
     public void setSignedInEmployee(String signedInEmployee) {
-        if (stringToEmployee(signedInEmployee) == null) {
-            throw new IllegalArgumentException("User does not exist.");
-        }
         this.signedInEmployee = stringToEmployee(signedInEmployee);
     }
 
     public void addEmployee(String username) {
-        systemStorage.addEmployee(username);
+        if (legalUsername(username)) {
+            systemStorage.addEmployee(username);
+        }
+        
     }
 
     public Employee stringToEmployee(String string) {
@@ -186,11 +186,7 @@ public class App {
 
     public void logHours(int projectID, String activityName, String dateAsString, float hours) throws ParseException {
         Project project = systemStorage.getProject(projectID);
-        // MOVE TO CALENDARHELPER PERHAPS?
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar date = Calendar.getInstance();
-        date.setTime(sdf.parse(dateAsString));
-        
+        Calendar date = CalendarHelper.parseStringAsCalendar(dateAsString);
         project.logHours(activityName, date, hours, signedInEmployee.getUsername());
     }
 
@@ -216,9 +212,6 @@ public class App {
         return systemStorage.getProjectAmountFromYear(year);
     }
 
-	public List<String> printActivites(int projectID) {
-        return systemStorage.getProject(projectID).printActivites();
-	}
     public List<ActivityInfo> getUserActivitiesInfo(String username){
         Employee employee = stringToEmployee(username);
         return new EmployeeInfo(employee).getActivityInfos();

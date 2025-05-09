@@ -34,7 +34,7 @@ public class AssignLeaderSteps {
     @When("the user assigns an employee with initials {string} as project leader for the project with ID {int}")
     public void theUserAssignsAnEmployeeWithInitialsAsProjectLeaderForTheProjectWithID(String username, Integer id) {
         try {
-            app.assignLeader(username, testHelper.getProjectID());
+            app.assignLeader(username, id);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }

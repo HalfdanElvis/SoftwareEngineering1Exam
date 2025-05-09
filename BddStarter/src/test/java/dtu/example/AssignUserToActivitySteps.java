@@ -88,15 +88,6 @@ public class AssignUserToActivitySteps {
 
     @Then("the user is assigned the activity {string}")
     public void theUserIsAssignedTheActivity(String string) {
-        try {
-            app.assignEmployeeToActivity(testHelper.getUser(), testHelper.getProjectID(), string);
-        } catch (Exception e) {
-            errorMessageHolder.setErrorMessage(e.getMessage());
-        }
-        
+        assert(app.employeeIsAssignedActivity(testHelper.getUser(), string));
     }
-
-
-
-
 }

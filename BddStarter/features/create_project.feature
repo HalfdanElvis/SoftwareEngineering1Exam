@@ -10,6 +10,7 @@ Scenario: A user creates a project
     And the current year is 2025 
  	When the user creates a project with name "Project X"
  	Then a project with name "Project X" and ID 25001 exists
+	And there exists 1 projects in year 2025
  	
 Scenario: A user creates additional project
 	Given that there are 45 projects in year 2089

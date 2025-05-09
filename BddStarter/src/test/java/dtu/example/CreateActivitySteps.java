@@ -88,6 +88,6 @@ public class CreateActivitySteps {
     
     @Then("the user is assigned to the special activity {string}")
     public void theUserIsAssignedToTheSpecialActivity(String string) {
-        app.employeeIsAssignedActivity(testHelper.getUser(), testHelper.getActivityName());
+        assert(app.employeeIsAssignedActivity(testHelper.getUser(), testHelper.getActivityName()));
     }
 }

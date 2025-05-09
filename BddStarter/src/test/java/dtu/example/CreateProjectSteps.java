@@ -55,5 +55,9 @@ public class CreateProjectSteps {
         assertEquals(string, this.errorMessageHolder.getErrorMessage());
     }
 
+    @Then("there exists {int} projects in year {int}")
+    public void thereExistsProjectsInYear(Integer int1, Integer int2) {
+        assertEquals(int1, app.getProjectAmountFromYear(int2), 0);
+    }
     
 }

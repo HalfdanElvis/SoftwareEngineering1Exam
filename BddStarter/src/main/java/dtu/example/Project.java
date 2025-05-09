@@ -61,11 +61,16 @@ public class Project {
                 return activity;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Activity does not exist");
     }
     
     public boolean containsActivity(String activityName) {
-        return stringToActivity(activityName) != null;
+        try {
+            stringToActivity(activityName);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public List<Activity> getActivities() {
@@ -85,41 +90,26 @@ public class Project {
 
     public void assignEmployeeToActivity(Employee employee, String activityName) {
         Activity activity = stringToActivity(activityName);
-        if (activity == null) {
-            throw new IllegalArgumentException("Activity does not exist");
-        }
         employee.assignActivity(activity);
     }
 
     public void setActivitiyStartAndEndWeek(String activityName, int startYear, int startWeek, int endYear, int endWeek) {
         Activity activity = stringToActivity(activityName);
-        if (activity == null) {
-            throw new IllegalArgumentException("Activity does not exist");
-        }
         activity.setStartAndEndWeek(startYear, startWeek, endYear, endWeek);
     }
 
     public void logHours(String activityName, Calendar date, float hours, String employee) {
         Activity activity = stringToActivity(activityName);
-        if (activity == null) {
-            throw new IllegalArgumentException("Activity does not exist");
-        }
         activity.logHours(date, hours, employee);
     }
 
     public float getUserLoggedHoursInActivityOnDate(String activityName, String username, Calendar date) {
         Activity activity = stringToActivity(activityName);
-        if (activity == null) {
-            throw new IllegalArgumentException("Activity does not exist");
-        }
         return activity.getUserLoggedHoursOnDate(username, date);
     }
 
     public float getUserTotalLoggedHoursInActivity(String activityName, String username) {
         Activity activity = stringToActivity(activityName);
-        if (activity == null) {
-            throw new IllegalArgumentException("Activity does not exist");
-        }
         return activity.getUserTotalLoggedHours(username);
     }
 
@@ -133,20 +123,6 @@ public class Project {
             sum[1] += activity.getExpectedHours();
         }
         return sum;
-    }
-
-
-    
-    public String printProject() {
-        return name+", "+ID;
-    }
-
-    public List<String> printActivites() {
-        List<String> activityNames = new ArrayList<>();
-        for (Activity activity : activities) {
-            activityNames.add(activity.getName());
-        }
-        return activityNames;
     }
 
     public String getProjectLeaderName() {

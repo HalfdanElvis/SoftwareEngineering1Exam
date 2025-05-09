@@ -48,12 +48,25 @@ public class LoginSteps {
 
     @When("the user {string} confirms the prompt to create a new user {string}")
     public void theUserConfirmsThePromptToCreateANewUser(String string, String string2) {
+        assert(app.yesOrNo("Y"));
         app.addEmployee(string);
         app.login(string);
     }
 
     @When("the user {string} does not confirm the prompt to create a new user {string}")
     public void theUserDoesNotConfirmThePromptToCreateANewUser(String string, String string2) {
+        assert(!app.yesOrNo("N"));
+    }
+
+    @When("the user {string} gives invalid input to the prompt")
+    public void theUserGivesInvalidInputToThePrompt(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        try {
+            assert(app.yesOrNo("invalid"));
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+        
     }
 
     @Then("the user {string} is logged in")
@@ -76,5 +89,14 @@ public class LoginSteps {
         assert(!app.employeeExists(string));
     }
 
+    @Then("a user is logged in")
+    public void aUserIsLoggedIn() {
+        assert(app.aUserIsLoggedIn());
+    }
+
+    @Then("a user is not logged in")
+    public void aUserIsNotLoggedIn() {
+        assert(!app.aUserIsLoggedIn());
+    }
 
 }

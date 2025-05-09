@@ -28,19 +28,6 @@ public class LogHoursSteps {
         this.testHelper = testHelper;
     }
 
-    @Given("the user has logged {int} hours in the activity initially")
-    public void theUserHasYetToLogHoursInActivity(String activityName, int hoursInActivity ) {
-        if (app.employeeIsAssignedActivity(app.getSignedInEmployeeUsername(), activityName) == true){
-            assertEquals(0,hoursInActivity);
-        }
-        else{
-            errorMessageHolder.setErrorMessage("Employee not assigned to activity");
-            System.out.println(errorMessageHolder.getErrorMessage());
-        }
-    
-        throw new io.cucumber.java.PendingException();
-    }
-
     @Given("the user has logged {int} hours in the activity on the date {string}")
     public void theUserHasLoggedHoursInTheActivityOnTheDate(float hours, String date) {
         try {

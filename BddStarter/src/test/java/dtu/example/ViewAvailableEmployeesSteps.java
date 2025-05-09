@@ -22,13 +22,29 @@ public class ViewAvailableEmployeesSteps {
     }
 
     @Given("the user {string} is assigned {int} activities in week {int} and {int} in the year {int}")
-    public void theUserIsAssignedActivitiesInWeekAndInTheYear(String string, Integer int1, Integer int2, Integer int3, Integer int4) {
-        for (int i = 0; i < int1; i++) {
+    public void theUserIsAssignedActivitiesInWeekAndInTheYear(String string, Integer amount, Integer startWeek, Integer endWeek, Integer year) {
+        for (int i = 0; i < amount; i++) {
             try {
                 String activityName = "activity"+i;
                 if (!app.projectContainsActivity(testHelper.getProjectID(), activityName)) {
                     app.addActivity(testHelper.getProjectID(), activityName);
-                    app.setActivitiyStartAndEndWeek(testHelper.getProjectID(), activityName, int4, int2, int4, int3);
+                    app.setActivitiyStartAndEndWeek(testHelper.getProjectID(), activityName, year, startWeek, year, endWeek);
+                }
+                app.assignEmployeeToActivity(string, testHelper.getProjectID(), activityName);
+            } catch (Exception e) {
+                errorMessageHolder.setErrorMessage(e.getMessage());
+            }
+        }
+    }
+
+    @Given("the user {string} is assigned {int} activities in week {int} in year {int} to week {int} in year {int}")
+    public void theUserIsAssignedActivitiesInWeekInYearToWeekInYear(String string, Integer amount, Integer startWeek, Integer startYear, Integer endWeek, Integer endYear) {
+        for (int i = 0; i < amount; i++) {
+            try {
+                String activityName = "activity"+i;
+                if (!app.projectContainsActivity(testHelper.getProjectID(), activityName)) {
+                    app.addActivity(testHelper.getProjectID(), activityName);
+                    app.setActivitiyStartAndEndWeek(testHelper.getProjectID(), activityName, startYear, startWeek, endYear, endWeek);
                 }
                 app.assignEmployeeToActivity(string, testHelper.getProjectID(), activityName);
             } catch (Exception e) {
