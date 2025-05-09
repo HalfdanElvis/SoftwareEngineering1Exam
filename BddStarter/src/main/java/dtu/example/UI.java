@@ -3,6 +3,8 @@ package dtu.example;
 import java.util.List;
 import java.util.Scanner;
 
+import dtu.example.DTO.ProjectInfo;
+
 public class UI {
 
     static App app = new App();
@@ -455,13 +457,17 @@ public class UI {
             break;
             }
 
+            List<ProjectInfo> projectList = app.getDTOProjectList(year);
+
             System.out.println();
             System.out.println("-------------------------");
             System.out.println("List of Projects");
             System.out.println("-------------------------");
             System.out.println();
 
-            app.printProjectList(year);
+            for (int i = 0; i < projectList.size(); i++) {
+                System.out.println(projectList.get(i).getName()+", "+projectList.get(i).getID());
+            }
 
             System.out.println();
             System.out.println("-------------------------");
@@ -469,6 +475,7 @@ public class UI {
             
             input = console.nextLine();
             int projectID = Integer.parseInt(input);
+            ProjectInfo project = app.createDTOProject(projectID);
             do {
                 printManageProjectMenu(projectID);
 
@@ -488,7 +495,22 @@ public class UI {
                             System.out.println("Enter name for activity:");
                             String activityName = console.nextLine();
                             app.addActivity(projectID, activityName);
-                            
+
+                            System.out.println("Enter Start Week for "+activityName);
+                            input = console.nextLine();
+                            int startWeek = Integer.parseInt(input);
+
+                            System.out.println("Enter End Week for "+activityName);
+                            input = console.nextLine();
+                            int endWeek = Integer.parseInt(input);
+
+                            System.out.println("What is the due year for "+ activityName);
+                            input = console.nextLine();
+                            int endYear = Integer.parseInt(input);
+
+                            app.setActivitiyStartAndEndWeek(projectID, activityName, 2025, startWeek, endYear, endWeek);
+
+
                             System.out.println("\nSuccesfully created activity \""+activityName+"\"");
                             System.out.println("-------------------------");
                             System.out.println("Want to create another activity Y/N?"); 
@@ -496,14 +518,18 @@ public class UI {
                         } while(makenew);
                         break;
                     case 2:
-                        List<String> activites = app.printActivites(projectID);
+                        
+                        project = app.createDTOProject(projectID);    
+
                         System.out.println("-------------------------");
                         System.out.println("List of activities");
                         System.out.println("-------------------------");
                         System.out.println();
                         
-                        for (int i = 0; i < activites.size(); i++) {
-                            System.out.println(activites.get(i));
+                        for (int i = 0; i < project.getActivities().size(); i++) {
+                            System.out.print(project.getActivities().get(i).getName()+", StartWeek: ");
+                            System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
+                            System.out.println(project.getActivities().get(i).getEndWeek().getWeek());
                         }
 
                         System.out.println();
@@ -565,7 +591,7 @@ public class UI {
         System.out.println();
         System.out.println("Users:");
         System.out.println("-------------------------");
-        app.printAllEmployees();
+        
         System.out.println("-------------------------");
         System.out.println();
         System.out.println("Select a user from the list above by inserting their username:");
@@ -672,7 +698,7 @@ public class UI {
                     System.out.println();
                     System.out.println("Users:");
                     System.out.println("-------------------------");
-                    app.printAllEmployees();
+                    
                     System.out.println("-------------------------");
                     break;
 

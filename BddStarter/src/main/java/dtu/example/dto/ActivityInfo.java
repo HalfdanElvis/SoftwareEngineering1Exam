@@ -48,6 +48,4 @@ public class ActivityInfo {
     public void setExpectedHours(float expectedHours) { this.expectedHours = expectedHours; }
     
     public List<WorkData> getWorkDatas() { return workDataList; }
-    public void setWorkDatas(List<WorkData> workDataList) { this.workDataList = workDataList; }
-
 }

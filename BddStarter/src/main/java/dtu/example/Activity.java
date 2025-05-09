@@ -102,4 +102,8 @@ public class Activity {
         return workDataList;
     }
 
+    public List<WorkData> getWorkDataList() {
+        return workDataList;
+    }
+
 }

@@ -19,7 +19,12 @@ public class ProjectInfo {
         for (int i = 0; i < project.getActivities().size(); i++) {
             activities.add(new ActivityInfo(project.getActivities().get(i)));
         }
-        this.projectLeaderUsername = project.getProjectLeaderName();
+        try {
+            this.projectLeaderUsername = project.getProjectLeaderName();
+        } catch (Exception e) {
+            this.projectLeaderUsername = "";
+        }
+        
     }
 
     public String getName() {
