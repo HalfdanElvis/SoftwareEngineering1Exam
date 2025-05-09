@@ -1,4 +1,4 @@
-package dtu.example;
+package dtu.example.dto;
 
 import java.util.ArrayList;
 import java.util.List;
