@@ -238,7 +238,7 @@ public class App {
             System.err.println(e.getMessage());
         }
         
-        int weeksInYear = Week.getWeeksinYear(year);
+        int weeksInYear = CalendarHelper.getWeeksinYear(year);
 
         if (temp != null && (temp > 0 && temp <= weeksInYear)) {
             return true;

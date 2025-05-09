@@ -26,39 +26,18 @@ public class Week {
         return year == otherWeek.year && week == otherWeek.week;
     }
 
-    @Override
-    public String toString() {
-        return year + ", " + week;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(year, week);
-    }
-
-    //MOVE TO CALENDARHELPER PERHAPS?
-    public static List<Week> range(Week startWeek, Week endWeek) {
-        List<Week> weeks = new ArrayList<>();
-        int currentYear = startWeek.year;
-        int currentWeek = startWeek.week;
-        int weeksInCurrentYear = getWeeksinYear(currentYear);
-
-        while (currentYear < endWeek.year || (currentYear == endWeek.year && currentWeek <= endWeek.week)) {
-            weeks.add(new Week(currentYear, currentWeek));
-            currentWeek++;
-            if (currentWeek > weeksInCurrentYear) {
-                currentWeek = 1;
-                currentYear++;
-                weeksInCurrentYear = getWeeksinYear(currentYear);
-            }
+    public boolean isGreaterOrEqual(Week otherWeek) {
+        if (year > otherWeek.year) {
+            return true;
         }
-        return weeks;
+        return year == otherWeek.year && week >= otherWeek.week;
     }
 
-    public static int getWeeksinYear(int year) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, year);
-        return calendar.getActualMaximum(Calendar.WEEK_OF_YEAR);
+    public boolean isLessOrEqual(Week otherWeek) {
+        if (year < otherWeek.year) {
+            return true;
+        }
+        return year == otherWeek.year && week >= otherWeek.week;
     }
     
 }

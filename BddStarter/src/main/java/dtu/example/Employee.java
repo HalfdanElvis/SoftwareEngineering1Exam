@@ -1,7 +1,6 @@
 package dtu.example;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class Employee {
@@ -93,7 +92,7 @@ public class Employee {
     }
     
     private boolean isAvailable(Week startWeek, Week endWeek) {
-        List<Week> weeks = Week.range(startWeek, endWeek);
+        List<Week> weeks = CalendarHelper.range(startWeek, endWeek);
         for (Week week : weeks) {
             if (!isAvailable(week)) {
                 return false;
@@ -106,7 +105,7 @@ public class Employee {
         int activityCount = 0;
         for (Activity activity : activities) {
             if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
-                for (Week weekInActivity : Week.range(activity.getStartWeek(), activity.getEndWeek())) {
+                for (Week weekInActivity : CalendarHelper.range(activity.getStartWeek(), activity.getEndWeek())) {
                     if (week.equals(weekInActivity)) {
                         if (activity instanceof SpecialActivity) {
                             return false;
@@ -123,7 +122,7 @@ public class Employee {
     }
 
     private boolean isAvailableSpecial(Week startWeek, Week endWeek) {
-        List<Week> weeks = Week.range(startWeek, endWeek);
+        List<Week> weeks = CalendarHelper.range(startWeek, endWeek);
         for (Week week : weeks) {
             if (!isAvailableSpecial(week)) {
                 return false;
@@ -135,7 +134,7 @@ public class Employee {
     private boolean isAvailableSpecial(Week week) {
         for (Activity activity : activities) {
             if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
-                for (Week weekInActivity : Week.range(activity.getStartWeek(), activity.getEndWeek())) {
+                for (Week weekInActivity : CalendarHelper.range(activity.getStartWeek(), activity.getEndWeek())) {
                     if (week.equals(weekInActivity)) {
                         return false;
                     }

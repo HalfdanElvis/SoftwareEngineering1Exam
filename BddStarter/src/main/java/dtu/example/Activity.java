@@ -22,7 +22,7 @@ public class Activity {
     }
 
     public List<Week> getActiveWeeks() {
-        return Week.range(startWeek, endWeek);
+        return CalendarHelper.range(startWeek, endWeek);
     }
 
     public float getExpectedHours() {

@@ -27,20 +27,6 @@ public class LogHoursSteps {
         this.errorMessageHolder = errorMessageHolder;
         this.testHelper = testHelper;
     }
-    
-    @Given("a date {string} is given")
-    public void dateGiven(String dateString) throws Exception {
-        // Eksempel: "2025-05-05"
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        date = Calendar.getInstance();
-        date.setTime(sdf.parse(dateString));
-    }
-
-    @Then("the week number should be {int}")
-    public void returnWeek(int expectedWeek) {
-        int actualWeek = ch.getWeek(date); //Skal måske rettes ift low coupling
-        assertEquals(expectedWeek, actualWeek);
-    }
 
     @Given("the user has logged {int} hours in the activity initially")
     public void theUserHasYetToLogHoursInActivity(String activityName, int hoursInActivity ) {

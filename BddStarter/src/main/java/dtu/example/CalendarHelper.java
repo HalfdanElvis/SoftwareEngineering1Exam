@@ -1,33 +1,42 @@
 package dtu.example;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class CalendarHelper {
-    private Calendar date;
-    Calendar calendar = new GregorianCalendar();
-
-    public CalendarHelper(){
-    }
     
-    public int getWeek(Calendar c){   
-
-        int weekNumber=c.get(Calendar.WEEK_OF_YEAR);
-        return weekNumber;
-        
+    public static Calendar parseStringAsCalendar(String dateAsString) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar date = Calendar.getInstance();
+        date.setTime(sdf.parse(dateAsString));
+        return date;
     }
 
+    public static List<Week> range(Week startWeek, Week endWeek) {
+        List<Week> weeks = new ArrayList<>();
+        int currentYear = startWeek.getYear();
+        int currentWeek = startWeek.getWeek();
+        int weeksInCurrentYear = getWeeksinYear(currentYear);
 
-    public Calendar getDate(int week, int year, int dayOfWeek){
-        
-        if (dayOfWeek == 0){
-            dayOfWeek = 1;
+        while (currentYear < endWeek.getYear() || (currentYear == endWeek.getYear() && currentWeek <= endWeek.getWeek())) {
+            weeks.add(new Week(currentYear, currentWeek));
+            currentWeek++;
+            if (currentWeek > weeksInCurrentYear) {
+                currentWeek = 1;
+                currentYear++;
+                weeksInCurrentYear = getWeeksinYear(currentYear);
+            }
         }
-        if (year == 0){
-            year = Calendar.getInstance().get(Calendar.YEAR);
-        }
-        Calendar c = new GregorianCalendar();
-        c.setWeekDate(year, week, dayOfWeek);
-        return c;
+        return weeks;
+    }
+
+    public static int getWeeksinYear(int year) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        return calendar.getActualMaximum(Calendar.WEEK_OF_YEAR);
     }
 }
