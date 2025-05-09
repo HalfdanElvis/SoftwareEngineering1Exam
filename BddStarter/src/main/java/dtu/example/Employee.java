@@ -79,6 +79,9 @@ public class Employee {
         }
         return activity;
     }
+    public List<Activity> getEmployeeActivities(){
+        return activities;
+    }
 
     public boolean isAvailable(int startYear, int startWeek, int endYear, int endWeek) {
         Week sWeek = new Week(startYear, startWeek);

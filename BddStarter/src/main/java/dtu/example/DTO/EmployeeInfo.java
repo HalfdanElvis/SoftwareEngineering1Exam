@@ -8,23 +8,18 @@ import io.cucumber.java.lu.a;
 public class EmployeeInfo {
     private String username;
     private boolean peak = false;
-    private List<Activity> activityDTOs = new ArrayList<>();
+    private List<ActivityInfo> activityDTOs = new ArrayList<>();
 
-    public EmployeeInfo(String username, boolean peak, List<Activity> activityDTOs){
+    public EmployeeInfo(String username, boolean peak, List<ActivityInfo> activityDTOs){
         this.username = username;
         this.peak = peak; 
         this.activityDTOs = activityDTOs;
     }
-    public EmployeeInfo(Employee employee){
-        this.username = employee.getUsername();
-        this.peak = employee.isPeak();
-        this.activityDTOs = employee.getActivities();
-    }
 
-    public List<Activity> getActivities(){
+    public List<ActivityInfo> getActivities(){
         return activityDTOs;
     }
-    public void addActivity(Activity act){
+    public void addActivityInfo(ActivityInfo act){
         activityDTOs.add(act);
     }
     public boolean isPeak(){
@@ -35,8 +30,8 @@ public class EmployeeInfo {
         this.peak=c;
     }
     
-    public Activity getActivity(String activityName){
-        Activity activity = null;
+    public ActivityInfo getActivity(String activityName){
+        ActivityInfo activity = null;
         for (int i =0; i<activityDTOs.size();i++){
             if(activityDTOs.get(i).getName().equals(activityName)){
                 activity = activityDTOs.get(i);
