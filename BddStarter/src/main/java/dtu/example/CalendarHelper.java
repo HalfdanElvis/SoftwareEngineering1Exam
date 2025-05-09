@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class CalendarHelper {
@@ -17,6 +16,10 @@ public class CalendarHelper {
     }
 
     public static List<Week> range(Week startWeek, Week endWeek) {
+
+        // Precondition:
+        assert endWeek.isGreaterOrEqual(startWeek) : "Start week has to be before end week.";
+
         List<Week> weeks = new ArrayList<>();
         int currentYear = startWeek.getYear();
         int currentWeek = startWeek.getWeek();

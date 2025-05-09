@@ -157,4 +157,12 @@ public class Project {
         return projectLeader.getUsername();
     }
 
+    public void removeActivity(String activityName) {
+        for (int i = 0; i < activities.size(); i++) {
+            if (activities.get(i).getName().equals(activityName)) {
+                activities.remove(i);
+            }
+        }
+    }
+
 }

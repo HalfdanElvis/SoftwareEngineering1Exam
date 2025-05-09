@@ -221,6 +221,12 @@ public class App {
         Employee employee = stringToEmployee(username);
         return new EmployeeInfo(employee).getActivityInfos();
     }
+
+    public void deleteActivity(int projectID, String activityName) {
+        systemStorage.getProject(projectID).removeActivity(activityName);
+    } 
+
+
     
     // Utility Methods
 
@@ -257,11 +263,14 @@ public class App {
         }
     }
 
+     
+
 
     public ProjectInfo createDTOProject(int projectID) {
         ProjectInfo project = new ProjectInfo(systemStorage.getProject(projectID));
         return project;
     }
+
 
 
     public List<ProjectInfo> getDTOProjectList(int year) {
@@ -278,6 +287,15 @@ public class App {
         }
         return dtoProjects;
     }
+
+    public void deleteProject(int projectID) {
+        for (int i = 0; i < systemStorage.getAllProjects().size(); i++) {
+            if (projectID == systemStorage.getAllProjects().get(i).getID()) {
+                systemStorage.getAllProjects().remove(i);
+            }
+        }
+    }
+
     public List<ProjectInfo> getallProjectInfos(){
         List<Project> allProjects = systemStorage.getAllProjects();
         for (int i = 0; i<allProjects.size(); i++){
@@ -297,5 +315,5 @@ public class App {
 
         return allActivityInfos;
     }
-
 }
+
