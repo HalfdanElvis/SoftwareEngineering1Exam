@@ -23,7 +23,7 @@ public class CalendarHelper {
         List<Week> weeks = new ArrayList<>();
         int currentYear = startWeek.getYear();
         int currentWeek = startWeek.getWeek();
-        int weeksInCurrentYear = getWeeksinYear(currentYear);
+        int weeksInCurrentYear = getWeeksInYear(currentYear);
 
         while (currentYear < endWeek.getYear() || (currentYear == endWeek.getYear() && currentWeek <= endWeek.getWeek())) {
             weeks.add(new Week(currentYear, currentWeek));
@@ -31,13 +31,13 @@ public class CalendarHelper {
             if (currentWeek > weeksInCurrentYear) {
                 currentWeek = 1;
                 currentYear++;
-                weeksInCurrentYear = getWeeksinYear(currentYear);
+                weeksInCurrentYear = getWeeksInYear(currentYear);
             }
         }
         return weeks;
     }
 
-    public static int getWeeksinYear(int year) {
+    public static int getWeeksInYear(int year) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, year);
         return calendar.getActualMaximum(Calendar.WEEK_OF_YEAR);
