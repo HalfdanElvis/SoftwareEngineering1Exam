@@ -15,8 +15,15 @@ public class EmployeeInfo {
         this.peak = peak; 
         this.activityDTOs = activityDTOs;
     }
+    public EmployeeInfo(Employee employee){
+        this.username = employee.getUsername();
+        this.peak = employee.isPeak();
+        for (int i = 0; i<employee.getActivities().size(); i++){
+            activityDTOs.add(new ActivityInfo(employee.getActivities().get(i)));
+        }
+    }
 
-    public List<ActivityInfo> getActivities(){
+    public List<ActivityInfo> getActivityInfos(){
         return activityDTOs;
     }
     public void addActivityInfo(ActivityInfo act){
