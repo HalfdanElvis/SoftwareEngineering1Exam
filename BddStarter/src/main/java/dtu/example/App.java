@@ -17,9 +17,9 @@ public class App {
     private SystemStorage systemStorage = new SystemStorage();
     private Employee signedInEmployee;
     private Employee selectedEmployee;
-    private List<ProjectInfo> projectInfos;
-    private List<ActivityInfo> activityInfos;
-    private List<ActivityInfo> allActivityInfos;
+    private List<ProjectInfo> projectInfos = new ArrayList<>();
+    private List<ActivityInfo> activityInfos = new ArrayList<>();
+    private List<ActivityInfo> allActivityInfos = new ArrayList<>();
 
     private Activity selectedSpecialActivity;
 
@@ -279,8 +279,9 @@ public class App {
         return dtoProjects;
     }
     public List<ProjectInfo> getallProjectInfos(){
-        for (int i = 0; i<systemStorage.getAllProjects().size(); i++){
-            ProjectInfo projectInfo = new ProjectInfo(systemStorage.getAllProjects().get(i));
+        List<Project> allProjects = systemStorage.getAllProjects();
+        for (int i = 0; i<allProjects.size(); i++){
+            ProjectInfo projectInfo = new ProjectInfo(allProjects.get(i));
             projectInfos.add(projectInfo);
         }
         return projectInfos;
