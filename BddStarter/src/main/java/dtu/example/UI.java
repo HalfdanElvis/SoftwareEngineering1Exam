@@ -126,24 +126,23 @@ public class UI {
 
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
-                }
-            }
-            
-            // New User registration
-            System.out.println();
-            System.out.println("User doesn't exist. Create user with username: "+username+" Y/N?");
-            while (true) {
-                String userInput = console.nextLine();
-                try {
-                    if (app.yesOrNo(userInput)) {
-                        app.addEmployee(username);
-                        app.login(username);
+                    // New User registration
+                    System.out.println();
+                    System.out.println("User doesn't exist. Create user with username: "+username+" Y/N?");
+                    while (true) {
+                        String userInput = console.nextLine();
+                        try {
+                            if (app.yesOrNo(userInput)) {
+                                app.addEmployee(username);
+                                app.login(username);
+                            }
+                            break;
+                        } catch (Exception e2) {
+                            System.err.println(e2.getMessage());
+                        }
+                        
                     }
-                    break;
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
                 }
-                
             }
         }
     }
