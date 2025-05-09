@@ -488,6 +488,7 @@ public class UI {
                     System.out.println("Invalid input. Please enter a number from the menu.");
                     continue; // skip the rest of the loop and prompt again
                 }
+                newPage();
                 switch (choice) {
                     case 1:
                         boolean makenew = true;
@@ -497,6 +498,7 @@ public class UI {
                             app.addActivity(projectID, activityName);
 
                             System.out.println("Enter Start Week for "+activityName);
+                            
                             input = console.nextLine();
                             int startWeek = Integer.parseInt(input);
 
@@ -518,6 +520,15 @@ public class UI {
                         } while(makenew);
                         break;
                     case 2:
+
+                        if (project.getActivities().size() == 0) {
+                            System.out.println("-------------------------");
+                            System.out.println("No activites in project");
+                            System.out.println("-------------------------");
+                            System.out.println("Press \'Enter\' to return");
+                            input = console.nextLine();
+                            break;
+                        }
                         
                         project = app.createDTOProject(projectID);    
 
@@ -541,15 +552,56 @@ public class UI {
                         System.out.println("Enter username of the to be assigned leader:");
                         String username = console.nextLine();
                         app.assignLeader(username, projectID);
-
+                        newPage();
                         System.out.println();
                         System.out.println("Employee "+username+" was succesfully assigned as projectleader.");
                         System.out.println();
+                        System.out.println("-------------------------");
+                        System.out.println("Press \'Enter\' to return");
+                        input = console.nextLine();
                         break;
                     case 4:
+                        project = app.createDTOProject(projectID);
+                        
+                        if (project.getActivities().size() == 0) {
+                            System.out.println("-------------------------");
+                            System.out.println("No activites in project");
+                            System.out.println("-------------------------");
+                            System.out.println("Press \'Enter\' to return");
+                            input = console.nextLine();
+                            break;
+                        }
+
+                        System.out.println("-------------------------");
+                        System.out.println("List of activities");
+                        System.out.println("-------------------------");
+                        System.out.println();
+                        
+                        for (int i = 0; i < project.getActivities().size(); i++) {
+                            System.out.print(project.getActivities().get(i).getName()+", StartWeek: ");
+                            System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
+                            System.out.println(project.getActivities().get(i).getEndWeek().getWeek());
+                        }
+
+                        System.out.println();
+                        System.out.println("-------------------------");
+                        System.out.println("Which activity do you wish to delete?");
+                        String activityString = console.nextLine();
+                        app.deleteActivity(projectID, activityString);
+                        newPage();
+                        System.out.println("Succesfully removed "+activityString);
+                        System.out.println("-------------------------");
+                        System.out.println("Press \'Enter\' to return");
+                        input = console.nextLine();
                         break;
                     case 5:
-                        
+                        boolean leave = false;
+                        do {
+                            System.out.println("Are you sure you want to delete this project?"); 
+                            leave = app.yesOrNo(console.nextLine()); 
+                        } while (!leave);
+                        app.deleteProject(projectID);
+                        exit = false;
                         break;
                     case 6:
                         exit = false;
@@ -771,6 +823,12 @@ public class UI {
             }
         
 
+    }
+
+    public static void newPage() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println();
+        }
     }
 
 }
