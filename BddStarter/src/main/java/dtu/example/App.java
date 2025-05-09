@@ -9,6 +9,7 @@ import java.util.List;
 import dtu.example.DTO.ProjectInfo;
 
 import java.util.Calendar;
+import dtu.example.DTO.*;
 
 public class App {
 
@@ -213,6 +214,14 @@ public class App {
 	public List<String> printActivites(int projectID) {
         return systemStorage.getProject(projectID).printActivites();
 	}
+
+    public List<String> fetchAllProjects() {
+        return systemStorage.getAllProjects();
+    }
+    public List<ActivityInfo> getUserActivitiesInfo(String username){
+        Employee employee = stringToEmployee(username);
+        return new EmployeeInfo(employee).getActivityInfos();
+    }
 
     
     // Utility Methods

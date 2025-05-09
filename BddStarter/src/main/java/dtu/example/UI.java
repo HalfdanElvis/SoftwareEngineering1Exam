@@ -727,6 +727,7 @@ public class UI {
         }
     }
     public static void LogHours(){
+        boolean back = false;
         while(true){
             System.out.println();
             System.out.println("View Menu:");
@@ -740,7 +741,7 @@ public class UI {
 
             System.out.println("Select a number from the list above to proceed.");
             int choice = 0;
-            boolean back = false;
+            
             try {
                 String input = console.nextLine();
                 choice = Integer.parseInt(input);
@@ -751,20 +752,24 @@ public class UI {
             }
             switch(choice){
                 case 1:
-                System.out.println(app.getSignedInEmployeeUsername()+"'s activities");
-                    System.out.println(app.getSelectedEmployee().getActivities());
-
+                    System.out.println(app.getSignedInEmployeeUsername()+"'s activities");
+                    System.out.println(app.getUserActivitiesInfo(app.getSignedInEmployeeUsername()));
+                    break;
                 case 2:
 
 
                 case 3:
                     back = true;
                     break;
+
+                default:
+                    break;
             }
             if (back) {
-                break;
+                break;    
+            } 
             }
-        }
+        
 
     }
 
