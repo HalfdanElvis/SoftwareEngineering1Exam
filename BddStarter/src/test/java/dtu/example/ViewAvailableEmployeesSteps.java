@@ -8,14 +8,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class ViewAvailableEmployees {
+public class ViewAvailableEmployeesSteps {
 
     App app;
     ErrorMessageHolder errorMessageHolder;
     TestHelper testHelper;
     List<String> availableEmployees;
     
-    public ViewAvailableEmployees(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper) {
+    public ViewAvailableEmployeesSteps(App app, ErrorMessageHolder errorMessageHolder, TestHelper testHelper) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.testHelper = testHelper;

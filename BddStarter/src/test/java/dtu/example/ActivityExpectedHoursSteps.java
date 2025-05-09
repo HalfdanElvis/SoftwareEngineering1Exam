@@ -27,7 +27,7 @@ public class ActivityExpectedHoursSteps {
     @Given("that there exists a project with id {int} and name {string}")
     public void thatThereExistsAProjectWithIdAndName(Integer id, String string) {
         testHelper.setProjectID(id);
-        app.createProject(string).setID(testHelper.getProjectID());
+        app.createProject(string);
 
     }
 
@@ -43,8 +43,10 @@ public class ActivityExpectedHoursSteps {
 
     @Given("the user {string} is the project leader")
     public void theUserIsTheProjectLeader(String username) {
-        if (!app.employeeExists(username)) {
+        try {
             app.addEmployee(username);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(username);
         }
         app.assignLeader(username, testHelper.getProjectID());
         projectLeaderName = username;

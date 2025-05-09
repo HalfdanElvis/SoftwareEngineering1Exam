@@ -10,14 +10,9 @@ import java.util.Calendar;
 public class App {
 
     private int year;
-
-    private List<Employee> employees = new ArrayList<>();
-    private List<Project> projects = new ArrayList<>();
-
-    private CalendarHelper ch = new CalendarHelper();
+    private SystemStorage systemStorage = new SystemStorage();
     private Employee signedInEmployee;
     private Employee selectedEmployee;
-    private Boolean registrationConfirmation = null;
 
     private Activity selectedSpecialActivity;
 
@@ -42,55 +37,6 @@ public class App {
         }
     }
 
-    public void addEmployee(String username) {
-        if (employeeExists(username)) {
-            throw new IllegalArgumentException("User already exists. Try another username.");
-        }
-        employees.add(new Employee(username));
-    }
-
-    public Employee stringToEmployee(String string) {
-        for (Employee employee : employees){
-            if (employee.getUsername().equals(string)){
-                return employee;
-            }
-        }
-        return null;
-        // Should probably be this but our code is reliant on the return of null.
-        //throw new NoSuchElementException("No employee found with username: " + string);
-    }
-
-    public void deleteEmployee(String username){
-        employees.remove(stringToEmployee(username));
-    }
-
-    public String getSignedInEmployeeUsername() {
-        return signedInEmployee.getUsername();
-    }
-
-    
-    public boolean employeeExists(String username){
-        return stringToEmployee(username) != null;
-    }
-
-    public List<String> viewAvailableEmployees(int startYear, int startWeek, int endYear, int endWeek) {
-        List<String> availableEmployees = new ArrayList<>();
-        for (Employee employee : employees) {
-            if (employee.isAvailable(startYear, startWeek, endYear, endWeek)) {
-                availableEmployees.add(employee.getUsername());
-            }
-        }
-        return availableEmployees;
-    }
-
-    public List<String> viewAvailableEmployees(int year, int week) {
-        return viewAvailableEmployees(year, week, year, week);
-    }
-
-    public void setRegistrationConfirmation(boolean registrationConfirmation) {
-        this.registrationConfirmation = registrationConfirmation;
-    }
-
     public boolean legalUsername(String username) {
         if (username.length() > 4) {
             throw new IllegalArgumentException("Username cannot be longer than 4 characters.");
@@ -107,7 +53,6 @@ public class App {
         return signedInEmployee;
     }
 
-
     public void setSignedInEmployee(String signedInEmployee) {
         if (stringToEmployee(signedInEmployee) == null) {
             throw new IllegalArgumentException("User does not exist.");
@@ -115,41 +60,48 @@ public class App {
         this.signedInEmployee = stringToEmployee(signedInEmployee);
     }
 
-    // For testing:
-    public void printAllEmployees() {
-        for (Employee employee : employees){
-            System.out.println(employee.getUsername());
-        }
+    public void addEmployee(String username) {
+        systemStorage.addEmployee(username);
     }
 
-    public void printAllProjects() {
-        for (Project project : projects){
-            System.out.println(project.getName()+": "+project.getID());
-        }
+    public Employee stringToEmployee(String string) {
+        return systemStorage.getEmployee(string);
     }
 
-    // WIP
-    public void printAllActivities() {
+    public void deleteEmployee(String username){
+        systemStorage.deleteEmployee(username);
+    }
 
+    public String getSignedInEmployeeUsername() {
+        return signedInEmployee.getUsername();
+    }
+
+    public List<String> viewAvailableEmployees(int startYear, int startWeek, int endYear, int endWeek) {
+        return systemStorage.getAvailableEmployees(startYear, startWeek, endYear, endWeek);
+    }
+
+    public List<String> viewAvailableEmployees(int year, int week) {
+        return viewAvailableEmployees(year, week, year, week);
     }
 
     public void setSelectedEmployee(String username) {
-        selectedEmployee = stringToEmployee(username);
+        selectedEmployee = systemStorage.getEmployee(username);
     }
 
     public Employee getSelectedEmployee() {
         return selectedEmployee;
     }
 
+    public boolean employeeExists(String employee) {
+        return systemStorage.employeeExists(employee);
+    }
+
     public void addActivity(int projectID, String activityName) throws IllegalAccessException {
-        intToProject(projectID).createActivity(activityName, signedInEmployee);
+        systemStorage.getProject(projectID).createActivity(activityName, signedInEmployee);
     }
 
     public void addSpecialActivity(String activityName, String username, int startYear, int startWeek, int endYear, int endWeek){
-        Employee employee = stringToEmployee(username);
-        if (employee == null) {
-            throw new IllegalArgumentException("User does not exist.");
-        }
+        Employee employee = systemStorage.getEmployee(username);
         employee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
     }
 
@@ -157,133 +109,109 @@ public class App {
         signedInEmployee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
     }
 
-    public Project createProject(String name) {
-
-        int id = generateProjectID();
-        Project project = new Project(name, id);
-        projects.add(project);
-        return project;
+    public int createProject(String name) {
+        return systemStorage.createProject(name);
     }
-
-    private int generateProjectID() {
-        year = Year.now().getValue();
-        year %= 100;
-        year *= 1000;
-        
-        int projectAmount = 0;
-
-        for (Project p : projects) {
-            if (p.getID() >= year && p.getID() < year+1000) {
-                projectAmount++;
-            }
-        }
-
-        if (projectAmount >= 999) {
-            throw new IllegalArgumentException("Maximum projects for this year has been reached");
-        }
-        return year+projectAmount+1;
-    }
-
 
     public void setYear(int year) {
         this.year = year;
     }
     
     public boolean projectExists(String string, int id) {
-        for (Project p : projects) {
-            if (p.getName().equals(string) && p.getID() == id) {
-                return true;
-            }
-        }
-        return false;
+        return systemStorage.getProject(id).getName().equals(string);
     }
 
     public boolean projectContainsActivity(int id, String activity) {
-        return intToProject(id).containsActivity(activity);
+        return systemStorage.getProject(id).containsActivity(activity);
     }
 
     public boolean employeeIsAssignedActivity(String employee, String activity) {
         return stringToEmployee(employee).isAssignedActivity(activity);
     }
 
-    public Project intToProject(int id) {
-        for (Project project : projects){
-            if (project.getID() == (id)){
-                return project;
-            }
-        }
-        return null;
-    }
-
-
     public void assignLeader(String username, Integer id) {
-        Employee employee = stringToEmployee(username);
-        if (employee == null) {
-            throw new IllegalArgumentException("Employee does not exist");
-        }
-        Project project = intToProject(id);
-        if (project == null) {
-            throw new IllegalArgumentException("Project does not exist");
-        }
+        Employee employee = systemStorage.getEmployee(username);
+        Project project = systemStorage.getProject(id);
         project.assignLeader(employee, signedInEmployee);
     }
 
     public boolean projectHasLeader(int id) {
-        return intToProject(id).hasProjectLeader();
+        return systemStorage.getProject(id).hasProjectLeader();
     }
     
     public String getProjectLeaderName(int id) {
-        return intToProject(id).getProjectLeader().getUsername();
+        return systemStorage.getProject(id).getProjectLeader().getUsername();
     }
 
-    public void printProjectList(int year) {
-        year %= 100;
-
-        for (Project project : projects) {
-            int id = project.getID();
-            while (id >= 100) {
-                id /= 10;
-            }
-            if (year == id) {
-                System.out.println(project.printProject());
-            }
-        }
+    public void setActivityExpectedHours(int projectID, String activityName, float hours) throws IllegalAccessException {
+        systemStorage.getProject(projectID).setActivityExpectedHours(activityName, hours, signedInEmployee);
     }
 
-    public void setActivityExpectedHours(int ProjectID, String activityName, float hours) throws IllegalAccessException {
-        intToProject(ProjectID).setActivityExpectedHours(activityName, hours, signedInEmployee);
-    }
-
-    public float getActivityExpectedHours(int ProjectID, String activityName) {
-        return intToProject(ProjectID).getActivityExpectedHours(activityName);
+    public float getActivityExpectedHours(int projectID, String activityName) {
+        return systemStorage.getProject(projectID).getActivityExpectedHours(activityName);
     }
 
     public void assignEmployeeToActivity(String username, int projectID, String activtyName) throws Exception {
         Employee employee = stringToEmployee(username);
-        Project project = intToProject(projectID);
-        if (!projectExists(project.getName(), projectID)) {
-            throw new IllegalArgumentException("Project does not exist");
-        }
+        Project project = systemStorage.getProject(projectID);
         project.assignEmployeeToActivity(employee, activtyName);
     }
 
     public void removeEmployeeFromActivity(String username, String activtyName) {
-        Employee employee = stringToEmployee(username);
-        if (employee == null) {
-            throw new IllegalArgumentException("Employee does not exist");
-        }
+        Employee employee = systemStorage.getEmployee(activtyName);
         employee.removeActivity(activtyName);
     }
 
     public void setActivitiyStartAndEndWeek(int projectID, String activityName, int startYear, int startWeek, int endYear, int endWeek) {
-        Project project = intToProject(projectID);
-        if (!projectExists(project.getName(), projectID)) {
-            throw new IllegalArgumentException("Project does not exist");
-        }
+        Project project = systemStorage.getProject(projectID);
         project.setActivitiyStartAndEndWeek(activityName, startYear, startWeek, endYear, endWeek);
     }
 
+    public void setSelectedSpecialActivity(Activity selectedSpecialActivity) {
+        this.selectedSpecialActivity = selectedSpecialActivity;
+    }
 
+    public Activity getSelectedSpecialActivity() {
+        return selectedSpecialActivity;
+    }
+
+    public void logHours(int projectID, String activityName, String dateAsString, float hours) throws ParseException {
+        Project project = systemStorage.getProject(projectID);
+        // MOVE TO CALENDARHELPER PERHAPS?
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar date = Calendar.getInstance();
+        date.setTime(sdf.parse(dateAsString));
+        
+        project.logHours(activityName, date, hours, signedInEmployee.getUsername());
+    }
+
+    public float getUserLoggedHoursInActivityOnDate(int projectID, String activityName, String username, String dateAsString) throws ParseException {
+        Project project = systemStorage.getProject(projectID);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar date = Calendar.getInstance();
+        date.setTime(sdf.parse(dateAsString));
+        return project.getUserLoggedHoursInActivityOnDate(activityName, username, date);
+    }
+
+    public float getUserTotalLoggedHoursInActivity(int projectID, String activityName, String username) {
+        Project project = systemStorage.getProject(projectID);
+        return project.getUserTotalLoggedHoursInActivity(activityName, username);
+    }
+
+    public float[] generateReport(int projectID) throws IllegalAccessException {
+        Project project = systemStorage.getProject(projectID);
+        return project.generateReport(signedInEmployee);
+    }
+
+    public int getProjectAmountFromYear(int year) {
+        return systemStorage.getProjectAmountFromYear(year);
+    }
+
+	public List<String> printActivites(int projectID) {
+        return systemStorage.getProject(projectID).printActivites();
+	}
+
+    
     // Utility Methods
 
     public static boolean isPositiveInt(String input) {
@@ -319,89 +247,36 @@ public class App {
         }
     }
 
-    public void setSelectedSpecialActivity(Activity selectedSpecialActivity) {
-        this.selectedSpecialActivity = selectedSpecialActivity;
+    // For testing:
+    public void printAllEmployees() {
+        //for (Employee employee : employees){
+        //    System.out.println(employee.getUsername());
+        //}
     }
 
-    public Activity getSelectedSpecialActivity() {
-        return selectedSpecialActivity;
+    public void printAllProjects() {
+        //for (Project project : projects){
+        //    System.out.println(project.getName()+": "+project.getID());
+        //}
     }
 
-    public void logHours(int projectID, String activityName, String dateAsString, float hours) throws ParseException {
-        Project project = intToProject(projectID);
-        if (project == null) {
-            throw new IllegalArgumentException("Project does not exist");
-        }
-        // MOVE TO CALENDARHELPER PERHAPS?
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar date = Calendar.getInstance();
-        date.setTime(sdf.parse(dateAsString));
-        
-        project.logHours(activityName, date, hours, signedInEmployee.getUsername());
-    }
 
-    public float getUserLoggedHoursInActivityOnDate(int projectID, String activityName, String username, String dateAsString) throws ParseException {
-        Project project = intToProject(projectID);
-        if (project == null) {
-            throw new IllegalArgumentException("Project does not exist");
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar date = Calendar.getInstance();
-        date.setTime(sdf.parse(dateAsString));
-        return project.getUserLoggedHoursInActivityOnDate(activityName, username, date);
-    }
-
-    public float getUserTotalLoggedHoursInActivity(int projectID, String activityName, String username) {
-        Project project = intToProject(projectID);
-        if (project == null) {
-            throw new IllegalArgumentException("Project does not exist");
-        }
-        return project.getUserTotalLoggedHoursInActivity(activityName, username);
-    }
-
-    public float[] generateReport(int projectID) throws IllegalAccessException {
-        Project project = intToProject(projectID);
-        if (project == null) {
-            throw new IllegalArgumentException("Project does not exist");
-        }
-        return project.generateReport(signedInEmployee);
-    }
-
-    public void setWorkDataForActivity(float hours, Calendar date, String activityName, String username ){   
-        Employee employee = stringToEmployee(username);
-        List<Activity> activities=employee.getActivities();
-        for (int i=0; i<activities.size(); i++){
-            if (activities.get(i).getName() == activityName){
-                //WorkData workData = activities.get(i).makeWorkData(date, employee, hours);
-                //activities.get(i).getEmployeeWorkData(employee).add(workData);
+    public void printProjectList(int year) {
+        year %= 100;
+        /* 
+        for (Project project : projects) {
+            int id = project.getID();
+            while (id >= 100) {
+                id /= 10;
             }
-        }
-    }
-    /*
-    public float getEmployeeTotalHoursInActivity(String username, String activityName){
-        Employee employee = stringToEmployee(username);
-        Activity activity = employee.getActivity(activityName);
-        
-        return activity.getEmployeeTotalHoursOnActivity(employee, activityName);
-    }
-    */
-
-    public int getProjectAmountFromYear(int year) {
-        year %= 1000;
-        year *= 1000;
-
-        int count = 0;
-
-        for (Project p : projects) {
-            if (p.getID() > year && p.getID() < year + 100) {
-                count++;
+            if (year == id) {
+                System.out.println(project.printProject());
             }
-        }
-        return count;
+        }*/
     }
 
+    // WIP
+    public void printAllActivities() {
 
-	public List<String> printActivites(int projectID) {
-        return intToProject(projectID).printActivites();
-	}
+    }
 }

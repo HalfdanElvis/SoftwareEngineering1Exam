@@ -33,29 +33,27 @@ public class LoginSteps {
 
     @Given("the user {string} doesn't exist")
     public void theUserDoesnTExist(String string) {
-        app.deleteEmployee(string);
+        assertFalse(app.employeeExists(string));
     }
 
     @When("the user {string} tries to log in")
     public void theUserTriesToLogIn(String string) {
-        app.login(string);
+        try {
+            app.login(string);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+        
     }
 
-    @When("the user {string} does confirm")
-    public void theUserDoesConfirm(String string) {
+    @When("the user {string} confirms the prompt to create a new user {string}")
+    public void theUserConfirmsThePromptToCreateANewUser(String string, String string2) {
         app.addEmployee(string);
         app.login(string);
     }
 
-    @When("the user {string} does not confirm")
-    public void theUserDoesNotConfirm(String string) {
-        while (true) {
-            break;
-        }
-    }
-
-    @Then("the user {string} is prompted to create the user {string}")
-    public void theUserIsPromptedToCreateTheUser(String string, String string2) {
+    @When("the user {string} does not confirm the prompt to create a new user {string}")
+    public void theUserDoesNotConfirmThePromptToCreateANewUser(String string, String string2) {
     }
 
     @Then("the user {string} is logged in")

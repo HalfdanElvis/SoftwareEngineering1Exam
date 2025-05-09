@@ -20,8 +20,7 @@ public class AssignLeaderSteps {
 
     @Given("a project with ID {int} exists")
     public void aProjectWithIDExists(Integer id) {
-        app.createProject("test");
-        testHelper.setProjectID(id);
+        testHelper.setProjectID(app.createProject("test"));
 
     }
     @Given("the user {string} exists in the system")
@@ -39,6 +38,7 @@ public class AssignLeaderSteps {
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
+        
         
     }
     @Then("the project should have a project leader {string}")

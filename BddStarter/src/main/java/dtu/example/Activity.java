@@ -16,37 +16,6 @@ public class Activity {
         this.name = name;
         this.workDatas = new ArrayList<>();
     }
-    //Check if this one is used by the end
-    /* 
-    public List<WorkData> getEmployeeWorkData(Employee employee){
-        for (int i=0;i<workDatas.size(); i++){
-            WorkData data=workDatas.get(i);
-            //if (data.getEmployee() == employee){
-             //   employeeData.add(data);
-            //}
-        }
-        return employeeData;
-    }
-    
-    public float getEmployeeTotalHoursOnActivity(Employee employee, String activityName){
-        List<WorkData> datas=getEmployeeWorkData(employee);
-        float totalHours = 0;
-        for(int i =0; i<datas.size(); i++){
-            totalHours+=datas.get(i).getHours();
-        }
-        return totalHours;
-    }
-    public float getEmployeeHoursOnDate(Employee employee, Calendar date){
-        List<WorkData> datas=getEmployeeWorkData(employee);
-        float hours = 0;
-        for (int i =0; i<datas.size(); i++){
-            if (datas.get(i).getDate() == date){
-                hours=datas.get(i).getHours();
-            }
-        }
-        return hours;
-    }
-    */
 
     public String getName() {
         return name;
@@ -133,12 +102,5 @@ public class Activity {
         }
         return sum;
     }
-
-    
-    /*
-    public WorkData makeWorkData(Calendar date, Employee employee, float hours){
-        WorkData workData = new WorkData(date, employee, hours);
-        return workData;
-    }*/
 
 }

@@ -19,7 +19,7 @@ public class AssignUserToActivitySteps {
 
     @Given("an activity {string} exists")
     public void anActivityExists(String string) throws IllegalAccessException {
-        testHelper.setProjectID(app.createProject("test").getID());
+        testHelper.setProjectID(app.createProject("test"));
         testHelper.setActivityName(string);
         app.addActivity(testHelper.getProjectID(),string);
     }

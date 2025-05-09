@@ -197,9 +197,9 @@ public class UI {
         System.out.println("Enter Project name:");
     }
 
-    public static void printManageProjectMenu(Project project) {
+    public static void printManageProjectMenu(int id) {
         System.out.println("-------------------------");
-        System.out.println("Selected project "+ project.printProject());
+        System.out.println("Selected project "+ id);
         System.out.println("-------------------------");
 
         System.out.println();
@@ -424,7 +424,7 @@ public class UI {
         do {
             printCreateProjectMenu();
             String projectName = console.nextLine();
-            int id = app.createProject(projectName).getID();
+            int id = app.createProject(projectName);
             
             System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
             System.out.println("-------------------------");
@@ -466,7 +466,7 @@ public class UI {
             input = console.nextLine();
             int projectID = Integer.parseInt(input);
             do {
-                printManageProjectMenu(app.intToProject(projectID));
+                printManageProjectMenu(projectID);
 
                 int choice = -1;
                 try {
@@ -570,10 +570,8 @@ public class UI {
             String username = console.nextLine();
             try {
                 if(app.legalUsername(username)){
-                    if(app.employeeExists(username)){
-                        app.setSelectedEmployee(username);
-                        break;
-                    }
+                    app.setSelectedEmployee(username);
+                    break;
                 }
             } catch (Exception e) {
                 System.err.println(e.getMessage());

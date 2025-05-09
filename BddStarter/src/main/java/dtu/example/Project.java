@@ -49,10 +49,6 @@ public class Project {
         return true;
     }
 
-    public String printProject() {
-        return name+", "+ID;
-    }
-
     public void createActivity(String name, Employee requestingEmployee) throws IllegalAccessException { 
         if (containsActivity(name)) {
             throw new IllegalArgumentException("Activity already exists in project");
@@ -141,6 +137,12 @@ public class Project {
             sum[1] += activity.getExpectedHours();
         }
         return sum;
+    }
+
+
+    
+    public String printProject() {
+        return name+", "+ID;
     }
 
     public List<String> printActivites() {

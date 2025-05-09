@@ -225,8 +225,14 @@ public class TestJUnit4AndJUnit5 {
 		if (app.employeeExists(username)) {
 			app.deleteEmployee(username);
 		}
+		Employee e2 = null;
 		//Act
-		Employee e2 = app.stringToEmployee(username);
+		
+		try {
+			e2 = app.stringToEmployee(username);
+		} catch (Exception e) {
+			 
+		}
 		//Assert
 		org.junit.Assert.assertTrue(e2 == null);
 	}
