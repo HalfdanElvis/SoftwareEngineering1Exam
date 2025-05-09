@@ -756,8 +756,9 @@ public class UI {
                     System.out.println(app.getUserActivitiesInfo(app.getSignedInEmployeeUsername()));
                     break;
                 case 2:
-
-
+                    System.out.println("All activities:");
+                    System.out.println(app.getAllActivityInfos());
+                    break;
                 case 3:
                     back = true;
                     break;

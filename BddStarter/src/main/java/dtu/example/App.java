@@ -17,6 +17,9 @@ public class App {
     private SystemStorage systemStorage = new SystemStorage();
     private Employee signedInEmployee;
     private Employee selectedEmployee;
+    private List<ProjectInfo> projectInfos;
+    private List<ActivityInfo> activityInfos;
+    private List<ActivityInfo> allActivityInfos;
 
     private Activity selectedSpecialActivity;
 
@@ -214,15 +217,10 @@ public class App {
 	public List<String> printActivites(int projectID) {
         return systemStorage.getProject(projectID).printActivites();
 	}
-
-    public List<String> fetchAllProjects() {
-        return systemStorage.getAllProjects();
-    }
     public List<ActivityInfo> getUserActivitiesInfo(String username){
         Employee employee = stringToEmployee(username);
         return new EmployeeInfo(employee).getActivityInfos();
     }
-
     
     // Utility Methods
 
@@ -278,7 +276,25 @@ public class App {
                 dtoProjects.add(createDTOProject(projectList.get(i).getID()));
             }
         }
-
         return dtoProjects;
     }
+    public List<ProjectInfo> getallProjectInfos(){
+        for (int i = 0; i<systemStorage.getAllProjects().size(); i++){
+            ProjectInfo projectInfo = new ProjectInfo(systemStorage.getAllProjects().get(i));
+            projectInfos.add(projectInfo);
+        }
+        return projectInfos;
+    }
+    public List<ActivityInfo> getAllActivityInfos(){
+        projectInfos = getallProjectInfos();
+        for(int i = 0; i<projectInfos.size(); i++){
+            activityInfos=(projectInfos.get(i).getActivities());
+            for (int j = 0; i < activityInfos.size(); j++){
+                allActivityInfos.add(activityInfos.get(j));
+            }
+        }
+
+        return allActivityInfos;
+    }
+
 }
