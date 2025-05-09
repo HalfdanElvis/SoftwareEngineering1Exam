@@ -1,9 +1,29 @@
 package dtu.example;
 
-public class SpecialActivity extends Activity {
+import java.util.List;
 
-    public SpecialActivity(String name) {
-        super(name);
+public class SpecialActivity{
+
+    private String name;
+    private Week startWeek;
+    private Week endWeek;
+
+    public SpecialActivity(String name, int startYear, int startWeek, int endYear, int endWeek) {
+        this.name = name;
+        this.startWeek = new Week(startYear, startWeek);
+        this.endWeek = new Week(endYear, endWeek);
     }
     
+        public String getName() {
+        return name;
+    }
+
+    public Week getEndWeek() {
+        return endWeek;
+    }
+
+    public Week getStartWeek() {
+        return startWeek;
+    }
+
 }

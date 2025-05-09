@@ -36,10 +36,7 @@ public class ActivityInfo {
         this.expectedHours = expectedHours;
         this.workDataList = workDataList;
     }
-
-    // Getters & Setter
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
 
     public Week getStartWeek() { return startWeek; }
     public void setStartWeek(Week startWeek) { this.startWeek = startWeek; }
@@ -52,7 +49,5 @@ public class ActivityInfo {
     
     public List<WorkData> getWorkDatas() { return workDataList; }
     public void setWorkDatas(List<WorkData> workDataList) { this.workDataList = workDataList; }
-    
-
 
 }

@@ -21,10 +21,6 @@ public class Activity {
         return name;
     }
 
-    public List<Week> getActiveWeeks() {
-        return CalendarHelper.range(startWeek, endWeek);
-    }
-
     public float getExpectedHours() {
         return expectedHours;
     }
