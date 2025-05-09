@@ -101,9 +101,5 @@ public class Activity {
     public List<WorkData> getWorkDataList(){
         return workDataList;
     }
-
-    public List<WorkData> getWorkDataList() {
-        return workDataList;
-    }
-
+    
 }
