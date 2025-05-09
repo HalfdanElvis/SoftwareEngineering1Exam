@@ -18,7 +18,7 @@ public class CalendarHelper {
     public static List<Week> range(Week startWeek, Week endWeek) {
 
         // Precondition:
-        assert endWeek.isGreaterOrEqual(startWeek);
+        assert endWeek.isGreaterOrEqual(startWeek) : "Start week has to be before end week.";
 
         List<Week> weeks = new ArrayList<>();
         int currentYear = startWeek.getYear();
