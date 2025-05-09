@@ -1,8 +1,10 @@
 package dtu.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import dtu.example.DTO.ActivityInfo;
 import dtu.example.DTO.ProjectInfo;
 
 public class UI {
@@ -755,9 +757,13 @@ public class UI {
                     break;
 
                 case 2:
+                System.out.println("All projects");
+                System.out.println(app.getallProjectInfos());
                     break;
 
                 case 3:
+                    System.out.println("All activities:");
+                    System.out.println(app.getAllActivityInfos());
                     break;
 
                 case 4:
@@ -784,7 +790,7 @@ public class UI {
             System.out.println();
             System.out.println("View Menu:");
             System.out.println("-------------------------");
-            System.out.println("1. LogHours for your activities");
+            System.out.println("1. Log Hours for your activities");
             System.out.println("2. Log Hours for all activities");
             System.out.println("3. Back");
             System.out.println("-------------------------");
@@ -804,12 +810,53 @@ public class UI {
             }
             switch(choice){
                 case 1:
+                    List<ActivityInfo> userActivities = app.getUserActivitiesInfo(app.getSignedInEmployeeUsername());
+                    List<String> activityStrings = new ArrayList<>();
+                    for (int i = 0; i<userActivities.size(); i++){
+                        activityStrings.add((userActivities.get(i).getName()));
+                    }
                     System.out.println(app.getSignedInEmployeeUsername()+"'s activities");
-                    System.out.println(app.getUserActivitiesInfo(app.getSignedInEmployeeUsername()));
-                    break;
+                    System.out.println(userActivities);
+                    while (true){
+                        System.out.println("Write the name of the activity you would like to add hours too");
+                        try {
+                            String input = console.nextLine();
+                            
+                            if (activityStrings.contains(input) != true){
+                                System.out.println("Activity doesn't exists");
+                                continue;
+                            }
+                        } catch(Exception e) {
+                            System.out.println("An error occurred while processing input: " + e.getMessage());
+                        }
+                        break;
+                    }
+                    
                 case 2:
+                    System.out.println("All activities:");
+                    System.out.println(app.getAllActivityInfos());
+                    List<ActivityInfo> allActivities = app.getAllActivityInfos();
+                    List<String> allActivityStrings = new ArrayList<>();
+                    for (int i = 0; i<allActivities.size(); i++){
+                        allActivityStrings.add((allActivities.get(i).getName()));
+                    }
 
+                    while (true){
+                        System.out.println("Write the name of the activity you would like to add hours too");
+                        try {
+                            String input = console.nextLine();
+                            
+                            if (allActivityStrings.contains(input) != true){
+                                System.out.println("Activity doesn't exists");
+                                continue;
+                            }
+                        } catch(Exception e) {
+                            System.out.println("An error occurred while processing input: " + e.getMessage());
+                        }
+                        break;
+                        }
 
+                    
                 case 3:
                     back = true;
                     break;
@@ -817,6 +864,7 @@ public class UI {
                 default:
                     break;
             }
+
             if (back) {
                 break;    
             } 

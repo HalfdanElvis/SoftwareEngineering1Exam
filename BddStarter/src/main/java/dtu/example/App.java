@@ -17,6 +17,9 @@ public class App {
     private SystemStorage systemStorage = new SystemStorage();
     private Employee signedInEmployee;
     private Employee selectedEmployee;
+    private List<ProjectInfo> projectInfos = new ArrayList<>();
+    private List<ActivityInfo> activityInfos = new ArrayList<>();
+    private List<ActivityInfo> allActivityInfos = new ArrayList<>();
 
     private Activity selectedSpecialActivity;
 
@@ -214,7 +217,6 @@ public class App {
 	public List<String> printActivites(int projectID) {
         return systemStorage.getProject(projectID).printActivites();
 	}
-
     public List<ActivityInfo> getUserActivitiesInfo(String username){
         Employee employee = stringToEmployee(username);
         return new EmployeeInfo(employee).getActivityInfos();
@@ -223,6 +225,7 @@ public class App {
     public void deleteActivity(int projectID, String activityName) {
         systemStorage.getProject(projectID).removeActivity(activityName);
     } 
+
 
     
     // Utility Methods
@@ -282,7 +285,6 @@ public class App {
                 dtoProjects.add(createDTOProject(projectList.get(i).getID()));
             }
         }
-
         return dtoProjects;
     }
 
@@ -292,6 +294,26 @@ public class App {
                 systemStorage.getAllProjects().remove(i);
             }
         }
+    }
+
+    public List<ProjectInfo> getallProjectInfos(){
+        List<Project> allProjects = systemStorage.getAllProjects();
+        for (int i = 0; i<allProjects.size(); i++){
+            ProjectInfo projectInfo = new ProjectInfo(allProjects.get(i));
+            projectInfos.add(projectInfo);
+        }
+        return projectInfos;
+    }
+    public List<ActivityInfo> getAllActivityInfos(){
+        projectInfos = getallProjectInfos();
+        for(int i = 0; i<projectInfos.size(); i++){
+            activityInfos=(projectInfos.get(i).getActivities());
+            for (int j = 0; j < activityInfos.size(); j++){
+                allActivityInfos.add(activityInfos.get(j));
+            }
+        }
+
+        return allActivityInfos;
     }
 }
 
