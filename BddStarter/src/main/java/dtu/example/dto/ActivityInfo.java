@@ -1,6 +1,10 @@
-package dtu.example.dto;
+package dtu.example.DTO;
 
 import java.util.List;
+
+import dtu.example.Activity;
+import dtu.example.Week;
+import dtu.example.WorkData;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,13 +16,13 @@ public class ActivityInfo {
     private float expectedHours;
     private List<WorkData> workDatas;
     
-    // Constructors 
-    public ActivityInfo(Activity a) {
-        this.name = a.getName();
-        this.startWeek = a.getStartWeek();
-        this.endWeek = a.getEndWeek();
-        expectedHours = a.getExpectedHours();
-        workDatas = a.getWorkDatas();
+    // Constructor
+    public ActivityInfo(Activity activity) {
+        this.name = activity.getName();
+        this.startWeek = activity.getStartWeek();
+        this.endWeek = activity.getEndWeek();
+        expectedHours = activity.getExpectedHours();
+        workDatas = activity.getWorkDatas();
     }
 
     public ActivityInfo(String name){

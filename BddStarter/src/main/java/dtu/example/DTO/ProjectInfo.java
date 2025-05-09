@@ -1,7 +1,10 @@
-package dtu.example;
+package dtu.example.DTO;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import dtu.example.Project;
+import io.cucumber.java.cs.A;
 
 public class ProjectInfo {
     private String name;
@@ -12,7 +15,10 @@ public class ProjectInfo {
     public ProjectInfo(Project project) {
         this.name = project.getName();
         this.ID = project.getID();
-        
+        this.activities = new ArrayList<>();
+        for (int i = 0; i < project.getActivities().size(); i++) {
+            activities.add(new ActivityInfo(project.getActivities().get(i)));
+        }
         this.projectLeaderUsername = project.getProjectLeaderName();
     }
 
