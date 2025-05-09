@@ -153,4 +153,8 @@ public class Project {
         return activityNames;
     }
 
+    public String getProjectLeaderName() {
+        return projectLeader.getUsername();
+    }
+
 }

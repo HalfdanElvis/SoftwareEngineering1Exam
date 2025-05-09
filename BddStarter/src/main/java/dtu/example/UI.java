@@ -206,10 +206,11 @@ public class UI {
         System.out.println("Manage Project Menu:");
         System.out.println("-------------------------");
         System.out.println("1. Make activity");
-        System.out.println("2. Assign Project-leader");
-        System.out.println("3. Delete activity");
-        System.out.println("4. Delete project");
-        System.out.println("5. Exit menu");
+        System.out.println("2. View activities");
+        System.out.println("3. Assign Project-leader");
+        System.out.println("4. Delete activity");
+        System.out.println("5. Delete project");
+        System.out.println("6. Exit menu");
         System.out.println("-------------------------");
 
         System.out.println();
