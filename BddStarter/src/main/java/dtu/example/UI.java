@@ -823,6 +823,18 @@ public class UI {
                                 else{
                                     break;
                                 }
+                            } else {
+                                System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                                String inputdate = console.nextLine();
+                                System.out.println("Please write the project ID of your activity");
+                                Integer projectID = Integer.parseInt(console.nextLine());
+                                System.out.println("Your current hours on the activity on {inputdate} is:");
+                                System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, app.getSignedInEmployeeUsername(), inputdate));
+                                System.out.println("Please write the hours you would like to add or remove from the activity. Negative numbers are removed hours, positive are added");
+                                Float hours = Float.parseFloat(console.nextLine());
+                                app.logHours(projectID, input, inputdate, hours);
+                                System.out.println("The new amount of hours is:");
+                                System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, app.getSignedInEmployeeUsername(), inputdate));
                             }
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
