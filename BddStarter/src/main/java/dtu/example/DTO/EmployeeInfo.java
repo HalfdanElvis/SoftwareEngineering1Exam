@@ -2,22 +2,7 @@ package dtu.example.dto;
 
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 import dtu.example.*;
-=======
-
-import dtu.example.Employee;
->>>>>>> Stashed changes
-=======
-
-import dtu.example.Employee;
->>>>>>> Stashed changes
-=======
-
-import dtu.example.Employee;
->>>>>>> Stashed changes
 
 public class EmployeeInfo {
     private String username;

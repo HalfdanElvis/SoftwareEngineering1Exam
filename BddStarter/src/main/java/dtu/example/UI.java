@@ -3,25 +3,10 @@ package dtu.example;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import dtu.example.dto.ActivityInfo;
+import dtu.example.dto.EmployeeInfo;
+import dtu.example.dto.ProjectInfo;
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-import dtu.example.DTO.ActivityInfo;
-import dtu.example.DTO.EmployeeInfo;
-import dtu.example.DTO.ProjectInfo;
-=======
-import dtu.example.dto.ActivityInfo;
-import dtu.example.dto.ProjectInfo;
->>>>>>> Stashed changes
-=======
-import dtu.example.dto.ActivityInfo;
-import dtu.example.dto.ProjectInfo;
->>>>>>> Stashed changes
-=======
-import dtu.example.dto.ActivityInfo;
-import dtu.example.dto.ProjectInfo;
->>>>>>> Stashed changes
 
 public class UI {
 
