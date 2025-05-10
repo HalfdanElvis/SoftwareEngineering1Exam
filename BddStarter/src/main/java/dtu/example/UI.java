@@ -703,7 +703,9 @@ public class UI {
         System.out.println();
         System.out.println("Users:");
         System.out.println("-------------------------");
-        
+        for (int i = 0; i<app.viewAllEmployees().size(); i++){
+            System.out.println(app.viewAllEmployees().get(i));
+        }
         System.out.println("-------------------------");
         System.out.println();
         System.out.println("Select a user from the list above by inserting their username:");
@@ -866,7 +868,6 @@ public class UI {
                     
                     List<ActivityInfo> allActivities = app.getAllActivityInfos();
                     List<String> allActivityStrings = new ArrayList<String>();
-                    System.out.println(allActivityStrings);
                     for (int i = 0; i<allActivities.size(); i++){
                         allActivityStrings.add((allActivities.get(i).getName()));
                     }

@@ -93,6 +93,15 @@ public class App {
     public List<String> viewAvailableEmployees(int year, int week) {
         return viewAvailableEmployees(year, week, year, week);
     }
+    public List<String> viewAllEmployees(){
+        List<String> employeeNames = new ArrayList<String>();
+        List<Employee> employees = new ArrayList<Employee>();
+        employees=systemStorage.getAllEmployees();
+        for (int i = 0; i<employees.size(); i++){
+            employeeNames.add(employees.get(i).getUsername());
+        }
+        return employeeNames;
+    }
 
     public void setSelectedEmployee(String username) {
         selectedEmployee = systemStorage.getEmployee(username);

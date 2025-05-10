@@ -102,5 +102,8 @@ public class SystemStorage {
     public List<Project> getAllProjects() {
         return projects;
     }
+    public List<Employee> getAllEmployees(){
+        return employees;
+    }
 
 }
