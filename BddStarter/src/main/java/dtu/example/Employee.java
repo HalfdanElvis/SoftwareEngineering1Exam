@@ -35,6 +35,7 @@ public class Employee {
         specialActivities.add(activity);
     }
 
+
     public boolean isAssignedActivity(String activityName) {
         for (Activity activity : activities) {
             if (activity.getName().equals(activityName)) {

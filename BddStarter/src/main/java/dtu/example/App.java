@@ -4,9 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import dtu.example.DTO.ProjectInfo;
-
 import java.util.Calendar;
 import dtu.example.DTO.*;
 

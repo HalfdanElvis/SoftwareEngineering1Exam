@@ -761,11 +761,16 @@ public class UI {
                         System.out.println("Employee has been succesfully assigned to activity "+activityName );
                     } catch(Exception e) {
                         System.out.println("An error occurred while processing input: " + e.getMessage());
+                        continue;
                     }
 
                     break;
 
                 case 2:
+                    System.out.println("Please write the ");
+                    //app.addSpecialActivity(specialActivityName, employeeUsername, start year, startweek, endyear, endweek){
+
+                    //}
                     break;
 
                 case 3:
