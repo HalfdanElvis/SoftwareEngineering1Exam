@@ -576,6 +576,7 @@ public class UI {
                                 } while(makenew);
                                 break;
                             case 2:
+                                project = app.createDTOProject(projectID);
 
                                 if (project.getActivities().size() == 0) {
                                     System.out.println("-------------------------");
@@ -584,9 +585,7 @@ public class UI {
                                     System.out.println("Press \'Enter\' to return");
                                     input = console.nextLine();
                                     break;
-                                }
-                                
-                                project = app.createDTOProject(projectID);    
+                                }    
 
                                 System.out.println("-------------------------");
                                 System.out.println("List of activities");
@@ -594,9 +593,14 @@ public class UI {
                                 System.out.println();
                                 
                                 for (int i = 0; i < project.getActivities().size(); i++) {
-                                    System.out.print(project.getActivities().get(i).getName()+", StartWeek: ");
-                                    System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
-                                    System.out.println(project.getActivities().get(i).getEndWeek().getWeek());
+                                    if (project.getActivities().get(i).getStartWeek() != null) {
+                                        System.out.print(project.getActivities().get(i).getName()+", StartWeek: ");
+                                        System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
+                                        System.out.println(project.getActivities().get(i).getEndWeek().getWeek()); 
+                                    } else {
+                                        System.out.println(project.getActivities().get(i).getName());
+                                    }
+                                    
                                 }
 
                                 System.out.println();
