@@ -310,15 +310,13 @@ public class App {
         return projectInfos;
     }
     public List<ActivityInfo> getAllActivityInfos(){
+        activityInfos = new ArrayList<>();
         projectInfos = getallProjectInfos();
         for(int i = 0; i<projectInfos.size(); i++){
             activityInfos=(projectInfos.get(i).getActivities());
-            for (int j = 0; j < activityInfos.size(); j++){
-                allActivityInfos.add(activityInfos.get(j));
-            }
         }
 
-        return allActivityInfos;
+        return activityInfos;
     }
 
     //For tests

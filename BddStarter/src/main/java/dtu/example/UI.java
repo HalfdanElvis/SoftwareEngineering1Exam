@@ -828,7 +828,7 @@ public class UI {
                                 String inputdate = console.nextLine();
                                 System.out.println("Please write the project ID of your activity");
                                 Integer projectID = Integer.parseInt(console.nextLine());
-                                System.out.println("Your current hours on the activity on {inputdate} is:");
+                                System.out.println("Your current hours on the activity on  " +inputdate + " is:");
                                 System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, app.getSignedInEmployeeUsername(), inputdate));
                                 System.out.println("Please write the hours you would like to add or remove from the activity. Negative numbers are removed hours, positive are added");
                                 Float hours = Float.parseFloat(console.nextLine());
@@ -847,7 +847,8 @@ public class UI {
                     System.out.println("All activities:");
                     
                     List<ActivityInfo> allActivities = app.getAllActivityInfos();
-                    List<String> allActivityStrings = new ArrayList<>();
+                    List<String> allActivityStrings = new ArrayList<String>();
+                    System.out.println(allActivityStrings);
                     for (int i = 0; i<allActivities.size(); i++){
                         allActivityStrings.add((allActivities.get(i).getName()));
                     }
@@ -873,7 +874,7 @@ public class UI {
                                 String inputdate = console.nextLine();
                                 System.out.println("Please write the project ID of your activity");
                                 Integer projectID = Integer.parseInt(console.nextLine());
-                                System.out.println("Your current hours on the activity on {inputdate} is:");
+                                System.out.println("Your current hours on the activity on " +inputdate + " is:");
                                 System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, app.getSignedInEmployeeUsername(), inputdate));
                                 System.out.println("Please write the hours you would like to add or remove from the activity. Negative numbers are removed hours, positive are added");
                                 Float hours = Float.parseFloat(console.nextLine());
