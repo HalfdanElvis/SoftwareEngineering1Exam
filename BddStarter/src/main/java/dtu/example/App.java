@@ -93,6 +93,15 @@ public class App {
     public List<String> viewAvailableEmployees(int year, int week) {
         return viewAvailableEmployees(year, week, year, week);
     }
+    public List<String> viewAllEmployees(){
+        List<String> employeeNames = new ArrayList<String>();
+        List<Employee> employees = new ArrayList<Employee>();
+        employees=systemStorage.getAllEmployees();
+        for (int i = 0; i<employees.size(); i++){
+            employeeNames.add(employees.get(i).getUsername());
+        }
+        return employeeNames;
+    }
 
     public void setSelectedEmployee(String username) {
         selectedEmployee = systemStorage.getEmployee(username);
@@ -189,6 +198,16 @@ public class App {
         Employee employee = stringToEmployee(username);
         return new EmployeeInfo(employee).getActivityInfos();
     }
+      public List<String> getUserActivitiesInfoNames(String username){
+        Employee employee = stringToEmployee(username);
+        List<ActivityInfo> activities = new EmployeeInfo(employee).getActivityInfos();
+        List<String> activityNames = new ArrayList<String>();
+        for (int i =0; i<activities.size(); i++){
+            activityNames.add(activities.get(i).getName());
+        }
+        return activityNames;
+    }
+
 
     public EmployeeInfo getEmployeeInfo(String username) {
         return new EmployeeInfo(systemStorage.getEmployee(username));
@@ -277,15 +296,13 @@ public class App {
         return projectInfos;
     }
     public List<ActivityInfo> getAllActivityInfos(){
+        activityInfos = new ArrayList<>();
         projectInfos = getallProjectInfos();
         for(int i = 0; i<projectInfos.size(); i++){
             activityInfos=(projectInfos.get(i).getActivities());
-            for (int j = 0; j < activityInfos.size(); j++){
-                allActivityInfos.add(activityInfos.get(j));
-            }
         }
 
-        return allActivityInfos;
+        return activityInfos;
     }
 
     //For tests
