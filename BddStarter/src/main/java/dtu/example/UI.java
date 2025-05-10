@@ -320,7 +320,7 @@ public class UI {
     
     public void printSelectedEmployeeSpecialActivities() {
 
-        ArrayList<SpecialActivity> specialActivities = app.getSelectedEmployee().getSpecialActivities();
+        ArrayList<SpecialActivity> specialActivities = null;//app.getSelectedEmployee().getSpecialActivities();
         
         for (int i = 1; i-1 < app.getSelectedEmployeeSpecialActivitiesLength(); i++){
             System.out.println(i+": "+specialActivities.get(i-1).getName()+" - stating in year: " + specialActivities.get(i-1).getStartWeek().getYear() 
