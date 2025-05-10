@@ -44,15 +44,19 @@ public class Employee {
         return false;
     }
 
+        public boolean isAssignedSpecialActivity(String activityName) {
+        for (SpecialActivity specialActivity : specialActivities) {
+            if (specialActivity.getName().equals(activityName)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 
     public String getUsername() { return username; }
     public void setPeak(boolean peak) { this.peak = peak; }
     public boolean isPeak() { return peak; }
-
-    public int howManyAssignedActivites() {
-        return activities.size();
-    }
 
     public void removeActivity(String activityName) {
         boolean activityExists = false;
@@ -68,10 +72,6 @@ public class Employee {
     }
 
     public List<Activity> getActivities() {
-        return activities;
-    }
-
-    public List<Activity> getEmployeeActivities(){
         return activities;
     }
 
@@ -136,23 +136,12 @@ public class Employee {
         return true;
     }
 
-
-
-
-
     // Special Activity metoder
 
-    public ArrayList<Activity> getAllSpecialActivities(){
-        ArrayList<Activity> specialActivities = new ArrayList<>();
-        for (Activity a : activities){
-        }
+    public List<SpecialActivity> getSpecialActivities(){
         return specialActivities;
     }
-
-    public int howManySpecialActivities() {
-        return getAllSpecialActivities().size();
-    }
-    
+    /*
     public void printAllSpecialActivities() {
 
         ArrayList<Activity> specialActivities = getAllSpecialActivities();
@@ -174,5 +163,6 @@ public class Employee {
         return specialActivities.get(index-1);
 
     }
+    */
 
 }

@@ -4,9 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import dtu.example.DTO.ProjectInfo;
-
 import java.util.Calendar;
 import dtu.example.DTO.*;
 
@@ -58,8 +55,8 @@ public class App {
         }
     }
 
-    public Employee getSignedInEmployee() {
-        return signedInEmployee;
+    public EmployeeInfo getSignedInEmployee() {
+        return new EmployeeInfo(signedInEmployee);
     }
 
     public void setSignedInEmployee(String signedInEmployee) {
@@ -125,18 +122,6 @@ public class App {
     public int createProject(String name) {
         return systemStorage.createProject(name, dateServer.getYear());
     }
-    
-    public boolean projectExists(String string, int id) {
-        return systemStorage.getProject(id).getName().equals(string);
-    }
-
-    public boolean projectContainsActivity(int id, String activity) {
-        return systemStorage.getProject(id).containsActivity(activity);
-    }
-
-    public boolean employeeIsAssignedActivity(String employee, String activity) {
-        return stringToEmployee(employee).isAssignedActivity(activity);
-    }
 
     public void assignLeader(String username, Integer id) {
         Employee employee = systemStorage.getEmployee(username);
@@ -144,20 +129,8 @@ public class App {
         project.assignLeader(employee, signedInEmployee);
     }
 
-    public boolean projectHasLeader(int id) {
-        return systemStorage.getProject(id).hasProjectLeader();
-    }
-    
-    public String getProjectLeaderName(int id) {
-        return systemStorage.getProject(id).getProjectLeader().getUsername();
-    }
-
     public void setActivityExpectedHours(int projectID, String activityName, float hours) throws IllegalAccessException {
         systemStorage.getProject(projectID).setActivityExpectedHours(activityName, hours, signedInEmployee);
-    }
-
-    public float getActivityExpectedHours(int projectID, String activityName) {
-        return systemStorage.getProject(projectID).getActivityExpectedHours(activityName);
     }
 
     public void assignEmployeeToActivity(String username, int projectID, String activtyName) throws Exception {
@@ -215,6 +188,10 @@ public class App {
     public List<ActivityInfo> getUserActivitiesInfo(String username){
         Employee employee = stringToEmployee(username);
         return new EmployeeInfo(employee).getActivityInfos();
+    }
+
+    public EmployeeInfo getEmployeeInfo(String username) {
+        return new EmployeeInfo(systemStorage.getEmployee(username));
     }
 
     public void deleteActivity(int projectID, String activityName) {

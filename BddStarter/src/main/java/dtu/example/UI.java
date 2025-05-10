@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import dtu.example.DTO.ActivityInfo;
+import dtu.example.DTO.EmployeeInfo;
 import dtu.example.DTO.ProjectInfo;
 
 public class UI {
@@ -69,7 +70,7 @@ public class UI {
                                     // Manage your special activites
 
                                     // Checks if you have any special activites
-                                    if(app.getSignedInEmployee().howManySpecialActivities() == 0){
+                                    if(app.getSignedInEmployee().getSpecialActivities().size() == 0){
                                         System.out.println("you have no special activities, returning to main menu.");
                                         break;
                                     }
@@ -296,9 +297,9 @@ public class UI {
                 //SpecialActivity a = new SpecialActivity(activityName);
                 
                 if (goesIntoNextyear) {
-                    app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
+                    //app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
                 } else {
-                    app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt, activityEndWeekInt);
+                    //app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt, activityEndWeekInt);
                 }
                 
                 
@@ -321,12 +322,13 @@ public class UI {
     // Manage Special Activity
     public static void manageSpecialActivitiesUI() {
         int choice = -1;
-        while (!(choice<=app.getSignedInEmployee().howManySpecialActivities() && choice >= 1)) {
+        EmployeeInfo employee = app.getSignedInEmployee();
+        while (!(choice <= employee.getSpecialActivities().size() && choice >= 1)) {
             // Select Activity
             System.out.println();
             System.out.println("Special Activites:");
             System.out.println("-------------------------");
-            app.getSignedInEmployee().printAllSpecialActivities();
+            //app.getSignedInEmployee().printAllSpecialActivities();
             System.out.println("-------------------------");
             System.out.println();
             System.out.println("select the special activity you want to manage by entering the number in front of it:");
@@ -339,7 +341,7 @@ public class UI {
                 System.out.println("Invalid input. Please enter a number from the menu.");
                 continue; // skip the rest of the loop and prompt again
             }
-            app.setSelectedSpecialActivity(app.getSignedInEmployee().selectSpecialActivityNumber(choice));
+            //app.setSelectedSpecialActivity(app.getSignedInEmployee().selectSpecialActivityNumber(choice));
         }
 
         while (true) {

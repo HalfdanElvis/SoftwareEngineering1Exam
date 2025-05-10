@@ -2,6 +2,7 @@ package dtu.example;
 
 import static org.junit.Assert.assertEquals;
 
+import dtu.example.DTO.ProjectInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -75,6 +76,7 @@ public class ActivityExpectedHoursSteps {
 
     @Then("the activity's expected total work hours is {int}")
     public void theActivitySExpectedTotalWorkHoursIs(Integer hours) {
-        assertEquals(hours, app.getActivityExpectedHours(testHelper.getProjectID(), testHelper.getActivityName()), 0);
+        ProjectInfo project = app.createDTOProject(testHelper.getProjectID()); 
+        assertEquals(hours, ProjectTestHelper.getActivityExpectedHours(project, testHelper.getActivityName()), 0);
     }
 }

@@ -4,7 +4,9 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
 
+import dtu.example.DTO.ProjectInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -47,7 +49,8 @@ public class CreateProjectSteps {
 
     @Then("a project with name {string} and ID {int} exists")
     public void aProjectWithNameAndIDExists(String name, Integer id) {
-        app.projectExists(name, id);
+        List<ProjectInfo> allProjects = app.getallProjectInfos();
+        assert(ProjectTestHelper.projectExists(allProjects, id, name));
     }
 
     @Then("the error message {string} is given")
