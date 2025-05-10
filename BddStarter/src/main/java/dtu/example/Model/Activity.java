@@ -39,9 +39,9 @@ public class Activity {
 
     public void setStartAndEndWeek(int startYear, int startWeek, int endYear, int endWeek) {
         Week sWeek = new Week(startYear, startWeek);
-        Week eWeek = new Week(startYear, startWeek);
+        Week eWeek = new Week(endYear, endWeek);
         if (!eWeek.isGreaterOrEqual(sWeek)) {
-            throw new IllegalArgumentException("End week must be greater or equal than start week");
+            throw new IllegalArgumentException("End week/year must be greater or equal than start week/year");
         }
         this.startWeek = sWeek;
         this.endWeek = eWeek;

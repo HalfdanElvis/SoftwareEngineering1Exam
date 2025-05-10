@@ -434,21 +434,40 @@ public class UI {
 
     public static void createProjectUI() {
         boolean exit = true;
+        String projectName = "";
+        int id = -1;
         do {
             printCreateProjectMenu();
-            String projectName = console.nextLine();
-            int id = app.createProject(projectName);
+            try {
+                projectName = console.nextLine();
+                id = app.createProject(projectName);
+                newPage();
+                
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
             
             System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
             System.out.println("-------------------------");
-            System.out.println("Want to create another project Y/N?"); 
-            exit = app.yesOrNo(console.nextLine()); 
+            System.out.println("Want to create another project Y/N?");
+            while (true) {
+                try {
+                    exit = app.yesOrNo(console.nextLine());
+                    newPage();
+                    break; 
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+            
+            
         } while(exit);
     }
 
 
     public static void manageProjectUI() throws IllegalAccessException {
         boolean exit = true;
+        System.out.println("-------------------------");
         System.out.println("Enter year of the project:");
         outerloop:
         while (true) {
@@ -457,6 +476,7 @@ public class UI {
                 String input = console.nextLine();
                 App.isPositiveInt(input);
                 int year = Integer.parseInt(input);
+                newPage();
                 
 
                 while (true) {
@@ -467,6 +487,7 @@ public class UI {
                     System.out.println();
                     System.out.println("Press \'Enter\' to return");
                     input = console.nextLine();
+                    newPage();
                     break outerloop;
                     }
 
@@ -495,6 +516,7 @@ public class UI {
                             App.isPositiveInt(input);
                             projectID = Integer.parseInt(input);
                             project = app.createDTOProject(projectID);
+                            newPage();
                             break;
                         } catch (Exception e) {
                             System.err.println(e.getMessage());
@@ -519,10 +541,12 @@ public class UI {
                             case 1:
                                 boolean makenew = true;
                                 do {
+                                    System.out.println("-------------------------");
                                     System.out.println("Enter name for activity:");
                                     String activityName = console.nextLine();
                                     app.addActivity(projectID, activityName);
-
+                                    newPage();
+                                    System.out.println("-------------------------");
                                     System.out.println("Activity "+activityName+" is created");
                                     System.out.println("-------------------------");
                                     System.out.println("Do you want to specify a Start and End week Y/N?");
@@ -537,54 +561,28 @@ public class UI {
 
                                             while (true) {
                                                 try {
+                                                    System.out.println("-------------------------");
                                                     System.out.println("What is the starting year for "+ activityName);
                                                     input = console.nextLine();
                                                     App.isPositiveInt(input);
                                                     startYear = Integer.parseInt(input);
-                                                    break;
-                                                } catch (Exception e) {
-                                                    System.err.println(e.getMessage());
-                                                }
-                                            }
+                                                    newPage();
 
-                                            while (true) {
-                                                try {
+                                                    System.out.println("-------------------------");
                                                     System.out.println("What is the due year for "+ activityName);
                                                     input = console.nextLine();
                                                     App.isPositiveInt(input);
                                                     endYear = Integer.parseInt(input);
-                                                    break;
-                                                } catch (Exception e) {
-                                                    System.err.println(e.getMessage());
-                                                }
-                                            }
+                                                    newPage();
 
-                                            while (true) {
-                                                try {
-                                                    System.out.println("What is the due year for "+ activityName);
-                                                    input = console.nextLine();
-                                                    App.isPositiveInt(input);
-                                                    endYear = Integer.parseInt(input);
-                                                    break;
-                                                } catch (Exception e) {
-                                                    System.err.println(e.getMessage());
-                                                }
-                                            }
-                                            
-                                            while (true) {
-                                                try {
+                                                    System.out.println("-------------------------");
                                                     System.out.println("Enter Start week for "+activityName);
                                                     input = console.nextLine();
                                                     App.isWeek(input,endYear);
                                                     startWeek = Integer.parseInt(input);
-                                                    break;
-                                                } catch (Exception e) {
-                                                    System.err.println(e.getMessage());
-                                                }
-                                            }
-                                            
-                                            while (true) {
-                                                try {
+                                                    newPage();
+
+                                                    System.out.println("-------------------------");
                                                     System.out.println("Enter End Week for "+activityName);
                                                     input = console.nextLine();
                                                     App.isWeek(input,endYear);
@@ -598,8 +596,9 @@ public class UI {
                                                 }
                                             }
                                         }
+                                        System.out.println("-----------------------------------------------------");
                                         System.out.println("\nSuccesfully created activity \""+activityName+"\"");
-                                        System.out.println("-------------------------");
+                                        System.out.println("-----------------------------------------------------");
                                         System.out.println("Want to create another activity Y/N?");
                                         while(true) {
                                             try {
@@ -636,9 +635,13 @@ public class UI {
                                 
                                 for (int i = 0; i < project.getActivities().size(); i++) {
                                     if (project.getActivities().get(i).getStartWeek() != null) {
-                                        System.out.print(project.getActivities().get(i).getName()+", Active from: ");
-                                        System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
-                                        System.out.println(project.getActivities().get(i).getEndWeek().getWeek()); 
+
+                                        System.out.println(project.getActivities().get(i).getName()+", Active from: " 
+                                        +project.getActivities().get(i).getStartWeek().getYear()+"-W"
+                                        +project.getActivities().get(i).getStartWeek().getWeek()+" to "
+                                        +project.getActivities().get(i).getEndWeek().getYear()+"-W"
+                                        +project.getActivities().get(i).getEndWeek().getWeek());
+
                                     } else {
                                         System.out.println(project.getActivities().get(i).getName());
                                     }
@@ -657,10 +660,13 @@ public class UI {
                                         System.out.println("-------------------------");
                                         System.out.println("Press \'Enter\' to return");
                                         input = console.nextLine();
+                                        newPage();
                                         break;
                                     }
                                 }
+                                System.out.println("--------------------------------------------");
                                 System.out.println("Enter username of the to be assigned leader:");
+                                newPage();
                                 
                                 String username;
 
@@ -675,12 +681,12 @@ public class UI {
                                     }
                                 }
                                 
-                                System.out.println();
+                                System.out.println("----------------------------------------------------------------");
                                 System.out.println("Employee "+username+" was succesfully assigned as projectleader.");
-                                System.out.println();
-                                System.out.println("-------------------------");
+                                System.out.println("----------------------------------------------------------------");
                                 System.out.println("Press \'Enter\' to return");
                                 input = console.nextLine();
+                                newPage();
                                 break;
                             case 4:
                                 project = app.createDTOProject(projectID);
@@ -691,6 +697,7 @@ public class UI {
                                     System.out.println("-------------------------");
                                     System.out.println("Press \'Enter\' to return");
                                     input = console.nextLine();
+                                    newPage();
                                     break;
                                 }
 
@@ -729,6 +736,7 @@ public class UI {
                                 System.out.println("-------------------------");
                                 System.out.println("Press \'Enter\' to return");
                                 input = console.nextLine();
+                                newPage();
                                 break;
                             case 5:
                                 boolean leave = false;
@@ -1003,7 +1011,7 @@ public class UI {
     }
 
     public static void newPage() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             System.out.println();
         }
     }
