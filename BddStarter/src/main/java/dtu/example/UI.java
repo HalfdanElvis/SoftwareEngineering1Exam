@@ -750,6 +750,19 @@ public class UI {
             boolean back = false;
             switch (choice) {
                 case 1:
+                    System.out.println("Write the projectID of the activity");
+                    Integer projectID = Integer.parseInt(console.nextLine());
+                    System.out.println("Write the name of the activity you would like to assign the employee");
+                    String activityName = console.nextLine();
+                    System.out.println("Write the username of the employee you would like to assign to activity");
+                    String username = console.nextLine();
+                    try {
+                        app.assignEmployeeToActivity(username, projectID, activityName);
+                        System.out.println("Employee has been succesfully assigned to activity "+activityName );
+                    } catch(Exception e) {
+                        System.out.println("An error occurred while processing input: " + e.getMessage());
+                    }
+
                     break;
 
                 case 2:
