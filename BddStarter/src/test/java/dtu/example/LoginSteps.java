@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 import java.util.Scanner;
 
 import dtu.example.Controller.App;
+import dtu.example.dto.EmployeeInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -68,7 +69,8 @@ public class LoginSteps {
 
     @Then("the user {string} is logged in")
     public void theUserIsLoggedIn(String string) {
-        assert(app.getSignedInEmployeeUsername().equals(string));
+        EmployeeInfo employee = app.getSignedInEmployeeInfo();
+        assert(employee.getName().equals(string));
     }
 
     @Then("the user {string} exists")
@@ -79,7 +81,7 @@ public class LoginSteps {
     @Then("the user {string} is not logged in")
     public void theUserIsNotLoggedIn(String string) {
         try {
-            app.getSignedInEmployee();
+            app.getSignedInEmployeeInfo();
             assert(false);
         } catch (Exception e) {
             assert(true);

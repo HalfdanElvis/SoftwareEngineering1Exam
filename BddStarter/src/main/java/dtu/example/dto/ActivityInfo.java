@@ -30,5 +30,5 @@ public class ActivityInfo {
     
     public float getExpectedHours() { return expectedHours; }
     
-    public List<WorkData> getWorkDatas() { return workDataList; }
+    public List<WorkData> getWorkDataList() { return workDataList; }
 }

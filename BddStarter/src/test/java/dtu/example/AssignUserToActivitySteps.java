@@ -28,7 +28,7 @@ public class AssignUserToActivitySteps {
 
     @Given("the user is peak")
     public void theUserIsPeak() {
-        app.stringToEmployee(testHelper.getUser()).setPeak(true);
+        app.setEmployeePeak(testHelper.getUser(), true);
         EmployeeInfo employee = app.getEmployeeInfo(testHelper.getUser());
         assert(employee.isPeak() == true);
     }
