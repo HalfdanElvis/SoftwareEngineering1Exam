@@ -466,43 +466,30 @@ public class UI2 {
         selectUser();
 
         boolean back = false;
-        while (true) {
-             // Manage User
-            System.out.println();
-            System.out.println("Manage User: " + app.getSelectedEmployee().getUsername());
-            System.out.println("-------------------------");
-            System.out.println("1. Assign to Activity");
-            System.out.println("2. Assign to Special Activity");
-            System.out.println("3. Manage Special Activities") ;
-            System.out.println("4. Set/Unset Peak Performance");
-            System.out.println("5. Delete User");
-            System.out.println("6. Back");
-            System.out.println("-------------------------");
-            
-            System.out.println();
+        do {
+            // Manage User
 
-            System.out.println("Select a number from the list above to proceed.");
+            printManageUserMenu();
 
-            int choice = -1;
-
+            choice = -1;
             if (!getUserChoice()) {
-                    continue; // Resets loop if user doesn't pick a valid option.
-                }
+                continue; // Resets loop if user doesn't pick a valid option.
+            }
             
             switch (choice) {
                 case 1:
+                
                     System.out.println("Write the projectID of the activity");
                     Integer projectID = Integer.parseInt(console.nextLine());
+
                     System.out.println("Write the name of the activity you would like to assign the employee");
                     String activityName = console.nextLine();
-                    System.out.println("Write the username of the employee you would like to assign to activity");
-                    String username = console.nextLine();
+
                     try {
-                        app.assignEmployeeToActivity(username, projectID, activityName);
+                        app.assignEmployeeToActivity(app.getSelectedEmployeeUsername(), projectID, activityName);
                         System.out.println("Employee has been succesfully assigned to activity "+activityName );
                     } catch(Exception e) {
                         System.out.println("An error occurred while processing input: " + e.getMessage());
-                        continue;
                     }
 
                     break;
@@ -523,16 +510,12 @@ public class UI2 {
                 case 5:
                     back = true;
                     break;
-            
+
                 default:
                     break;
-
             }
 
-            if (back) {
-                break;
-            }
-        }
+        } while (!back);
     }
 
     public static void selectUser() {
@@ -557,6 +540,21 @@ public class UI2 {
                 System.err.println(e.getMessage());
             }
         }
+    }
+
+    public static void printManageUserMenu() {
+        System.out.println();
+        System.out.println("Manage User: " + app.getSelectedEmployee().getUsername());
+        System.out.println("-------------------------");
+        System.out.println("1. Assign to Activity");
+        System.out.println("2. Assign to Special Activity");
+        System.out.println("3. Manage Special Activities") ;
+        System.out.println("4. Set/Unset Peak Performance");
+        System.out.println("5. Delete User");
+        System.out.println("6. Back");
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("Select a number from the list above to proceed.");
     }
 
     public static void CreateSpecialActivityUI() {
