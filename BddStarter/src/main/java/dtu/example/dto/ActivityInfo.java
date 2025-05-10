@@ -1,4 +1,4 @@
-package dtu.example.dto;
+package dtu.example.DTO;
 
 import java.util.List;
 

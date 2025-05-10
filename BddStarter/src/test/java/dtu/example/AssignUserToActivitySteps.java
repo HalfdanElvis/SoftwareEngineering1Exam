@@ -1,6 +1,6 @@
 package dtu.example;
 
-import dtu.example.dto.EmployeeInfo;
+import dtu.example.DTO.EmployeeInfo;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
