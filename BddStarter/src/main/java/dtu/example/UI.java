@@ -5,9 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import dtu.example.DTO.ActivityInfo;
 import dtu.example.DTO.EmployeeInfo;
 import dtu.example.DTO.ProjectInfo;
+=======
+import dtu.example.dto.ActivityInfo;
+import dtu.example.dto.ProjectInfo;
+>>>>>>> Stashed changes
 =======
 import dtu.example.dto.ActivityInfo;
 import dtu.example.dto.ProjectInfo;
