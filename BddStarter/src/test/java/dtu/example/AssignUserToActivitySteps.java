@@ -1,5 +1,6 @@
 package dtu.example;
 
+import dtu.example.dto.EmployeeInfo;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,6 +28,8 @@ public class AssignUserToActivitySteps {
     @Given("the user is peak")
     public void theUserIsPeak() {
         app.stringToEmployee(testHelper.getUser()).setPeak(true);
+        EmployeeInfo employee = app.getEmployeeInfo(testHelper.getUser());
+        assert(employee.isPeak() == true);
     }
 
     @Given("the activity runs from week {int} to week {int} in the year {int}")
@@ -88,6 +91,7 @@ public class AssignUserToActivitySteps {
 
     @Then("the user is assigned the activity {string}")
     public void theUserIsAssignedTheActivity(String string) {
-        assert(app.employeeIsAssignedActivity(testHelper.getUser(), string));
+        EmployeeInfo employee = app.getEmployeeInfo(testHelper.getUser());
+        assert(EmployeeTestHelper.employeeIsAssignedActivity(employee, string));
     }
 }

@@ -3,6 +3,7 @@ package dtu.example;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import dtu.example.dto.ProjectInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -43,6 +44,7 @@ public class AssignLeaderSteps {
     }
     @Then("the project should have a project leader {string}")
     public void theProjectShouldHaveAProjectLeader(String string) {
-        assertEquals(app.getProjectLeaderName(testHelper.getProjectID()), string);
+        ProjectInfo project = app.createDTOProject(testHelper.getProjectID()); 
+        assertEquals(project.getProjectLeaderUsername(), string);
     }
 }

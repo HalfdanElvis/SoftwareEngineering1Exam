@@ -33,6 +33,23 @@ public class Employee {
         }
         SpecialActivity activity = new SpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
         specialActivities.add(activity);
+    }    
+
+    public void deleteSpecialActivity(String activityName) {
+        boolean activityExists = false;
+        for (int i = 0; i < specialActivities.size(); i++) {
+            if (specialActivities.get(i).getName().equals(activityName) ) {
+                specialActivities.remove(i);
+                activityExists = true;
+            }
+        }
+        if (!activityExists) {
+            throw new IllegalArgumentException("User is not assigned that activity");
+        }
+    }
+
+    public List<SpecialActivity> getSpecialActivities(){
+        return specialActivities;
     }
 
     public boolean isAssignedActivity(String activityName) {
@@ -44,15 +61,21 @@ public class Employee {
         return false;
     }
 
+        public boolean isAssignedSpecialActivity(String activityName) {
+        for (SpecialActivity specialActivity : specialActivities) {
+            if (specialActivity.getName().equals(activityName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    
     
 
     public String getUsername() { return username; }
     public void setPeak(boolean peak) { this.peak = peak; }
     public boolean isPeak() { return peak; }
-
-    public int howManyAssignedActivites() {
-        return activities.size();
-    }
 
     public void removeActivity(String activityName) {
         boolean activityExists = false;
@@ -68,10 +91,6 @@ public class Employee {
     }
 
     public List<Activity> getActivities() {
-        return activities;
-    }
-
-    public List<Activity> getEmployeeActivities(){
         return activities;
     }
 
@@ -136,43 +155,13 @@ public class Employee {
         return true;
     }
 
-
-
-
-
     // Special Activity metoder
 
-    public ArrayList<Activity> getAllSpecialActivities(){
-        ArrayList<Activity> specialActivities = new ArrayList<>();
-        for (Activity a : activities){
-        }
-        return specialActivities;
-    }
-
-    public int howManySpecialActivities() {
-        return getAllSpecialActivities().size();
-    }
     
-    public void printAllSpecialActivities() {
+    /*
+    
 
-        ArrayList<Activity> specialActivities = getAllSpecialActivities();
-
-        //SortByDate(specialActivities):
-
-        for (int i = 1; i-1 < howManySpecialActivities(); i++){
-            System.out.println(i+": "+specialActivities.get(i-1).getName()+" - stating in year: " + specialActivities.get(i-1).getStartWeek().getYear() 
-            + " week: " + specialActivities.get(i-1).getStartWeek().getWeek() + " to year: " + specialActivities.get(i-1).getEndWeek().getYear() 
-            + " week: " + specialActivities.get(i-1).getEndWeek().getWeek());
-        }
-    }
-
-    public Activity selectSpecialActivityNumber(int index) {
-        ArrayList<Activity> specialActivities = getAllSpecialActivities();
-
-        //SortByDate(specialActivities):
-
-        return specialActivities.get(index-1);
-
-    }
+    
+    */
 
 }

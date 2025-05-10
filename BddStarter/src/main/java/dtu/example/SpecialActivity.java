@@ -1,7 +1,5 @@
 package dtu.example;
 
-import java.util.List;
-
 public class SpecialActivity{
 
     private String name;
@@ -14,7 +12,7 @@ public class SpecialActivity{
         this.endWeek = new Week(endYear, endWeek);
     }
     
-        public String getName() {
+    public String getName() {
         return name;
     }
 
@@ -24,6 +22,11 @@ public class SpecialActivity{
 
     public Week getStartWeek() {
         return startWeek;
+    }
+
+    public void setStartAndEndWeek(int startYear, int startWeek, int endYear, int endWeek) {
+        this.startWeek = new Week(startYear, startWeek);
+        this.endWeek = new Week(endYear, endWeek);
     }
 
 }

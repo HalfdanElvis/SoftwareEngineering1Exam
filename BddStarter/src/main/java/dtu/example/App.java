@@ -4,11 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import dtu.example.DTO.ProjectInfo;
-
 import java.util.Calendar;
-import dtu.example.DTO.*;
+import dtu.example.dto.*;
 
 public class App {
 
@@ -20,7 +17,7 @@ public class App {
     private List<ActivityInfo> activityInfos = new ArrayList<>();
     private List<ActivityInfo> allActivityInfos = new ArrayList<>();
 
-    private Activity selectedSpecialActivity;
+    private static SpecialActivity selectedSpecialActivity;
 
 
 
@@ -58,8 +55,8 @@ public class App {
         }
     }
 
-    public Employee getSignedInEmployee() {
-        return signedInEmployee;
+    public EmployeeInfo getSignedInEmployee() {
+        return new EmployeeInfo(signedInEmployee);
     }
 
     public void setSignedInEmployee(String signedInEmployee) {
@@ -70,7 +67,6 @@ public class App {
         if (legalUsername(username)) {
             systemStorage.addEmployee(username);
         }
-        
     }
 
     public Employee stringToEmployee(String string) {
@@ -78,11 +74,17 @@ public class App {
     }
 
     public void deleteEmployee(String username){
-        systemStorage.deleteEmployee(username);
+        if (employeeExists(username)){
+            systemStorage.deleteEmployee(username);
+        }
     }
 
     public String getSignedInEmployeeUsername() {
         return signedInEmployee.getUsername();
+    }
+
+    public boolean isSignedInEmployeePeak() {
+        return signedInEmployee.isPeak();
     }
 
     public boolean aUserIsLoggedIn() {
@@ -96,6 +98,15 @@ public class App {
     public List<String> viewAvailableEmployees(int year, int week) {
         return viewAvailableEmployees(year, week, year, week);
     }
+    public List<String> viewAllEmployees(){
+        List<String> employeeNames = new ArrayList<String>();
+        List<Employee> employees = new ArrayList<Employee>();
+        employees=systemStorage.getAllEmployees();
+        for (int i = 0; i<employees.size(); i++){
+            employeeNames.add(employees.get(i).getUsername());
+        }
+        return employeeNames;
+    }
 
     public void setSelectedEmployee(String username) {
         selectedEmployee = systemStorage.getEmployee(username);
@@ -103,6 +114,18 @@ public class App {
 
     public Employee getSelectedEmployee() {
         return selectedEmployee;
+    }
+
+    public String getSelectedEmployeeUsername() {
+        return selectedEmployee.getUsername();
+    }
+
+    public int getSelectedEmployeeSpecialActivitiesLength() {
+        return selectedEmployee.getSpecialActivities().size();
+    }
+
+    public void setSelectedEmployeePeak(boolean peak) {
+        selectedEmployee.setPeak(peak);
     }
 
     public boolean employeeExists(String employee) {
@@ -119,23 +142,16 @@ public class App {
     }
 
     public void addSpecialActivity(String activityName, int startYear, int startWeek, int endYear, int endWeek){
-        signedInEmployee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
+        selectedEmployee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
     }
+
+    public void deleteSpecialActivity(String activityName){
+        selectedEmployee.deleteSpecialActivity(activityName);
+    }
+    
 
     public int createProject(String name) {
         return systemStorage.createProject(name, dateServer.getYear());
-    }
-    
-    public boolean projectExists(String string, int id) {
-        return systemStorage.getProject(id).getName().equals(string);
-    }
-
-    public boolean projectContainsActivity(int id, String activity) {
-        return systemStorage.getProject(id).containsActivity(activity);
-    }
-
-    public boolean employeeIsAssignedActivity(String employee, String activity) {
-        return stringToEmployee(employee).isAssignedActivity(activity);
     }
 
     public void assignLeader(String username, Integer id) {
@@ -144,20 +160,8 @@ public class App {
         project.assignLeader(employee, signedInEmployee);
     }
 
-    public boolean projectHasLeader(int id) {
-        return systemStorage.getProject(id).hasProjectLeader();
-    }
-    
-    public String getProjectLeaderName(int id) {
-        return systemStorage.getProject(id).getProjectLeader().getUsername();
-    }
-
     public void setActivityExpectedHours(int projectID, String activityName, float hours) throws IllegalAccessException {
         systemStorage.getProject(projectID).setActivityExpectedHours(activityName, hours, signedInEmployee);
-    }
-
-    public float getActivityExpectedHours(int projectID, String activityName) {
-        return systemStorage.getProject(projectID).getActivityExpectedHours(activityName);
     }
 
     public void assignEmployeeToActivity(String username, int projectID, String activtyName) throws Exception {
@@ -176,11 +180,11 @@ public class App {
         project.setActivitiyStartAndEndWeek(activityName, startYear, startWeek, endYear, endWeek);
     }
 
-    public void setSelectedSpecialActivity(Activity selectedSpecialActivity) {
-        this.selectedSpecialActivity = selectedSpecialActivity;
+    public static void setSelectedSpecialActivity(SpecialActivity ssa) {
+        selectedSpecialActivity = ssa;
     }
 
-    public Activity getSelectedSpecialActivity() {
+    public static SpecialActivity getSelectedSpecialActivity() {
         return selectedSpecialActivity;
     }
 
@@ -216,9 +220,23 @@ public class App {
         Employee employee = stringToEmployee(username);
         return new EmployeeInfo(employee).getActivityInfos();
     }
+      public List<String> getUserActivitiesInfoNames(String username){
+        Employee employee = stringToEmployee(username);
+        List<ActivityInfo> activities = new EmployeeInfo(employee).getActivityInfos();
+        List<String> activityNames = new ArrayList<String>();
+        for (int i =0; i<activities.size(); i++){
+            activityNames.add(activities.get(i).getName());
+        }
+        return activityNames;
+    }
 
-    public void deleteActivity(int projectID, String activityName) {
-        systemStorage.getProject(projectID).removeActivity(activityName);
+
+    public EmployeeInfo getEmployeeInfo(String username) {
+        return new EmployeeInfo(systemStorage.getEmployee(username));
+    }
+
+    public void deleteActivity(int projectID, String activityName) throws IllegalAccessException {
+        systemStorage.getProject(projectID).removeActivity(activityName, signedInEmployee);
     } 
 
 
@@ -300,15 +318,13 @@ public class App {
         return projectInfos;
     }
     public List<ActivityInfo> getAllActivityInfos(){
+        activityInfos = new ArrayList<>();
         projectInfos = getallProjectInfos();
         for(int i = 0; i<projectInfos.size(); i++){
             activityInfos=(projectInfos.get(i).getActivities());
-            for (int j = 0; j < activityInfos.size(); j++){
-                allActivityInfos.add(activityInfos.get(j));
-            }
         }
 
-        return allActivityInfos;
+        return activityInfos;
     }
 
     //For tests

@@ -1,10 +1,10 @@
-package dtu.example.DTO;
+package dtu.example.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import dtu.example.Activity;
 import dtu.example.Project;
-import io.cucumber.java.cs.A;
 
 public class ProjectInfo {
     private String name;
@@ -16,8 +16,8 @@ public class ProjectInfo {
         this.name = project.getName();
         this.ID = project.getID();
         this.activities = new ArrayList<>();
-        for (int i = 0; i < project.getActivities().size(); i++) {
-            activities.add(new ActivityInfo(project.getActivities().get(i)));
+        for (Activity activity : project.getActivities()) {
+            activities.add(new ActivityInfo(activity));
         }
         try {
             this.projectLeaderUsername = project.getProjectLeaderName();

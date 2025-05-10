@@ -1,5 +1,6 @@
 package dtu.example;
 
+import dtu.example.dto.ProjectInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,34 +18,20 @@ public class CreateActivitySteps {
         this.testHelper = testHelper;
     }
 
-    @Given("that there exists a project {string} with project ID {int}")
-    public void thatThereExistsAProjectWithProjectID(String string, Integer id) {
-        app.createProject(string);
-        testHelper.setProjectID(id);
+    @Given("that there exists a project {string}")
+    public void thatThereExistsAProjectWithProjectID(String string) {
+        testHelper.setProjectID(app.createProject(string));
     }
 
     @Given("the project does not have a project leader")
     public void theProjectDoesNotHaveAProjectLeader() {
-        assert(!app.projectHasLeader(testHelper.getProjectID()));
+        ProjectInfo project = app.createDTOProject(testHelper.getProjectID());
+        assert(project.getProjectLeaderUsername() == "");
     }
 
     @Given("the project has a project leader {string}")
     public void theProjectHasAProjectLeader(String string) {
         app.assignLeader(string, testHelper.getProjectID());
-    }
-
-    @When("the user creates an activity {string} in the project")
-    public void theUserCreatesAnActivityInTheProject(String string) {
-        try {
-            app.addActivity(testHelper.getProjectID(), string);
-        } catch (Exception e) {
-            errorMessageHolder.setErrorMessage(e.getMessage());
-        }
-    }
-    
-    @Then("the project should contain an activity {string}")
-    public void theProjectShouldContainAnActivity(String string) {
-        assert(app.projectContainsActivity(testHelper.getProjectID(), string));
     }
 
     @Given("the project contains an activity {string}")
@@ -71,23 +58,19 @@ public class CreateActivitySteps {
         }
     }
 
-    @Given("the user is assigned a special activity {string} in week {int} in the year {int}")
-    public void theUserIsAssignedASpecialActivityInWeekInTheYear(String string, Integer int1, Integer int2) {
-        app.addSpecialActivity(string, int2, int1, int2, int1);
-    }
-
-    @When("the user creates a special activity {string} in week {int} of the year {int}")
-    public void theUserCreatesASpecialActivityInWeekOfTheYear(String string, Integer int1, Integer int2) {
+    @When("the user creates an activity {string} in the project")
+    public void theUserCreatesAnActivityInTheProject(String string) {
         try {
-            app.addSpecialActivity(string, int2, int1, int2, int1);
+            app.addActivity(testHelper.getProjectID(), string);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
-        
     }
     
-    @Then("the user is assigned to the special activity {string}")
-    public void theUserIsAssignedToTheSpecialActivity(String string) {
-        assert(app.employeeIsAssignedActivity(testHelper.getUser(), testHelper.getActivityName()));
+    @Then("the project should contain an activity {string}")
+    public void theProjectShouldContainAnActivity(String string) {
+        ProjectInfo project = app.createDTOProject(testHelper.getProjectID());
+        assert(ProjectTestHelper.projectContainsActivity(project, string));
     }
+
 }

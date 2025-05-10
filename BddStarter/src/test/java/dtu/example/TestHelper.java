@@ -6,10 +6,6 @@ public class TestHelper {
     private int projectID;
     private String activityName;
 
-    public TestHelper() {
-
-    }
-
     public String getUser() {
         return user;
     }

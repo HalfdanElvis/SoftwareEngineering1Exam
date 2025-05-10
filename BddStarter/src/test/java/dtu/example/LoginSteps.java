@@ -23,11 +23,7 @@ public class LoginSteps {
 
     @Given("the user {string} exist")
     public void theUserExist(String string) {
-        if (app.employeeExists(string)){
-            assert(true);
-        } else {
-            app.addEmployee(string);
-        }
+        app.addEmployee(string);
         
     }
 
@@ -81,7 +77,12 @@ public class LoginSteps {
 
     @Then("the user {string} is not logged in")
     public void theUserIsNotLoggedIn(String string) {
-        assert(app.getSignedInEmployee() == null || !app.getSignedInEmployeeUsername().equals(string));
+        try {
+            app.getSignedInEmployee();
+            assert(false);
+        } catch (Exception e) {
+            assert(true);
+        }
     }
 
     @Then("the user {string} does not exist")
