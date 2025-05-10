@@ -187,6 +187,7 @@ public class UI {
 
     public static void printCreateProjectMenu() {
         System.out.println();
+        System.out.println("-------------------------");
         System.out.println("Create Project");
         System.out.println("-------------------------");
         System.out.println("Enter Project name:");
@@ -526,9 +527,34 @@ public class UI {
                                     try {
                                         input = console.nextLine();
                                         if(app.yesOrNo(input)) {
+                                            int startYear = -1;
                                             int endYear = -1;
                                             int startWeek = -1;
                                             int endWeek = -1;
+
+                                            while (true) {
+                                                try {
+                                                    System.out.println("What is the starting year for "+ activityName);
+                                                    input = console.nextLine();
+                                                    App.isPositiveInt(input);
+                                                    startYear = Integer.parseInt(input);
+                                                    break;
+                                                } catch (Exception e) {
+                                                    System.err.println(e.getMessage());
+                                                }
+                                            }
+
+                                            while (true) {
+                                                try {
+                                                    System.out.println("What is the due year for "+ activityName);
+                                                    input = console.nextLine();
+                                                    App.isPositiveInt(input);
+                                                    endYear = Integer.parseInt(input);
+                                                    break;
+                                                } catch (Exception e) {
+                                                    System.err.println(e.getMessage());
+                                                }
+                                            }
 
                                             while (true) {
                                                 try {
@@ -557,11 +583,12 @@ public class UI {
                                             while (true) {
                                                 try {
                                                     System.out.println("Enter End Week for "+activityName);
-                                                input = console.nextLine();
-                                                App.isWeek(input,endYear);
-                                                endWeek = Integer.parseInt(input);
-                                                app.setActivitiyStartAndEndWeek(projectID, activityName, 2025, startWeek, endYear, endWeek);
-                                                break;
+                                                    input = console.nextLine();
+                                                    App.isWeek(input,endYear);
+                                                    endWeek = Integer.parseInt(input);
+                                                    app.setActivitiyStartAndEndWeek(projectID, activityName, startYear, startWeek, endYear, endWeek);
+                                                    newPage();
+                                                    break;
 
                                                 } catch (Exception e) {
                                                     System.err.println(e.getMessage());
@@ -606,7 +633,7 @@ public class UI {
                                 
                                 for (int i = 0; i < project.getActivities().size(); i++) {
                                     if (project.getActivities().get(i).getStartWeek() != null) {
-                                        System.out.print(project.getActivities().get(i).getName()+", StartWeek: ");
+                                        System.out.print(project.getActivities().get(i).getName()+", Active from: ");
                                         System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
                                         System.out.println(project.getActivities().get(i).getEndWeek().getWeek()); 
                                     } else {
@@ -621,10 +648,30 @@ public class UI {
                                 input = console.nextLine();
                                 break;
                             case 3:
+                                project = app.createDTOProject(projectID);
+                                if(!project.getProjectLeaderUsername().equals("")) {
+                                    if (!project.getProjectLeaderUsername().equals(app.getSignedInEmployeeUsername())) {
+                                        System.out.println("-------------------------");
+                                        System.out.println("Press \'Enter\' to return");
+                                        input = console.nextLine();
+                                        break;
+                                    }
+                                }
                                 System.out.println("Enter username of the to be assigned leader:");
-                                String username = console.nextLine();
-                                app.assignLeader(username, projectID);
-                                newPage();
+                                
+                                String username;
+
+                                while(true) {
+                                    try {
+                                        username = console.nextLine();
+                                        app.assignLeader(username, projectID);
+                                        newPage();
+                                        break;
+                                    } catch (Exception e) {
+                                        System.err.println(e.getMessage());
+                                    }
+                                }
+                                
                                 System.out.println();
                                 System.out.println("Employee "+username+" was succesfully assigned as projectleader.");
                                 System.out.println();
@@ -650,17 +697,31 @@ public class UI {
                                 System.out.println();
                                 
                                 for (int i = 0; i < project.getActivities().size(); i++) {
-                                    System.out.print(project.getActivities().get(i).getName()+", StartWeek: ");
-                                    System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
-                                    System.out.println(project.getActivities().get(i).getEndWeek().getWeek());
+                                    if (project.getActivities().get(i).getStartWeek() != null) {
+                                        System.out.print(project.getActivities().get(i).getName()+", StartWeek: ");
+                                        System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
+                                        System.out.println(project.getActivities().get(i).getEndWeek().getWeek()); 
+                                    } else {
+                                        System.out.println(project.getActivities().get(i).getName());
+                                    }
+                                    
                                 }
 
                                 System.out.println();
                                 System.out.println("-------------------------");
                                 System.out.println("Which activity do you wish to delete?");
-                                String activityString = console.nextLine();
-                                app.deleteActivity(projectID, activityString);
-                                newPage();
+                                String activityString;
+                                while (true) {
+                                    try {
+                                        activityString = console.nextLine();
+                                        app.deleteActivity(projectID, activityString);
+                                        newPage();
+                                        break;
+                                    } catch (Exception e) {
+                                        System.err.println(e.getMessage());
+                                    }
+                                }
+                                
                                 System.out.println("Succesfully removed "+activityString);
                                 System.out.println("-------------------------");
                                 System.out.println("Press \'Enter\' to return");
@@ -674,10 +735,10 @@ public class UI {
                                 } while (!leave);
                                 app.deleteProject(projectID);
                                 exit = false;
-                                break;
+                                break outerloop;
                             case 6:
                                 exit = false;
-                                break;
+                                break outerloop;
                     
                             
                             default:
@@ -685,8 +746,6 @@ public class UI {
                             
                         }
                     } while (exit);
-
-                    break;
                 }
             } catch (Exception e) {
                 System.err.println(e.getMessage());
