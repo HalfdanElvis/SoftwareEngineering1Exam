@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Calendar;
-import dtu.example.DTO.*;
+import dtu.example.dto.*;
 
 public class App {
 
@@ -109,6 +109,14 @@ public class App {
 
     public Employee getSelectedEmployee() {
         return selectedEmployee;
+    }
+
+    public String getSelectedEmployeeUsername() {
+        return selectedEmployee.getUsername();
+    }
+
+    public int getSelectedEmployeeSpecialActivitiesLength() {
+        return selectedEmployee.getSpecialActivities().size();
     }
 
     public boolean employeeExists(String employee) {
