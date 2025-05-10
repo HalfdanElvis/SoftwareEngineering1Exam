@@ -4,143 +4,106 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-<<<<<<< Updated upstream
-import dtu.example.DTO.ActivityInfo;
-import dtu.example.DTO.EmployeeInfo;
-import dtu.example.DTO.ProjectInfo;
-=======
 import dtu.example.dto.ActivityInfo;
 import dtu.example.dto.ProjectInfo;
->>>>>>> Stashed changes
 
-public class UI {
+public class UI2 {
 
     static App app = new App();
     static Scanner console = new Scanner(System.in);
+    private static boolean loggedIn = false;
+    private static String username = "";
+    private static String input = "";
+    private static int choice = -1;
 
-    public static void main(String args[]){
+    public static void main(String args[]) throws IllegalAccessException{
         app.addEmployee("huba");
-        String username = "";
-
+        
         // Starting Program
         while (true) {
+
             // Login method
-            while (true) {
-                if (!app.aUserIsLoggedIn()){
-                    System.out.println("Login:");
-                    username = console.nextLine();
+            if (!loggedIn){
+                loginUI();
+            }
+            
+            if (loggedIn) {
+
+                // Main Menu:
+                printMainMenu();
+                if (!getUserChoice()) {
+                    continue; // Resets loop if user doesn't pick a valid option.
                 }
                 
-                try {
-                    if (app.login(username)) {
-                        while (true) {
-                            // Main Menu:
-                            printMainMenu();
-                            
+                switch (choice) {
+                    case 1:
 
-                            int choice = -1;  // initialize with invalid default
-                            String input = "";
-                            try {
-                                input = console.nextLine();
-                                choice = Integer.parseInt(input);
-                            } catch (NumberFormatException e) {
-                                System.out.println();
-                                System.out.println("Invalid input. Please enter a number from the menu.");
-                                continue; // skip the rest of the loop and prompt again
-                            }
-                            
-                            switch (choice) {
-                                case 1:
+                        // Create a new Project
+                        createProjectUI();
+                        
+                        break;
 
-                                    // Create a new Project
-                                    createProjectUI();
-                                    
-                                    break;
+                    case 2:
 
-                                case 2:
+                        // Manage a selected Project
+                        manageProjectUI();
 
-                                    // Manage a selected Project
-                                    manageProjectUI();
+                        break;
+                    case 3:
 
-                                    break;
-                                case 3:
+                        //CreateSpecialActivity
+                        CreateSpecialActivityUI();
+                        
+                        break;
 
-                                    //CreateSpecialActivity
-                                    CreateSpecialActivityUI();
-                                    
-                                    break;
+                    case 4:
 
-                                case 4:
+                        // Manage your special activites
 
-                                    // Manage your special activites
-
-                                    // Checks if you have any special activites
-                                    if(app.getSignedInEmployee().getSpecialActivities().size() == 0){
-                                        System.out.println("you have no special activities, returning to main menu.");
-                                        break;
-                                    }
-
-                                    manageSpecialActivitiesUI();
-
-                                    
-                                    break;
-
-                                case 5:
-                                    
-                                    // Create User:
-                                    createUserUI();
-
-                                    break;
-                                
-                                case 6:
-                                    
-                                    // Manage User
-                                    manageUserUI();
-
-                                    break;
-
-                                case 7:
-                                    LogHours();
-                                    break;
-
-                                
-                                case 8:
-                                    
-                                    // Closes Program:
-                                    System.exit(0);
-
-                                    break;
-                                    
-                                default:
-                                    break;
-                                
-                            }
+                        // Checks if you have any special activites
+                        if(app.getSignedInEmployee().howManySpecialActivities() == 0){
+                            System.out.println("you have no special activities, returning to main menu.");
+                            break;
                         }
-                    } else {
-                        // New User registration
-                        System.out.println();
-                        System.out.println("User doesn't exist. Create user with username: "+username+" Y/N?");
-                        while (true) {
-                            String userInput = console.nextLine();
-                            try {
-                                if (app.yesOrNo(userInput)) {
-                                    app.addEmployee(username);
-                                    app.login(username);
-                                }
-                                break;
-                            } catch (Exception e) {
-                                System.err.println(e.getMessage());
-                            }
-                        }
-                    }
-                    break;
 
-                } catch (Exception e) {
-                    //User does not exist
-                    System.err.println(e.getMessage());
+                        manageSpecialActivitiesUI();
+
+                        
+                        break;
+
+                    case 5:
+                        
+                        // Create User:
+                        createUserUI();
+
+                        break;
+                    
+                    case 6:
+                        
+                        // Manage User
+                        manageUserUI();
+
+                        break;
+
+                    case 7:
+                        LogHours();
+                        break;
+
+                    
+                    case 8:
+                        
+                        // Closes Program:
+                        System.exit(0);
+
+                        break;
+                        
+                    default:
+                        break;
+                    
                 }
-            }
+            } 
         }
+    
     }
     
 
@@ -150,21 +113,43 @@ public class UI {
 
 
 
+    //Login
+    public static void loginUI(){
+        if (!app.aUserIsLoggedIn()){
+                System.out.println();
+                System.out.println("Login:");
+                username = console.nextLine();
+            }
+
+            try {
+                if (app.login(username)){
+                    loggedIn = true;
+                } else {
+                    // New User registration
+                    System.out.println();
+                    System.out.println("User doesn't exist. Create user with username: "+username+" Y/N?");
+                    while (true) {
+                        String userInput = console.nextLine();
+                        try {
+                            if (app.yesOrNo(userInput)) {
+                                app.addEmployee(username);
+                                app.login(username);
+                            }
+                            break;
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                }  
+            } catch (Exception e) {
+                //User does not exist
+                System.err.println(e.getMessage());
+            }
+    }
 
 
+    // MainMenu
 
-
-
-
-
-
-
-
-
-
-
-
-    
     public static void printMainMenu() {
         System.out.println();
 
@@ -189,6 +174,25 @@ public class UI {
 
         System.out.println("Select a number from the list above to proceed.");
     }
+
+    public static boolean getUserChoice() {
+        choice = -1;  // initialize with invalid default
+        try {
+            input = console.nextLine();
+            choice = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println();
+            System.out.println("Invalid input. Please enter a number from the menu.");
+            return false;
+        }
+        return true;
+    }
+
+
+
+
+
+
 
     public static void printCreateProjectMenu() {
         System.out.println();
@@ -302,9 +306,9 @@ public class UI {
                 //SpecialActivity a = new SpecialActivity(activityName);
                 
                 if (goesIntoNextyear) {
-                    //app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
+                    app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
                 } else {
-                    //app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt, activityEndWeekInt);
+                    app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt, activityEndWeekInt);
                 }
                 
                 
@@ -327,13 +331,12 @@ public class UI {
     // Manage Special Activity
     public static void manageSpecialActivitiesUI() {
         int choice = -1;
-        EmployeeInfo employee = app.getSignedInEmployee();
-        while (!(choice <= employee.getSpecialActivities().size() && choice >= 1)) {
+        while (!(choice<=app.getSignedInEmployee().howManySpecialActivities() && choice >= 1)) {
             // Select Activity
             System.out.println();
             System.out.println("Special Activites:");
             System.out.println("-------------------------");
-            //app.getSignedInEmployee().printAllSpecialActivities();
+            app.getSignedInEmployee().printAllSpecialActivities();
             System.out.println("-------------------------");
             System.out.println();
             System.out.println("select the special activity you want to manage by entering the number in front of it:");
@@ -346,7 +349,7 @@ public class UI {
                 System.out.println("Invalid input. Please enter a number from the menu.");
                 continue; // skip the rest of the loop and prompt again
             }
-            //app.setSelectedSpecialActivity(app.getSignedInEmployee().selectSpecialActivityNumber(choice));
+            app.setSelectedSpecialActivity(app.getSignedInEmployee().selectSpecialActivityNumber(choice));
         }
 
         while (true) {
