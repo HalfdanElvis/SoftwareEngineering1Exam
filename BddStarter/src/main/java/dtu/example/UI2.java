@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import dtu.example.dto.ActivityInfo;
 import dtu.example.dto.ProjectInfo;
-import io.cucumber.java.bs.A;
 
 public class UI2 {
 
@@ -504,7 +503,7 @@ public class UI2 {
                     break;
                 
                 case 5:
-                    deleteUserUI();
+                    back = deleteUserUI();
                     break;
 
                 case 6:
@@ -883,7 +882,7 @@ public class UI2 {
         }
     }
 
-    public static void deleteUserUI() {
+    public static boolean  deleteUserUI() {
         System.out.println();
         System.out.println("Are you sure you want to delete user: " + app.getSelectedEmployeeUsername() + "? Y/N");
         while (true) {
@@ -892,11 +891,16 @@ public class UI2 {
                 if (app.yesOrNo(input)) {
                     if (app.getSelectedEmployeeUsername().equals(app.getSignedInEmployeeUsername())) {
                         loggedIn = false;
+                        app.removeSignedInEmployee();
                     }
                     app.deleteEmployee(app.getSelectedEmployeeUsername());
-                    
+                    System.out.print("User deleted");
+
+                    return true;
+                } else {
+                    System.out.println("User wasn't deleted.");
+                    return false;
                 }
-                break;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }

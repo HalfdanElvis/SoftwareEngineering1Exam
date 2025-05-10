@@ -63,6 +63,10 @@ public class App {
         this.signedInEmployee = stringToEmployee(signedInEmployee);
     }
 
+    public void removeSignedInEmployee() {
+        this.signedInEmployee = null;
+    }
+
     public void addEmployee(String username) {
         if (legalUsername(username)) {
             systemStorage.addEmployee(username);
