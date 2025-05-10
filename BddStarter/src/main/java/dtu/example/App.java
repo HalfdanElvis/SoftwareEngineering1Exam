@@ -17,7 +17,7 @@ public class App {
     private List<ActivityInfo> activityInfos = new ArrayList<>();
     private List<ActivityInfo> allActivityInfos = new ArrayList<>();
 
-    private Activity selectedSpecialActivity;
+    private static SpecialActivity selectedSpecialActivity;
 
 
 
@@ -67,7 +67,6 @@ public class App {
         if (legalUsername(username)) {
             systemStorage.addEmployee(username);
         }
-        
     }
 
     public Employee stringToEmployee(String string) {
@@ -75,11 +74,17 @@ public class App {
     }
 
     public void deleteEmployee(String username){
-        systemStorage.deleteEmployee(username);
+        if (employeeExists(username)){
+            systemStorage.deleteEmployee(username);
+        }
     }
 
     public String getSignedInEmployeeUsername() {
         return signedInEmployee.getUsername();
+    }
+
+    public boolean isSignedInEmployeePeak() {
+        return signedInEmployee.isPeak();
     }
 
     public boolean aUserIsLoggedIn() {
@@ -119,6 +124,10 @@ public class App {
         return selectedEmployee.getSpecialActivities().size();
     }
 
+    public void setSelectedEmployeePeak(boolean peak) {
+        selectedEmployee.setPeak(peak);
+    }
+
     public boolean employeeExists(String employee) {
         return systemStorage.employeeExists(employee);
     }
@@ -133,8 +142,13 @@ public class App {
     }
 
     public void addSpecialActivity(String activityName, int startYear, int startWeek, int endYear, int endWeek){
-        signedInEmployee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
+        selectedEmployee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
     }
+
+    public void deleteSpecialActivity(String activityName){
+        selectedEmployee.deleteSpecialActivity(activityName);
+    }
+    
 
     public int createProject(String name) {
         return systemStorage.createProject(name, dateServer.getYear());
@@ -166,11 +180,11 @@ public class App {
         project.setActivitiyStartAndEndWeek(activityName, startYear, startWeek, endYear, endWeek);
     }
 
-    public void setSelectedSpecialActivity(Activity selectedSpecialActivity) {
-        this.selectedSpecialActivity = selectedSpecialActivity;
+    public static void setSelectedSpecialActivity(SpecialActivity ssa) {
+        selectedSpecialActivity = ssa;
     }
 
-    public Activity getSelectedSpecialActivity() {
+    public static SpecialActivity getSelectedSpecialActivity() {
         return selectedSpecialActivity;
     }
 

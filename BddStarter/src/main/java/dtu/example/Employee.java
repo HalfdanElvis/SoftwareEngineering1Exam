@@ -35,6 +35,22 @@ public class Employee {
         specialActivities.add(activity);
     }
 
+    public void deleteSpecialActivity(String activityName) {
+        boolean activityExists = false;
+        for (int i = 0; i < specialActivities.size(); i++) {
+            if (specialActivities.get(i).getName().equals(activityName) ) {
+                specialActivities.remove(i);
+                activityExists = true;
+            }
+        }
+        if (!activityExists) {
+            throw new IllegalArgumentException("User is not assigned that activity");
+        }
+    }
+
+    public List<SpecialActivity> getSpecialActivities(){
+        return specialActivities;
+    }
 
     public boolean isAssignedActivity(String activityName) {
         for (Activity activity : activities) {
@@ -53,6 +69,8 @@ public class Employee {
         }
         return false;
     }
+
+    
     
 
     public String getUsername() { return username; }
@@ -139,20 +157,11 @@ public class Employee {
 
     // Special Activity metoder
 
-    public List<SpecialActivity> getSpecialActivities(){
-        return specialActivities;
-    }
+    
     /*
     
 
-    public Activity selectSpecialActivityNumber(int index) {
-        ArrayList<Activity> specialActivities = getAllSpecialActivities();
-
-        //SortByDate(specialActivities):
-
-        return specialActivities.get(index-1);
-
-    }
+    
     */
 
 }
