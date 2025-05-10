@@ -463,30 +463,9 @@ public class UI2 {
     // Manage User
     public static void manageUserUI() {
         // Select User
-        System.out.println();
-        System.out.println("Users:");
-        System.out.println("-------------------------");
-        for (int i = 0; i<app.viewAllEmployees().size(); i++){
-            System.out.println(app.viewAllEmployees().get(i));
-        }
-        System.out.println("-------------------------");
-        System.out.println();
-        System.out.println("Select a user from the list above by inserting their username:");
-        
-        while (true) { 
-            String username = console.nextLine();
-            try {
-                if(app.legalUsername(username)){
-                    app.setSelectedEmployee(username);
-                    break;
-                }
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-            
-        }
-    
-        
+        selectUser();
+
+        boolean back = false;
         while (true) {
              // Manage User
             System.out.println();
@@ -494,9 +473,10 @@ public class UI2 {
             System.out.println("-------------------------");
             System.out.println("1. Assign to Activity");
             System.out.println("2. Assign to Special Activity");
-            System.out.println("3. Set/Unset Peak Performance");
-            System.out.println("4. Delete User");
-            System.out.println("5. Back");
+            System.out.println("3. Manage Special Activities") ;
+            System.out.println("4. Set/Unset Peak Performance");
+            System.out.println("5. Delete User");
+            System.out.println("6. Back");
             System.out.println("-------------------------");
             
             System.out.println();
@@ -504,15 +484,11 @@ public class UI2 {
             System.out.println("Select a number from the list above to proceed.");
 
             int choice = -1;
-            try {
-                String input = console.nextLine();
-                choice = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println();
-                System.out.println("Invalid input. Please enter a number from the menu.");
-                continue; // skip the rest of the loop and prompt again
-            }
-            boolean back = false;
+
+            if (!getUserChoice()) {
+                    continue; // Resets loop if user doesn't pick a valid option.
+                }
+            
             switch (choice) {
                 case 1:
                     System.out.println("Write the projectID of the activity");
@@ -559,6 +535,29 @@ public class UI2 {
         }
     }
 
+    public static void selectUser() {
+        System.out.println();
+        System.out.println("Users:");
+        System.out.println("-------------------------");
+        for (int i = 0; i<app.viewAllEmployees().size(); i++){
+            System.out.println(app.viewAllEmployees().get(i));
+        }
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("Select a user from the list above by inserting their username:");
+        
+        while (true) { 
+            String username = console.nextLine();
+            try {
+                if(app.legalUsername(username)){
+                    app.setSelectedEmployee(username);
+                    break;
+                }
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+    }
 
     public static void CreateSpecialActivityUI() {
         boolean saCreator = true;
@@ -763,7 +762,7 @@ public class UI2 {
     }
 
     // LogHours()
-    
+
     public static void LogHours(){
         boolean back = false;
         while(true){
