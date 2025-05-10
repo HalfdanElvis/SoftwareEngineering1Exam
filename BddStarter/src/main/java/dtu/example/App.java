@@ -111,6 +111,14 @@ public class App {
         return selectedEmployee;
     }
 
+    public String getSelectedEmployeeUsername() {
+        return selectedEmployee.getUsername();
+    }
+
+    public int getSelectedEmployeeSpecialActivitiesLength() {
+        return selectedEmployee.getSpecialActivities().size();
+    }
+
     public boolean employeeExists(String employee) {
         return systemStorage.employeeExists(employee);
     }
