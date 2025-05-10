@@ -1,6 +1,6 @@
 package dtu.example;
 
-import dtu.example.DTO.ProjectInfo;
+import dtu.example.dto.ProjectInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

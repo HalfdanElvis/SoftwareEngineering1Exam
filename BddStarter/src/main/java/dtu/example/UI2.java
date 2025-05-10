@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import dtu.example.DTO.ActivityInfo;
-import dtu.example.DTO.ProjectInfo;
+import dtu.example.dto.ActivityInfo;
+import dtu.example.dto.ProjectInfo;
 
 public class UI2 {
 

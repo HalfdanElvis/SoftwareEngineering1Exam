@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Calendar;
-import dtu.example.DTO.*;
+import dtu.example.dto.*;
 
 public class App {
 
