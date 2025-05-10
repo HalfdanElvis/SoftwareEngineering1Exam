@@ -12,7 +12,7 @@ Scenario: A user creates a special activity
  	Then the user is assigned to the special activity "Holidays"
 
 Scenario: A user tries to create a special activity that overlaps with other activities
-	Given that there exists a project "projectX" with project ID 25001
+	Given that there exists a project "projectX"
 	And the user is assigned a special activity "Sick" in week 5 in the year 2025
 	When the user creates a special activity "Holidays" in week 5 of the year 2025
  	Then the error message "Special activities cannot overlap with other special activities" is given

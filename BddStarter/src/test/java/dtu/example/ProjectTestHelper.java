@@ -2,8 +2,8 @@ package dtu.example;
 import java.util.List;
 import java.util.stream.Stream;
 
-import dtu.example.DTO.ProjectInfo;
-import dtu.example.DTO.ActivityInfo;
+import dtu.example.dto.ProjectInfo;
+import dtu.example.dto.ActivityInfo;
 
 public class ProjectTestHelper {
 

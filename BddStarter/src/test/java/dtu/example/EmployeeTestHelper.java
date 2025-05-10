@@ -1,7 +1,7 @@
 package dtu.example;
 import java.util.List;
-import dtu.example.DTO.EmployeeInfo;
-import dtu.example.DTO.ActivityInfo;
+import dtu.example.dto.EmployeeInfo;
+import dtu.example.dto.ActivityInfo;
 
 public class EmployeeTestHelper {
 

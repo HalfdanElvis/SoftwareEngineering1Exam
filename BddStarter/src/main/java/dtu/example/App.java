@@ -235,8 +235,8 @@ public class App {
         return new EmployeeInfo(systemStorage.getEmployee(username));
     }
 
-    public void deleteActivity(int projectID, String activityName) {
-        systemStorage.getProject(projectID).removeActivity(activityName);
+    public void deleteActivity(int projectID, String activityName) throws IllegalAccessException {
+        systemStorage.getProject(projectID).removeActivity(activityName, signedInEmployee);
     } 
 
 

@@ -4,7 +4,7 @@ Feature: Generate Report
 
 Background:
 	Given that user "huba" is logged in
-	Given that there exists a project "projectX" with project ID 25001
+	Given that there exists a project "projectX"
 
 Scenario: Project leader generates a report
 	And the user "huba" is the project leader

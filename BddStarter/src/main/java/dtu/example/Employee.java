@@ -33,7 +33,7 @@ public class Employee {
         }
         SpecialActivity activity = new SpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
         specialActivities.add(activity);
-    }
+    }    
 
     public void deleteSpecialActivity(String activityName) {
         boolean activityExists = false;
