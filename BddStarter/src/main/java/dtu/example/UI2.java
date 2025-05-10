@@ -21,89 +21,48 @@ public class UI2 {
         
         // Starting Program
         while (true) {
-
             // Login method
             if (!loggedIn){
                 loginUI();
             }
             
             if (loggedIn) {
-
                 // Main Menu:
                 printMainMenu();
                 if (!getUserChoice()) {
                     continue; // Resets loop if user doesn't pick a valid option.
                 }
-                
+
                 switch (choice) {
                     case 1:
-
                         // Create a new Project
                         createProjectUI();
-                        
                         break;
-
                     case 2:
-
                         // Manage a selected Project
                         manageProjectUI();
-
                         break;
                     case 3:
-
-                        //CreateSpecialActivity
-                        CreateSpecialActivityUI();
-                        
-                        break;
-
-                    case 4:
-
-                        // Manage your special activites
-
-                        // Checks if you have any special activites
-                        if(app.getSignedInEmployee().howManySpecialActivities() == 0){
-                            System.out.println("you have no special activities, returning to main menu.");
-                            break;
-                        }
-
-                        manageSpecialActivitiesUI();
-
-                        
-                        break;
-
-                    case 5:
-                        
                         // Create User:
                         createUserUI();
-
                         break;
-                    
-                    case 6:
-                        
-                        // Manage User
+                    case 4:
+                        // Manage User:
                         manageUserUI();
-
                         break;
-
-                    case 7:
+                    case 5:
+                        // Log Hours:
                         LogHours();
                         break;
-
-                    
-                    case 8:
-                        
+                    case 6:
                         // Closes Program:
                         System.exit(0);
-
                         break;
-                        
                     default:
-                        break;
-                    
+                        break;  
                 }
             } 
         }
-    
     }
     
 
@@ -149,7 +108,6 @@ public class UI2 {
 
 
     // MainMenu
-
     public static void printMainMenu() {
         System.out.println();
 
@@ -189,10 +147,20 @@ public class UI2 {
     }
 
 
-
-
-
-
+    // Create Project
+    public static void createProjectUI() {
+        boolean exit = true;
+        do {
+            printCreateProjectMenu();
+            String projectName = console.nextLine();
+            int id = app.createProject(projectName);
+            
+            System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
+            System.out.println("-------------------------");
+            System.out.println("Want to create another project Y/N?"); 
+            exit = app.yesOrNo(console.nextLine()); 
+        } while(exit);
+    }
 
     public static void printCreateProjectMenu() {
         System.out.println();
@@ -201,6 +169,8 @@ public class UI2 {
         System.out.println("Enter Project name:");
     }
 
+
+    // Manage Project
     public static void printManageProjectMenu(int id) {
         System.out.println("-------------------------");
         System.out.println("Selected project "+ id);
@@ -221,225 +191,6 @@ public class UI2 {
 
         System.out.println("Select a number from the list above to proceed.");
     }
-
-
-    public static void CreateSpecialActivityUI() {
-        boolean saCreator = true;
-                                
-        do {
-            boolean choice = true;
-            System.out.println();
-            System.out.println("Create Special Activity");
-            System.out.println("-------------------------");
-            
-
-            String activityName = null;
-            Integer activityYearInt = null;
-            Integer activityStartWeekInt = null;
-            Integer activityEndWeekInt = null;
-
-            // Gets Name:
-            while (activityName == null) {
-                System.out.println("Enter Activity name:");    
-                activityName = console.nextLine();
-            }
-            
-
-            // Gets Year:
-            System.out.println();
-            System.out.println("What year is the activity in?");
-            while (activityYearInt == null || activityYearInt < 0){
-                try {
-                    String activityYears = console.nextLine();
-                    if (app.isPositiveInt(activityYears)) {
-                        activityYearInt = Integer.parseInt(activityYears);
-                    }
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                }
-            }
-
-            System.out.println();
-            System.out.println("What is the start week of the activity?");
-            
-
-            // Gets StartWeek:
-            while (activityStartWeekInt == null || activityStartWeekInt < 0){
-                try {
-                    String activityStartWeek = console.nextLine();
-                    if (App.isWeek(activityStartWeek, activityYearInt)) {
-                        activityStartWeekInt = Integer.parseInt(activityStartWeek);
-                    }
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                }
-            }
-
-            System.out.println();
-            System.out.println("What is the end week of the activity?");
-
-            // Gets EndWeek:
-            while (activityEndWeekInt == null || activityEndWeekInt < 0){
-                try {
-                    String activityEndWeek = console.nextLine();
-                    if (App.isWeek(activityEndWeek, activityYearInt)) {
-                        activityEndWeekInt = Integer.parseInt(activityEndWeek);
-                    }
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                }
-            }
-            
-            // checks if you go into next year.
-            boolean goesIntoNextyear = false;
-            if (activityStartWeekInt > activityEndWeekInt) {
-                System.out.println();
-                System.out.println("Your end week for the activity is earlier in the year than your start week.");
-                System.out.println("Do you want to continue the activity into "+(activityYearInt+1)+" Y/N?");
-                
-                choice = app.yesOrNo(console.nextLine());
-                goesIntoNextyear = true;
-            }
-
-            // Creates activity unless, user decided not to, by not continueing it into next year.
-            if (choice) {
-                //SpecialActivity a = new SpecialActivity(activityName);
-                
-                if (goesIntoNextyear) {
-                    app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
-                } else {
-                    app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt, activityEndWeekInt);
-                }
-                
-                
-                System.out.println();
-                System.out.println("Succesfully created special activity \""+activityName+"\".");
-                System.out.println("-------------------------");
-            } else {
-                System.out.println();
-                System.out.println("Activity was not created, since timeline wasn't possible.");
-                System.out.println("-------------------------");
-            }
-
-            System.out.println("Want to create another special activity Y/N?"); 
-            saCreator = app.yesOrNo(console.nextLine());
-
-        } while(saCreator);
-    }
-
-
-    // Manage Special Activity
-    public static void manageSpecialActivitiesUI() {
-        int choice = -1;
-        while (!(choice<=app.getSignedInEmployee().howManySpecialActivities() && choice >= 1)) {
-            // Select Activity
-            System.out.println();
-            System.out.println("Special Activites:");
-            System.out.println("-------------------------");
-            app.getSignedInEmployee().printAllSpecialActivities();
-            System.out.println("-------------------------");
-            System.out.println();
-            System.out.println("select the special activity you want to manage by entering the number in front of it:");
-            
-            try {
-                String input = console.nextLine();
-                choice = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println();
-                System.out.println("Invalid input. Please enter a number from the menu.");
-                continue; // skip the rest of the loop and prompt again
-            }
-            app.setSelectedSpecialActivity(app.getSignedInEmployee().selectSpecialActivityNumber(choice));
-        }
-
-        while (true) {
-            // Manage Special Activity
-            System.out.println();
-            System.out.println("Manage Special Activity: " + app.getSelectedSpecialActivity().getName());
-            System.out.println("-------------------------");
-            System.out.println("1. Views Active Weeks");
-            System.out.println("2. Assign User");
-            System.out.println("3. Change Active Weeks");
-            System.out.println("4. Delete Activity");
-            System.out.println("5. Back");
-            System.out.println("-------------------------");
-            
-            System.out.println();
-
-            System.out.println("Select a number from the list above to proceed.");
-
-            try {
-                String input = console.nextLine();
-                choice = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println();
-                System.out.println("Invalid input. Please enter a number from the menu.");
-                continue; // skip the rest of the loop and prompt again
-            }
-
-            boolean back = false;
-            switch (choice) {
-                // View Active Weeks:
-                case 1:
-                    
-                    System.out.println();
-                    System.out.println("Special Activity \"" + app.getSelectedSpecialActivity().getName() + "\" is active in the following weeks:");
-                    
-                    int startYear = app.getSelectedSpecialActivity().getStartWeek().getYear();
-                    System.out.println(startYear+":");
-                    System.out.println(startYear+"FIX LATER PLEASE");
-                    /* 
-                    for (Week week : app.getSelectedSpecialActivity().getActiveWeeks()) {
-                        if (startYear != week.getYear()) {
-                            startYear = week.getYear();
-                            System.out.println();
-                            System.out.println(startYear+":");
-                        }
-                        System.out.print(week.getWeek()+" ");
-                    }
-                    System.out.println();
-                    */
-                    break;
-
-                case 2:
-                    break;
-
-                case 3:
-                    break;
-
-                case 4:
-                    break;
-
-                case 5:
-                    back = true;
-                    break;
-                
-                default:
-                    System.out.println("Invalid input. Please enter a number from the menu.");
-                    break;
-            }
-
-            if (back) {
-                break;
-            }
-
-        }
-    }
-
-    public static void createProjectUI() {
-        boolean exit = true;
-        do {
-            printCreateProjectMenu();
-            String projectName = console.nextLine();
-            int id = app.createProject(projectName);
-            
-            System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
-            System.out.println("-------------------------");
-            System.out.println("Want to create another project Y/N?"); 
-            exit = app.yesOrNo(console.nextLine()); 
-        } while(exit);
-    }
-
 
     public static void manageProjectUI() throws IllegalAccessException {
         boolean exit = true;
@@ -688,6 +439,7 @@ public class UI2 {
         }
     }
 
+    // Create User
     public static void createUserUI() {
         System.out.println();
         System.out.println("-------------------------");
@@ -708,6 +460,7 @@ public class UI2 {
         }
     }
 
+    // Manage User
     public static void manageUserUI() {
         // Select User
         System.out.println();
@@ -806,6 +559,211 @@ public class UI2 {
         }
     }
 
+
+    public static void CreateSpecialActivityUI() {
+        boolean saCreator = true;
+                                
+        do {
+            boolean choice = true;
+            System.out.println();
+            System.out.println("Create Special Activity");
+            System.out.println("-------------------------");
+            
+
+            String activityName = null;
+            Integer activityYearInt = null;
+            Integer activityStartWeekInt = null;
+            Integer activityEndWeekInt = null;
+
+            // Gets Name:
+            while (activityName == null) {
+                System.out.println("Enter Activity name:");    
+                activityName = console.nextLine();
+            }
+            
+
+            // Gets Year:
+            System.out.println();
+            System.out.println("What year is the activity in?");
+            while (activityYearInt == null || activityYearInt < 0){
+                try {
+                    String activityYears = console.nextLine();
+                    if (app.isPositiveInt(activityYears)) {
+                        activityYearInt = Integer.parseInt(activityYears);
+                    }
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+
+            System.out.println();
+            System.out.println("What is the start week of the activity?");
+            
+
+            // Gets StartWeek:
+            while (activityStartWeekInt == null || activityStartWeekInt < 0){
+                try {
+                    String activityStartWeek = console.nextLine();
+                    if (App.isWeek(activityStartWeek, activityYearInt)) {
+                        activityStartWeekInt = Integer.parseInt(activityStartWeek);
+                    }
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+
+            System.out.println();
+            System.out.println("What is the end week of the activity?");
+
+            // Gets EndWeek:
+            while (activityEndWeekInt == null || activityEndWeekInt < 0){
+                try {
+                    String activityEndWeek = console.nextLine();
+                    if (App.isWeek(activityEndWeek, activityYearInt)) {
+                        activityEndWeekInt = Integer.parseInt(activityEndWeek);
+                    }
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+            
+            // checks if you go into next year.
+            boolean goesIntoNextyear = false;
+            if (activityStartWeekInt > activityEndWeekInt) {
+                System.out.println();
+                System.out.println("Your end week for the activity is earlier in the year than your start week.");
+                System.out.println("Do you want to continue the activity into "+(activityYearInt+1)+" Y/N?");
+                
+                choice = app.yesOrNo(console.nextLine());
+                goesIntoNextyear = true;
+            }
+
+            // Creates activity unless, user decided not to, by not continueing it into next year.
+            if (choice) {
+                //SpecialActivity a = new SpecialActivity(activityName);
+                
+                if (goesIntoNextyear) {
+                    app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt+1, activityEndWeekInt);
+                } else {
+                    app.getSignedInEmployee().assignSpecialActivity(activityName, activityYearInt, activityStartWeekInt, activityYearInt, activityEndWeekInt);
+                }
+                
+                
+                System.out.println();
+                System.out.println("Succesfully created special activity \""+activityName+"\".");
+                System.out.println("-------------------------");
+            } else {
+                System.out.println();
+                System.out.println("Activity was not created, since timeline wasn't possible.");
+                System.out.println("-------------------------");
+            }
+
+            System.out.println("Want to create another special activity Y/N?"); 
+            saCreator = app.yesOrNo(console.nextLine());
+
+        } while(saCreator);
+    }
+
+    // Manage Special Activity
+    public static void manageSpecialActivitiesUI() {
+        int choice = -1;
+        while (!(choice<=app.getSignedInEmployee().howManySpecialActivities() && choice >= 1)) {
+            // Select Activity
+            System.out.println();
+            System.out.println("Special Activites:");
+            System.out.println("-------------------------");
+            app.getSignedInEmployee().printAllSpecialActivities();
+            System.out.println("-------------------------");
+            System.out.println();
+            System.out.println("select the special activity you want to manage by entering the number in front of it:");
+            
+            try {
+                String input = console.nextLine();
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println();
+                System.out.println("Invalid input. Please enter a number from the menu.");
+                continue; // skip the rest of the loop and prompt again
+            }
+            app.setSelectedSpecialActivity(app.getSignedInEmployee().selectSpecialActivityNumber(choice));
+        }
+
+        while (true) {
+            // Manage Special Activity
+            System.out.println();
+            System.out.println("Manage Special Activity: " + app.getSelectedSpecialActivity().getName());
+            System.out.println("-------------------------");
+            System.out.println("1. Views Active Weeks");
+            System.out.println("2. Assign User");
+            System.out.println("3. Change Active Weeks");
+            System.out.println("4. Delete Activity");
+            System.out.println("5. Back");
+            System.out.println("-------------------------");
+            
+            System.out.println();
+
+            System.out.println("Select a number from the list above to proceed.");
+
+            try {
+                String input = console.nextLine();
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println();
+                System.out.println("Invalid input. Please enter a number from the menu.");
+                continue; // skip the rest of the loop and prompt again
+            }
+
+            boolean back = false;
+            switch (choice) {
+                // View Active Weeks:
+                case 1:
+                    
+                    System.out.println();
+                    System.out.println("Special Activity \"" + app.getSelectedSpecialActivity().getName() + "\" is active in the following weeks:");
+                    
+                    int startYear = app.getSelectedSpecialActivity().getStartWeek().getYear();
+                    System.out.println(startYear+":");
+                    System.out.println(startYear+"FIX LATER PLEASE");
+                    /* 
+                    for (Week week : app.getSelectedSpecialActivity().getActiveWeeks()) {
+                        if (startYear != week.getYear()) {
+                            startYear = week.getYear();
+                            System.out.println();
+                            System.out.println(startYear+":");
+                        }
+                        System.out.print(week.getWeek()+" ");
+                    }
+                    System.out.println();
+                    */
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    back = true;
+                    break;
+                
+                default:
+                    System.out.println("Invalid input. Please enter a number from the menu.");
+                    break;
+            }
+
+            if (back) {
+                break;
+            }
+
+        }
+    }
+
+    // LogHours()
+    
     public static void LogHours(){
         boolean back = false;
         while(true){

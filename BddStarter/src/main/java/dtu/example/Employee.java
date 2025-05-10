@@ -143,18 +143,7 @@ public class Employee {
         return specialActivities;
     }
     /*
-    public void printAllSpecialActivities() {
-
-        ArrayList<Activity> specialActivities = getAllSpecialActivities();
-
-        //SortByDate(specialActivities):
-
-        for (int i = 1; i-1 < howManySpecialActivities(); i++){
-            System.out.println(i+": "+specialActivities.get(i-1).getName()+" - stating in year: " + specialActivities.get(i-1).getStartWeek().getYear() 
-            + " week: " + specialActivities.get(i-1).getStartWeek().getWeek() + " to year: " + specialActivities.get(i-1).getEndWeek().getYear() 
-            + " week: " + specialActivities.get(i-1).getEndWeek().getWeek());
-        }
-    }
+    
 
     public Activity selectSpecialActivityNumber(int index) {
         ArrayList<Activity> specialActivities = getAllSpecialActivities();
