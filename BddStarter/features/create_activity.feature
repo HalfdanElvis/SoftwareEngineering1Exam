@@ -5,7 +5,7 @@ Feature: Create activity
 
 Background:
 	Given that user "huba" is logged in
-	Given that there exists a project "projectX" with project ID 25001
+	Given that there exists a project "projectX"
 
 Scenario: A user creates an activity in a project
     And the project does not have a project leader

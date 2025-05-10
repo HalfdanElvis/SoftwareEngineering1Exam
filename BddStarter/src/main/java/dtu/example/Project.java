@@ -34,10 +34,6 @@ public class Project {
         }
     }
 
-    public Employee getProjectLeader() {
-        return projectLeader;
-    }
-
     public boolean hasProjectLeader() {
         if (projectLeader == null) {
             return false;
@@ -84,10 +80,6 @@ public class Project {
         stringToActivity(activity).setExpectedHours(hours);
     }
 
-    public float getActivityExpectedHours(String activity){
-        return stringToActivity(activity).getExpectedHours();
-    }
-
     public void assignEmployeeToActivity(Employee employee, String activityName) {
         Activity activity = stringToActivity(activityName);
         employee.assignActivity(activity);
@@ -129,12 +121,11 @@ public class Project {
         return projectLeader.getUsername();
     }
 
-    public void removeActivity(String activityName) {
-        for (int i = 0; i < activities.size(); i++) {
-            if (activities.get(i).getName().equals(activityName)) {
-                activities.remove(i);
-            }
+    public void removeActivity(String activityName, Employee requestingEmployee) throws IllegalAccessException {
+        if (projectLeader != null && !requestingEmployee.equals(projectLeader)) {
+            throw new IllegalAccessException("Only the project leader can remove an activity");
         }
+        activities.remove(stringToActivity(activityName));
     }
 
 }

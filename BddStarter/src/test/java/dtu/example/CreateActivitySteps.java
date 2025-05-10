@@ -18,10 +18,9 @@ public class CreateActivitySteps {
         this.testHelper = testHelper;
     }
 
-    @Given("that there exists a project {string} with project ID {int}")
-    public void thatThereExistsAProjectWithProjectID(String string, Integer id) {
-        app.createProject(string);
-        testHelper.setProjectID(id);
+    @Given("that there exists a project {string}")
+    public void thatThereExistsAProjectWithProjectID(String string) {
+        testHelper.setProjectID(app.createProject(string));
     }
 
     @Given("the project does not have a project leader")

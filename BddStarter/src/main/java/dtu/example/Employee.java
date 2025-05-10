@@ -33,27 +33,7 @@ public class Employee {
         }
         SpecialActivity activity = new SpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
         specialActivities.add(activity);
-    }
-
-
-    public boolean isAssignedActivity(String activityName) {
-        for (Activity activity : activities) {
-            if (activity.getName().equals(activityName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-        public boolean isAssignedSpecialActivity(String activityName) {
-        for (SpecialActivity specialActivity : specialActivities) {
-            if (specialActivity.getName().equals(activityName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-    
+    }    
 
     public String getUsername() { return username; }
     public void setPeak(boolean peak) { this.peak = peak; }
