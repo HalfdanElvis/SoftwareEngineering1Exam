@@ -38,8 +38,13 @@ public class Activity {
     }
 
     public void setStartAndEndWeek(int startYear, int startWeek, int endYear, int endWeek) {
-        this.startWeek = new Week(startYear, startWeek);
-        this.endWeek = new Week(endYear, endWeek);
+        Week sWeek = new Week(startYear, startWeek);
+        Week eWeek = new Week(startYear, startWeek);
+        if (!eWeek.isGreaterOrEqual(sWeek)) {
+            throw new IllegalArgumentException("End week must be greater or equal than start week");
+        }
+        this.startWeek = sWeek;
+        this.endWeek = eWeek;
     }
 
     public void logHours(Calendar date, float hours, String employee) {

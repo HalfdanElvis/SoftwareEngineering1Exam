@@ -175,7 +175,7 @@ public class App {
     }
 
     public void removeEmployeeFromActivity(String username, String activtyName) {
-        Employee employee = systemStorage.getEmployee(activtyName);
+        Employee employee = systemStorage.getEmployee(username);
         employee.removeActivity(activtyName);
     }
 
@@ -298,7 +298,7 @@ public class App {
         List<Project> projectList = systemStorage.getAllProjects();
         List<ProjectInfo> dtoProjects = new ArrayList<>();
         for (int i = 0; i < projectList.size(); i++) {
-            if (projectList.get(i).getID() > year && projectList.get(i).getID() < year + 100) {
+            if (projectList.get(i).getID() > year && projectList.get(i).getID() < year + 1000) {
                 dtoProjects.add(createDTOProject(projectList.get(i).getID()));
             }
         }
@@ -306,11 +306,7 @@ public class App {
     }
 
     public void deleteProject(int projectID) {
-        for (int i = 0; i < systemStorage.getAllProjects().size(); i++) {
-            if (projectID == systemStorage.getAllProjects().get(i).getID()) {
-                systemStorage.getAllProjects().remove(i);
-            }
-        }
+        systemStorage.deleteProject(projectID);
     }
 
     public List<ProjectInfo> getallProjectInfos(){
