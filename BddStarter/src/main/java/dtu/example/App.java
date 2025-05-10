@@ -216,6 +216,16 @@ public class App {
         Employee employee = stringToEmployee(username);
         return new EmployeeInfo(employee).getActivityInfos();
     }
+      public List<String> getUserActivitiesInfoNames(String username){
+        Employee employee = stringToEmployee(username);
+        List<ActivityInfo> activities = new EmployeeInfo(employee).getActivityInfos();
+        List<String> activityNames = new ArrayList<String>();
+        for (int i =0; i<activities.size(); i++){
+            activityNames.add(activities.get(i).getName());
+        }
+        return activityNames;
+    }
+
 
     public void deleteActivity(int projectID, String activityName) {
         systemStorage.getProject(projectID).removeActivity(activityName);
