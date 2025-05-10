@@ -1,5 +1,11 @@
 package dtu.example;
 import java.util.List;
+
+import dtu.example.Controller.App;
+import dtu.example.Model.CalendarHelper;
+import dtu.example.Model.Employee;
+import dtu.example.Model.Week;
+
 import java.util.ArrayList;
 /**
  * A test class to check which tests are run with which framework.

@@ -2,6 +2,8 @@ package dtu.example;
 
 import java.util.List;
 
+import dtu.example.Model.Week;
+
 public class TestHelper {
     
     private String user;

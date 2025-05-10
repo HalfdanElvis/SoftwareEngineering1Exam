@@ -3,8 +3,8 @@ package dtu.example.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import dtu.example.Activity;
-import dtu.example.Project;
+import dtu.example.Model.Activity;
+import dtu.example.Model.Project;
 
 public class ProjectInfo {
     private String name;

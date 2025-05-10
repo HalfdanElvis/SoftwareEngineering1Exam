@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.Scanner;
 
+import dtu.example.Controller.App;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

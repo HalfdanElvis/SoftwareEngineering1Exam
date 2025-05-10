@@ -3,6 +3,9 @@ package dtu.example;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import dtu.example.Controller.App;
+import dtu.example.Model.DateServer;
+
 public class MockYearHolder {
     DateServer dateServer = mock(DateServer.class);
 

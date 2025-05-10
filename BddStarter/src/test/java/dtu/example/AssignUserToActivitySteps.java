@@ -1,5 +1,6 @@
 package dtu.example;
 
+import dtu.example.Controller.App;
 import dtu.example.dto.EmployeeInfo;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;

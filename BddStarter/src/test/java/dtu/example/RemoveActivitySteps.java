@@ -2,6 +2,7 @@ package dtu.example;
 
 import static org.junit.Assert.assertFalse;
 
+import dtu.example.Controller.App;
 import dtu.example.dto.ProjectInfo;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

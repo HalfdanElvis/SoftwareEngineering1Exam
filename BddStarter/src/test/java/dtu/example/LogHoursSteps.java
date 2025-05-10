@@ -4,6 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import dtu.example.Controller.App;
+import dtu.example.Model.CalendarHelper;
+
 import java.time.LocalDate;
 
 import io.cucumber.java.en.Given;

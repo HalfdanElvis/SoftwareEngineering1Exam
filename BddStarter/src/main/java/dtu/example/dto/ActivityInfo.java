@@ -2,9 +2,9 @@ package dtu.example.dto;
 
 import java.util.List;
 
-import dtu.example.Activity;
-import dtu.example.Week;
-import dtu.example.WorkData;
+import dtu.example.Model.Activity;
+import dtu.example.Model.Week;
+import dtu.example.Model.WorkData;
 
 public class ActivityInfo {
     private String name;

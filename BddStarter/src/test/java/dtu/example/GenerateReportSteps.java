@@ -2,6 +2,7 @@ package dtu.example;
 
 import static org.junit.Assert.assertEquals;
 
+import dtu.example.Controller.App;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

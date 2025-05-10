@@ -1,9 +1,11 @@
-package dtu.example;
+package dtu.example.View;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import dtu.example.Controller.App;
+import dtu.example.Model.SpecialActivity;
 import dtu.example.dto.ActivityInfo;
 import dtu.example.dto.ProjectInfo;
 
