@@ -3,6 +3,8 @@ package dtu.example.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import dtu.example.Utility.CalendarHelper;
+
 public class Employee {
     
     private String username;

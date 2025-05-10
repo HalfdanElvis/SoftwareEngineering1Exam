@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Calendar;
 
-import dtu.example.Model.CalendarHelper;
 import dtu.example.Model.DateServer;
 import dtu.example.Model.Employee;
 import dtu.example.Model.Project;
 import dtu.example.Model.SpecialActivity;
 import dtu.example.Model.SystemStorage;
+import dtu.example.Utility.CalendarHelper;
 import dtu.example.dto.*;
 
 public class App {

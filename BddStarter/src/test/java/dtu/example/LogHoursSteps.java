@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import dtu.example.Controller.App;
-import dtu.example.Model.CalendarHelper;
+import dtu.example.Utility.CalendarHelper;
 
 import java.time.LocalDate;
 

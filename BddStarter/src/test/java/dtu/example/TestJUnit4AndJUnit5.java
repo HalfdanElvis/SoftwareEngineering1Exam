@@ -2,9 +2,9 @@ package dtu.example;
 import java.util.List;
 
 import dtu.example.Controller.App;
-import dtu.example.Model.CalendarHelper;
 import dtu.example.Model.Employee;
 import dtu.example.Model.Week;
+import dtu.example.Utility.CalendarHelper;
 
 import java.util.ArrayList;
 /**

@@ -1,5 +1,6 @@
-package dtu.example.Model;
+package dtu.example.Utility;
 
+import dtu.example.Model.Week;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
