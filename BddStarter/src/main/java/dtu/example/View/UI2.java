@@ -275,6 +275,20 @@ public class UI2 {
                         newPage();
                         switch (choice) {
                             case 1:
+
+                                project = app.createDTOProject(projectID);
+
+                                if(!project.getProjectLeaderUsername().equals("")) {
+                                    if (!project.getProjectLeaderUsername().equals(loggedInEmployee.getName())) {
+                                        System.out.println("Project already has a project leader.");
+                                        System.out.println("Only project leader can create activities.");
+                                        System.out.println("-------------------------");
+                                        System.out.println("Press \'Enter\' to return");
+                                        input = console.nextLine();
+                                        newPage();
+                                        break;
+                                    }
+                                }
                                 boolean makenew = true;
                                 do {
                                     System.out.println("-------------------------");
@@ -392,6 +406,15 @@ public class UI2 {
                             case 3:
                                 project = app.createDTOProject(projectID);
 
+                                if (!project.getProjectLeaderUsername().equals(loggedInEmployee.getName())) {
+                                        System.out.println("Only project leader can set expected hours.");
+                                        System.out.println("-------------------------");
+                                        System.out.println("Press \'Enter\' to return");
+                                        input = console.nextLine();
+                                        newPage();
+                                        break;
+                                    }
+
                                 if (project.getActivities().size() == 0) {
                                     System.out.println("-------------------------");
                                     System.out.println("No activites in project");
@@ -453,6 +476,8 @@ public class UI2 {
                                 project = app.createDTOProject(projectID);
                                 if(!project.getProjectLeaderUsername().equals("")) {
                                     if (!project.getProjectLeaderUsername().equals(loggedInEmployee.getName())) {
+                                        System.out.println("Project already has a project leader.");
+                                        System.out.println("Only project leader can assign a new leader.");
                                         System.out.println("-------------------------");
                                         System.out.println("Press \'Enter\' to return");
                                         input = console.nextLine();
@@ -513,6 +538,18 @@ public class UI2 {
                             case 6:
                                 project = app.createDTOProject(projectID);
                                 
+                                if(!project.getProjectLeaderUsername().equals("")) {
+                                    if (!project.getProjectLeaderUsername().equals(loggedInEmployee.getName())) {
+                                        System.out.println("Project already has a project leader.");
+                                        System.out.println("Only project delete activites.");
+                                        System.out.println("-------------------------");
+                                        System.out.println("Press \'Enter\' to return");
+                                        input = console.nextLine();
+                                        newPage();
+                                        break;
+                                    }
+                                }
+
                                 if (project.getActivities().size() == 0) {
                                     System.out.println("-------------------------");
                                     System.out.println("No activites in project");
@@ -562,13 +599,23 @@ public class UI2 {
                                 break;
                             case 7:
                                 boolean leave = false;
+                            
                                 do {
-                                    System.out.println("Are you sure you want to delete this project?"); 
-                                    leave = app.yesOrNo(console.nextLine()); 
-                                } while (!leave);
-                                app.deleteProject(projectID);
-                                exit = false;
-                                break outerloop;
+                                    try {
+                                        System.out.println("Are you sure you want to delete this project Y/N?"); 
+                                        leave = app.yesOrNo(console.nextLine());
+                                        if (leave) {
+                                            app.deleteProject(projectID);
+                                            exit = false;
+                                            break outerloop;
+                                        } 
+                                    } catch (Exception e) {
+                                        System.err.println(e.getMessage());
+                                    }
+                                } while (leave);
+                                    
+                                
+                                break;
                             case 8:
                                 exit = false;
                                 break outerloop;
