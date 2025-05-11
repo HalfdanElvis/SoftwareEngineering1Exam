@@ -660,11 +660,13 @@ public class UI {
         while (true) { 
             String username = console.nextLine();
             try {
+                newPage();
                 app.legalUsername(username);
                 app.addEmployee(username);
-                System.out.println();
+                System.out.println("-------------------------");
                 System.out.println("succesfully created user with name: " + username);
-                System.out.println();
+                System.out.println("-------------------------");
+                waitTillEnter();
                 break;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
@@ -690,7 +692,28 @@ public class UI {
             
             switch (choice) {
                 case 1:
+                    List<ProjectInfo> allProjectInfos = app.getallProjectInfos();
+                    boolean activityExist = false;
+                    for (ProjectInfo projectInfo : allProjectInfos) {
+                        if (projectInfo.getActivities().size() > 0) {
+                            activityExist = true;
+                            System.out.println("-------------------------");
+                            System.out.println("List of all activities for Project "+projectInfo.getName()+", with ID "+projectInfo.getID());
+                            System.out.println("-------------------------");
+                            printActivities(projectInfo.getActivities());
+                            System.out.println();
+                        }
+                    }
+
+                    if (!activityExist) {
+                        System.out.println("Error, No activities exist");
+                        System.out.println();
+                        waitTillEnter();
+                        System.out.println();
+                        break;
+                    }
                     assignSelectedEmployeeToActivtiy();
+                    waitTillEnter();
                     break;
 
                 case 2:
@@ -741,6 +764,7 @@ public class UI {
         while (true) { 
             String username = console.nextLine();
             try {
+                newPage();
                 if(app.legalUsername(username)){
                     selectedEmployee = app.getEmployeeInfo(username);
                     break;
@@ -771,6 +795,7 @@ public class UI {
     }
 
     public static void assignSelectedEmployeeToActivtiy() {
+        
         System.out.println("Write the projectID of the activity");
         Integer projectID = Integer.parseInt(console.nextLine());
 
@@ -1145,7 +1170,7 @@ public class UI {
         boolean back = false;
         while(true){
             System.out.println();
-            System.out.println("View Menu:");
+            System.out.println("Log Hours Menu:");
             System.out.println("-------------------------");
             System.out.println("1. Log Hours for your activities");
             System.out.println("2. Log Hours for all activities");
@@ -1169,7 +1194,7 @@ public class UI {
                 case 1:
                     loggedInEmployee = app.getSignedInEmployeeInfo();
                     if (loggedInEmployee.getActivityInfos().size() == 0) {
-                        System.out.println("Error, You have no assigned activities");
+                        System.out.println("Erm actually, You have no assigned activities (o_o-)");
                         System.out.println();
                         waitTillEnter();
                         System.out.println();
@@ -1292,6 +1317,7 @@ public class UI {
     public static void waitTillEnter() {
         System.out.println("Press \'Enter\' to return");
         input = console.nextLine();
+        newPage();
     }
 
     public static void printActivities(List<ActivityInfo> activities) {
