@@ -100,11 +100,6 @@ public class Project {
         return activity.getUserLoggedHoursOnDate(username, date);
     }
 
-    public float getUserTotalLoggedHoursInActivity(String activityName, String username) {
-        Activity activity = stringToActivity(activityName);
-        return activity.getUserTotalLoggedHours(username);
-    }
-
     public float[] generateReport(Employee requestingEmployee) throws IllegalAccessException {
         if (!requestingEmployee.equals(projectLeader)) {
             throw new IllegalAccessException("Only project leader can generate report");

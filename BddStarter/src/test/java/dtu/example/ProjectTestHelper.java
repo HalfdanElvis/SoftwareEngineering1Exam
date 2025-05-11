@@ -23,18 +23,7 @@ public class ProjectTestHelper {
         return activity.getExpectedHours();
     }
 
-    public float getUserLoggedHoursOnDate(ProjectInfo project, String activityName, String username, String dateAsString) throws ParseException {
-        Calendar date = CalendarHelper.parseStringAsCalendar(dateAsString);
-        ActivityInfo activity = project.getActivities().stream().filter(a -> a.getName().equals(activityName)).findAny().orElse(null);
-        for (WorkData workData : activity.getWorkDataList()) {
-            if (workData.getEmployee().equals(username) && workData.getDate().equals(date)) {
-                return workData.getHours();
-            }
-        }
-        return 0;
-    }
-
-    public float getUserTotalLoggedHours(ProjectInfo project, String activityName, String username) {
+    public static float getUserTotalLoggedHours(ProjectInfo project, String activityName, String username) {
         ActivityInfo activity = project.getActivities().stream().filter(a -> a.getName().equals(activityName)).findAny().orElse(null);
         float sum = 0;
         for (WorkData workData : activity.getWorkDataList()) {

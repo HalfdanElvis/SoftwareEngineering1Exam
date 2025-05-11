@@ -86,16 +86,6 @@ public class Activity {
         return 0;
     }
 
-    public float getUserTotalLoggedHours(String username) {
-        float sum = 0;
-        for (WorkData workData : workDataList) {
-            if (workData.getEmployee().equals(username)) {
-                sum += workData.getHours();
-            }
-        }
-        return sum;
-    }
-
     public float getTotalWorkedHours() {
         float sum = 0;
         for (WorkData workData : workDataList) {

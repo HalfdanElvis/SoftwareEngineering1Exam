@@ -88,6 +88,7 @@ public class UI2 {
 
             try {
                 if (app.login(username)){
+                    loggedInEmployee = app.getSignedInEmployeeInfo();
                     loggedIn = true;
                 } else {
                     // New User registration
@@ -965,88 +966,88 @@ public class UI2 {
             }
             switch(choice){
                 case 1:
-                    List<ActivityInfo> userActivities = null;//app.getUserActivitiesInfo(loggedInEmployee.getName());
-                    List<String> activityStrings = new ArrayList<>();
-                    for (int i = 0; i<userActivities.size(); i++){
-                        activityStrings.add((userActivities.get(i).getName()));
+                    if (loggedInEmployee.getActivityInfos().size() == 0) {
+                        System.out.println("Error, You have no assigned activities");
+                        System.out.println();
+                        waitTillEnter();
+                        System.out.println();
+                        break;
                     }
-                    System.out.println(loggedInEmployee.getName()+"'s activities");
-                    System.out.println(activityStrings);
+                    System.out.println("-------------------------");
+                    System.out.println("List of "+loggedInEmployee.getName()+"'s activities");
+                    System.out.println("-------------------------");
+                    printActivities(loggedInEmployee.getActivityInfos());
+                    
                     while (true){
-                        System.out.println("Write the name of the activity you would like to add hours too");
+                        System.out.println("Write the name of the activity you would like to log hours for");
                         try {
                             String input = console.nextLine();
-                            if (activityStrings.contains(input) != true){
-                                System.out.println("Activity doesn't exists");
-                                System.out.println("Would you like to put in a new activity name or go out to menu? Y/N");
-                                String answer = console.nextLine();
-                                if(app.yesOrNo(answer)){
-                                    continue;
-                                }
-                                else{
-                                    break;
-                                }
-                            } else {
-                                System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
-                                String inputdate = console.nextLine();
-                                System.out.println("Please write the project ID of your activity");
-                                Integer projectID = Integer.parseInt(console.nextLine());
-                                System.out.println("Your current hours on the activity on  " +inputdate + " is:");
-                                System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
-                                System.out.println("Please write the hours you would like to add or remove from the activity. Negative numbers are removed hours, positive are added");
-                                Float hours = Float.parseFloat(console.nextLine());
-                                app.logHours(projectID, input, inputdate, hours);
-                                System.out.println("The new amount of hours is:");
-                                System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
-                                break;
-                            }
+                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                            String inputdate = console.nextLine();
+                            System.out.println("Please write the project ID of your activity");
+                            Integer projectID = Integer.parseInt(console.nextLine());
+                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                            System.out.println("Your current hours on the activity on  " +inputdate + " is:");
+                            System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
+                            System.out.println("Please write the hours you would like to log. Negative numbers are removed hours, positive are added");
+                            Float hours = Float.parseFloat(console.nextLine());
+                            app.logHours(projectID, input, inputdate, hours);
+                            System.out.println("The new amount of hours is:");
+                            System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
+                            break;
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
+                            waitTillEnter();
                         }
                     }
                     break;
-                    
                 case 2:
-                    System.out.println("All activities:");
-                    
-                    List<ActivityInfo> allActivities = null;//app.getAllActivityInfos();
-                    List<String> allActivityStrings = new ArrayList<String>();
-                    for (int i = 0; i<allActivities.size(); i++){
-                        allActivityStrings.add((allActivities.get(i).getName()));
+                    printActivities(loggedInEmployee.getActivityInfos());
+                    List<ProjectInfo> allProjectInfos = app.getallProjectInfos();
+                    for (ProjectInfo projectInfo : allProjectInfos) {
+                        System.out.println("-------------------------");
+                        System.out.println("List of all activities for Project "+projectInfo.getName()+", with ID "+projectInfo.getID());
+                        System.out.println("-------------------------");
+                        printActivities(projectInfo.getActivities());
+                        System.out.println();
                     }
-                    System.out.println(allActivityStrings);
 
                     while (true){
-                        System.out.println("Write the name of the activity you would like to add hours too");
+                        System.out.println("Write the name of the activity you would like to log hours for");
                         try {
                             String input = console.nextLine();
-                            
-                            if (allActivityStrings.contains(input) != true){
-                                System.out.println("Activity doesn't exists");
-                                System.out.println("Would you like to put in a new activity name? Y/N");
-                                String answer = console.nextLine();
-                                if(app.yesOrNo(answer) ){
-                                    continue;
-                                } else{
-                                    break;
-                                }
-                                
-                            }else {
-                                System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
-                                String inputdate = console.nextLine();
-                                System.out.println("Please write the project ID of your activity");
-                                Integer projectID = Integer.parseInt(console.nextLine());
-                                System.out.println("Your current hours on the activity on " +inputdate + " is:");
-                                System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
-                                System.out.println("Please write the hours you would like to add or remove from the activity. Negative numbers are removed hours, positive are added");
-                                Float hours = Float.parseFloat(console.nextLine());
-                                app.logHours(projectID, input, inputdate, hours);
-                                System.out.println("The new amount of hours is:");
-                                System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
-                                break;
-                            }
+                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                            String inputdate = console.nextLine();
+                            System.out.println("Please write the project ID of your activity");
+                            Integer projectID = Integer.parseInt(console.nextLine());
+                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                            System.out.println("Your current hours on the activity on the date " +inputdate + " is:");
+                            System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
+                            System.out.println("Please write the hours you would like to log. Negative numbers are removed hours, positive are added");
+                            Float hours = Float.parseFloat(console.nextLine());
+                            app.logHours(projectID, input, inputdate, hours);
+                            System.out.println("The new amount of hours is:");
+                            System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
+                            System.out.println();
+                            waitTillEnter();
+                            System.out.println();
+                            break;
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
+                            System.out.println("Try again or go back? Y/N");
+                            while (true) {
+                                input = console.nextLine();
+                                try {
+                                    app.yesOrNo(input);
+                                    break;
+                                } catch (Exception e2) {
+                                    System.err.println(e2.getMessage());
+                                }
+                            }
+                            if (app.yesOrNo(input)) {
+                                continue;
+                            }
+                            break;
                         }
                     }
                     break;
@@ -1070,6 +1071,28 @@ public class UI2 {
     public static void newPage() {
         for (int i = 0; i < 10; i++) {
             System.out.println();
+        }
+    }
+
+    public static void waitTillEnter() {
+        System.out.println("Press \'Enter\' to return");
+        input = console.nextLine();
+    }
+
+    public static void printActivities(List<ActivityInfo> activities) {
+        for (int i = 0; i < activities.size(); i++) {
+            if (activities.get(i).getStartWeek() != null) {
+
+                System.out.println(activities.get(i).getName()+", Active from: " 
+                +activities.get(i).getStartWeek().getYear()+"-W"
+                +activities.get(i).getStartWeek().getWeek()+" to "
+                +activities.get(i).getEndWeek().getYear()+"-W"
+                +activities.get(i).getEndWeek().getWeek());
+
+            } else {
+                System.out.println(activities.get(i).getName());
+            }
+            
         }
     }
 

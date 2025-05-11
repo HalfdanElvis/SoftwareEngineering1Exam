@@ -118,7 +118,7 @@ public class App {
     }
 
     public void deleteSpecialActivity(String activityName, String username){
-        stringToEmployee(username).deleteSpecialActivity(activityName);
+        stringToEmployee(username).removeSpecialActivity(activityName);
     }
 
     public int createProject(String name) {
@@ -168,11 +168,6 @@ public class App {
         Calendar date = Calendar.getInstance();
         date.setTime(sdf.parse(dateAsString));
         return project.getUserLoggedHoursInActivityOnDate(activityName, username, date);
-    }
-
-    public float getUserTotalLoggedHoursInActivity(int projectID, String activityName, String username) {
-        Project project = systemStorage.getProject(projectID);
-        return project.getUserTotalLoggedHoursInActivity(activityName, username);
     }
 
     public float[] generateReport(int projectID) throws IllegalAccessException {

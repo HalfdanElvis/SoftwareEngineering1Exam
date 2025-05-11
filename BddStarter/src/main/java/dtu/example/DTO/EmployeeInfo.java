@@ -2,7 +2,6 @@ package dtu.example.dto;
 
 import java.util.ArrayList;
 import java.util.List;
-import dtu.example.*;
 import dtu.example.Model.Activity;
 import dtu.example.Model.Employee;
 import dtu.example.Model.SpecialActivity;

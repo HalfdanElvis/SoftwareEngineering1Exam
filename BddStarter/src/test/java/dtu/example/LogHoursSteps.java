@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 
 import dtu.example.Controller.App;
 import dtu.example.Utility.CalendarHelper;
+import dtu.example.dto.ProjectInfo;
 
 import java.time.LocalDate;
 
@@ -72,7 +73,8 @@ public class LogHoursSteps {
 
     @Then("the user should have logged {int} hours in the activity")
     public void theUserShouldHaveLoggedHoursInTheActivity(float hours) {
-        assertEquals(hours, app.getUserTotalLoggedHoursInActivity(testHelper.getProjectID(), testHelper.getActivityName(), testHelper.getUser()), 0);
+        ProjectInfo project = app.createDTOProject(testHelper.getProjectID());
+        assertEquals(hours, ProjectTestHelper.getUserTotalLoggedHours(project, testHelper.getActivityName(), testHelper.getUser()), 0);
     }
 
     @Then("on the date {string} the user has logged {float} hours in the activity")
