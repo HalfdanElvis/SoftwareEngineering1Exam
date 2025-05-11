@@ -2,6 +2,7 @@ package dtu.example;
 
 import static org.junit.Assert.assertFalse;
 
+import java.util.List;
 import java.util.Scanner;
 
 import dtu.example.Controller.App;
@@ -75,7 +76,8 @@ public class LoginSteps {
 
     @Then("the user {string} exists")
     public void theUserExists(String string) {
-        assert(app.employeeExists(string));
+        List<EmployeeInfo> allEmployees = app.getAllEmployeeInfo();
+        assert(EmployeeTestHelper.employeeExists(allEmployees, string));
     }
 
     @Then("the user {string} is not logged in")

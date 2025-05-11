@@ -21,8 +21,10 @@ public class Employee {
         if (activities.contains(activity)) {
             throw new IllegalArgumentException("User is already part of the activity");
         }
-        if (!isAvailable(activity.getStartWeek(), activity.getEndWeek())) {
-            throw new IllegalArgumentException("User has too many activities");
+        if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
+            if (!isAvailable(activity.getStartWeek(), activity.getEndWeek())) {
+                throw new IllegalArgumentException("User has too many activities");
+            }
         }
         activities.add(activity);
     }
@@ -33,64 +35,44 @@ public class Employee {
         if (!isAvailableSpecial(sWeek, eWeek)) {
             throw new IllegalArgumentException("Special activities cannot overlap with other special activities");
         }
-        SpecialActivity activity = new SpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
-        specialActivities.add(activity);
+        SpecialActivity specialActivity = new SpecialActivity(activityName);
+        specialActivity.setStartAndEndWeek(startYear, startWeek, endYear, endWeek);
+        specialActivities.add(specialActivity);
     }    
 
     public List<SpecialActivity> getSpecialActivities(){
         return specialActivities;
     }
 
-    public boolean isAssignedActivity(String activityName) {
-        for (Activity activity : activities) {
-            if (activity.getName().equals(activityName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-        public boolean isAssignedSpecialActivity(String activityName) {
-        for (SpecialActivity specialActivity : specialActivities) {
-            if (specialActivity.getName().equals(activityName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    
-    
-
     public String getUsername() { return username; }
     public void setPeak(boolean peak) { this.peak = peak; }
     public boolean isPeak() { return peak; }
 
     public void removeActivity(String activityName) {
-        boolean activityExists = false;
+        Activity toBeRemoved = null;
         for (Activity activity : activities) {
             if (activity.getName().equals(activityName)) {
-                activities.remove(activity);
-                activityExists = true;
+                toBeRemoved = activity;
             }
         }
-        if (!activityExists) {
+        if (toBeRemoved == null) {
             throw new IllegalArgumentException("User is not assigned that activity");
         }
+        activities.remove(toBeRemoved);
     }
 
     public void removeSpecialActivity(String specialActivityName) {
-        boolean activityExists = false;
+        SpecialActivity toBeRemoved = null;
         for (SpecialActivity specialActivity : specialActivities) {
             if (specialActivity.getName().equals(specialActivityName)) {
-                specialActivities.remove(specialActivity);
-                activityExists = true;
+                toBeRemoved = specialActivity;
             }
         }
         
-        if (!activityExists) {
+        if (toBeRemoved == null) {
             throw new IllegalArgumentException("User is not assigned that special activity");
         }
+        specialActivities.remove(toBeRemoved);
     }
 
     public List<Activity> getActivities() {
@@ -101,11 +83,6 @@ public class Employee {
         Week sWeek = new Week(startYear, startWeek);
         Week eWeek = new Week(endYear, endWeek);
         return isAvailable(sWeek, eWeek);
-    }
-
-    public boolean isAvailable(int year, int week) {
-        Week w = new Week(year, week);
-        return isAvailable(w);
     }
     
     private boolean isAvailable(Week startWeek, Week endWeek) {
@@ -157,14 +134,5 @@ public class Employee {
         }
         return true;
     }
-
-    // Special Activity metoder
-
-    
-    /*
-    
-
-    
-    */
 
 }

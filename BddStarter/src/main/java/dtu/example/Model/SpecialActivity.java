@@ -6,10 +6,8 @@ public class SpecialActivity{
     private Week startWeek;
     private Week endWeek;
 
-    public SpecialActivity(String name, int startYear, int startWeek, int endYear, int endWeek) {
+    public SpecialActivity(String name) {
         this.name = name;
-        this.startWeek = new Week(startYear, startWeek);
-        this.endWeek = new Week(endYear, endWeek);
     }
     
     public String getName() {
@@ -25,8 +23,13 @@ public class SpecialActivity{
     }
 
     public void setStartAndEndWeek(int startYear, int startWeek, int endYear, int endWeek) {
-        this.startWeek = new Week(startYear, startWeek);
-        this.endWeek = new Week(endYear, endWeek);
+        Week sWeek = new Week(startYear, startWeek);
+        Week eWeek = new Week(endYear, endWeek);
+        if (!eWeek.isGreaterOrEqual(sWeek)) {
+            throw new IllegalArgumentException("End week/year must be greater or equal than start week/year");
+        }
+        this.startWeek = sWeek;
+        this.endWeek = eWeek;
     }
 
 }

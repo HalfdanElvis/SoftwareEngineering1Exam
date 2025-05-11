@@ -3,6 +3,7 @@ import java.util.List;
 
 import dtu.example.Controller.App;
 import dtu.example.Model.Employee;
+import dtu.example.Model.SpecialActivity;
 import dtu.example.Model.Week;
 import dtu.example.Utility.CalendarHelper;
 
@@ -315,4 +316,46 @@ public class TestJUnit4AndJUnit5 {
 		//Assert
 		org.junit.Assert.assertTrue(invalidRange);
 	}
+
+	// setSpecialActivityStartAndEndWeek Whitebox test:
+	// A
+	@org.junit.Test // JUnit 4
+	public void setSpecialActivityStartAndEndWeekSuccess() {
+		//Arrange
+		SpecialActivity specialActivity = new SpecialActivity("test");
+		boolean success = true;
+		//Act
+		try {
+			specialActivity.setStartAndEndWeek(1, 2, 3, 4);
+		} catch (Exception e) {
+			success = false;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(success);
+		org.junit.Assert.assertTrue(specialActivity.getStartWeek().getYear() == 1);
+		org.junit.Assert.assertTrue(specialActivity.getStartWeek().getWeek() == 2);
+		org.junit.Assert.assertTrue(specialActivity.getEndWeek().getYear() == 3);
+		org.junit.Assert.assertTrue(specialActivity.getEndWeek().getWeek() == 4);
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void setSpecialActivityStartAndEndWeekFailure() {
+		//Arrange
+		SpecialActivity specialActivity = new SpecialActivity("test");
+		boolean failure = false;
+		//Act
+		try {
+			specialActivity.setStartAndEndWeek(4, 3, 2, 1);
+		} catch (Exception e) {
+			failure = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(failure);
+		org.junit.Assert.assertTrue(specialActivity.getStartWeek() == null);
+		org.junit.Assert.assertTrue(specialActivity.getStartWeek() == null);
+		org.junit.Assert.assertTrue(specialActivity.getEndWeek() == null);
+		org.junit.Assert.assertTrue(specialActivity.getEndWeek() == null);
+	}
+
 }

@@ -61,7 +61,8 @@ public class CreateProjectSteps {
 
     @Then("there exists {int} projects in year {int}")
     public void thereExistsProjectsInYear(Integer int1, Integer int2) {
-        assertEquals(int1, app.getProjectAmountFromYear(int2), 0);
+        List<ProjectInfo> projects = app.getDTOProjectList(int2);
+        assertEquals(int1, projects.size(), 0);
     }
     
 }

@@ -62,7 +62,7 @@ public class App {
         this.signedInEmployee = stringToEmployee(signedInEmployee);
     }
 
-    public void removeSignedInEmployee() {
+    public void logout() {
         this.signedInEmployee = null;
     }
 
@@ -117,10 +117,6 @@ public class App {
         employee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
     }
 
-    public void deleteSpecialActivity(String activityName, String username){
-        stringToEmployee(username).removeSpecialActivity(activityName);
-    }
-
     public int createProject(String name) {
         return systemStorage.createProject(name, dateServer.getYear());
     }
@@ -148,7 +144,7 @@ public class App {
 
     public void removeEmployeeFromSpecialActivity(String username, String activtyName) {
         Employee employee = systemStorage.getEmployee(username);
-        employee.removeActivity(activtyName);
+        employee.removeSpecialActivity(activtyName);
     }
 
     public void setActivitiyStartAndEndWeek(int projectID, String activityName, int startYear, int startWeek, int endYear, int endWeek) {
@@ -173,10 +169,6 @@ public class App {
     public float[] generateReport(int projectID) throws IllegalAccessException {
         Project project = systemStorage.getProject(projectID);
         return project.generateReport(signedInEmployee);
-    }
-
-    public int getProjectAmountFromYear(int year) {
-        return systemStorage.getProjectAmountFromYear(year);
     }
 
     public EmployeeInfo getEmployeeInfo(String username) {

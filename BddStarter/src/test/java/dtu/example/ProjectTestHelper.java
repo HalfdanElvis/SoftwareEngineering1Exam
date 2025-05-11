@@ -1,11 +1,8 @@
 package dtu.example;
-import java.text.ParseException;
-import java.util.Calendar;
 import java.util.List;
 
 import dtu.example.dto.ProjectInfo;
 import dtu.example.Model.WorkData;
-import dtu.example.Utility.CalendarHelper;
 import dtu.example.dto.ActivityInfo;
 
 public class ProjectTestHelper {
@@ -16,6 +13,10 @@ public class ProjectTestHelper {
 
     public static boolean projectContainsActivity(ProjectInfo project, String activity) {
         return project.getActivities().stream().anyMatch(a -> a.getName().equals(activity));
+    }
+
+    public static ActivityInfo getActivity(ProjectInfo project, String activityName) {
+        return project.getActivities().stream().filter(a -> a.getName().equals(activityName)).findAny().orElse(null);
     }
 
     public static float getActivityExpectedHours(ProjectInfo project, String activityName) {
