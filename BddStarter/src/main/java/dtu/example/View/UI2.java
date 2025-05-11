@@ -91,7 +91,7 @@ public class UI2 {
                 } else {
                     // New User registration
                     System.out.println();
-                    System.out.println("User doesn't exist. Create user with username: "+username+" Y/N?");
+                    System.out.println("User doesn't exist. Create employee with username: "+username+" Y/N?");
                     while (true) {
                         input = console.nextLine();
                         try {
@@ -159,15 +159,33 @@ public class UI2 {
     // Create Project
     public static void createProjectUI() {
         boolean exit = true;
+        String projectName = "";
+        int id = -1;
         do {
             printCreateProjectMenu();
-            String projectName = console.nextLine();
-            int id = app.createProject(projectName);
+            try {
+                projectName = console.nextLine();
+                id = app.createProject(projectName);
+                newPage();
+                
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
             
             System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
             System.out.println("-------------------------");
-            System.out.println("Want to create another project Y/N?"); 
-            exit = app.yesOrNo(console.nextLine()); 
+            System.out.println("Want to create another project Y/N?");
+            while (true) {
+                try {
+                    exit = app.yesOrNo(console.nextLine());
+                    newPage();
+                    break; 
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+            
+            
         } while(exit);
     }
 
@@ -514,7 +532,7 @@ public class UI2 {
                                     float[] tal = app.generateReport(projectID);
 
                                     System.out.println("-------------------------");
-                                    System.out.println("Project Completion");
+                                    System.out.println("Project Report");
                                     System.out.println("-------------------------");
                                     System.out.println();
 
@@ -710,7 +728,7 @@ public class UI2 {
 
     public static void selectUser() {
         System.out.println();
-        System.out.println("Users:");
+        System.out.println("Employees:");
         System.out.println("-------------------------");
         List<EmployeeInfo> allEmployees = app.getAllEmployeeInfo();
         for (EmployeeInfo employeeInfo : allEmployees) {
@@ -718,7 +736,7 @@ public class UI2 {
         }
         System.out.println("-------------------------");
         System.out.println();
-        System.out.println("Select a user from the list above by inserting their username:");
+        System.out.println("Select an employee from the list above by inserting their username:");
         
         while (true) { 
             String username = console.nextLine();
@@ -735,7 +753,7 @@ public class UI2 {
 
     public static void printManageUserMenu() {
         System.out.println();
-        System.out.print("Manage User: " + selectedEmployee.getName());
+        System.out.print("Manage Employee: " + selectedEmployee.getName());
         if (selectedEmployee.isPeak()){
             System.out.print(" (peak) ");
         }
@@ -745,7 +763,7 @@ public class UI2 {
         System.out.println("2. Assign to Special Activity");
         System.out.println("3. Manage Special Activities") ;
         System.out.println("4. Set/Unset Peak Performance");
-        System.out.println("5. Delete User");
+        System.out.println("5. Delete Employee");
         System.out.println("6. Back");
         System.out.println("-------------------------");
         System.out.println();
@@ -1077,7 +1095,7 @@ public class UI2 {
 
     public static boolean  deleteUserUI() {
         System.out.println();
-        System.out.println("Are you sure you want to delete user: " + selectedEmployee.getName() + "? Y/N");
+        System.out.println("Are you sure you want to delete employee: " + selectedEmployee.getName() + "? Y/N");
         while (true) {
             input = console.nextLine();
             try {
@@ -1087,11 +1105,11 @@ public class UI2 {
                         app.logout();
                     }
                     app.deleteEmployee(selectedEmployee.getName());
-                    System.out.print("User deleted");
+                    System.out.print("Employee deleted");
 
                     return true;
                 } else {
-                    System.out.println("User wasn't deleted.");
+                    System.out.println("Employee wasn't deleted.");
                     return false;
                 }
             } catch (Exception e) {
@@ -1102,7 +1120,7 @@ public class UI2 {
 
     public static void setUserPeakUI() {
         System.out.println();
-        System.out.println("do you want to set Employee: " + selectedEmployee.getName() + " as a peak performing Employee? Y/N");
+        System.out.println("do you want to set employee: " + selectedEmployee.getName() + " as a peak performing Employee? Y/N");
         while (true) {
             input = console.nextLine();
             try {
@@ -1149,6 +1167,7 @@ public class UI2 {
             }
             switch(choice){
                 case 1:
+                    loggedInEmployee = app.getSignedInEmployeeInfo();
                     if (loggedInEmployee.getActivityInfos().size() == 0) {
                         System.out.println("Error, You have no assigned activities");
                         System.out.println();
@@ -1177,6 +1196,8 @@ public class UI2 {
                             app.logHours(projectID, input, inputdate, hours);
                             System.out.println("The new amount of hours is:");
                             System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
+                            System.out.println();
+                            waitTillEnter();
                             break;
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
