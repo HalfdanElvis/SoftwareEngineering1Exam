@@ -206,10 +206,12 @@ public class UI {
         System.out.println("-------------------------");
         System.out.println("1. Make activity");
         System.out.println("2. View activities");
-        System.out.println("3. Assign Project-leader");
-        System.out.println("4. Delete activity");
-        System.out.println("5. Delete project");
-        System.out.println("6. Exit menu");
+        System.out.println("3. Set expected hours for activity");
+        System.out.println("4. Assign Project-leader");
+        System.out.println("5. Generate report");
+        System.out.println("6. Delete activity");
+        System.out.println("7. Delete project");
+        System.out.println("8. Back");
         System.out.println("-------------------------");
 
         System.out.println();
@@ -655,6 +657,66 @@ public class UI {
                                 break;
                             case 3:
                                 project = app.createDTOProject(projectID);
+
+                                if (project.getActivities().size() == 0) {
+                                    System.out.println("-------------------------");
+                                    System.out.println("No activites in project");
+                                    System.out.println("-------------------------");
+                                    System.out.println("Press \'Enter\' to return");
+                                    input = console.nextLine();
+                                    break;
+                                } 
+
+                                System.out.println("-------------------------");
+                                System.out.println("List of activities");
+                                System.out.println("-------------------------");
+                                System.out.println();
+                                
+                                for (int i = 0; i < project.getActivities().size(); i++) {
+                                    if (project.getActivities().get(i).getStartWeek() != null) {
+
+                                        System.out.println(project.getActivities().get(i).getName()+", Active from: " 
+                                        +project.getActivities().get(i).getStartWeek().getYear()+"-W"
+                                        +project.getActivities().get(i).getStartWeek().getWeek()+" to "
+                                        +project.getActivities().get(i).getEndWeek().getYear()+"-W"
+                                        +project.getActivities().get(i).getEndWeek().getWeek());
+
+                                    } else {
+                                        System.out.println(project.getActivities().get(i).getName());
+                                    }
+                                    
+                                }
+
+                                System.out.println();
+                                System.out.println("-------------------------");
+                                String activityName;
+                                int hours;
+                                while (true) {
+                                    try {
+                                        System.out.println("Which activity do you want to set hours for?");
+                                        activityName = console.nextLine();
+                                        System.out.println();
+                                        System.out.println("How many hours should the activity take to finish?");
+                                        input = console.nextLine();
+                                        App.isPositiveInt(input);
+                                        hours = Integer.parseInt(input);
+
+                                        app.setActivityExpectedHours(projectID, activityName, hours );
+                                        newPage();
+                                        break;
+                                    } catch (Exception e) {
+                                        System.err.println(e.getMessage());
+                                    }
+                                }
+                                
+                                System.out.println("Succesfully set hours for "+activityName);
+                                System.out.println("-------------------------");
+                                System.out.println("Press \'Enter\' to return");
+                                input = console.nextLine();
+                                newPage();
+                                break;
+                            case 4:
+                                project = app.createDTOProject(projectID);
                                 if(!project.getProjectLeaderUsername().equals("")) {
                                     if (!project.getProjectLeaderUsername().equals(app.getSignedInEmployeeUsername())) {
                                         System.out.println("-------------------------");
@@ -666,7 +728,6 @@ public class UI {
                                 }
                                 System.out.println("--------------------------------------------");
                                 System.out.println("Enter username of the to be assigned leader:");
-                                newPage();
                                 
                                 String username;
 
@@ -688,7 +749,34 @@ public class UI {
                                 input = console.nextLine();
                                 newPage();
                                 break;
-                            case 4:
+                            case 5:
+                                project = app.createDTOProject(projectID);
+                                try {
+                                    float[] tal = app.generateReport(projectID);
+
+                                    System.out.println("-------------------------");
+                                    System.out.println("Project Completion");
+                                    System.out.println("-------------------------");
+                                    System.out.println();
+
+                                    System.out.println("Hours completed: "+tal[0]+"/"+tal[1]);
+
+                                    System.out.println();
+                                    System.out.println("-------------------------");
+                                    System.out.println("Press \'Enter\' to return");
+                                    input = console.nextLine();
+                                    newPage();
+                                    break;
+                                } catch (Exception e) {
+                                    System.err.println(e.getMessage());
+                                    System.out.println("-------------------------");
+                                    System.out.println("Press \'Enter\' to return");
+                                    input = console.nextLine();
+                                    newPage();
+                                }
+                                
+                                break;
+                            case 6:
                                 project = app.createDTOProject(projectID);
                                 
                                 if (project.getActivities().size() == 0) {
@@ -738,7 +826,7 @@ public class UI {
                                 input = console.nextLine();
                                 newPage();
                                 break;
-                            case 5:
+                            case 7:
                                 boolean leave = false;
                                 do {
                                     System.out.println("Are you sure you want to delete this project?"); 
@@ -747,7 +835,7 @@ public class UI {
                                 app.deleteProject(projectID);
                                 exit = false;
                                 break outerloop;
-                            case 6:
+                            case 8:
                                 exit = false;
                                 break outerloop;
                     
