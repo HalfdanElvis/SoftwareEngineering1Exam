@@ -81,14 +81,28 @@ public class Employee {
 
     public void removeActivity(String activityName) {
         boolean activityExists = false;
-        for (int i = 0; i < activities.size(); i++) {
-            if (activities.get(i).getName().equals(activityName) ) {
-                activities.remove(i);
+        for (Activity activity : activities) {
+            if (activity.getName().equals(activityName)) {
+                activities.remove(activity);
                 activityExists = true;
             }
         }
         if (!activityExists) {
             throw new IllegalArgumentException("User is not assigned that activity");
+        }
+    }
+
+    public void removeSpecialActivity(String specialActivityName) {
+        boolean activityExists = false;
+        for (SpecialActivity specialActivity : specialActivities) {
+            if (specialActivity.getName().equals(specialActivityName)) {
+                specialActivities.remove(specialActivity);
+                activityExists = true;
+            }
+        }
+        
+        if (!activityExists) {
+            throw new IllegalArgumentException("User is not assigned that special activity");
         }
     }
 

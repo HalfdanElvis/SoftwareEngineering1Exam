@@ -92,17 +92,6 @@ public class SystemStorage {
         return count;
     }
 
-
-    public List<String> getAvailableEmployees(int startYear, int startWeek, int endYear, int endWeek) {
-        List<String> availableEmployees = new ArrayList<>();
-        for (Employee employee : employees) {
-            if (employee.isAvailable(startYear, startWeek, endYear, endWeek)) {
-                availableEmployees.add(employee.getUsername());
-            }
-        }
-        return availableEmployees;
-    }
-
     public List<Project> getAllProjects() {
         return projects;
     }
