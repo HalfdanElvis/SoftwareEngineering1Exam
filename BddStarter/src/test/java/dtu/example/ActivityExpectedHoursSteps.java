@@ -77,7 +77,7 @@ public class ActivityExpectedHoursSteps {
 
     @Then("the activity's expected total work hours is {int}")
     public void theActivitySExpectedTotalWorkHoursIs(Integer hours) {
-        ProjectInfo project = app.createDTOProject(testHelper.getProjectID()); 
+        ProjectInfo project = app.getProjectInfo(testHelper.getProjectID()); 
         assertEquals(hours, ProjectTestHelper.getActivityExpectedHours(project, testHelper.getActivityName()), 0);
     }
 }

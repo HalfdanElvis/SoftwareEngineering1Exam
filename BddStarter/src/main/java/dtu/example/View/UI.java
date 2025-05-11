@@ -234,7 +234,7 @@ public class UI {
                 int year = Integer.parseInt(input);
                 newPage();
                 
-                List<ProjectInfo> projectList = app.getDTOProjectList(year);
+                List<ProjectInfo> projectList = app.getProjectInfosFromYear(year);
                 while (true) {
                     if (projectList.size() == 0) {
                     System.out.println("-------------------------");
@@ -269,7 +269,7 @@ public class UI {
                             input = console.nextLine();
                             App.isPositiveInt(input);
                             projectID = Integer.parseInt(input);
-                            project = app.createDTOProject(projectID);
+                            project = app.getProjectInfo(projectID);
                             newPage();
                             break;
                         } catch (Exception e) {
@@ -294,7 +294,7 @@ public class UI {
                         switch (choice) {
                             case 1:
 
-                                project = app.createDTOProject(projectID);
+                                project = app.getProjectInfo(projectID);
 
                                 if(!project.getProjectLeaderUsername().equals("")) {
                                     if (!project.getProjectLeaderUsername().equals(loggedInEmployee.getName())) {
@@ -385,7 +385,7 @@ public class UI {
                                 } while(makenew);
                                 break;
                             case 2:
-                                project = app.createDTOProject(projectID);
+                                project = app.getProjectInfo(projectID);
 
                                 if (project.getActivities().size() == 0) {
                                     System.out.println("-------------------------");
@@ -422,7 +422,7 @@ public class UI {
                                 input = console.nextLine();
                                 break;
                             case 3:
-                                project = app.createDTOProject(projectID);
+                                project = app.getProjectInfo(projectID);
 
                                 if (!project.getProjectLeaderUsername().equals(loggedInEmployee.getName())) {
                                         System.out.println("Only project leader can set expected hours.");
@@ -491,7 +491,7 @@ public class UI {
                                 newPage();
                                 break;
                             case 4:
-                                project = app.createDTOProject(projectID);
+                                project = app.getProjectInfo(projectID);
                                 if(!project.getProjectLeaderUsername().equals("")) {
                                     if (!project.getProjectLeaderUsername().equals(loggedInEmployee.getName())) {
                                         System.out.println("Project already has a project leader.");
@@ -527,7 +527,7 @@ public class UI {
                                 newPage();
                                 break;
                             case 5:
-                                project = app.createDTOProject(projectID);
+                                project = app.getProjectInfo(projectID);
                                 try {
                                     float[] tal = app.generateReport(projectID);
 
@@ -554,7 +554,7 @@ public class UI {
                                 
                                 break;
                             case 6:
-                                project = app.createDTOProject(projectID);
+                                project = app.getProjectInfo(projectID);
                                 
                                 if(!project.getProjectLeaderUsername().equals("")) {
                                     if (!project.getProjectLeaderUsername().equals(loggedInEmployee.getName())) {
@@ -1279,8 +1279,6 @@ public class UI {
                 break;    
             } 
             }
-        
-
     }
 
     public static void newPage() {

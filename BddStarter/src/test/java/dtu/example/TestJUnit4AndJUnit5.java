@@ -286,7 +286,7 @@ public class TestJUnit4AndJUnit5 {
 
 	// C
 	@org.junit.Test // JUnit 4
-	public void rangeReturnsWeeksBetweenStartAndEndWeekAreEquald() {
+	public void rangeReturnsWeeksBetweenStartAndEndWeekAreEqual() {
 		//Arrange
 		Week startWeek = new Week(2025, 48);
 		Week endWeek = startWeek;
@@ -309,7 +309,7 @@ public class TestJUnit4AndJUnit5 {
 		//Act
 		try {
 			CalendarHelper.range(startWeek, endWeek);
-		} catch (Exception e) {
+		} catch (Throwable e) {
 			invalidRange = true;
 		}
 		
@@ -357,5 +357,90 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.Assert.assertTrue(specialActivity.getEndWeek() == null);
 		org.junit.Assert.assertTrue(specialActivity.getEndWeek() == null);
 	}
+
+	// deleteEmployee Whitebox test:
+	// A
+	@org.junit.Test // JUnit 4
+	public void removeEmployeeFromSystemSuccess() {
+		//Arrange
+		App app = new App();
+		app.addEmployee("test");
+		boolean success = true;
+		//Act
+		try {
+			app.deleteEmployee("test");
+		} catch (Exception e) {
+			success = false;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(success);
+		org.junit.Assert.assertFalse(app.employeeExists("test"));
+
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void removeEmployeeFromSystemFailure() {
+		//Arrange
+		App app = new App();
+		boolean failure = false;
+		//Act
+		try {
+			app.deleteEmployee("test");
+		} catch (Exception e) {
+			failure = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(failure);
+		org.junit.Assert.assertFalse(app.employeeExists("test"));
+
+	}
+
+	// deleteProject Whitebox test:
+	// A
+	@org.junit.Test // JUnit 4
+	public void deleteProjectFromSystemSuccess() {
+		//Arrange
+		App app = new App();
+		int id = app.createProject("test");
+		boolean success = true;
+		//Act
+		try {
+			app.deleteProject(id);
+		} catch (Exception e) {
+			success = false;
+		}
+		try {
+			app.getProjectInfo(id);
+			success = false;
+		} catch (Exception e) {
+			success = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(success);
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void deleteProjectFromSystemFailure() {
+		//Arrange
+		App app = new App();
+		boolean failure = false;
+		//Act
+		try {
+			app.deleteProject(25001);
+		} catch (Exception e) {
+			failure = true;
+		}
+		try {
+			app.getProjectInfo(25001);
+			failure = false;
+		} catch (Exception e) {
+			failure = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(failure);
+	}
+
 
 }

@@ -19,26 +19,41 @@ public class CalendarHelper {
     public static List<Week> range(Week startWeek, Week endWeek) {
 
         // Precondition:
-        //assert endWeek.isGreaterOrEqual(startWeek) : "Start week has to be before end week.";
-        if (!endWeek.isGreaterOrEqual(startWeek)) {
-            throw new IllegalArgumentException("Start week must be before end week.");
-        }
+        assert endWeek.isGreaterOrEqual(startWeek): "Start week has to be before end week.";   // 1
 
         List<Week> weeks = new ArrayList<>();
         int currentYear = startWeek.getYear();
         int currentWeek = startWeek.getWeek();
         int weeksInCurrentYear = getWeeksInYear(currentYear);
 
-        while (currentYear < endWeek.getYear() || (currentYear == endWeek.getYear() && currentWeek <= endWeek.getWeek())) {
-            weeks.add(new Week(currentYear, currentWeek));
+        while (currentYear < endWeek.getYear() ||               
+            (currentYear == endWeek.getYear() &&
+            currentWeek <= endWeek.getWeek())) {   // 2
+            weeks.add(new Week(currentYear, currentWeek));       
             currentWeek++;
-            if (currentWeek > weeksInCurrentYear) {
+            if (currentWeek > weeksInCurrentYear) {   // 3
                 currentWeek = 1;
                 currentYear++;
                 weeksInCurrentYear = getWeeksInYear(currentYear);
             }
         }
-        return weeks;
+        
+        // Postcondition:
+        Week prevWeek = startWeek;
+        int i = 0;
+        for (Week w : weeks) {
+            if (i == 0) {
+                assert w.equals(startWeek);
+            } else if (i == weeks.size()) {
+                assert w.equals(endWeek);
+            } else {
+                assert (w.equals(new Week(prevWeek.getYear(), prevWeek.getWeek()+1)) || w.equals(new Week(prevWeek.getYear()+1, 1)));
+            }
+            prevWeek = w;
+            i++;
+        }
+        
+        return weeks;   // 4
     }
 
     public static int getWeeksInYear(int year) {

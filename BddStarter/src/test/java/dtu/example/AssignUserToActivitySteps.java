@@ -40,7 +40,7 @@ public class AssignUserToActivitySteps {
     @Given("the activity runs from week {int} to week {int} in the year {int}")
     public void theActivityRunsFromWeekWeekInTheYear(Integer startWeek, Integer endWeek, Integer year) {
         app.setActivitiyStartAndEndWeek(testHelper.getProjectID(), testHelper.getActivityName(), year, startWeek, year, endWeek);
-        ActivityInfo activity = ProjectTestHelper.getActivity(app.createDTOProject(testHelper.getProjectID()), testHelper.getActivityName());
+        ActivityInfo activity = ProjectTestHelper.getActivity(app.getProjectInfo(testHelper.getProjectID()), testHelper.getActivityName());
         assertEquals(startWeek, activity.getStartWeek().getWeek(), 0);
         assertEquals(endWeek, activity.getEndWeek().getWeek(), 0);
         assertEquals(year, activity.getStartWeek().getYear(), 0);

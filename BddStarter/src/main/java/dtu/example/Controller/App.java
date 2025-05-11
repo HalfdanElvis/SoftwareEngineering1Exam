@@ -1,7 +1,6 @@
 package dtu.example.Controller;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Calendar;
@@ -9,7 +8,6 @@ import java.util.Calendar;
 import dtu.example.Model.DateServer;
 import dtu.example.Model.Employee;
 import dtu.example.Model.Project;
-import dtu.example.Model.SpecialActivity;
 import dtu.example.Model.SystemStorage;
 import dtu.example.Utility.CalendarHelper;
 import dtu.example.dto.*;
@@ -43,15 +41,25 @@ public class App {
     }
 
     public boolean legalUsername(String username) {
-        if (username.length() > 4) {
-            throw new IllegalArgumentException("Username cannot be longer than 4 characters.");
-        } else if (username.contains(" ")) {
-            throw new IllegalArgumentException("Username can't contain spaces.");
-        } else if (username.contentEquals("")) {
-            throw new IllegalArgumentException("Username can't be empty.");
+
+        // Precondition
+        assert(username != null);
+
+        boolean result = false;
+        if (username.length() > 4) {                              
+            throw new IllegalArgumentException("Username cannot be longer than 4 characters.");                                    
+        } else if (username.contains(" ")) {                      
+            throw new IllegalArgumentException("Username can't contain spaces.");                                               
+        } else if (username.contentEquals("")) {                  
+            throw new IllegalArgumentException("Username can't be empty.");                                          
         } else {
-            return true;
+            result = true;                                          
         }
+
+        // Postcondition
+        assert result == username.length() >= 1 && username.length() <= 4 && !username.contains(" ");
+
+        return result;
     }
 
     public EmployeeInfo getSignedInEmployeeInfo() {
@@ -77,9 +85,7 @@ public class App {
     }
 
     public void deleteEmployee(String username){
-        if (employeeExists(username)){
-            systemStorage.deleteEmployee(username);
-        }
+        systemStorage.deleteEmployee(username);
     }
 
     public boolean aUserIsLoggedIn() {
@@ -160,9 +166,7 @@ public class App {
 
     public float getUserLoggedHoursInActivityOnDate(int projectID, String activityName, String username, String dateAsString) throws ParseException {
         Project project = systemStorage.getProject(projectID);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar date = Calendar.getInstance();
-        date.setTime(sdf.parse(dateAsString));
+        Calendar date = CalendarHelper.parseStringAsCalendar(dateAsString);
         return project.getUserLoggedHoursInActivityOnDate(activityName, username, date);
     }
 
@@ -187,49 +191,57 @@ public class App {
     // Utility Methods
 
     public static boolean isPositiveInt(String input) {
+
+        // Precondtion
+        assert input != null;
+
+        boolean result = false;
         try {
             Integer temp = Integer.parseInt(input);
-            if (temp > 0){
-                return true;
+            if (temp > 0){                               
+                result = true;                            
             } else {
-                throw new IllegalArgumentException("The integer can't be negative.");
+                throw new IllegalArgumentException("The integer can't be negative.");                     
             }
-            
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Not a valid integer.");
         }
+
+        // Postcondtion
+        assert result == Integer.parseInt(input) > 0;
+
+        return result;
     }
 
-    public static boolean isWeek(String week, Integer year) {
+    public static boolean isWeek(String input, Integer year) {
         Integer temp = null;
 
-        try {
-            isPositiveInt(week);
-            temp = Integer.parseInt(week);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-        
-        int weeksInYear = CalendarHelper.getWeeksInYear(year);
+        // precondition
+        assert isPositiveInt(input);
+        assert year > 0 : "Year has to be positive";
 
-        if (temp != null && (temp > 0 && temp <= weeksInYear)) {
-            return true;
-        } else{
+        temp = Integer.parseInt(input);
+        int weeksInYear = CalendarHelper.getWeeksInYear(year);
+        boolean result = false ;
+        
+        if ( temp >= 1 && temp <= weeksInYear ) {
+            result = true ;
+        } else {
             throw new IllegalArgumentException("not a valid weeknumber.");
         }
+
+        // postcondition
+        assert temp >= 1 && temp <= weeksInYear;
+
+        return result;
     }
 
-     
-
-
-    public ProjectInfo createDTOProject(int projectID) {
+    public ProjectInfo getProjectInfo(int projectID) {
         ProjectInfo project = new ProjectInfo(systemStorage.getProject(projectID));
         return project;
     }
 
-
-
-    public List<ProjectInfo> getDTOProjectList(int year) {
+    public List<ProjectInfo> getProjectInfosFromYear(int year) {
 
         year %= 100;
         year *= 1000;
@@ -238,7 +250,7 @@ public class App {
         List<ProjectInfo> dtoProjects = new ArrayList<>();
         for (int i = 0; i < projectList.size(); i++) {
             if (projectList.get(i).getID() > year && projectList.get(i).getID() < year + 1000) {
-                dtoProjects.add(createDTOProject(projectList.get(i).getID()));
+                dtoProjects.add(getProjectInfo(projectList.get(i).getID()));
             }
         }
         return dtoProjects;
@@ -251,7 +263,7 @@ public class App {
     public List<ProjectInfo> getallProjectInfos(){
         List<ProjectInfo> projectInfos = new ArrayList<>();
         List<Project> allProjects = systemStorage.getAllProjects();
-        for (int i = 0; i<allProjects.size(); i++){
+        for (int i = 0; i < allProjects.size(); i++){
             ProjectInfo projectInfo = new ProjectInfo(allProjects.get(i));
             projectInfos.add(projectInfo);
         }

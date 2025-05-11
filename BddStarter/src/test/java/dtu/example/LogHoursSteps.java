@@ -73,7 +73,7 @@ public class LogHoursSteps {
 
     @Then("the user should have logged {int} hours in the activity")
     public void theUserShouldHaveLoggedHoursInTheActivity(float hours) {
-        ProjectInfo project = app.createDTOProject(testHelper.getProjectID());
+        ProjectInfo project = app.getProjectInfo(testHelper.getProjectID());
         assertEquals(hours, ProjectTestHelper.getUserTotalLoggedHours(project, testHelper.getActivityName(), testHelper.getUser()), 0);
     }
 

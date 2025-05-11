@@ -26,7 +26,7 @@ public class CreateActivitySteps {
 
     @Given("the project does not have a project leader")
     public void theProjectDoesNotHaveAProjectLeader() {
-        ProjectInfo project = app.createDTOProject(testHelper.getProjectID());
+        ProjectInfo project = app.getProjectInfo(testHelper.getProjectID());
         assert(project.getProjectLeaderUsername() == "");
     }
 
@@ -70,7 +70,7 @@ public class CreateActivitySteps {
     
     @Then("the project should contain an activity {string}")
     public void theProjectShouldContainAnActivity(String string) {
-        ProjectInfo project = app.createDTOProject(testHelper.getProjectID());
+        ProjectInfo project = app.getProjectInfo(testHelper.getProjectID());
         assert(ProjectTestHelper.projectContainsActivity(project, string));
     }
 

@@ -30,7 +30,7 @@ public class RemoveActivitySteps {
     }
     @Then("the project should not contain an activity {string}")
     public void theProjectShouldNotContainAnActivity(String string) {
-        ProjectInfo project = app.createDTOProject(testHelper.getProjectID());
+        ProjectInfo project = app.getProjectInfo(testHelper.getProjectID());
         assertFalse(ProjectTestHelper.projectContainsActivity(project, string));
     }
 }

@@ -45,7 +45,7 @@ public class AssignLeaderSteps {
     }
     @Then("the project should have a project leader {string}")
     public void theProjectShouldHaveAProjectLeader(String string) {
-        ProjectInfo project = app.createDTOProject(testHelper.getProjectID()); 
+        ProjectInfo project = app.getProjectInfo(testHelper.getProjectID()); 
         assertEquals(project.getProjectLeaderUsername(), string);
     }
 }
