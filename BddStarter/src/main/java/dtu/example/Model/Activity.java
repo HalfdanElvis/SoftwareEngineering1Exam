@@ -63,6 +63,10 @@ public class Activity {
             workData.addHours(-hours);
             throw new IllegalArgumentException("You haven't worked that long in this activity");
         }
+        if (workData.getHours() > 24) {
+            workData.addHours(-hours);
+            throw new IllegalArgumentException("You can't log more than 24 hours a day");
+        }
         if (workData.getHours() == 0) {
             workDataList.remove(workData);
         }

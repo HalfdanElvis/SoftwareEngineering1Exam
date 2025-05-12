@@ -97,14 +97,9 @@ public class Employee {
     
     private boolean isAvailable(Week week) {
         int activityCount = 0;
-        for (SpecialActivity specialActivity : specialActivities){
-            if (specialActivity.getStartWeek() != null && specialActivity.getEndWeek() != null) {
-                for (Week weekInActivity : CalendarHelper.range(specialActivity.getStartWeek(), specialActivity.getEndWeek())) {
-                    if (week.equals(weekInActivity)) {
-                        return false;
-                    }
-                }
-            }
+
+        if (!isAvailableSpecial(week)) {
+            return false;
         }
         
         for (Activity activity : activities) {

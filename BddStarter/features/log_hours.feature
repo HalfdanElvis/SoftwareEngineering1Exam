@@ -12,10 +12,10 @@ Scenario: User logs their hours for an activity for the first time
 	And on the date "01-01-2024" the user has logged 10 hours in the activity
 
 Scenario: User logs their hours for an activity they have previously been active in
-	And the user has logged 37 hours in the activity on the date "01-01-2024"
+	And the user has logged 3 hours in the activity on the date "01-01-2024"
 	And the user has logged 0 hours in the activity on the date "01-02-2024"
 	When the user logs 7 hours in the activity on the date "01-02-2024"
-	Then the user should have logged 44 hours in the activity
+	Then the user should have logged 10 hours in the activity
 	And on the date "01-02-2024" the user has logged 7 hours in the activity
 
 Scenario: User logs their hours for a non-existent activity
@@ -23,10 +23,10 @@ Scenario: User logs their hours for a non-existent activity
 	Then the error message "Activity does not exist" is given
 
 Scenario: User removes hours logged from an activity
-	And the user has logged 30 hours in the activity on the date "01-01-2024"
+	And the user has logged 8 hours in the activity on the date "01-01-2024"
 	And the user has logged 7 hours in the activity on the date "01-02-2024"
 	When the user removes 7 hours from the activity on the date "01-02-2024"
-	Then the user should have logged 30 hours in the activity
+	Then the user should have logged 8 hours in the activity
 	And on the date "01-02-2024" the user has logged 0 hours in the activity
 
 Scenario: User removes hours logged from an activity they have not worked in
