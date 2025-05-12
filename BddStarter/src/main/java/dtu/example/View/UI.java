@@ -819,6 +819,9 @@ public class UI {
 
         System.out.println("Write the name of the activity you would like to assign the employee");
         String activityName = console.nextLine();
+        
+        
+        
 
         try {
             app.assignEmployeeToActivity(selectedEmployee.getName(), projectID, activityName);
@@ -1177,6 +1180,21 @@ public class UI {
             input = console.nextLine();
             try {
                 if (app.yesOrNo(input)) {
+                    
+                    /*
+                    for (Project p : app.SystemStorage().getProjects()){
+                        if (p.getProjectLeaderUsername().equals(selectedEmployee.getName())){
+                            app.getProjectInfo(p.getName()).setProjectLeader(null);
+                        }
+                    }
+                    
+                    for (ProjectInfo p : app.getallProjectInfos()) {
+                        if (p.getProjectLeaderUsername().equals(selectedEmployee.getName())){
+                            app.getProjectInfo(p.getID()).setProjectLeader(null);
+                        }
+                    }
+                    */
+
                     if (selectedEmployee.getName().equals(loggedInEmployee.getName())) {
                         loggedIn = false;
                         app.logout();

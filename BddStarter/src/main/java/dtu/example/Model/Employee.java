@@ -97,6 +97,16 @@ public class Employee {
     
     private boolean isAvailable(Week week) {
         int activityCount = 0;
+        for (SpecialActivity sa : specialActivities){
+            if (sa.getStartWeek() != null && sa.getEndWeek() != null) {
+                for (Week weekInActivity : CalendarHelper.range(sa.getStartWeek(), sa.getEndWeek())) {
+                    if (week.equals(weekInActivity)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        
         for (Activity activity : activities) {
             if (activity.getStartWeek() != null && activity.getEndWeek() != null) {
                 for (Week weekInActivity : CalendarHelper.range(activity.getStartWeek(), activity.getEndWeek())) {
@@ -106,6 +116,7 @@ public class Employee {
                 }
             }
         }
+
         if ((activityCount >= 10 && !isPeak()) || activityCount >= 20) {
             return false;
         }
