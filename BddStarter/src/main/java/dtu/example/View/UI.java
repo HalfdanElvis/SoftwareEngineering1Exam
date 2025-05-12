@@ -792,7 +792,7 @@ public class UI {
         System.out.println("Select an employee from the list above by inserting their username:");
         
         while (true) { 
-            String username = console.nextLine();
+            username = console.nextLine();
             try {
                 if(app.legalUsername(username)){
                     selectedEmployee = app.getEmployeeInfo(username);
