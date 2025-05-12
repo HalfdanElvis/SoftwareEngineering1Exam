@@ -1301,11 +1301,11 @@ public class UI {
                         System.out.println("Write the name of the activity you would like to log hours for");
                         try {
                             String input = console.nextLine();
-                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: dd-MM-yyyy");
                             String inputdate = console.nextLine();
                             System.out.println("Please write the project ID of your activity");
                             Integer projectID = Integer.parseInt(console.nextLine());
-                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: dd-MM-yyyy");
                             System.out.println("Your current hours on the activity on  " +inputdate + " is:");
                             System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
                             System.out.println("Please write the hours you would like to log. Negative numbers are removed hours, positive are added");
@@ -1348,11 +1348,11 @@ public class UI {
                         System.out.println("Write the name of the activity you would like to log hours for");
                         try {
                             String input = console.nextLine();
-                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: dd-MM-yyyy");
                             String inputdate = console.nextLine();
                             System.out.println("Please write the project ID of your activity");
                             Integer projectID = Integer.parseInt(console.nextLine());
-                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: yyyy-MM-dd");
+                            System.out.println("Please write the date of the activity in which you would like to log hours in the format: dd-MM-yyyy");
                             System.out.println("Your current hours on the activity on the date " +inputdate + " is:");
                             System.out.println(app.getUserLoggedHoursInActivityOnDate(projectID, input, loggedInEmployee.getName(), inputdate));
                             System.out.println("Please write the hours you would like to log. Negative numbers are removed hours, positive are added");

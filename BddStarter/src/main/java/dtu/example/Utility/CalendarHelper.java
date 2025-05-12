@@ -10,8 +10,9 @@ import java.util.List;
 public class CalendarHelper {
     
     public static Calendar parseStringAsCalendar(String dateAsString) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Calendar date = Calendar.getInstance();
+        sdf.setLenient(false);
         date.setTime(sdf.parse(dateAsString));
         return date;
     }

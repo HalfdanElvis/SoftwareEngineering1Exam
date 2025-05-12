@@ -78,20 +78,6 @@ public class SystemStorage {
         projects.remove(getProject(projectID));
     }
 
-    public int getProjectAmountFromYear(int year) {
-        year %= 100;
-        year *= 1000;
-
-        int count = 0;
-
-        for (Project p : projects) {
-            if (p.getID() > year && p.getID() < year + 1000) {
-                count++;
-            }
-        }
-        return count;
-    }
-
     public List<Project> getAllProjects() {
         return projects;
     }
