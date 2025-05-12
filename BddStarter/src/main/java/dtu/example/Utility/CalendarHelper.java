@@ -6,9 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
+//Simon
 public class CalendarHelper {
-    
+    //Simon
     public static Calendar parseStringAsCalendar(String dateAsString) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Calendar date = Calendar.getInstance();
@@ -16,7 +16,7 @@ public class CalendarHelper {
         date.setTime(sdf.parse(dateAsString));
         return date;
     }
-
+    //Simon
     public static List<Week> range(Week startWeek, Week endWeek) {
 
         // Precondition:
@@ -56,7 +56,7 @@ public class CalendarHelper {
         
         return weeks;   // 4
     }
-
+    //Marcus
     public static int getWeeksInYear(int year) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, year);

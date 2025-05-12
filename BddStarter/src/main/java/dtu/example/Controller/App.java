@@ -19,7 +19,7 @@ public class App {
     private SystemStorage systemStorage = new SystemStorage();
     private Employee signedInEmployee;
 
-
+    //Simon
     public boolean login(String username) {
         legalUsername(username);
         try {
@@ -29,7 +29,7 @@ public class App {
             return false;
         }
     }
-    
+    //Jesper
     public boolean yesOrNo(String userInput){
         userInput = userInput.toUpperCase();
         if (userInput.equals("Y")){
@@ -40,7 +40,7 @@ public class App {
             throw new IllegalArgumentException("Must be Y/N");
         }
     }
-
+    //Halfdan
     public boolean legalUsername(String username) {
 
         // Precondition
@@ -62,41 +62,41 @@ public class App {
 
         return result;
     }
-
+    //Marcus
     public EmployeeInfo getSignedInEmployeeInfo() {
         return new EmployeeInfo(signedInEmployee);
     }
-
+    //Marcus
     public void setSignedInEmployee(String signedInEmployee) {
         this.signedInEmployee = stringToEmployee(signedInEmployee);
     }
-
+    //Marcus
     public void logout() {
         this.signedInEmployee = null;
     }
-
+    //Jesper
     public void addEmployee(String username) {
         if (legalUsername(username)) {
             systemStorage.addEmployee(username);
         }
     }
-
+    //Jesper
     public Employee stringToEmployee(String string) {
         return systemStorage.getEmployee(string);
     }
-
+    //Jesper
     public void deleteEmployee(String username){
         systemStorage.deleteEmployee(username);
     }
-
+    //Marcus
     public boolean aUserIsLoggedIn() {
         return signedInEmployee != null;
     }
-
+    //Marcus
     public void setEmployeePeak(String username, boolean peak) {
         stringToEmployee(username).setPeak(peak);
     }
-
+    //Halfdan
     public List<String> viewAvailableEmployees(int startYear, int startWeek, int endYear, int endWeek) {
         List<String> availableEmployees = new ArrayList<>();
         for (Employee employee : systemStorage.getAllEmployees()) {
@@ -106,85 +106,85 @@ public class App {
         }
         return availableEmployees;
     }
-
+    //Halfdan
     public boolean employeeExists(String employee) {
         return systemStorage.employeeExists(employee);
     }
-
+    //Simon
     public void addActivity(int projectID, String activityName) throws IllegalAccessException {
         systemStorage.getProject(projectID).createActivity(activityName, signedInEmployee);
     }
-
+    //Simon
     public void deleteActivity(int projectID, String activityName) throws IllegalAccessException {
         systemStorage.getProject(projectID).removeActivity(activityName, signedInEmployee);
     }
-
+    //Simon
     public void addSpecialActivity(String activityName, String username, int startYear, int startWeek, int endYear, int endWeek){
         Employee employee = systemStorage.getEmployee(username);
         employee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
     }
-
+    //Marcus
     public int createProject(String name) {
         return systemStorage.createProject(name, dateServer.getYear());
     }
-
+    //Marcus
     public void assignLeader(String username, Integer id) {
         Employee employee = systemStorage.getEmployee(username);
         Project project = systemStorage.getProject(id);
         project.assignLeader(employee, signedInEmployee);
     }
-
+    //Marcus
     public void removeLeader(Integer id) {
         Project project = systemStorage.getProject(id);
         project.assignLeader(null, signedInEmployee);
     }
-
+    //Marcus
     public void setActivityExpectedHours(int projectID, String activityName, float hours) throws IllegalAccessException {
         systemStorage.getProject(projectID).setActivityExpectedHours(activityName, hours, signedInEmployee);
     }
-
+    //Marcus
     public void assignEmployeeToActivity(String username, int projectID, String activtyName) throws Exception {
         Employee employee = stringToEmployee(username);
         Project project = systemStorage.getProject(projectID);
         project.assignEmployeeToActivity(employee, activtyName);
     }
-
+    //Halfdan
     public void removeEmployeeFromActivity(String username, String activtyName) {
         Employee employee = systemStorage.getEmployee(username);
         employee.removeActivity(activtyName);
     }
-
+    //Halfdan
     public void removeEmployeeFromSpecialActivity(String username, String activtyName) {
         Employee employee = systemStorage.getEmployee(username);
         employee.removeSpecialActivity(activtyName);
     }
-
+    //Jesper
     public void setActivitiyStartAndEndWeek(int projectID, String activityName, int startYear, int startWeek, int endYear, int endWeek) {
         Project project = systemStorage.getProject(projectID);
         project.setActivitiyStartAndEndWeek(activityName, startYear, startWeek, endYear, endWeek);
     }
-
+    //Jesper
     public void logHours(int projectID, String activityName, String dateAsString, float hours) throws ParseException {
         Project project = systemStorage.getProject(projectID);
         Calendar date = CalendarHelper.parseStringAsCalendar(dateAsString);
         project.logHours(activityName, date, hours, signedInEmployee.getUsername());
     }
-
+    //Jesper
     public float getUserLoggedHoursInActivityOnDate(int projectID, String activityName, String username, String dateAsString) throws ParseException {
         Project project = systemStorage.getProject(projectID);
         Calendar date = CalendarHelper.parseStringAsCalendar(dateAsString);
         return project.getUserLoggedHoursInActivityOnDate(activityName, username, date);
     }
-
+    //Jesper
     public float[] generateReport(int projectID) throws IllegalAccessException {
         Project project = systemStorage.getProject(projectID);
         return project.generateReport(signedInEmployee);
     }
-
+    //Marcus
     public EmployeeInfo getEmployeeInfo(String username) {
         return new EmployeeInfo(systemStorage.getEmployee(username));
     }
-    
+    //Marcus
     public List<EmployeeInfo> getAllEmployeeInfo() {
         List<Employee> employees = systemStorage.getAllEmployees();
         List<EmployeeInfo> employeeInfos = new ArrayList<>();
@@ -195,7 +195,7 @@ public class App {
     }
 
     // Utility Methods
-
+    //Marcus
     public static boolean isPositiveInt(String input) {
 
         // Precondtion
@@ -218,7 +218,7 @@ public class App {
 
         return result;
     }
-
+    //Simon
     public static boolean isWeek(String input, Integer year) {
         Integer temp = null;
 
@@ -241,12 +241,12 @@ public class App {
 
         return result;
     }
-
+    //Halfdan
     public ProjectInfo getProjectInfo(int projectID) {
         ProjectInfo project = new ProjectInfo(systemStorage.getProject(projectID));
         return project;
     }
-
+    //Jesper
     public List<ProjectInfo> getProjectInfosFromYear(int year) {
 
         year %= 100;
@@ -261,11 +261,11 @@ public class App {
         }
         return dtoProjects;
     }
-
+    //Halfdan
     public void deleteProject(int projectID) {
         systemStorage.deleteProject(projectID);
     }
-
+    //Marcus
     public List<ProjectInfo> getallProjectInfos(){
         List<ProjectInfo> projectInfos = new ArrayList<>();
         List<Project> allProjects = systemStorage.getAllProjects();
@@ -277,7 +277,7 @@ public class App {
     }
 
     //For tests
-
+    //Marcus
     public void setDateServer(DateServer dateServer) {
         this.dateServer = dateServer;
     }
