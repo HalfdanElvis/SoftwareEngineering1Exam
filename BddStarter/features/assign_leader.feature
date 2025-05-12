@@ -26,3 +26,9 @@ Scenario: a project leader assigns a project leader when one is already assigned
 Scenario: a user assigns a project leader to non-existent project
     When the user assigns an employee with initials "huba" as project leader for the project with ID 00000
     Then the error message "Project does not exist." is given
+
+Scenario: a project leader removes a project leader when one is already assigned
+    And the project has a project leader set to "huba"
+    Given the user "bahu" exists in the system
+    When the user removes the project leader for the project
+    Then the project should not have a project leader

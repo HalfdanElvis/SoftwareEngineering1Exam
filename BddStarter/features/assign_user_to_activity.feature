@@ -41,3 +41,8 @@ Scenario: A peak user is assigned their 21st activity
     And the user is assigned 20 activities in week 10 in the year 2025
     When the user gets assigned the activity
     Then the error message "User has too many activities" is given
+
+Scenario: A user is assigned an activity that overlaps with a special activity
+    And the user is assigned a special activity "Sick" in week 10 in the year 2025
+    When the user gets assigned the activity
+    Then the error message "User has too many activities" is given

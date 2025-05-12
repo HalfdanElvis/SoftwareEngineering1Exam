@@ -48,4 +48,16 @@ public class AssignLeaderSteps {
         ProjectInfo project = app.getProjectInfo(testHelper.getProjectID()); 
         assertEquals(project.getProjectLeaderUsername(), string);
     }
+
+    @When("the user removes the project leader for the project")
+    public void theUserRemovesTheProjectLeaderForTheProject() {
+        app.removeLeader(testHelper.getProjectID());
+    }
+
+    @Then("the project should not have a project leader")
+    public void theProjectShouldNotHaveAProjectLeader() {
+        ProjectInfo project = app.getProjectInfo(testHelper.getProjectID());
+        assertEquals("", project.getProjectLeaderUsername());
+    }
+
 }
