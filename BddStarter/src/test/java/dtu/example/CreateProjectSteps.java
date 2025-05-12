@@ -1,8 +1,6 @@
 package dtu.example;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -11,7 +9,7 @@ import dtu.example.dto.ProjectInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+//Marcus
 public class CreateProjectSteps {
     
     App app;
