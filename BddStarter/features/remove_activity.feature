@@ -1,3 +1,4 @@
+# Written by Simon
 
 Feature: Remove activity
 	Description: A user removes an existing activity

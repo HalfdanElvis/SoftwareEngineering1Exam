@@ -1,3 +1,4 @@
+# Written by Jesper
 
 Feature: Remove User From An Activity
     Description: A user removes a user from an activity

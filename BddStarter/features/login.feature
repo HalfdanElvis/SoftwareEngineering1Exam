@@ -1,3 +1,5 @@
+# Written by Halfdan
+
 Feature: Login to application
     Description: User tries to login
     Actors: User

@@ -1,3 +1,4 @@
+# Written by Marcus
 
 Feature: Create special activity
 	Description: A user creates a special new activity
