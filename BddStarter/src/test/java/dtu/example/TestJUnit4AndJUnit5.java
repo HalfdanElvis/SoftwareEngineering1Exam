@@ -1,4 +1,5 @@
 package dtu.example;
+import java.util.ArrayList;
 import java.util.List;
 
 import dtu.example.Controller.App;
@@ -6,8 +7,6 @@ import dtu.example.Model.Employee;
 import dtu.example.Model.SpecialActivity;
 import dtu.example.Model.Week;
 import dtu.example.Utility.CalendarHelper;
-
-import java.util.ArrayList;
 /**
  * A test class to check which tests are run with which framework.
  * If run as a JUnit 5 (Jupiter) test, then both tests are run.
@@ -442,5 +441,25 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.Assert.assertTrue(failure);
 	}
 
+	// Logout
+	@org.junit.Test // JUnit 4
+	public void logoutSucceds() {
+		//Arrange
+		App app = new App();
+		app.addEmployee("huba");
+		app.setSignedInEmployee("huba");
+		boolean loggedOut = false;
 
+		//Act
+		app.logout();
+
+		// Assert
+		try {
+			app.getSignedInEmployeeInfo();
+		} catch (Throwable e) {
+			loggedOut = true;
+		}
+
+		org.junit.Assert.assertTrue(loggedOut);
+	}
 }
