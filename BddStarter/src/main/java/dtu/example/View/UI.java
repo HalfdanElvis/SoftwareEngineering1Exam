@@ -175,14 +175,18 @@ public class UI {
         int id = -1;
         do {
             printCreateProjectMenu();
-            try {
-                projectName = console.nextLine();
-                id = app.createProject(projectName);
-                newPage();
-                
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
+            while(true) {
+                try {
+                    projectName = console.nextLine();
+                    app.isEmptyString(projectName);
+                    id = app.createProject(projectName);
+                    newPage();
+                    break;
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
             }
+            
             
             System.out.println("\nSuccesfully created project \""+projectName+"\" with ID: "+id);
             System.out.println("-------------------------");
@@ -327,6 +331,7 @@ public class UI {
                                     while(true) {
                                         try {
                                             activityName = console.nextLine();
+                                            app.isEmptyString(activityName);
                                             app.addActivity(projectID, activityName);
                                             newPage();
                                             break;
@@ -359,13 +364,6 @@ public class UI {
                                                     newPage();
 
                                                     System.out.println("-------------------------");
-                                                    System.out.println("What is the due year for "+ activityName);
-                                                    input = console.nextLine();
-                                                    App.isPositiveInt(input);
-                                                    endYear = Integer.parseInt(input);
-                                                    newPage();
-
-                                                    System.out.println("-------------------------");
                                                     System.out.println("Enter Start week for "+activityName);
                                                     input = console.nextLine();
                                                     App.isWeek(input,endYear);
@@ -377,6 +375,14 @@ public class UI {
                                                     input = console.nextLine();
                                                     App.isWeek(input,endYear);
                                                     endWeek = Integer.parseInt(input);
+
+                                                    System.out.println("-------------------------");
+                                                    System.out.println("What is the due year for "+ activityName);
+                                                    input = console.nextLine();
+                                                    App.isPositiveInt(input);
+                                                    endYear = Integer.parseInt(input);
+                                                    newPage();
+
                                                     app.setActivitiyStartAndEndWeek(projectID, activityName, startYear, startWeek, endYear, endWeek);
                                                     newPage();
                                                     break;
@@ -882,9 +888,16 @@ public class UI {
             Integer activityEndWeekInt = null;
 
             // Gets Name:
-            while (activityName == null) {
-                System.out.println("Enter Activity name:");    
-                activityName = console.nextLine();
+            System.out.println("Enter Activity name:");
+            while (true) {
+                try {    
+                    activityName = console.nextLine();
+                    app.isEmptyString(activityName);
+                    break;
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+                
             }
             
 
@@ -894,7 +907,7 @@ public class UI {
             while (activityYearInt == null || activityYearInt < 0){
                 try {
                     String activityYears = console.nextLine();
-                    if (app.isPositiveInt(activityYears)) {
+                    if (App.isPositiveInt(activityYears)) {
                         activityYearInt = Integer.parseInt(activityYears);
                     }
                 } catch (Exception e) {

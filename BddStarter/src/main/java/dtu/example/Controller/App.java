@@ -282,4 +282,10 @@ public class App {
         this.dateServer = dateServer;
     }
 
+    public void isEmptyString(String string) {
+        if (string.equals("")) {
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
+    }
+
 }
