@@ -1318,7 +1318,20 @@ public class UI {
                             break;
                         } catch(Exception e) {
                             System.out.println("An error occurred while processing input: " + e.getMessage());
-                            waitTillEnter();
+                            System.out.println("Try again or go back? Y/N");
+                            while (true) {
+                                input = console.nextLine();
+                                try {
+                                    app.yesOrNo(input);
+                                    break;
+                                } catch (Exception e2) {
+                                    System.err.println(e2.getMessage());
+                                }
+                            }
+                            if (app.yesOrNo(input)) {
+                                continue;
+                            }
+                            break;
                         }
                     }
                     break;
