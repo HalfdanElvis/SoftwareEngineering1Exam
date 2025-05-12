@@ -311,9 +311,19 @@ public class UI {
                                 do {
                                     System.out.println("-------------------------");
                                     System.out.println("Enter name for activity:");
-                                    String activityName = console.nextLine();
-                                    app.addActivity(projectID, activityName);
-                                    newPage();
+                                    String activityName = "";
+                                    while(true) {
+                                        try {
+                                            activityName = console.nextLine();
+                                            app.addActivity(projectID, activityName);
+                                            newPage();
+                                            break;
+                                        } catch (Exception e) {
+                                            System.err.println(e.getMessage());
+                                        }
+                                    }
+
+                                    
                                     System.out.println("-------------------------");
                                     System.out.println("Activity "+activityName+" is created");
                                     System.out.println("-------------------------");
