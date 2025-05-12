@@ -60,11 +60,15 @@ public class UI {
                         LogHours();
                         break;
                     case 6:
+                        // View Available employees
+                        viewAvailableEmployeesUI();
+                        break;
+                    case 7:
                         // Logout
                         loggedIn = false;
                         app.logout();
                         break;
-                    case 7:
+                    case 8:
                         // Closes Program:
                         System.exit(0);
                         break;
@@ -140,8 +144,9 @@ public class UI {
         System.out.println("3. Create Employee");
         System.out.println("4. Manage Employee");
         System.out.println("5. Log hours");
-        System.out.println("6. Logout");
-        System.out.println("7. Exit Program");
+        System.out.println("6. View Avaiable Employees");
+        System.out.println("7. Logout");
+        System.out.println("8. Exit Program");
         System.out.println("-------------------------");
 
         System.out.println();
@@ -1440,6 +1445,55 @@ public class UI {
         }
     }
 
-}
+    // ViewAvailableEmployees
+    public static void viewAvailableEmployeesUI() {
+        while (true) {
+            try {
+                System.out.println("Select the range of weeks, you want to view available employees for:");
+                System.out.println("-------------------------");
+                System.out.println("Enter start year:");
+                input = console.nextLine();
+                App.isPositiveInt(input);
+                int startYear = Integer.parseInt(input);
+                newPage();
+
+                System.out.println("-------------------------");
+                System.out.println("Enter end year:");
+                input = console.nextLine();
+                App.isPositiveInt(input);
+                int endYear = Integer.parseInt(input);
+                newPage();
+
+                System.out.println("-------------------------");
+                System.out.println("Enter Start week:");
+                input = console.nextLine();
+                App.isWeek(input,endYear);
+                int startWeek = Integer.parseInt(input);
+                newPage();
+
+                System.out.println("-------------------------");
+                System.out.println("Enter End Week: ");
+                input = console.nextLine();
+                App.isWeek(input,endYear);
+                int endWeek = Integer.parseInt(input);
+                System.out.println();
+                System.out.println("-------------------------");
+                System.out.println();
+                System.out.println("The avaialable employees from "+startYear+" W"+startWeek+" to "+endYear+" W"+endWeek+" are:");
+                System.out.println("-------------------------");
+                for (String e : app.viewAvailableEmployees(startYear, startWeek, endYear, endWeek)) {
+                    System.out.println(e);
+                }
+                System.out.println("-------------------------");
+                waitTillEnter();
+                newPage();
+                break;
+
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+    }
+}  
 
 
