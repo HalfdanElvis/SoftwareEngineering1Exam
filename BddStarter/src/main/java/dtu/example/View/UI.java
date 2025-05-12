@@ -520,8 +520,14 @@ public class UI {
                                         break;
                                     }
                                 }
+                                System.out.println("Employees:");
+                                System.out.println("-------------------------");
+                                List<EmployeeInfo> allEmployees = app.getAllEmployeeInfo();
+                                for (EmployeeInfo employeeInfo : allEmployees) {
+                                    System.out.println(employeeInfo.getName());
+                                }
                                 System.out.println("--------------------------------------------");
-                                System.out.println("Enter username of the to be assigned leader:");
+                                System.out.println("Enter username of the user to be assigned leader:");
                                 
                                 String username;
 
@@ -817,6 +823,7 @@ public class UI {
         int projectID = -1;
         String activityName = "";
         
+<<<<<<< Updated upstream
         while(true) {
             try {
             System.out.println("Write the projectID of the activity");
@@ -827,6 +834,18 @@ public class UI {
             System.err.println("Invalid projectID");
             System.out.println("--------------------");
             }
+=======
+        System.out.println("Write the projectID of the activity");
+        Integer projectID = Integer.parseInt(console.nextLine());
+
+        System.out.println("Write the name of the activity you would like to assign the employee");
+        String activityName = console.nextLine();
+        try {
+            app.assignEmployeeToActivity(selectedEmployee.getName(), projectID, activityName);
+            System.out.println("Employee has been succesfully assigned to activity "+activityName );
+        } catch(Exception e) {
+            System.out.println("An error occurred while processing input: " + e.getMessage());
+>>>>>>> Stashed changes
         }
         
         while (true) {
@@ -1203,19 +1222,11 @@ public class UI {
             try {
                 if (app.yesOrNo(input)) {
                     
-                    /*
-                    for (Project p : app.SystemStorage().getProjects()){
-                        if (p.getProjectLeaderUsername().equals(selectedEmployee.getName())){
-                            app.getProjectInfo(p.getName()).setProjectLeader(null);
-                        }
-                    }
-                    
                     for (ProjectInfo p : app.getallProjectInfos()) {
                         if (p.getProjectLeaderUsername().equals(selectedEmployee.getName())){
-                            app.getProjectInfo(p.getID()).setProjectLeader(null);
+                            app.removeLeader(p.getID());
                         }
                     }
-                    */
 
                     if (selectedEmployee.getName().equals(loggedInEmployee.getName())) {
                         loggedIn = false;

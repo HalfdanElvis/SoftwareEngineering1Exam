@@ -2,15 +2,16 @@ package dtu.example.Controller;
 
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Calendar;
+import java.util.List;
 
 import dtu.example.Model.DateServer;
 import dtu.example.Model.Employee;
 import dtu.example.Model.Project;
 import dtu.example.Model.SystemStorage;
 import dtu.example.Utility.CalendarHelper;
-import dtu.example.dto.*;
+import dtu.example.dto.EmployeeInfo;
+import dtu.example.dto.ProjectInfo;
 
 public class App {
 
@@ -131,6 +132,11 @@ public class App {
         Employee employee = systemStorage.getEmployee(username);
         Project project = systemStorage.getProject(id);
         project.assignLeader(employee, signedInEmployee);
+    }
+
+    public void removeLeader(Integer id) {
+        Project project = systemStorage.getProject(id);
+        project.assignLeader(null, signedInEmployee);
     }
 
     public void setActivityExpectedHours(int projectID, String activityName, float hours) throws IllegalAccessException {
