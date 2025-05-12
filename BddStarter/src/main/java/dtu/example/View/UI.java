@@ -60,6 +60,11 @@ public class UI {
                         LogHours();
                         break;
                     case 6:
+                        // Logout
+                        loggedIn = false;
+                        app.logout();
+                        break;
+                    case 7:
                         // Closes Program:
                         System.exit(0);
                         break;
@@ -135,7 +140,8 @@ public class UI {
         System.out.println("3. Create Employee");
         System.out.println("4. Manage Employee");
         System.out.println("5. Log hours");
-        System.out.println("6. Exit Program");
+        System.out.println("6. Logout");
+        System.out.println("7. Exit Program");
         System.out.println("-------------------------");
 
         System.out.println();
