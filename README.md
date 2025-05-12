@@ -1,10 +1,16 @@
 # Projekt Manager Applikation
+## Kørsel af programmet
+1. Klon repositoriet: `git clone https://github.com/brugernavn/projektnavn`  
+2. Importer som Maven-projekt i Eclipse/IntelliJ/VS Code.
+3. Programmet køres i filen UI.java, hvis det køres igennem en IDE.
+4. Hvis programmet køres i en IDE anbefales det at forstørre terminalen så hele UI kan ses, og den øverste det af menuer ikke misses.
 
-Programmet køres i filen UI.java.
-Programmet har en pre-registreret medarebjder, med brugernavn "huba".
+## Loginoplysninger
+- Initialer: "huba" (kode behøves ikke).
+
+## Programinformation
 Programmet kan ikke tage imod karakterer udenfor a-z & A-Z, ellers kendt som det Latinske Alfabet.
 Expected hours af aktiviteteter kan kun være integers.
-Hvis programmet køres i en IDE anbefales det at forstørre terminalen så hele UI kan ses, og den øverste det af menuer ikke misses.
 
 I programmet kan brugeren oprette, projekter, aktiviteteter, specielle aktiviteter og medarbejdere.
 
