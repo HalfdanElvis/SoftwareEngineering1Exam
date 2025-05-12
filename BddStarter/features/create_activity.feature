@@ -1,3 +1,4 @@
+# Written by Simon
 
 Feature: Create activity
 	Description: A user creates a new activity

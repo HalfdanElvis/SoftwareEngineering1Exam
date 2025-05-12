@@ -1,3 +1,5 @@
+# Written by Halfdan
+
 Feature: Assign Leader
     Description: A user assigns a project leader
     Actors: User

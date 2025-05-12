@@ -1,3 +1,5 @@
+# Written by Marcus
+
 Feature: Log hours
 	Description: User can log, see and edit hours spent on activities
 	Actors: User

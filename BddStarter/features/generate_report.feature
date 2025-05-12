@@ -1,3 +1,5 @@
+# Written by Marcus
+
 Feature: Generate Report
   Description: A project leader can generate a report to see the progress of the activity they're project leader for
   Actors: Project leader

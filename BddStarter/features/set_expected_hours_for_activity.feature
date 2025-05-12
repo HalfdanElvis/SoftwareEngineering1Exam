@@ -1,3 +1,5 @@
+# Written by Marcus
+
 Feature: Set activities expected hours
 	Description: a project leader can set the expected amount of work hours an activity will take
 	Actor: project leader
