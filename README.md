@@ -1,6 +1,6 @@
 # Projekt Manager Applikation
 ## Kørsel af programmet
-1. Klon repositoriet: `git clone [https://github.com/brugernavn/projektnavn](https://github.com/HalfdanElvis/SoftwareEngineering1Exam)`  
+1. Klon repositoriet: `git clone [https://github.com/HalfdanElvis/SoftwareEngineering1Exam]`  
 2. Importer som Maven-projekt i Eclipse/IntelliJ/VS Code.
 3. Programmet køres i filen UI.java, hvis det køres igennem en IDE.
 4. Hvis programmet køres i en IDE anbefales det at forstørre terminalen så hele UI kan ses, og den øverste det af menuer ikke misses.
