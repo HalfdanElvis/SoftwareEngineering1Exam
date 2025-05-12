@@ -692,6 +692,7 @@ public class UI {
 
         boolean back = false;
         do {
+            selectedEmployee = app.getEmployeeInfo(username);
             // Manage User
 
             printManageUserMenu();
@@ -761,7 +762,7 @@ public class UI {
         } while (!back);
     }
 
-    public static void selectUser() {
+    public static String selectUser() {
         System.out.println();
         System.out.println("Employees:");
         System.out.println("-------------------------");
@@ -776,7 +777,6 @@ public class UI {
         while (true) { 
             String username = console.nextLine();
             try {
-                newPage();
                 if(app.legalUsername(username)){
                     selectedEmployee = app.getEmployeeInfo(username);
                     break;
@@ -785,6 +785,7 @@ public class UI {
                 System.err.println(e.getMessage());
             }
         }
+        return username;
     }
 
     public static void printManageUserMenu() {
@@ -807,19 +808,43 @@ public class UI {
     }
 
     public static void assignSelectedEmployeeToActivtiy() {
+        int projectID = -1;
+        String activityName = "";
         
-        System.out.println("Write the projectID of the activity");
-        Integer projectID = Integer.parseInt(console.nextLine());
-
-        System.out.println("Write the name of the activity you would like to assign the employee");
-        String activityName = console.nextLine();
-
-        try {
-            app.assignEmployeeToActivity(selectedEmployee.getName(), projectID, activityName);
-            System.out.println("Employee has been succesfully assigned to activity "+activityName );
-        } catch(Exception e) {
-            System.out.println("An error occurred while processing input: " + e.getMessage());
+        while(true) {
+            try {
+            System.out.println("Write the projectID of the activity");
+            projectID = Integer.parseInt(console.nextLine());
+            break;
+            } catch (Exception e) {
+            System.out.println("--------------------");
+            System.err.println("Invalid projectID");
+            System.out.println("--------------------");
+            }
         }
+        
+        while (true) {
+            try {
+                System.out.println("Write the name of the activity you would like to assign the employee");
+                activityName = console.nextLine();
+                System.out.println();
+                app.assignEmployeeToActivity(selectedEmployee.getName(), projectID, activityName);
+                System.out.println("Employee has been succesfully assigned to activity "+activityName );
+                System.out.println("--------------------");
+                waitTillEnter();
+                break;
+            } catch(Exception e) {
+                System.out.println("--------------------");
+                System.out.println("An error occurred while processing input: " + e.getMessage());
+                System.out.println("--------------------");
+                if (e.getMessage().equals("User has too many activities")) {
+                    waitTillEnter();
+                    newPage();
+                    break;
+                }
+            }
+        }
+        
     }
 
     public static void CreateSpecialActivityUI() {
