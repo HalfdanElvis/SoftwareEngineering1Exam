@@ -856,15 +856,12 @@ public class UI {
                 app.assignEmployeeToActivity(selectedEmployee.getName(), projectID, activityName);
                 System.out.println("Employee has been succesfully assigned to activity "+activityName );
                 System.out.println("--------------------");
-                waitTillEnter();
                 break;
             } catch(Exception e) {
                 System.out.println("--------------------");
                 System.out.println("An error occurred while processing input: " + e.getMessage());
                 System.out.println("--------------------");
                 if (e.getMessage().equals("User has too many activities")) {
-                    waitTillEnter();
-                    newPage();
                     break;
                 }
             }
