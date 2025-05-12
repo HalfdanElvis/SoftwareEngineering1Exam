@@ -9,12 +9,10 @@ import dtu.example.Model.DateServer;
 import dtu.example.Model.Employee;
 import dtu.example.Model.Project;
 import dtu.example.Model.SystemStorage;
-import dtu.example.Model.Week;
 import dtu.example.Utility.CalendarHelper;
-import dtu.example.dto.ActivityInfo;
 import dtu.example.dto.EmployeeInfo;
 import dtu.example.dto.ProjectInfo;
-
+//Marcus
 public class App {
 
     private DateServer dateServer = new DateServer();
