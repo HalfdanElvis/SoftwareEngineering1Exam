@@ -1,12 +1,13 @@
 package dtu.example.View;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import dtu.example.Controller.App;
 import dtu.example.Model.SpecialActivity;
-import dtu.example.dto.*;
+import dtu.example.dto.ActivityInfo;
+import dtu.example.dto.EmployeeInfo;
+import dtu.example.dto.ProjectInfo;
 
 public class UI {
 
@@ -735,7 +736,7 @@ public class UI {
                     if (selectedUserHasSpecialActivties()) {
                         manageSpecialActivitiesUI();
                     } else {
-                        System.out.print(selectedEmployee.getName()+ " Has no special activities.");
+                        System.out.println(selectedEmployee.getName()+ " has no special activities.");
                         System.out.println("Returning to Manage User Menu...");
                     }
                     break;
@@ -1046,8 +1047,11 @@ public class UI {
                 case 3:
                     
                     try {
-                        
+                        selectedEmployee.getSpecialActivities().remove(selectedSpecialActivity);
+                        back = true;
                     } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        System.out.println("Returning to Manage User");
                     }
                     break;
 
