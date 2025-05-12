@@ -2,6 +2,7 @@
 
 Programmet køres i filen UI.java.
 Programmet har en pre-registreret medarebjder, med brugernavn "huba".
+Programmet kan ikke tage imod karakterer udenfor a-z & A-Z, ellers kendt som det Latinske Alfabet.
 Hvis programmet køres i en IDE anbefales det at forstørre terminalen så hele UI kan ses, og den øverste det af menuer ikke misses.
 
 I programmet kan brugeren oprette, projekter, aktiviteteter, specielle aktiviteter og medarbejdere.
