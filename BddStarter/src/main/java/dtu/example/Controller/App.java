@@ -112,6 +112,7 @@ public class App {
     }
     //Simon
     public void addActivity(int projectID, String activityName) throws IllegalAccessException {
+        checkEmptyString(activityName);
         systemStorage.getProject(projectID).createActivity(activityName, signedInEmployee);
     }
     //Simon
@@ -120,11 +121,13 @@ public class App {
     }
     //Simon
     public void addSpecialActivity(String activityName, String username, int startYear, int startWeek, int endYear, int endWeek){
+        checkEmptyString(activityName);
         Employee employee = systemStorage.getEmployee(username);
         employee.assignSpecialActivity(activityName, startYear, startWeek, endYear, endWeek);
     }
     //Marcus
     public int createProject(String name) {
+        checkEmptyString(name);
         return systemStorage.createProject(name, dateServer.getYear());
     }
     //Marcus
@@ -194,6 +197,41 @@ public class App {
         return employeeInfos;
     }
 
+    //Halfdan
+    public ProjectInfo getProjectInfo(int projectID) {
+        ProjectInfo project = new ProjectInfo(systemStorage.getProject(projectID));
+        return project;
+    }
+    //Jesper
+    public List<ProjectInfo> getProjectInfosFromYear(int year) {
+
+        year %= 100;
+        year *= 1000;
+
+        List<Project> projectList = systemStorage.getAllProjects();
+        List<ProjectInfo> dtoProjects = new ArrayList<>();
+        for (int i = 0; i < projectList.size(); i++) {
+            if (projectList.get(i).getID() > year && projectList.get(i).getID() < year + 1000) {
+                dtoProjects.add(getProjectInfo(projectList.get(i).getID()));
+            }
+        }
+        return dtoProjects;
+    }
+    //Halfdan
+    public void deleteProject(int projectID) {
+        systemStorage.deleteProject(projectID);
+    }
+    //Marcus
+    public List<ProjectInfo> getallProjectInfos(){
+        List<ProjectInfo> projectInfos = new ArrayList<>();
+        List<Project> allProjects = systemStorage.getAllProjects();
+        for (int i = 0; i < allProjects.size(); i++){
+            ProjectInfo projectInfo = new ProjectInfo(allProjects.get(i));
+            projectInfos.add(projectInfo);
+        }
+        return projectInfos;
+    }
+
     // Utility Methods
     //Marcus
     public static boolean isPositiveInt(String input) {
@@ -241,39 +279,12 @@ public class App {
 
         return result;
     }
-    //Halfdan
-    public ProjectInfo getProjectInfo(int projectID) {
-        ProjectInfo project = new ProjectInfo(systemStorage.getProject(projectID));
-        return project;
-    }
+
     //Jesper
-    public List<ProjectInfo> getProjectInfosFromYear(int year) {
-
-        year %= 100;
-        year *= 1000;
-
-        List<Project> projectList = systemStorage.getAllProjects();
-        List<ProjectInfo> dtoProjects = new ArrayList<>();
-        for (int i = 0; i < projectList.size(); i++) {
-            if (projectList.get(i).getID() > year && projectList.get(i).getID() < year + 1000) {
-                dtoProjects.add(getProjectInfo(projectList.get(i).getID()));
-            }
+    public void checkEmptyString(String string) {
+        if (string.equals("")) {
+            throw new IllegalArgumentException("Name cannot be empty");
         }
-        return dtoProjects;
-    }
-    //Halfdan
-    public void deleteProject(int projectID) {
-        systemStorage.deleteProject(projectID);
-    }
-    //Marcus
-    public List<ProjectInfo> getallProjectInfos(){
-        List<ProjectInfo> projectInfos = new ArrayList<>();
-        List<Project> allProjects = systemStorage.getAllProjects();
-        for (int i = 0; i < allProjects.size(); i++){
-            ProjectInfo projectInfo = new ProjectInfo(allProjects.get(i));
-            projectInfos.add(projectInfo);
-        }
-        return projectInfos;
     }
 
     //For tests

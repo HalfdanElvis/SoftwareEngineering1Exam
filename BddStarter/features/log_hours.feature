@@ -34,3 +34,8 @@ Scenario: User removes hours logged from an activity they have not worked in
 	When the user removes 7 hours from the activity on the date "01-01-2024"
 	Then the error message "You haven't worked that long in this activity" is given
 	And on the date "01-01-2024" the user has logged 4 hours in the activity
+
+Scenario: User logs their hours more than 24 hours
+	When the user logs 25 hours in the activity on the date "01-02-2024"
+	Then the error message "You can't log more than 24 hours a day" is given
+	And on the date "01-02-2024" the user has logged 0 hours in the activity
