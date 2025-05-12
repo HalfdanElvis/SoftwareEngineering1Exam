@@ -36,7 +36,7 @@ public class LogHoursSteps {
         try {
             app.logHours(testHelper.getProjectID(), testHelper.getActivityName(), date, hours);
         } catch (Exception e) {
-            // TODO: handle exception
+            errorMessageHolder.setErrorMessage(e.getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ public class LogHoursSteps {
         try {
             app.logHours(testHelper.getProjectID(), testHelper.getActivityName(), date, hours);
         } catch (Exception e) {
-            // TODO: handle exception
+            errorMessageHolder.setErrorMessage(e.getMessage());
         }
        
     }
