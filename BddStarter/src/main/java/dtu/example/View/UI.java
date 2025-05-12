@@ -178,7 +178,6 @@ public class UI {
             while(true) {
                 try {
                     projectName = console.nextLine();
-                    app.isEmptyString(projectName);
                     id = app.createProject(projectName);
                     newPage();
                     break;
@@ -331,7 +330,6 @@ public class UI {
                                     while(true) {
                                         try {
                                             activityName = console.nextLine();
-                                            app.isEmptyString(activityName);
                                             app.addActivity(projectID, activityName);
                                             newPage();
                                             break;
@@ -888,11 +886,10 @@ public class UI {
             Integer activityEndWeekInt = null;
 
             // Gets Name:
-            System.out.println("Enter Activity name:");
+            System.out.println("Enter special activity name:");
             while (true) {
                 try {    
                     activityName = console.nextLine();
-                    app.isEmptyString(activityName);
                     break;
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -903,7 +900,7 @@ public class UI {
 
             // Gets Year:
             System.out.println();
-            System.out.println("What year is the activity in?");
+            System.out.println("What year is the special activity in?");
             while (activityYearInt == null || activityYearInt < 0){
                 try {
                     String activityYears = console.nextLine();

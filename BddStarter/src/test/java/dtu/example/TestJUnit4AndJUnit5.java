@@ -462,4 +462,22 @@ public class TestJUnit4AndJUnit5 {
 
 		org.junit.Assert.assertTrue(loggedOut);
 	}
+
+	// checkEmptyString
+	@org.junit.Test // JUnit 4
+	public void checkEmptyStringSuccess() {
+		//Arrange
+		App app = new App();
+		boolean success = true;
+		//Act
+		try {
+			app.checkEmptyString("");
+			success = false;
+		} catch (Exception e) {
+			success = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(success);
+	}
+
 }
