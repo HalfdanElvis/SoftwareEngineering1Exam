@@ -1049,9 +1049,15 @@ public class UI {
                     try {
                         selectedEmployee.getSpecialActivities().remove(selectedSpecialActivity);
                         back = true;
+                        System.out.println("Successfully removed activitiy.");
+                        System.out.println("--------------------");
+                        waitTillEnter();
+
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                         System.out.println("Returning to Manage User");
+                        System.out.println("--------------------");
+                        waitTillEnter();
                     }
                     break;
 
