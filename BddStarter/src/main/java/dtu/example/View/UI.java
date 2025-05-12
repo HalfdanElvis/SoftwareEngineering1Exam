@@ -601,12 +601,16 @@ public class UI {
                                     break;
                                 }
 
-                                System.out.println("-------------------------");
-                                System.out.println("List of activities");
-                                System.out.println("-------------------------");
-                                System.out.println();
                                 
-                                for (int i = 0; i < project.getActivities().size(); i++) {
+                                
+                                String activityString;
+                                while (true) {
+
+                                    System.out.println("-------------------------");
+                                    System.out.println("List of activities");
+                                    System.out.println("-------------------------");
+                                    System.out.println();
+                                    for (int i = 0; i < project.getActivities().size(); i++) {
                                     if (project.getActivities().get(i).getStartWeek() != null) {
                                         System.out.print(project.getActivities().get(i).getName()+", StartWeek: ");
                                         System.out.print(project.getActivities().get(i).getStartWeek().getWeek()+", Endweek: ");
@@ -615,20 +619,21 @@ public class UI {
                                         System.out.println(project.getActivities().get(i).getName());
                                     }
                                     
-                                }
+                                    }
 
-                                System.out.println();
-                                System.out.println("-------------------------");
-                                System.out.println("Which activity do you wish to delete?");
-                                String activityString;
-                                while (true) {
+                                    System.out.println();
+                                    System.out.println("-------------------------");
+                                    System.out.println("Which activity do you wish to delete?");
+                                    
                                     try {
                                         activityString = console.nextLine();
                                         app.deleteActivity(projectID, activityString);
                                         newPage();
                                         break;
                                     } catch (Exception e) {
+                                        System.out.println();
                                         System.err.println(e.getMessage());
+                                        System.out.println();
                                     }
                                 }
                                 
