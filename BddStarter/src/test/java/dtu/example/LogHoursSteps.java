@@ -16,11 +16,9 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
 import static org.junit.Assert.assertEquals;
-
+//Marcus
 public class LogHoursSteps {
     Calendar date = new GregorianCalendar();
-    private CalendarHelper ch = new CalendarHelper();
-    //App app = TestHelper.app;
     App app;
     ErrorMessageHolder errorMessageHolder;
     TestHelper testHelper;
