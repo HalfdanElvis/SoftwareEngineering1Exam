@@ -1,17 +1,25 @@
-This project shows a setup of a Java project for Cucumber and Mockito. It works together with both JUnit 4 and JUnit 5 and JDK >= 21. 
+# Projekt Manager Applikation
+## Kørsel af programmet 
+1. Importer som Maven-projekt i Eclipse/IntelliJ/VS Code.
+2. Programmet køres i filen UI.java, hvis det køres igennem en IDE.
+3. Hvis programmet køres i en IDE anbefales det at forstørre terminalen så hele UI kan ses, og den øverste det af menuer ikke misses.
 
-All the tests should pass in your favourite IDE
-and when running `mvn test`. If not, please contact me (huba@dtu.dk). 
+## Loginoplysninger
+- Initialer: "huba" (kode behøves ikke).
 
-You can use the existing tests as a starting point
-for your own tests.
+## Programinformation
+Programmet kan ikke tage imod karakterer udenfor a-z & A-Z, ellers kendt som det Latinske Alfabet.
+Expected hours af aktiviteteter kan kun være integers.
 
-Remember not to do too much in a single step. Aim to progress from one functioning system to the next with small, incremental changes. Avoid leaving the system in a broken state for an extended period, as this makes identifying errors much harder. It’s crucial to know exactly what change caused a working project to fail. When in doubt, revert to the last working version and proceed again in smaller, manageable steps.
+I programmet kan brugeren oprette, projekter, aktiviteteter, specielle aktiviteter og medarbejdere.
 
-For using Cucumber in Eclipse, you want to install the Cucumber plugin. In Eclipse, installing the Cucumber plugin is offered to you once you try to open a file with extension .feature. After the plugin is installled and Eclipse is restarted, you can select the project and then choose in the right button menu "Configure::Convert to Cucumber Project ...". This allows you later in a feature file to jump directly to the corresponding step definitions by using Crtl when selecting a step definition and then clicking.
+Når programmet startes præsenteres brugeren med et login trin, der skal kun angives et brugernavn, kode er ikke nødvendigt.
+hvis en medarbejder med det angivne brugernavn ikke allerede eksistere, kan medarbejderen oprettes.
 
-When you use this project as a starting point, please remember to rename the project in the pom.xml file (e.g. artefact-id) and remember to remove those feature files and classes that were just included for demonstration purposes. That is, make sure your code is cleaned up and all unnecessary code is removed.
+Når brugeren er logget ind kan man bevæge sig gennem menuer ved at indtaste tal i terminalen.
+I særtilfælde eller når specifikke projekter, aktiviteteter eller medarbejdere skal oprettes, kan navigationsmetoden ændres til at skrive Y eller N for ja eller nej, projectID, navn på aktivitet, year m.m.
+Brugeren vil blive informeret via UI når dette er relevant.
 
-**Important for IntelliJ**, rebuild the project from the build menu after loading the example to ensure that IntelliJ finds the step definition classes. You can also edit the run configuration to make sure that the correct build function is called for the Cucumber Java configuration. That build function needs to be "build project" instead of just "build". One can also update the Cucumber Java build configuration template to replace "build" by "build project".
+Hvis brugeren er logget ind med et brugernavn som der bliver slettet, bliver brugeren returneret til login siden.
 
-![screenshot of the configuration editor](img/build-configuration.jpg)
+God Fornøjelse!
