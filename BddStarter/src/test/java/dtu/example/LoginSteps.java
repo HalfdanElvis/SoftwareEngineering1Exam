@@ -2,8 +2,11 @@ package dtu.example;
 
 import static org.junit.Assert.assertFalse;
 
+import java.util.List;
 import java.util.Scanner;
 
+import dtu.example.Controller.App;
+import dtu.example.dto.EmployeeInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,54 +26,68 @@ public class LoginSteps {
 
     @Given("the user {string} exist")
     public void theUserExist(String string) {
-        if (app.employeeExists(string)){
-            assert(true);
-        } else {
-            app.addEmployee(string);
-        }
+        app.addEmployee(string);
         
     }
 
     @Given("the user {string} doesn't exist")
     public void theUserDoesnTExist(String string) {
-        app.deleteEmployee(string);
+        assertFalse(app.employeeExists(string));
     }
 
     @When("the user {string} tries to log in")
     public void theUserTriesToLogIn(String string) {
-        app.login(string);
+        try {
+            app.login(string);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+        
     }
 
-    @When("the user {string} does confirm")
-    public void theUserDoesConfirm(String string) {
+    @When("the user {string} confirms the prompt to create a new user {string}")
+    public void theUserConfirmsThePromptToCreateANewUser(String string, String string2) {
+        assert(app.yesOrNo("Y"));
         app.addEmployee(string);
         app.login(string);
     }
 
-    @When("the user {string} does not confirm")
-    public void theUserDoesNotConfirm(String string) {
-        while (true) {
-            break;
-        }
+    @When("the user {string} does not confirm the prompt to create a new user {string}")
+    public void theUserDoesNotConfirmThePromptToCreateANewUser(String string, String string2) {
+        assert(!app.yesOrNo("N"));
     }
 
-    @Then("the user {string} is prompted to create the user {string}")
-    public void theUserIsPromptedToCreateTheUser(String string, String string2) {
+    @When("the user {string} gives invalid input to the prompt")
+    public void theUserGivesInvalidInputToThePrompt(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        try {
+            assert(app.yesOrNo("invalid"));
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+        
     }
 
     @Then("the user {string} is logged in")
     public void theUserIsLoggedIn(String string) {
-        assert(app.getSignedInEmployeeUsername().equals(string));
+        EmployeeInfo employee = app.getSignedInEmployeeInfo();
+        assert(employee.getName().equals(string));
     }
 
     @Then("the user {string} exists")
     public void theUserExists(String string) {
-        assert(app.employeeExists(string));
+        List<EmployeeInfo> allEmployees = app.getAllEmployeeInfo();
+        assert(EmployeeTestHelper.employeeExists(allEmployees, string));
     }
 
     @Then("the user {string} is not logged in")
     public void theUserIsNotLoggedIn(String string) {
-        assert(app.getSignedInEmployee() == null || !app.getSignedInEmployeeUsername().equals(string));
+        try {
+            app.getSignedInEmployeeInfo();
+            assert(false);
+        } catch (Exception e) {
+            assert(true);
+        }
     }
 
     @Then("the user {string} does not exist")
@@ -78,5 +95,14 @@ public class LoginSteps {
         assert(!app.employeeExists(string));
     }
 
+    @Then("a user is logged in")
+    public void aUserIsLoggedIn() {
+        assert(app.aUserIsLoggedIn());
+    }
+
+    @Then("a user is not logged in")
+    public void aUserIsNotLoggedIn() {
+        assert(!app.aUserIsLoggedIn());
+    }
 
 }

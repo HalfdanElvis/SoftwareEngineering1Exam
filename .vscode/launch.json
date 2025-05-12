@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "UI2",
+            "request": "launch",
+            "mainClass": "dtu.example.View.UI2",
+            "projectName": "bdd-starter"
+        },
+        {
+            "type": "java",
+            "name": "UI",
+            "request": "launch",
+            "mainClass": "dtu.example.View.UI",
+            "projectName": "bdd-starter"
+        },
+        {
+            "type": "java",
+            "name": "UI2",
+            "request": "launch",
+            "mainClass": "dtu.example.UI2",
+            "projectName": "bdd-starter"
+        },
+        {
+            "type": "java",
             "name": "UI",
             "request": "launch",
             "mainClass": "dtu.example.UI",

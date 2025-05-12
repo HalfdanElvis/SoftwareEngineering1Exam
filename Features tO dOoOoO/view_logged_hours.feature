@@ -3,7 +3,7 @@ Feature: View Logged Hours
 	Actors: User
 
 Background:
-	Given that a user "huba" is logged in
+	Given that user "huba" is logged in
 	And an activity "data refinement" exists
 
 Scenario: User checks logged hours in an activity

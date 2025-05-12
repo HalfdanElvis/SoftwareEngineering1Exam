@@ -1,5 +1,11 @@
 package dtu.example;
 
+import static org.junit.Assert.assertEquals;
+
+import dtu.example.Controller.App;
+import dtu.example.dto.ActivityInfo;
+import dtu.example.dto.EmployeeInfo;
+import dtu.example.dto.ProjectInfo;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,19 +25,26 @@ public class AssignUserToActivitySteps {
 
     @Given("an activity {string} exists")
     public void anActivityExists(String string) throws IllegalAccessException {
-        testHelper.setProjectID(app.createProject("test").getID());
+        testHelper.setProjectID(app.createProject("test"));
         testHelper.setActivityName(string);
-        app.addActivity(testHelper.getProjectID(),string);
+        app.addActivity(testHelper.getProjectID(), string);
     }
 
     @Given("the user is peak")
     public void theUserIsPeak() {
-        app.stringToEmployee(testHelper.getUser()).setPeak(true);
+        app.setEmployeePeak(testHelper.getUser(), true);
+        EmployeeInfo employee = app.getEmployeeInfo(testHelper.getUser());
+        assert(employee.isPeak() == true);
     }
 
     @Given("the activity runs from week {int} to week {int} in the year {int}")
     public void theActivityRunsFromWeekWeekInTheYear(Integer startWeek, Integer endWeek, Integer year) {
         app.setActivitiyStartAndEndWeek(testHelper.getProjectID(), testHelper.getActivityName(), year, startWeek, year, endWeek);
+        ActivityInfo activity = ProjectTestHelper.getActivity(app.getProjectInfo(testHelper.getProjectID()), testHelper.getActivityName());
+        assertEquals(startWeek, activity.getStartWeek().getWeek(), 0);
+        assertEquals(endWeek, activity.getEndWeek().getWeek(), 0);
+        assertEquals(year, activity.getStartWeek().getYear(), 0);
+        assertEquals(year, activity.getEndWeek().getYear(), 0);
     }
 
     @Given("the user is not assigned the activity")
@@ -65,7 +78,6 @@ public class AssignUserToActivitySteps {
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
-        
     }
 
     @When("the user gets assigned the activity")
@@ -88,15 +100,7 @@ public class AssignUserToActivitySteps {
 
     @Then("the user is assigned the activity {string}")
     public void theUserIsAssignedTheActivity(String string) {
-        try {
-            app.assignEmployeeToActivity(testHelper.getUser(), testHelper.getProjectID(), string);
-        } catch (Exception e) {
-            errorMessageHolder.setErrorMessage(e.getMessage());
-        }
-        
+        EmployeeInfo employee = app.getEmployeeInfo(testHelper.getUser());
+        assert(EmployeeTestHelper.employeeIsAssignedActivity(employee, string));
     }
-
-
-
-
 }

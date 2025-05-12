@@ -2,6 +2,8 @@ package dtu.example;
 
 import static org.junit.Assert.assertEquals;
 
+import dtu.example.Controller.App;
+import dtu.example.dto.ProjectInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,7 +15,6 @@ public class ActivityExpectedHoursSteps {
     private ErrorMessageHolder errorMessageHolder;
     
     private TestHelper testHelper;
-    private String activityName;
     private String projectLeaderName;
 
 
@@ -28,25 +29,26 @@ public class ActivityExpectedHoursSteps {
     @Given("that there exists a project with id {int} and name {string}")
     public void thatThereExistsAProjectWithIdAndName(Integer id, String string) {
         testHelper.setProjectID(id);
-        app.createProject(string).setID(testHelper.getProjectID());
+        app.createProject(string);
 
     }
 
     @Given("the project with id {int} contains an activity with name {string}")
     public void theProjectWithIdContainsAnActivityWithName(Integer id, String activityName) {
         try {
+            testHelper.setActivityName(activityName);
             app.addActivity(testHelper.getProjectID(), activityName);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
-        
-        this.activityName = activityName;
     }
 
     @Given("the user {string} is the project leader")
     public void theUserIsTheProjectLeader(String username) {
-        if (!app.employeeExists(username)) {
+        try {
             app.addEmployee(username);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(username);
         }
         app.assignLeader(username, testHelper.getProjectID());
         projectLeaderName = username;
@@ -57,7 +59,7 @@ public class ActivityExpectedHoursSteps {
     public void theActivitySExpectedTotalWorkHoursIsAlready(Integer hours) {
         app.setSignedInEmployee(projectLeaderName);
         try {
-            app.setActivityExpectedHours(testHelper.getProjectID(), activityName, hours);
+            app.setActivityExpectedHours(testHelper.getProjectID(), testHelper.getActivityName(), hours);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
@@ -67,7 +69,7 @@ public class ActivityExpectedHoursSteps {
     public void theUserSetsTheActivitySExpectedTotalWorkHoursTo(String user, Integer hours) {
         app.setSignedInEmployee(user);
         try {
-            app.setActivityExpectedHours(testHelper.getProjectID(), activityName, hours);
+            app.setActivityExpectedHours(testHelper.getProjectID(), testHelper.getActivityName(), hours);
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
@@ -75,6 +77,7 @@ public class ActivityExpectedHoursSteps {
 
     @Then("the activity's expected total work hours is {int}")
     public void theActivitySExpectedTotalWorkHoursIs(Integer hours) {
-        assertEquals(hours, app.getActivityExpectedHours(testHelper.getProjectID(), activityName), 0);
+        ProjectInfo project = app.getProjectInfo(testHelper.getProjectID()); 
+        assertEquals(hours, ProjectTestHelper.getActivityExpectedHours(project, testHelper.getActivityName()), 0);
     }
 }

@@ -1,5 +1,7 @@
 package dtu.example;
 
+import dtu.example.Controller.App;
+import dtu.example.dto.EmployeeInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,9 +23,9 @@ public class CreateUserSteps {
     public void thatUserIsLoggedIn(String username) {
         testHelper.setUser(username);
 
-        if (app.employeeExists(username)){
+        try {
             app.setSignedInEmployee(username);
-        } else {
+        } catch (Exception e) {
             app.addEmployee(username);
             app.setSignedInEmployee(username);
         }
@@ -41,6 +43,7 @@ public class CreateUserSteps {
 
     @Then("the User {string} is successfully created")
     public void theUserIsSuccessfullyCreated(String string) {
-        app.employeeExists(string);
+        EmployeeInfo employee = app.getEmployeeInfo(string);
+        assert(employee.getName().equals(string));
     }
 }

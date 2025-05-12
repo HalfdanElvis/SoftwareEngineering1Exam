@@ -1,6 +1,13 @@
 package dtu.example;
+import java.util.List;
 
+import dtu.example.Controller.App;
+import dtu.example.Model.Employee;
+import dtu.example.Model.SpecialActivity;
+import dtu.example.Model.Week;
+import dtu.example.Utility.CalendarHelper;
 
+import java.util.ArrayList;
 /**
  * A test class to check which tests are run with which framework.
  * If run as a JUnit 5 (Jupiter) test, then both tests are run.
@@ -10,7 +17,7 @@ package dtu.example;
  */
 public class TestJUnit4AndJUnit5 {
 
-	
+	App app = new App();
 	
 	@org.junit.Before // JUnit 4 (JUnit 5 uses @org.junit.jupiter.api.BeforeEach)
 	public void setUp() {
@@ -34,14 +41,15 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.jupiter.api.Assertions.assertTrue(true); // JUnit 5
 	}
 
-	// isWeek() Whitebox tests;
+	// isWeek() Whitebox tests; OPDATER SÅ YEARS GIVER MENING.
 	// A
 	@org.junit.Test // JUnit 4
 	public void isWeekReturnsTrueOnWeekNumber() {
 		//Arrange
 		String week = "1";
+		int year = 2025;
 		//Act
-		boolean isWeekResult = App.isWeek(week);
+		boolean isWeekResult = App.isWeek(week, year);
 		//Assert
 		org.junit.Assert.assertTrue(isWeekResult);
 	}
@@ -52,9 +60,10 @@ public class TestJUnit4AndJUnit5 {
 		//Arrange
 		boolean invalidInput = false;
 		String week = "352";
+		int year = 2025;
 		//Act
 		try {
-			App.isWeek(week);
+			App.isWeek(week, year);
 		} catch (IllegalArgumentException e) {
 			invalidInput = true;
 		}
@@ -69,9 +78,10 @@ public class TestJUnit4AndJUnit5 {
 		//Arrange
 		boolean invalidInput = false;
 		String week = "-1";
+		int year = 2025;
 		//Act
 		try {
-			App.isWeek(week);
+			App.isWeek(week, year);
 		} catch (IllegalArgumentException e) {
 			invalidInput = true;
 		}
@@ -86,9 +96,10 @@ public class TestJUnit4AndJUnit5 {
 		//Arrange
 		boolean invalidInput = false;
 		String week = "Hello?";
+		int year = 2025;
 		//Act
 		try {
-			App.isWeek(week);
+			App.isWeek(week, year);
 		} catch (IllegalArgumentException e) {
 			invalidInput = true;
 		}
@@ -140,7 +151,7 @@ public class TestJUnit4AndJUnit5 {
 		org.junit.Assert.assertTrue(invalidInput);
 	}
 
-	App app = new App();
+	
 	// legalUsername() Whitebox tests:
 	// A
 	@org.junit.Test // JUnit 4
@@ -225,12 +236,211 @@ public class TestJUnit4AndJUnit5 {
 		if (app.employeeExists(username)) {
 			app.deleteEmployee(username);
 		}
+		Employee e2 = null;
 		//Act
-		Employee e2 = app.stringToEmployee(username);
+		
+		try {
+			e2 = app.stringToEmployee(username);
+		} catch (Exception e) {
+			 
+		}
 		//Assert
 		org.junit.Assert.assertTrue(e2 == null);
 	}
 
+	// range() Whitebox tests:
+	// A
+	@org.junit.Test // JUnit 4
+	public void rangeReturnsWeeksBetweenStartAndEndWeekInDifferentYears() {
+		//Arrange
+		Week startWeek = new Week(2025, 51);
+		Week endWeek = new Week(2026, 2);
+		//Act
+		List<Week> rangeResult = CalendarHelper.range(startWeek, endWeek);
+		//Assert
+		List<Week> expectedResult = new ArrayList<>();
+		expectedResult.add(new Week(2025, 51));
+		expectedResult.add(new Week(2025, 52));
+		expectedResult.add(new Week(2026, 1));
+		expectedResult.add(new Week(2026, 2));
+
+		org.junit.Assert.assertTrue(TestHelper.areWeekRangesEqual(rangeResult, expectedResult));
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void rangeReturnsWeeksBetweenStartAndEndWeekInSameYear() {
+		//Arrange
+		Week startWeek = new Week(2025, 48);
+		Week endWeek = new Week(2025, 50);
+		//Act
+		List<Week> rangeResult = CalendarHelper.range(startWeek, endWeek);
+		//Assert
+		List<Week> expectedResult = new ArrayList<>();
+		expectedResult.add(new Week(2025, 48));
+		expectedResult.add(new Week(2025, 49));
+		expectedResult.add(new Week(2025, 50));
+
+		org.junit.Assert.assertTrue(TestHelper.areWeekRangesEqual(rangeResult, expectedResult));
+	}
+
+	// C
+	@org.junit.Test // JUnit 4
+	public void rangeReturnsWeeksBetweenStartAndEndWeekAreEqual() {
+		//Arrange
+		Week startWeek = new Week(2025, 48);
+		Week endWeek = startWeek;
+		//Act
+		List<Week> rangeResult = CalendarHelper.range(startWeek, endWeek);
+		//Assert
+		List<Week> expectedResult = new ArrayList<>();
+		expectedResult.add(new Week(2025, 48));
+
+		org.junit.Assert.assertTrue(TestHelper.areWeekRangesEqual(rangeResult, expectedResult));
+	}
+	
+	// D
+	@org.junit.Test // JUnit 4
+	public void rangeFailsOnEndWeekEarlierThanStartWeek() {
+		//Arrange
+		boolean invalidRange = false;
+		Week startWeek = new Week(2025, 50);
+		Week endWeek = new Week(2025, 48);
+		//Act
+		try {
+			CalendarHelper.range(startWeek, endWeek);
+		} catch (Throwable e) {
+			invalidRange = true;
+		}
+		
+		//Assert
+		org.junit.Assert.assertTrue(invalidRange);
+	}
+
+	// setSpecialActivityStartAndEndWeek Whitebox test:
+	// A
+	@org.junit.Test // JUnit 4
+	public void setSpecialActivityStartAndEndWeekSuccess() {
+		//Arrange
+		SpecialActivity specialActivity = new SpecialActivity("test");
+		boolean success = true;
+		//Act
+		try {
+			specialActivity.setStartAndEndWeek(1, 2, 3, 4);
+		} catch (Exception e) {
+			success = false;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(success);
+		org.junit.Assert.assertTrue(specialActivity.getStartWeek().getYear() == 1);
+		org.junit.Assert.assertTrue(specialActivity.getStartWeek().getWeek() == 2);
+		org.junit.Assert.assertTrue(specialActivity.getEndWeek().getYear() == 3);
+		org.junit.Assert.assertTrue(specialActivity.getEndWeek().getWeek() == 4);
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void setSpecialActivityStartAndEndWeekFailure() {
+		//Arrange
+		SpecialActivity specialActivity = new SpecialActivity("test");
+		boolean failure = false;
+		//Act
+		try {
+			specialActivity.setStartAndEndWeek(4, 3, 2, 1);
+		} catch (Exception e) {
+			failure = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(failure);
+		org.junit.Assert.assertTrue(specialActivity.getStartWeek() == null);
+		org.junit.Assert.assertTrue(specialActivity.getStartWeek() == null);
+		org.junit.Assert.assertTrue(specialActivity.getEndWeek() == null);
+		org.junit.Assert.assertTrue(specialActivity.getEndWeek() == null);
+	}
+
+	// deleteEmployee Whitebox test:
+	// A
+	@org.junit.Test // JUnit 4
+	public void removeEmployeeFromSystemSuccess() {
+		//Arrange
+		App app = new App();
+		app.addEmployee("test");
+		boolean success = true;
+		//Act
+		try {
+			app.deleteEmployee("test");
+		} catch (Exception e) {
+			success = false;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(success);
+		org.junit.Assert.assertFalse(app.employeeExists("test"));
+
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void removeEmployeeFromSystemFailure() {
+		//Arrange
+		App app = new App();
+		boolean failure = false;
+		//Act
+		try {
+			app.deleteEmployee("test");
+		} catch (Exception e) {
+			failure = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(failure);
+		org.junit.Assert.assertFalse(app.employeeExists("test"));
+
+	}
+
+	// deleteProject Whitebox test:
+	// A
+	@org.junit.Test // JUnit 4
+	public void deleteProjectFromSystemSuccess() {
+		//Arrange
+		App app = new App();
+		int id = app.createProject("test");
+		boolean success = true;
+		//Act
+		try {
+			app.deleteProject(id);
+		} catch (Exception e) {
+			success = false;
+		}
+		try {
+			app.getProjectInfo(id);
+			success = false;
+		} catch (Exception e) {
+			success = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(success);
+	}
+
+	// B
+	@org.junit.Test // JUnit 4
+	public void deleteProjectFromSystemFailure() {
+		//Arrange
+		App app = new App();
+		boolean failure = false;
+		//Act
+		try {
+			app.deleteProject(25001);
+		} catch (Exception e) {
+			failure = true;
+		}
+		try {
+			app.getProjectInfo(25001);
+			failure = false;
+		} catch (Exception e) {
+			failure = true;
+		}
+		//Assert
+		org.junit.Assert.assertTrue(failure);
+	}
 
 
 }
