@@ -732,12 +732,13 @@ public class UI {
                     break;
 
                 case 3:
-
+                    newPage();
                     if (selectedUserHasSpecialActivties()) {
                         manageSpecialActivitiesUI();
                     } else {
                         System.out.println(selectedEmployee.getName()+ " has no special activities.");
-                        System.out.println("Returning to Manage User Menu...");
+                        System.out.println("------------------");
+                        waitTillEnter();
                     }
                     break;
 
@@ -895,8 +896,16 @@ public class UI {
                 System.out.println("Your end week for the activity is earlier in the year than your start week.");
                 System.out.println("Do you want to continue the activity into "+(activityYearInt+1)+" Y/N?");
                 
-                yesOrNo = app.yesOrNo(console.nextLine());
-                goesIntoNextyear = true;
+                while(true) {
+                    try {
+                        yesOrNo = app.yesOrNo(console.nextLine());
+                        goesIntoNextyear = true;
+                        break;
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }
+            } 
+                
             }
 
             // Creates activity unless, user decided not to, by not continueing it into next year.
@@ -910,7 +919,7 @@ public class UI {
                 }
 
                 System.out.println();
-                System.out.println("Succesfully assigned" + selectedEmployee.getName() + " to special activity \""+activityName+"\".");
+                System.out.println("Succesfully assigned " + selectedEmployee.getName() + " to special activity \""+activityName+"\".");
                 System.out.println("-------------------------");
             } else {
                 System.out.println();
@@ -918,8 +927,15 @@ public class UI {
                 System.out.println("-------------------------");
             }
 
-            System.out.println("Want to create another special activity Y/N?"); 
-            saCreator = app.yesOrNo(console.nextLine());
+            System.out.println("Want to create another special activity Y/N?");
+            while(true) {
+                try {
+                    saCreator = app.yesOrNo(console.nextLine());
+                    break;
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            } 
 
         } while(saCreator);
     }
@@ -953,14 +969,15 @@ public class UI {
             switch (choice) {
                 // View Active Weeks:
                 case 1:
-                    
+                    newPage();
                     System.out.println();
                     System.out.println("Special Activity \"" + selectedSpecialActivity.getName() + "\"");
                     System.out.println("Starts in year: " + selectedSpecialActivity.getStartWeek().getYear() +
                      ", week: " + selectedSpecialActivity.getStartWeek().getWeek()); 
                     System.out.println("Starts in year: " + selectedSpecialActivity.getEndWeek().getYear() +
-                     ", week: " + selectedSpecialActivity.getEndWeek().getWeek());    
-                
+                     ", week: " + selectedSpecialActivity.getEndWeek().getWeek()); 
+                    System.out.println("------------------");
+                    waitTillEnter();   
                     break;
 
                 case 2:
@@ -971,12 +988,12 @@ public class UI {
                     boolean yesOrNo = true;
 
                     // Gets Year:
-                    System.out.println();
+                    newPage();
                     System.out.println("What year is the activity in?");
                     while (activityYearInt == null || activityYearInt < 0){
                         try {
                             String activityYears = console.nextLine();
-                            if (app.isPositiveInt(activityYears)) {
+                            if (App.isPositiveInt(activityYears)) {
                                 activityYearInt = Integer.parseInt(activityYears);
                             }
                         } catch (Exception e) {
@@ -1022,8 +1039,16 @@ public class UI {
                         System.out.println("Your end week for the activity is earlier in the year than your start week.");
                         System.out.println("Do you want to continue the activity into "+(activityYearInt+1)+" Y/N?");
                         
-                        yesOrNo = app.yesOrNo(console.nextLine());
-                        goesIntoNextyear = true;
+                        while (true) {
+                            try {
+                                yesOrNo = app.yesOrNo(console.nextLine());
+                                goesIntoNextyear = true;
+                                break;
+                            } catch (Exception e) {
+                                System.err.println(e.getMessage());
+                            }
+                        }
+                        
                     }
 
                     // Creates activity unless, user decided not to, by not continueing it into next year.
@@ -1036,16 +1061,18 @@ public class UI {
                         System.out.println();
                         System.out.println("Succesfully changed start and end weeks for activtity: " + selectedSpecialActivity.getName());
                         System.out.println("-------------------------");
+                        waitTillEnter();
                     } else {
                         System.out.println();
                         System.out.println("Activity was not changed, since timeline wasn't possible.");
                         System.out.println("-------------------------");
+                        waitTillEnter();
                     }
 
                     break;
 
                 case 3:
-                    
+                    newPage();
                     try {
                         selectedEmployee.getSpecialActivities().remove(selectedSpecialActivity);
                         back = true;
@@ -1055,7 +1082,6 @@ public class UI {
 
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
-                        System.out.println("Returning to Manage User");
                         System.out.println("--------------------");
                         waitTillEnter();
                     }
